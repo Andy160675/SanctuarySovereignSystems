@@ -1,0 +1,28 @@
+# Data Directories (Sovereign Data)
+Evidence/
+Property/
+Governance/Logs/
+
+# Environment & Secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Logs
+*.log
+*.jsonl
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
