@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  truth-engine:
+    build: ./truth-engine
+    container_name: sovereign-truth
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./truth-engine/data:/app/data
+      - D:/SOVEREIGN-2025-11-19:/app/corpus:ro
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama
+    container_name: sovereign-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    restart: unless-stopped
+
+  blade-watcher:
+    build: ./blade-watcher
+    container_name: sovereign-watcher
+    volumes:
+      - D:/SOVEREIGN-2025-11-19:/watch/corpus
+      - ./truth-engine/data:/app/data
+    restart: unless-stopped
+
+volumes:
+  ollama:

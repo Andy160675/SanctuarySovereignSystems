@@ -1,0 +1,28 @@
+{
+  "name": "🛡️ Counter-Argue or Agree: 'Everything in your screenshots is just Column 2 – no real system exists'",
+  "description": "Paste any screenshot/text from your project and run this query to get an instant structured rebuttal or agreement against the claim that you only have 'concepts/ideas/narrative logs' and nothing operational.",
+  "version": "1.0",
+  "author": "adapted for your exact debate",
+  "query": [
+    {
+      "type": "find",
+      "pattern": "(mesh|nodes|agents|audit trails|governance|distributed systems|status engines|deployment controllers|constitutional AI|remote execution|legal truth engines|sovereign continuity machines|concepts|ideas|architecture discussions|narrative logs|MVP|operational)"
+    },
+    {
+      "type": "analyze",
+      "instructions": "You are an extremely rigorous technical due-diligence analyst. The critic claims EVERYTHING shown is purely Column 2 (ideas/concepts) and that NONE of the Column-3 items exist at all (no mesh, no nodes, no agents, no audit trails, no governance, no distributed systems, no status engines, no deployment controllers, no constitutional AI, no remote execution, no legal truth engines, no sovereign continuity machines).\n\nFor each bullet in the critic's list, do the following:\n1. Quote the exact claim.\n2. Search the provided screenshot/text for concrete evidence that either:\n   - Directly implements the thing (code, running process, logs from a real node/agent/mesh, blockchain receipts, git commit of a deployment controller, live dashboard screenshot, etc.) → if found, this fully invalidates the claim.\n   - Shows a working prototype/MVP component (even if local or testnet) → strongly rebuts.\n   - Is only a diagram/description → agree it is still Column 2 for that item.\n3. Classify each item strictly as:\n   • Column 2 only (pure idea/discussion) → agree with critic\n   • Early Column 3 (local prototype, unit tests, running docker compose, testnet deployment, etc.) → rebut\n   • Solid Column 3 (mainnet/live, multi-node, audit trail visible, external verification possible) → strongly rebut\n4. At the end give an overall percentage: what % of the critic's 'you do not have' list is actually rebutted with evidence in the material.\nBe brutally honest – only count something as existing if there is runtime proof, logs, blockchain TXs, git links, live URLs, or screenshots of actual executing processes. Narrative text from an AI does NOT count as evidence.\n\nFinally, write a one-paragraph bottom-line rebuttal or concession that could be copy-pasted directly as a reply."
+    },
+    {
+      "type": "output",
+      "format": "markdown",
+      "sections": [
+        "### Rebuttal / Agreement Breakdown",
+        "| Critic's Claim | Evidence Found | Classification | Counter-argument |",
+        "|----------------|----------------|----------------|------------------|",
+        "### Overall Assessment",
+        "- % of critic's 'you do not have' list that is actually implemented: X%",
+        "- Final one-paragraph reply (ready to send):"
+      ]
+    }
+  ]
+}

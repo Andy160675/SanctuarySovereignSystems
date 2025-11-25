@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  evidence:
+    environment:
+      - DATA_DIR=/data
+      - EVIDENCE_TRACK=stable
+    volumes:
+      - ./Evidence:/data/evidence
+      - ./Governance/Logs:/data/ledger
+
+  property:
+    environment:
+      - DATA_DIR=/data
+      - PROPERTY_TRACK=insider
+    volumes:
+      - ./Property:/data/property
+      - ./Governance/Logs:/data/ledger
+
+  boardroom:
+    environment:
+      - DATA_DIR=/data
+    volumes:
+      - ./Governance/Logs:/data/ledger

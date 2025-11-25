@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boardroom Shell - Sovereign System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        
+        .drag-region {
+            -webkit-app-region: drag;
+            height: 30px;
+            background: #1a1a1a;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .app-container {
+            margin-top: 30px;
+            height: calc(100vh - 30px);
+        }
+    </style>
+</head>
+<body>
+    <div class="drag-region"></div>
+    <div class="app-container">
+        <div id="root"></div>
+    </div>
+</body>
+</html>

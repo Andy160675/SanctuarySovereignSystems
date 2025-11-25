@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Sovereign Substrate Health Checks
+  version: "1.0.0"
+  description: Health endpoint contract for Boardroom UI integration
+paths:
+  /health/core:
+    get:
+      summary: Health check for Sovereign Core
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/truth:
+    get:
+      summary: Health check for Truth Engine
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/enforce:
+    get:
+      summary: Health check for Enforcement API
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/models:
+    get:
+      summary: Health check for Models / Ollama
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /health/rag_index:
+    get:
+      summary: Health check for RAG Index / Search
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - latency_ms
+      properties:
+        status:
+          type: string
+          enum: [healthy, degraded, down]
+        latency_ms:
+          type: number
+          nullable: true
+        version:
+          type: string
+        uptime_s:
+          type: number
+        details:
+          type: object
+          additionalProperties: true

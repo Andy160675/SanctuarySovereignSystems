@@ -1,0 +1,137 @@
+# Sovereign System - Complete Operational Deployment
+# Unified multi-service container orchestration with full stack
+
+version: '3.8'
+
+services:
+  # Truth Engine - txtai + FastAPI search service
+  truth-engine:
+    build: ./truth-engine
+    ports:
+      - "8001:8000"
+    volumes:
+      - "D:/SOVEREIGN-2025-11-19:/app/corpus:ro"
+      - "./truth-engine/data:/app/data"
+    environment:
+      - CORPUS_PATH=/app/corpus
+      - INDEX_PATH=/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - sovereign-net
+
+  # Truth Engine Complete - Enhanced version from E drive
+  truth-engine-complete:
+    build: ./truth-engine-complete
+    ports:
+      - "8002:8000"
+    volumes:
+      - "D:/SOVEREIGN-2025-11-19:/app/corpus:ro"
+      - "./truth-engine-complete/data:/app/data"
+    environment:
+      - CORPUS_PATH=/app/corpus
+      - INDEX_PATH=/app/data
+    restart: unless-stopped
+    networks:
+      - sovereign-net
+
+  # Boardroom Shell - Electron + React UI
+  boardroom-shell:
+    build: ./boardroom-shell-complete
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./boardroom-shell-complete/src:/app/src"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_TRUTH_ENGINE=http://truth-engine:8000
+      - REACT_APP_SOVEREIGN_CORE=http://sovereign-core:8003
+    restart: unless-stopped
+    networks:
+      - sovereign-net
+
+  # Sovereign Core - Main orchestration service
+  sovereign-core:
+    build: ./sovereign-core
+    ports:
+      - "8003:8000"
+    volumes:
+      - "./sovereign-core:/app"
+      - "./elite-truth/SovereignTruth:/app/truth"
+    environment:
+      - PYTHON_PATH=/app
+      - TRUTH_PATH=/app/truth
+    restart: unless-stopped
+    networks:
+      - sovereign-net
+
+  # Ollama LLM Service
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    environment:
+      - OLLAMA_MODELS=/root/.ollama/models
+    command: >
+      sh -c "ollama serve & 
+             sleep 10 && 
+             ollama pull llama3.1:8b-instruct-q8_0 && 
+             ollama pull llama3.2:latest && 
+             ollama pull mistral:latest && 
+             wait"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 60s
+      timeout: 30s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - sovereign-net
+
+  # Blade Watcher - Filesystem monitoring
+  blade-watcher:
+    build: ./blade-watcher
+    volumes:
+      - "D:/SOVEREIGN-2025-11-19:/app/watch:ro"
+      - "./truth-engine/data:/app/index"
+    environment:
+      - WATCH_PATH=/app/watch
+      - INDEX_PATH=/app/index
+      - REBUILD_COOLDOWN=300
+    restart: unless-stopped
+    depends_on:
+      - truth-engine
+      - truth-engine-complete
+    networks:
+      - sovereign-net
+
+  # Elite Truth Child Protection
+  child-protection:
+    build: ./elite-truth/SovereignTruth/sovereign-child-protection
+    ports:
+      - "8004:8000"
+    volumes:
+      - "./elite-truth/SovereignTruth/sovereign-child-protection:/app"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - TRUTH_ENGINE=http://truth-engine:8000
+    restart: unless-stopped
+    depends_on:
+      - ollama
+      - truth-engine
+    networks:
+      - sovereign-net
+
+volumes:
+  ollama-data:
+    driver: local
+
+networks:
+  sovereign-net:
+    driver: bridge

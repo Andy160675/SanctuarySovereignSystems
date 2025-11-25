@@ -1,0 +1,82 @@
+{
+  "folders": [
+    {
+      "name": "Sovereign System Phase 5",
+      "path": "."
+    },
+    {
+      "name": "Truth Engine",
+      "path": "./truth-engine"
+    },
+    {
+      "name": "Boardroom Shell",
+      "path": "./boardroom-shell"
+    },
+    {
+      "name": "Blade Watcher",
+      "path": "./blade-watcher"
+    },
+    {
+      "name": "Scripts",
+      "path": "./scripts"
+    },
+    {
+      "name": "Golden Master",
+      "path": "./golden-master"
+    }
+  ],
+  "settings": {
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "python.defaultInterpreterPath": "python",
+    "docker.showStartPage": false,
+    "workbench.startupEditor": "none",
+    "files.associations": {
+      "docker-compose.yml": "dockercompose",
+      "*.ps1": "powershell"
+    },
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.git": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Phase 5: Start Full Stack",
+        "type": "shell",
+        "command": "docker compose up -d",
+        "group": "build",
+        "isBackground": true,
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "Golden Master: Nightly Generation",
+        "type": "shell",
+        "command": "powershell -File scripts/nightly-master.ps1",
+        "group": "build",
+        "presentation": {
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "UI: Start Development",
+        "type": "shell",
+        "command": "npm run electron-dev",
+        "group": "build",
+        "options": {
+          "cwd": "${workspaceFolder}/boardroom-shell"
+        },
+        "isBackground": true
+      }
+    ]
+  }
+}

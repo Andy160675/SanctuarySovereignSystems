@@ -1,0 +1,33 @@
+# Base Image: Python 3.10 Slim (Debian-based, small attack surface)
+FROM python:3.10-slim
+
+# Security: Create non-root user
+RUN groupadd -r sovereign && useradd -r -g sovereign sovereign
+
+# Environment
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app
+
+WORKDIR /app
+
+# Install Dependencies (Minimal)
+# In production, copy requirements.txt first. For Day 1, we inline common needs.
+RUN pip install --no-cache-dir python-dotenv dataclasses-json watchdog
+
+# Copy Source Code
+COPY . /app
+
+# Set Permissions
+RUN chown -R sovereign:sovereign /app
+
+# Switch to Non-Root User
+USER sovereign
+
+# Default Entrypoint (Overridden by docker-compose)
+CMD ["python", "--version"]
+
+# HEALTHCHECK: The Sovereign Pulse
+# Periodically verifies that the Core Constitution allows the system to boot.
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD python -c "from src.core.config import CONFIG; print('Constitution Loaded')" || exit 1

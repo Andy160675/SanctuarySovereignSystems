@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  scout:
+    build: .
+    command: ["python", "-m", "scripts.validate_governance"]
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  executor:
+    build: .
+    command: ["python", "-c", "print('executor container online')"]
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  boardroom:
+    build: .
+    command: ["python", "-c", "print('boardroom container online')"]
+    volumes:
+      - ./:/app
+    working_dir: /app

@@ -1,0 +1,29 @@
+{
+  "version": "4.0.0",
+  "timestamp": "2025-11-19T23:59:00Z",
+  "description": "Sovereign System Phase 4 - Unified & Containerised",
+  "components": {
+    "truth-engine": {
+      "type": "txtai + FastAPI + Ollama RAG",
+      "port": 5050,
+      "status": "active"
+    },
+    "ollama": {
+      "type": "LLM inference server",
+      "port": 11434,
+      "status": "active"
+    },
+    "boardroom-shell": {
+      "type": "Electron + React UI",
+      "status": "placeholder"
+    },
+    "blade-scanner": {
+      "type": "Ingestion + cleanup",
+      "status": "placeholder"
+    }
+  },
+  "corpus_path": "D:/SOVEREIGN-2025-11-19",
+  "index_path": "C:/EliteTruthEngine/elite-truth-index",
+  "gpg_signature": "GPG-signed in the manifest",
+  "checksum": "SHA-256 verification pending"
+}
