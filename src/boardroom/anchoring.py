@@ -47,8 +47,11 @@ def sha256_hex(data: bytes) -> str:
 
 
 def sha256_file(file_path: Path) -> str:
-    """Compute SHA-256 hash of file contents."""
-    return sha256_hex(file_path.read_bytes())
+    """Compute SHA-256 hash of file contents (LF-normalized for cross-platform)."""
+    content = file_path.read_text(encoding="utf-8")
+    # Normalize to LF line endings for consistent hashes across platforms
+    content_lf = content.replace("\r\n", "\n")
+    return sha256_hex(content_lf.encode("utf-8"))
 
 
 # ---------------------------------------------------------------------------
