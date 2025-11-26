@@ -1,20 +1,20 @@
 [
   {
     "index": 0,
-    "timestamp": "2025-11-26T13:01:22Z",
+    "timestamp": "2025-11-26T13:13:28Z",
     "record_type": "governance_commit",
     "file_path": "DATA/_commits/decision_sovereign-test-001.json",
-    "payload_hash": "0a10d8c152cc0a316cbbfcab9aa547b14fbccb56bd836a12d7dd4a4f4378737c",
+    "payload_hash": "4f5e570bbed18eb57c5eb05b8e77cb26e90701808b5c18674936f297e4b3f816",
     "prev_chain_hash": "GENESIS",
-    "chain_hash": "148a2bdc10d27599a9063ac6dccfa7ab0f2c0c6695f56d82fbe7b27f83b4b5f1"
+    "chain_hash": "a488a8ff28345d16f62d026a4003257646126fe1dd55eaeff990330531d71056"
   },
   {
     "index": 1,
-    "timestamp": "2025-11-26T13:01:22Z",
+    "timestamp": "2025-11-26T13:13:28Z",
     "record_type": "governance_commit",
     "file_path": "DATA/_commits/decision_ext-anchor-test-001.json",
-    "payload_hash": "c420b0f3f4c2e2dc25bf380210ccb2c9cd78b11056172f3d7a9115d94b0432e0",
-    "prev_chain_hash": "148a2bdc10d27599a9063ac6dccfa7ab0f2c0c6695f56d82fbe7b27f83b4b5f1",
-    "chain_hash": "ff12ee6f984f8b43de570275693147c36fddb9cc72ecf2e728d0b161f19db847"
+    "payload_hash": "26e581102644f9a54faab3f42cee76cd8d6691c1dbf6b5b79d7e03af7d2d96e8",
+    "prev_chain_hash": "a488a8ff28345d16f62d026a4003257646126fe1dd55eaeff990330531d71056",
+    "chain_hash": "092e91da1911c5ef0aade7b391cd46c04075245bb3da9e8463883a2d35f92689"
   }
 ]
