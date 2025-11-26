@@ -1,0 +1,16 @@
+{
+  "commit_id": "govcommit-chain-verify-20251126T142917Z-4f3d1695",
+  "session_id": "chain-verify-20251126T142917Z-4f3d1695",
+  "record_type": "governance_commit",
+  "topic": "Run chain integrity verification now",
+  "requested_by": "test:cli",
+  "requested_at": "2025-11-26T14:29:17Z",
+  "governance": {
+    "overall_passed": true,
+    "requires_reconciliation": false,
+    "consensus_action": "VERIFY_CHAIN_NOW",
+    "consensus_outcome": "APPROVED",
+    "rationale": "Test run from CLI"
+  },
+  "snapshot_path": null
+}

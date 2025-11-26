@@ -1,0 +1,9 @@
+{
+  "index": 6,
+  "timestamp": "2025-11-26T14:30:35Z",
+  "record_type": "governance_commit",
+  "file_path": "DATA/_commits/decision_chain-verify-20251126T143035Z-d934b0b4.json",
+  "payload_hash": "07334cfc3c82f0909f258f3219a9ff2481345e81efb9add28d9b0bad5c6c20b0",
+  "prev_chain_hash": "4141f8c704ff72d919b68e448ab7c7d949634065d08262fc7c19466065b21510",
+  "chain_hash": "aeb57b05cbeec88410cdc82402a11a90e4cd473033805234736709088357291c"
+}

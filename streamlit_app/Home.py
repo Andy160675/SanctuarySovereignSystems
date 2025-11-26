@@ -15,6 +15,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.boardroom.anchoring import load_chain, verify_chain_integrity, get_chain_summary
+from src.boardroom.chain_governed_verify import run_governed_chain_verification
 
 
 def get_quick_health() -> dict:
@@ -54,15 +55,20 @@ def main():
         else:
             st.error("Chain: INVALID")
     with col3:
-        if st.button("Verify Now"):
-            with st.spinner("Verifying..."):
-                verification = verify_chain_integrity()
-                is_valid = verification.get("valid", False)
-                errors = verification.get("errors", [])
-                if is_valid:
+        if st.button("Verify Now (Governed)"):
+            with st.spinner("Creating governed verification..."):
+                result = run_governed_chain_verification(
+                    requested_by="ui:operator",
+                    rationale="Manual chain verification from Governance Cockpit.",
+                )
+                status = result.get("verification_status")
+                if status is True or status == "VALID":
                     st.success("Verified!")
+                    if result.get("verification_summary"):
+                        st.caption(f"Anchors: {result['verification_summary'].get('verified_anchors')}/{result['verification_summary'].get('total_anchors')}")
                 else:
-                    st.error(f"Failed: {errors}")
+                    st.error(f"Failed: {result.get('verification_summary', {}).get('errors', 0)} errors")
+                st.caption(f"Decision: {result.get('session_id')}")
 
     st.divider()
 

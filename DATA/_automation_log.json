@@ -12,5 +12,69 @@
       "status": "APPROVED"
     },
     "error": null
+  },
+  {
+    "timestamp": "2025-11-26T14:27:14Z",
+    "commit_id": "govcommit-chain-verify-20251126T142714Z-f817a846",
+    "session_id": "chain-verify-20251126T142714Z-f817a846",
+    "action": "VERIFY_CHAIN_NOW",
+    "commit_path": "DATA\\_commits\\decision_chain-verify-20251126T142714Z-f817a846.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "chain_verification",
+      "report_file": "DATA\\_chain_verifications\\verify_chain-verify-20251126T142714Z-f817a846.json",
+      "status": "INVALID",
+      "total_anchors": 3,
+      "verified_anchors": 2
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-11-26T14:28:27Z",
+    "commit_id": "govcommit-chain-verify-20251126T142827Z-70152728",
+    "session_id": "chain-verify-20251126T142827Z-70152728",
+    "action": "VERIFY_CHAIN_NOW",
+    "commit_path": "DATA\\_commits\\decision_chain-verify-20251126T142827Z-70152728.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "chain_verification",
+      "report_file": "DATA\\_chain_verifications\\verify_chain-verify-20251126T142827Z-70152728.json",
+      "status": "INVALID",
+      "total_anchors": 5,
+      "verified_anchors": 4
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-11-26T14:29:17Z",
+    "commit_id": "govcommit-chain-verify-20251126T142917Z-4f3d1695",
+    "session_id": "chain-verify-20251126T142917Z-4f3d1695",
+    "action": "VERIFY_CHAIN_NOW",
+    "commit_path": "DATA\\_commits\\decision_chain-verify-20251126T142917Z-4f3d1695.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "chain_verification",
+      "report_file": "DATA\\_chain_verifications\\verify_chain-verify-20251126T142917Z-4f3d1695.json",
+      "status": "INVALID",
+      "total_anchors": 6,
+      "verified_anchors": 5
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-11-26T14:30:35Z",
+    "commit_id": "govcommit-chain-verify-20251126T143035Z-d934b0b4",
+    "session_id": "chain-verify-20251126T143035Z-d934b0b4",
+    "action": "VERIFY_CHAIN_NOW",
+    "commit_path": "DATA\\_commits\\decision_chain-verify-20251126T143035Z-d934b0b4.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "chain_verification",
+      "report_file": "DATA\\_chain_verifications\\verify_chain-verify-20251126T143035Z-d934b0b4.json",
+      "status": "VERIFIED",
+      "total_anchors": 7,
+      "verified_anchors": 7
+    },
+    "error": null
   }
 ]

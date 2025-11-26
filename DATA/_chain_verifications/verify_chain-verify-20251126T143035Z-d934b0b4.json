@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "total_anchors": 7,
+  "verified_anchors": 7,
+  "broken_at": null,
+  "errors": [],
+  "details": [
+    {
+      "index": 0,
+      "record_type": "governance_commit",
+      "file_path": "DATA/_commits/decision_chain-verify-20251126T142714Z-f817a846.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "index": 1,
+      "record_type": "governance_commit",
+      "file_path": "DATA/_commits/decision_chain-verify-20251126T142827Z-70152728.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "index": 2,
+      "record_type": "governance_commit",
+      "file_path": "DATA/_commits/decision_chain-verify-20251126T142917Z-4f3d1695.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "index": 3,
+      "record_type": "governance_commit",
+      "file_path": "DATA/_commits/decision_consensus-test-002.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "index": 4,
+      "record_type": "governance_commit",
+      "file_path": "DATA/_commits/decision_ext-anchor-test-001.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "index": 5,
+      "record_type": "governance_commit",
+      "file_path": "DATA/_commits/decision_sovereign-test-001.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "index": 6,
+      "record_type": "governance_commit",
+      "file_path": "DATA/_commits/decision_chain-verify-20251126T143035Z-d934b0b4.json",
+      "valid": true,
+      "errors": []
+    }
+  ],
+  "governance_commit_id": "govcommit-chain-verify-20251126T143035Z-d934b0b4",
+  "governance_session_id": "chain-verify-20251126T143035Z-d934b0b4",
+  "triggered_at": "2025-11-26T14:30:35Z",
+  "triggered_by": "test"
+}

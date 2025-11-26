@@ -1,20 +1,65 @@
 [
   {
     "index": 0,
-    "timestamp": "2025-11-26T13:13:28Z",
+    "timestamp": "2025-11-26T14:30:35Z",
     "record_type": "governance_commit",
-    "file_path": "DATA/_commits/decision_sovereign-test-001.json",
-    "payload_hash": "4f5e570bbed18eb57c5eb05b8e77cb26e90701808b5c18674936f297e4b3f816",
+    "file_path": "DATA/_commits/decision_chain-verify-20251126T142714Z-f817a846.json",
+    "payload_hash": "62a707c48e9d71c3892422fef717bb254368ea7c50178dd9065a264cb1cfe418",
     "prev_chain_hash": "GENESIS",
-    "chain_hash": "a488a8ff28345d16f62d026a4003257646126fe1dd55eaeff990330531d71056"
+    "chain_hash": "6174e79dd1d26eb69d4f2455dad9dc4643d8a92b8b1a9caf558e3f499bac771a"
   },
   {
     "index": 1,
-    "timestamp": "2025-11-26T13:13:28Z",
+    "timestamp": "2025-11-26T14:30:35Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA/_commits/decision_chain-verify-20251126T142827Z-70152728.json",
+    "payload_hash": "7138e1b9e28349364db1f0476d9960c80e15e063552ca5f140fdc4ef3b057d89",
+    "prev_chain_hash": "6174e79dd1d26eb69d4f2455dad9dc4643d8a92b8b1a9caf558e3f499bac771a",
+    "chain_hash": "b3c7dc38da126875b451b0fce71b416e4516eef7b133cf829bf8dac2ef01ceda"
+  },
+  {
+    "index": 2,
+    "timestamp": "2025-11-26T14:30:35Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA/_commits/decision_chain-verify-20251126T142917Z-4f3d1695.json",
+    "payload_hash": "2c311a56711d79da4aaf647b54860382751f7dacc6797dcae417fde41ebf3437",
+    "prev_chain_hash": "b3c7dc38da126875b451b0fce71b416e4516eef7b133cf829bf8dac2ef01ceda",
+    "chain_hash": "a146b6e62679529016a4971053c22368761653db1bf8de8b9bce6f1111cafe78"
+  },
+  {
+    "index": 3,
+    "timestamp": "2025-11-26T14:30:35Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA/_commits/decision_consensus-test-002.json",
+    "payload_hash": "8e5cf8f5e23c9c72bef2d74cf4d5916957eb91eccdefedcfd05198a1a392591e",
+    "prev_chain_hash": "a146b6e62679529016a4971053c22368761653db1bf8de8b9bce6f1111cafe78",
+    "chain_hash": "72bc53362e67c71986f039166ca22aacda4c54c28b2f540860683307bbd92bbd"
+  },
+  {
+    "index": 4,
+    "timestamp": "2025-11-26T14:30:35Z",
     "record_type": "governance_commit",
     "file_path": "DATA/_commits/decision_ext-anchor-test-001.json",
     "payload_hash": "26e581102644f9a54faab3f42cee76cd8d6691c1dbf6b5b79d7e03af7d2d96e8",
-    "prev_chain_hash": "a488a8ff28345d16f62d026a4003257646126fe1dd55eaeff990330531d71056",
-    "chain_hash": "092e91da1911c5ef0aade7b391cd46c04075245bb3da9e8463883a2d35f92689"
+    "prev_chain_hash": "72bc53362e67c71986f039166ca22aacda4c54c28b2f540860683307bbd92bbd",
+    "chain_hash": "e7f82b4c6bed03b91dc8f2a74e2dc23d4b487ed6005ef0097d862de4d12a3dbc"
+  },
+  {
+    "index": 5,
+    "timestamp": "2025-11-26T14:30:35Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA/_commits/decision_sovereign-test-001.json",
+    "payload_hash": "4f5e570bbed18eb57c5eb05b8e77cb26e90701808b5c18674936f297e4b3f816",
+    "prev_chain_hash": "e7f82b4c6bed03b91dc8f2a74e2dc23d4b487ed6005ef0097d862de4d12a3dbc",
+    "chain_hash": "4141f8c704ff72d919b68e448ab7c7d949634065d08262fc7c19466065b21510"
+  },
+  {
+    "index": 6,
+    "timestamp": "2025-11-26T14:30:35Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA/_commits/decision_chain-verify-20251126T143035Z-d934b0b4.json",
+    "payload_hash": "07334cfc3c82f0909f258f3219a9ff2481345e81efb9add28d9b0bad5c6c20b0",
+    "prev_chain_hash": "4141f8c704ff72d919b68e448ab7c7d949634065d08262fc7c19466065b21510",
+    "chain_hash": "aeb57b05cbeec88410cdc82402a11a90e4cd473033805234736709088357291c"
   }
 ]

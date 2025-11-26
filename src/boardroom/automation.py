@@ -192,6 +192,44 @@ def run_approval_pipeline(commit: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def run_chain_verification_pipeline(commit: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Handle VERIFY_CHAIN_NOW action.
+
+    Runs the chain verifier and writes a session-scoped verification report.
+    """
+    from . import anchoring
+
+    ensure_pipelines_dir()
+    verify_dir = DATA_ROOT / "_chain_verifications"
+    verify_dir.mkdir(parents=True, exist_ok=True)
+
+    session_id = commit.get("session_id", f"chain-verify-unknown")
+    verify_path = verify_dir / f"verify_{session_id}.json"
+
+    # Run verification
+    verification_result = anchoring.verify_chain_integrity()
+
+    # Add governance linkage
+    report = {
+        **verification_result,
+        "governance_commit_id": commit.get("commit_id"),
+        "governance_session_id": session_id,
+        "triggered_at": iso_now(),
+        "triggered_by": commit.get("requested_by", "unknown"),
+    }
+
+    verify_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+
+    return {
+        "pipeline": "chain_verification",
+        "report_file": str(verify_path),
+        "status": "VERIFIED" if verification_result.get("valid") else "INVALID",
+        "total_anchors": verification_result.get("total_anchors", 0),
+        "verified_anchors": verification_result.get("verified_anchors", 0),
+    }
+
+
 # ---------------------------------------------------------------------------
 # Action Router
 # ---------------------------------------------------------------------------
@@ -202,6 +240,7 @@ ACTION_HANDLERS: Dict[str, Callable[[Dict[str, Any]], Dict[str, Any]]] = {
     "REQUEST_DATA": run_data_pipeline,
     "REQUEST_INPUTS": run_review_pipeline,
     "APPROVE_ACTION": run_approval_pipeline,
+    "VERIFY_CHAIN_NOW": run_chain_verification_pipeline,
 }
 
 

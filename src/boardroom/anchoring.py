@@ -103,9 +103,8 @@ def append_anchor(record_type: str, file_path: Path) -> Dict[str, Any]:
     """
     chain = load_chain()
 
-    # Hash the file payload
-    payload_bytes = file_path.read_bytes()
-    payload_hash = sha256_hex(payload_bytes)
+    # Hash the file payload (LF-normalized for cross-platform consistency)
+    payload_hash = sha256_file(file_path)
 
     # Get previous chain hash
     prev_hash = chain[-1]["chain_hash"] if chain else "GENESIS"
