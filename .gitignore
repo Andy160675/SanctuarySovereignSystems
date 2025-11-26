@@ -62,3 +62,11 @@ elite-truth/
 boardroom-poc/
 sovereign-core/
 truth-engine-complete/
+
+# Instance-specific ledgers (not committed)
+boardroom_ledger.jsonl
+ledger.jsonl
+evidence_store/
+
+# Tool outputs (regenerable)
+tools/sanitize_report.json
