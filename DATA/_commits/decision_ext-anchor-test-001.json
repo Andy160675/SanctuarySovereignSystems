@@ -1,0 +1,205 @@
+{
+  "commit_id": "govcommit-ext-anchor-test-001",
+  "session_id": "ext-anchor-test-001",
+  "topic": "External anchor integration test",
+  "timestamp": "2025-11-26T12:12:04Z",
+  "snapshot_path": "DATA\\_work\\snapshots\\test-snapshot.json",
+  "governance": {
+    "topic": "External anchor integration test",
+    "session_id": "ext-anchor-test-001",
+    "timestamp": "2025-11-26T12:12:04Z",
+    "consensus_action": "APPROVE_ACTION",
+    "consensus_count": 7,
+    "consensus_map": {
+      "APPROVE_ACTION": 7
+    },
+    "gates": {
+      "evidence": {
+        "name": "evidence",
+        "passed": true,
+        "severity": "info",
+        "reasons": [
+          "Evidence and traceability requirements satisfied."
+        ],
+        "required_actions": []
+      },
+      "ethics": {
+        "name": "ethics",
+        "passed": true,
+        "severity": "info",
+        "reasons": [
+          "No ethical blocking conditions detected."
+        ],
+        "required_actions": []
+      },
+      "legal": {
+        "name": "legal",
+        "passed": true,
+        "severity": "info",
+        "reasons": [
+          "No blocking legal conditions detected."
+        ],
+        "required_actions": []
+      },
+      "security": {
+        "name": "security",
+        "passed": true,
+        "severity": "info",
+        "reasons": [
+          "No elevated security restrictions requested."
+        ],
+        "required_actions": []
+      },
+      "consensus": {
+        "name": "consensus",
+        "passed": true,
+        "severity": "info",
+        "reasons": [
+          "Supermajority consensus achieved: APPROVE_ACTION (count=7)."
+        ],
+        "required_actions": []
+      }
+    },
+    "overall_passed": true,
+    "requires_reconciliation": false
+  },
+  "roles": [
+    {
+      "role_key": "chair",
+      "action": "APPROVE_ACTION",
+      "verdict": "Proceed",
+      "evidence": [
+        "local:chair:test"
+      ]
+    },
+    {
+      "role_key": "recorder",
+      "action": "NO_ACTION (recording)",
+      "verdict": "Recorded",
+      "evidence": [
+        "file:snapshot.json"
+      ]
+    },
+    {
+      "role_key": "ethicist",
+      "action": "APPROVE_ACTION",
+      "verdict": "No immediate ethical red flags detected.",
+      "evidence": [
+        "local:ethicist:test"
+      ]
+    },
+    {
+      "role_key": "engineer",
+      "action": "APPROVE_ACTION",
+      "verdict": "Feasible",
+      "evidence": [
+        "local:engineer:test"
+      ]
+    },
+    {
+      "role_key": "empath",
+      "action": "APPROVE_ACTION",
+      "verdict": "OK",
+      "evidence": [
+        "local:empath:test"
+      ]
+    },
+    {
+      "role_key": "archivist",
+      "action": "NO_ACTION (recording)",
+      "verdict": "Archived",
+      "evidence": [
+        "file:archive.json"
+      ]
+    },
+    {
+      "role_key": "strategist",
+      "action": "APPROVE_ACTION",
+      "verdict": "Aligned",
+      "evidence": [
+        "local:strategist:test"
+      ]
+    },
+    {
+      "role_key": "guardian",
+      "action": "APPROVE_ACTION",
+      "verdict": "Secure",
+      "evidence": [
+        "local:guardian:test"
+      ]
+    },
+    {
+      "role_key": "analyst",
+      "action": "APPROVE_ACTION",
+      "verdict": "Metrics OK",
+      "evidence": [
+        "local:analyst:test"
+      ]
+    },
+    {
+      "role_key": "linguist",
+      "action": "NO_ACTION",
+      "verdict": "Clear",
+      "evidence": [
+        "local:linguist:test"
+      ]
+    },
+    {
+      "role_key": "jurist",
+      "action": "NO_ACTION",
+      "verdict": "Compliant",
+      "evidence": [
+        "local:jurist:test"
+      ]
+    },
+    {
+      "role_key": "creator",
+      "action": "NO_ACTION",
+      "verdict": "Options open",
+      "evidence": [
+        "local:creator:test"
+      ]
+    },
+    {
+      "role_key": "observer",
+      "action": "NO_ACTION",
+      "verdict": "Monitoring",
+      "evidence": [
+        "local:observer:test"
+      ]
+    }
+  ],
+  "merkle_receipt": {
+    "root": "413511924a3b0c8779ffc6ffc28fc47bbc963ddaa1147619def91195961caa45",
+    "algo": "sha256-merkle",
+    "leaf_hashes": [
+      "c175d4828c97876a6159b2f03aab2bac7efa78db2c5bb1d4a2e33d44661f97f9",
+      "bfe52e2e4297d40dd828347e742ab11a0a42710041c1d772c3796b51030bc578",
+      "99e3291c897f7b1ac56d06b4d51b65ddcdbeafd2f2ce6873c5f3823ba61dd4f5",
+      "98e8b7261132543f4bd9084c989ab3f5ebf724617047d8a73110e4534a8fdcf8",
+      "3cebe194314aabbcbf412191b59838cd92047c88d03cb5c1e896b383dba812c4"
+    ],
+    "leaves": [
+      "session_id",
+      "topic",
+      "snapshot_path",
+      "governance_sha256",
+      "roles_sha256"
+    ]
+  },
+  "external_anchor": {
+    "backend": "rfc3161",
+    "dry_run": true,
+    "created_at": "2025-11-26T12:12:04Z",
+    "request_fingerprint": "4fec19db70a9cf29c1efb730d7989c09f757d9496bc7ee31e91f60b9d8e04950",
+    "status": "SUCCESS_DRYRUN",
+    "error": null,
+    "rfc3161_token": "DRYRUN_RFC3161_4fec19db70a9cf29c1efb730d7989c09",
+    "rfc3161_url": "https://tsa.example.com/timestamp",
+    "rfc3161_serial": "DRY-4fec19db70a9cf29",
+    "ipfs_cid": null,
+    "ipfs_gateway_url": null,
+    "arweave_tx_id": null,
+    "arweave_gateway_url": null
+  }
+}

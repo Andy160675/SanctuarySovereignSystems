@@ -1,0 +1,194 @@
+{
+  "session_id": "20251126T114820Z-3d9ea901",
+  "timestamp": "2025-11-26T11:48:20Z",
+  "topic": "Test investor compliance review",
+  "roles": [
+    {
+      "role_key": "chair",
+      "role_title": "Chair",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Proceed to deliberation on 'Test investor compliance review' under standard governance procedure.",
+      "rationale": [
+        "Procedural balance",
+        "Time-box deliberation",
+        "Seek consensus >= 7/13"
+      ],
+      "action": "REQUEST_INPUTS",
+      "evidence": [
+        "local:chair:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "recorder",
+      "role_title": "Recorder",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Record accepted: snapshot created for topic 'Test investor compliance review'.",
+      "rationale": [
+        "Snapshot at 2025-11-26T11:48:20Z",
+        "Canonical audit trail entry created."
+      ],
+      "action": "NO_ACTION (recording)",
+      "evidence": [
+        "local:recorder:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "ethicist",
+      "role_title": "Ethicist",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "No immediate ethical red flags detected.",
+      "rationale": [
+        "Check for harm indicators",
+        "Assess affected stakeholders"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:ethicist:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "engineer",
+      "role_title": "Engineer",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Technical feasibility appears plausible; requires proof-of-concept for verification.",
+      "rationale": [
+        "Feasibility heuristic",
+        "Architectural constraints",
+        "Test plan recommendation"
+      ],
+      "action": "PROPOSE_POC",
+      "evidence": [
+        "local:engineer:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "empath",
+      "role_title": "Empath",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Prioritise human-context checks and empathetic framing in communications.",
+      "rationale": [
+        "Human impact focus",
+        "Prefer harm-minimising language"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:empath:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "archivist",
+      "role_title": "Archivist",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Ensure archival storage and provenance metadata attached to records.",
+      "rationale": [
+        "Provenance required",
+        "Store raw and processed copies"
+      ],
+      "action": "NO_ACTION (recording)",
+      "evidence": [
+        "local:archivist:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "strategist",
+      "role_title": "Strategist",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Align short-term tactics to a 90-day objective; propose milestones.",
+      "rationale": [
+        "Define measurable milestones",
+        "Map to organizational objectives"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:strategist:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "guardian",
+      "role_title": "Guardian",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Apply security and access restrictions until integrity is verified.",
+      "rationale": [
+        "Limit access",
+        "Require integrity proofs",
+        "Check encryption at rest"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:guardian:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "analyst",
+      "role_title": "Analyst",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Initial analytic check: topic length 4 words; request data for metrics.",
+      "rationale": [
+        "Word count: 4",
+        "Request structured data for validation"
+      ],
+      "action": "REQUEST_DATA",
+      "evidence": [
+        "local:analyst:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "linguist",
+      "role_title": "Linguist",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Recommend concise, disambiguated phrasing; remove ambiguous adjectives.",
+      "rationale": [
+        "Clarify ambiguous terms",
+        "Standardise terminology",
+        "Provide short definitions"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:linguist:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "jurist",
+      "role_title": "Jurist",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Preliminary legal scan: escalate if regulated elements (personal data, contracts) are involved.",
+      "rationale": [
+        "Identify applicable regulation",
+        "Recommend legal counsel if needed"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:jurist:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "creator",
+      "role_title": "Creator",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Offer exploratory alternative that preserves safety constraints and optionality.",
+      "rationale": [
+        "Suggest low-risk prototype",
+        "Encourage controlled A/B testing"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:creator:topic_summary:31"
+      ]
+    },
+    {
+      "role_key": "observer",
+      "role_title": "Observer",
+      "timestamp": "2025-11-26T11:48:20Z",
+      "verdict": "Observational note: maintain meta-awareness of framing and bounded assumptions.",
+      "rationale": [
+        "Note potential groupthink",
+        "Recommend short pause for meta-check"
+      ],
+      "action": "NO_ACTION",
+      "evidence": [
+        "local:observer:topic_summary:31"
+      ]
+    }
+  ],
+  "snapshot_path": "DATA\\_work\\snapshots\\20251126T114820Z-3d9ea901.json"
+}

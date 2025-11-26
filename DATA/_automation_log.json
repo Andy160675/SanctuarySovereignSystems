@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2025-11-26T12:05:25Z",
+    "commit_id": "govcommit-sovereign-test-001",
+    "session_id": "sovereign-test-001",
+    "action": "APPROVE_ACTION",
+    "commit_path": "DATA\\_commits\\decision_sovereign-test-001.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "approvals",
+      "trigger_file": "DATA\\_pipelines\\approvals\\approval_sovereign-test-001.json",
+      "status": "APPROVED"
+    },
+    "error": null
+  }
+]

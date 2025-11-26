@@ -1,0 +1,9 @@
+{
+  "triggered_at": "2025-11-26T12:05:25Z",
+  "commit_id": "govcommit-sovereign-test-001",
+  "session_id": "sovereign-test-001",
+  "topic": "Full sovereign loop test",
+  "action": "APPROVE_ACTION",
+  "status": "APPROVED",
+  "merkle_root": "12bc7a5d7f181d1ffa9f7566635bfe5635e1e3cb41cc045821b0ab3a7d8d03e3"
+}

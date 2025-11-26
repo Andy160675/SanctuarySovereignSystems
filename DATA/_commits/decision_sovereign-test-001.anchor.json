@@ -1,0 +1,9 @@
+{
+  "index": 0,
+  "timestamp": "2025-11-26T12:05:25Z",
+  "record_type": "governance_commit",
+  "file_path": "DATA\\_commits\\decision_sovereign-test-001.json",
+  "payload_hash": "0a10d8c152cc0a316cbbfcab9aa547b14fbccb56bd836a12d7dd4a4f4378737c",
+  "prev_chain_hash": "GENESIS",
+  "chain_hash": "72f5417007ec0ebe5f2e02bef331b35f6f7b1a2177e973d13f1e69272d64d495"
+}
