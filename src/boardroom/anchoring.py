@@ -112,12 +112,12 @@ def append_anchor(record_type: str, file_path: Path) -> Dict[str, Any]:
     chain_input = f"{prev_hash}|{payload_hash}|{timestamp}"
     chain_hash = sha256_hex(chain_input.encode("utf-8"))
 
-    # Build anchor record
+    # Build anchor record (use forward slashes for cross-platform compatibility)
     anchor = {
         "index": len(chain),
         "timestamp": timestamp,
         "record_type": record_type,
-        "file_path": str(file_path),
+        "file_path": str(file_path).replace("\\", "/"),
         "payload_hash": payload_hash,
         "prev_chain_hash": prev_hash,
         "chain_hash": chain_hash,
@@ -148,6 +148,13 @@ def anchor_file(file_path: Path, record_type: str = "generic") -> Dict[str, Any]
 # Verification Operations
 # ---------------------------------------------------------------------------
 
+def normalize_path(path_str: str) -> Path:
+    """Normalize path string to work on any OS."""
+    # Replace backslashes with forward slashes for cross-platform compatibility
+    normalized = path_str.replace("\\", "/")
+    return Path(normalized)
+
+
 def verify_anchor(anchor: Dict[str, Any]) -> Dict[str, Any]:
     """
     Verify a single anchor entry.
@@ -166,7 +173,7 @@ def verify_anchor(anchor: Dict[str, Any]) -> Dict[str, Any]:
         "errors": [],
     }
 
-    file_path = Path(anchor["file_path"])
+    file_path = normalize_path(anchor["file_path"])
 
     if not file_path.exists():
         result["valid"] = False
