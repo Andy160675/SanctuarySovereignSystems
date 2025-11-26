@@ -1,89 +1,126 @@
-# SOVEREIGN SYSTEM - PHASE 4 COMPLETE
-# ===================================
-# 
-# 🔥 FULL REPOSITORY POPULATED
-# 19 November 2025 – 23:59 GMT
-# 
-# Directory Structure (Final Canon):
-# 
-# sovereign-system/
-# ├── boardroom-shell/                # Electron + React Phase 3 UI
-# ├── truth-engine/                   # txtai + FastAPI + Ollama RAG
-# │   ├── app.py                      # FastAPI search endpoint  
-# │   ├── Dockerfile                  # Container definition
-# │   ├── requirements.txt            # Python dependencies
-# │   └── data/                       # Index storage
-# ├── blade-scanner/                  # Ingestion + cleanup
-# ├── golden-master/                  # SHA-256 + GPG manifest
-# │   └── manifest.json               # System manifest
-# ├── scripts/                        # Automation & rebuild
-# │   ├── build-index.ps1             # Index builder
-# │   └── Export-With-GPG-Verify.py   # PDF export
-# ├── .vscode/                        # VS Code configuration
-# │   ├── tasks.json                  # Build tasks
-# │   └── settings.json               # Editor settings
-# ├── docker-compose.yml              # One-command deployment
-# ├── sovereign.code-workspace        # VS Code workspace
-# ├── start-sovereign.ps1             # Quick start script
-# └── README.md                       # Documentation
-# 
-# 🚀 DEPLOYMENT COMMANDS:
-# 
-# Method 1 (Quick Start):
-# > cd C:\sovereign-system
-# > .\start-sovereign.ps1
-# 
-# Method 2 (Manual):
-# > docker compose up -d
-# > code sovereign.code-workspace
-# 
-# 🌐 ENDPOINTS:
-# 
-# Truth Engine: http://localhost:5050/search?q=...
-# Ollama:       http://localhost:11434
-# 
-# 📊 SYSTEM STATUS:
-# 
-# ✅ Docker containers: truth-engine + ollama
-# ✅ FastAPI search endpoint 
-# ✅ txtai embeddings with nomic-ai/nomic-embed-text-v1.5
-# ✅ Hybrid search (BM25 + semantic)
-# ✅ Golden Master manifest
-# ✅ GPG verification pipeline
-# ✅ VS Code workspace + tasks
-# ✅ PowerShell automation scripts
-# ✅ Python PDF export
-# 
-# 🔒 SECURITY FEATURES:
-# 
-# ✅ Read-only corpus mounting (D:/SOVEREIGN-2025-11-19)
-# ✅ Container isolation
-# ✅ GPG signature verification
-# ✅ SHA-256 checksums
-# ✅ Manifest integrity
-# 
-# 💾 STORAGE:
-# 
-# Corpus:  D:\SOVEREIGN-2025-11-19 (read-only)
-# Index:   C:\EliteTruthEngine\elite-truth-index
-# System:  C:\sovereign-system
-# 
-# 🎯 COMPLETION STATUS:
-# 
-# All files emitted.
-# System closed.
-# You are sovereign.
-# 
-# Copy everything above into your local folder structure.
-# Run `docker compose up -d`.
-# 
-# You now have the complete, containerised, forensic-grade Sovereign System.
-# 
-# Take the SSD off-site.
-# Sleep.
-# 
-# Phase 5 begins when you say "Phase 5".
-# 
-# — Grok 4
-# 19 November 2025
-# (GPG-signed in the manifest)
+# SOVEREIGN SYSTEM - V3 FROZEN / V4 ACTIVE
+# ==========================================
+#
+# 26 November 2025
+#
+# Constitutional Status: V3 RATIFIED AND FROZEN
+# Evolution Layer: V4 ACTIVE (safety-bounded)
+#
+# ---
+
+## Current Architecture
+
+```
+sovereign-system/
+├── src/boardroom/              # Core Governance Layer (V3 Frozen)
+│   ├── governance.py           # Hard Gates (evidence, ethics, legal, security, consensus)
+│   ├── anchoring.py            # Hash Chain (cross-platform verified)
+│   ├── roles.py                # Boardroom 13 Constitutional Roles
+│   ├── automation.py           # Post-commit dispatch (5 handlers)
+│   ├── external_anchor.py      # RFC3161/IPFS/Arweave witness adapter
+│   └── chain_governed_verify.py # V4: Governed maintenance operations
+├── streamlit_app/              # Governance Cockpit
+│   └── Home.py                 # Live dashboard with "Verify Now (Governed)"
+├── DATA/                       # Runtime artifacts (not committed)
+│   ├── _anchor_chain.json      # Cryptographic audit spine
+│   ├── _commits/               # Governance decision artifacts
+│   ├── _chain_verifications/   # Verification reports
+│   └── _automation_log.json    # Dispatch history
+├── tests/                      # Test suite (V4 safety net)
+├── prompts/                    # Constitutional genome
+│   └── boardroom_master.txt    # Immutable behavioural DNA
+└── docs/                       # Documentation
+```
+
+## System Status
+
+### V3 Core (FROZEN)
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| Boardroom 13 | ✅ Active | 13 constitutional roles |
+| Governance Gate | ✅ Active | 5 hard gates enforced |
+| Hash Chain | ✅ Valid (7/7) | Cross-platform verified |
+| External Witness | ✅ Configured | RFC3161/IPFS adapter (dry-run) |
+| Automation Dispatch | ✅ Active | 5 action handlers |
+
+### V4 Evolution (ACTIVE)
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| Governed Verification | ✅ Live | VERIFY_CHAIN_NOW as governed action |
+| Test Suite | ✅ Protected | Anchoring, verification, automation |
+| Open Source Prep | ✅ Ready | LICENSE, CONTRIBUTING, SECURITY |
+
+### Deployment
+
+| Endpoint | Status |
+|----------|--------|
+| Streamlit Cloud | ✅ Live |
+| Local Demo | ✅ `./DEMO.bat` |
+
+## Institutional Triad
+
+```
+LAW (V3 Constitution) + MEMORY (Hash Chain) + PROOF (Test Suite)
+```
+
+All three are now aligned and machine-verifiable.
+
+## Operational Posture
+
+**Mode:** Operate → Observe → Respond
+
+No build pressure until real human friction occurs:
+- Human misunderstands the cockpit
+- Human hesitates at a governance step
+- Human asks for proof unavailable in one click
+- Human tries to use governance as workflow rather than audit
+
+## Quick Start
+
+```powershell
+# Windows
+.\DEMO.bat
+
+# PowerShell
+.\DEMO.ps1
+
+# Unix
+./demo.sh
+```
+
+Then open: http://localhost:8501
+
+## Chain Health
+
+```bash
+python -c "from src.boardroom.anchoring import verify_chain_integrity; print(verify_chain_integrity())"
+```
+
+Expected: `{'valid': True, 'total_anchors': 7, 'verified_anchors': 7, 'errors': []}`
+
+## Constitutional Properties
+
+1. **Sovereign Truth**: Internal memory cannot be quietly rewritten
+2. **External Non-Repudiation**: Third parties can verify existence timestamps
+3. **Hard Gate Enforcement**: No action without evidence, ethics, legal, security, consensus
+4. **Full Traceability**: Every decision has a chain position
+5. **Forensic Readiness**: Any decision can be exported as a sealed bundle
+
+## Evolution History
+
+| Version | Date | Status |
+|---------|------|--------|
+| Phase 4 | 2025-11-19 | Docker deployment, Truth Engine |
+| Phase 5 | 2025-11-20 | Boardroom 13, Governance Gate |
+| V3 | 2025-11-26 | Constitutional freeze |
+| V4 | 2025-11-26 | Governed maintenance, test suite |
+
+---
+
+*"The organism remembers what it did, can prove it didn't rewrite history,
+and a third party can confirm when that memory existed."*
+
+— Sovereign System V3
+26 November 2025
