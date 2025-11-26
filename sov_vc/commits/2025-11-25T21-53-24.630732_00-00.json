@@ -1,0 +1,30 @@
+{
+  "commit_id": "40f9568f-e8de-4ceb-a88f-e042f69b3908",
+  "parent_commit": "GENESIS",
+  "timestamp": "2025-11-25T21:53:24.630732+00:00",
+  "run_id": "9f2d8d1f",
+  "case_id": "CASE-TEST-001",
+  "query": "evidence",
+  "evidence_count": 1,
+  "mismatch_count": 0,
+  "integrity_status": "INTACT",
+  "action_taken": "log",
+  "risk_lens": "low",
+  "llm_analysis": {
+    "inner_summary": "Run 9f2d8d1f for case CASE-TEST-001: 1 evidence item(s), 0 mismatch(es). Integrity posture appears low risk.",
+    "risk_lens": "low",
+    "outer_commentary": "Second-layer reflection: The system successfully coordinated Investigator, Verifier, Guardian, and the LLM layer. Tamper detection is working and enforcement is triggered only on mismatches.",
+    "meta": {
+      "version": "llm-mock-0.1",
+      "note": "Russian-doll style, two-layer analysis mock."
+    }
+  },
+  "pipeline_duration_ms": 2212,
+  "metadata": {
+    "investigation_success": true,
+    "verification_success": true,
+    "enforcement_success": true,
+    "llm_success": true
+  },
+  "commit_hash": "424505295823416295bdf08d3e8952f8714784d29bfb6fb23792c8e345ec1041"
+}

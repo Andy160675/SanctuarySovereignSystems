@@ -16,6 +16,9 @@ from typing import Dict, Any
 # --------- CONFIG ---------
 AGGREGATED_HEALTH_URL = "http://localhost:8502/health"
 AGGREGATED_INDEXER_URL = "http://localhost:8502/actions/index_truth"
+TRINITY_SVC_HISTORY_URL = "http://localhost:8600/api/trinity/svc/history"
+TRINITY_SVC_HEAD_URL = "http://localhost:8600/api/trinity/svc/head"
+TRINITY_RUN_CASE_URL = "http://localhost:8600/api/trinity/run_case"
 HEALTH_POLL_TIMEOUT = 2.0
 
 # --------- HELPERS ---------
@@ -226,6 +229,178 @@ def render_enforce_page():
         st.info("(stub) send to Enforce API")
 
 
+def fetch_svc_history() -> Dict[str, Any]:
+    """Fetch SVC commit history from Trinity backend."""
+    try:
+        resp = requests.get(TRINITY_SVC_HISTORY_URL, timeout=5.0)
+        if resp.status_code == 200:
+            return resp.json()
+        return {"error": f"HTTP {resp.status_code}"}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def fetch_svc_head() -> Dict[str, Any]:
+    """Fetch HEAD commit from Trinity backend."""
+    try:
+        resp = requests.get(TRINITY_SVC_HEAD_URL, timeout=5.0)
+        if resp.status_code == 200:
+            return resp.json()
+        return {"error": f"HTTP {resp.status_code}"}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def run_trinity_case(case_id: str, query: str) -> Dict[str, Any]:
+    """Run a Trinity case and return results."""
+    try:
+        resp = requests.post(TRINITY_RUN_CASE_URL, json={"case_id": case_id, "query": query}, timeout=30.0)
+        if resp.status_code == 200:
+            return resp.json()
+        return {"error": f"HTTP {resp.status_code}", "detail": resp.text}
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def render_svc_page():
+    """Render SVC (Sovereign Version Control) tab."""
+    st.title("SVC - Sovereign Version Control")
+    st.markdown("Immutable audit trail of all Trinity runs")
+
+    st.markdown("---")
+
+    # HEAD commit section
+    col1, col2 = st.columns([2, 1])
+    with col1:
+        st.subheader("HEAD Commit")
+    with col2:
+        if st.button("Refresh", key="svc_refresh"):
+            st.rerun()
+
+    head = fetch_svc_head()
+    if "error" in head:
+        st.warning(f"Cannot reach Trinity backend: {head['error']}")
+        st.info("Make sure Trinity is running on port 8600")
+    elif head.get("head") is None:
+        st.info("No commits yet. Run a Trinity case to create the first commit.")
+    else:
+        commit = head.get("head", {})
+        integrity = commit.get("integrity_status", "UNKNOWN")
+        risk = commit.get("risk_lens", "unknown")
+
+        # Status badges
+        if integrity == "INTACT":
+            st.success(f"Integrity: INTACT | Risk: {risk}")
+        elif integrity == "COMPROMISED":
+            st.error(f"Integrity: COMPROMISED | Risk: {risk}")
+        else:
+            st.warning(f"Integrity: {integrity} | Risk: {risk}")
+
+        # Commit details
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Case ID", commit.get("case_id", "-"))
+        with col2:
+            st.metric("Evidence", commit.get("evidence_count", 0))
+        with col3:
+            st.metric("Mismatches", commit.get("mismatch_count", 0))
+
+        # Hash display
+        commit_hash = commit.get("commit_hash", "")
+        if commit_hash:
+            st.code(f"Commit: {commit_hash[:16]}...", language=None)
+
+        # Timestamp
+        ts = commit.get("timestamp", "")
+        if ts:
+            st.caption(f"Timestamp: {ts}")
+
+    st.markdown("---")
+
+    # Run new case section
+    st.subheader("Run Trinity Case")
+    col1, col2 = st.columns([2, 1])
+    with col1:
+        case_id = st.text_input("Case ID", value="CASE-TEST-001")
+        query = st.text_input("Query", value="evidence")
+    with col2:
+        st.write("")  # Spacer
+        st.write("")
+        if st.button("Run Case", type="primary"):
+            with st.spinner("Running Trinity pipeline..."):
+                result = run_trinity_case(case_id, query)
+
+            if "error" in result:
+                st.error(f"Error: {result['error']}")
+            else:
+                if result.get("success"):
+                    st.success("Case completed successfully!")
+                    summary = result.get("summary", {})
+                    st.json({
+                        "run_id": result.get("run_id"),
+                        "integrity": summary.get("integrity_status"),
+                        "risk_lens": summary.get("risk_lens"),
+                        "evidence_found": summary.get("evidence_found"),
+                        "action": summary.get("action_taken")
+                    })
+                else:
+                    st.error("Case failed")
+                    st.json(result)
+
+    st.markdown("---")
+
+    # Commit history section
+    st.subheader("Commit History")
+    history = fetch_svc_history()
+
+    if "error" in history:
+        st.warning(f"Cannot fetch history: {history['error']}")
+    else:
+        commits = history.get("commits", [])
+        if not commits:
+            st.info("No commits in history yet.")
+        else:
+            st.caption(f"Total commits: {len(commits)} | Chain valid: {history.get('chain_valid', '?')}")
+
+            # Display commits as a table
+            for i, commit in enumerate(commits[:20]):  # Show last 20
+                is_head = (i == 0)
+                integrity = commit.get("integrity_status", "?")
+                risk = commit.get("risk_lens", "?")
+
+                # Color based on integrity
+                if integrity == "INTACT":
+                    icon = "🟢"
+                elif integrity == "COMPROMISED":
+                    icon = "🔴"
+                else:
+                    icon = "🟡"
+
+                with st.expander(
+                    f"{icon} {commit.get('case_id', '?')} | {commit.get('timestamp', '?')[:19]} {'← HEAD' if is_head else ''}",
+                    expanded=is_head
+                ):
+                    col1, col2, col3, col4 = st.columns(4)
+                    with col1:
+                        st.write(f"**Evidence:** {commit.get('evidence_count', 0)}")
+                    with col2:
+                        st.write(f"**Mismatches:** {commit.get('mismatch_count', 0)}")
+                    with col3:
+                        st.write(f"**Risk:** {risk}")
+                    with col4:
+                        st.write(f"**Action:** {commit.get('action_taken', '?')}")
+
+                    commit_hash = commit.get("commit_hash", "")
+                    if commit_hash:
+                        st.code(commit_hash, language=None)
+
+                    # LLM analysis if present
+                    llm = commit.get("llm_analysis", {})
+                    if llm:
+                        st.caption("LLM Analysis:")
+                        st.text(llm.get("inner_summary", ""))
+
+
 def main():
     st.set_page_config(page_title="Sovereign Boardroom", layout="wide")
 
@@ -256,7 +431,7 @@ def main():
                     st.sidebar.markdown("🔴")
 
     st.sidebar.markdown("---")
-    choice = st.sidebar.radio("Navigate", ["System Setup", "Dashboard", "Core", "Truth", "Enforce"],
+    choice = st.sidebar.radio("Navigate", ["System Setup", "Dashboard", "Core", "Truth", "Enforce", "SVC"],
                               index=0 if st.session_state["page"] == "first_run" else 1)
 
     if choice == "System Setup":
@@ -274,6 +449,9 @@ def main():
     elif choice == "Enforce":
         st.session_state["page"] = "enforce"
         render_enforce_page()
+    elif choice == "SVC":
+        st.session_state["page"] = "svc"
+        render_svc_page()
 
 
 if __name__ == "__main__":

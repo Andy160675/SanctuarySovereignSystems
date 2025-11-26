@@ -1,0 +1,177 @@
+# SVC Archive Workflow
+# ====================
+# Archives Sovereign Version Control commits to permanent storage
+# Runs nightly or on-demand to bundle + anchor audit trail
+#
+# Prerequisites:
+# - IPFS_API_KEY secret (for web3.storage or Pinata)
+# - GPG_PRIVATE_KEY secret (optional, for signing)
+
+name: SVC Archive & Anchor
+
+on:
+  schedule:
+    # Run nightly at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      force_upload:
+        description: 'Force upload even if no new commits'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  SVC_DIR: sov_vc/commits
+  BUNDLE_PREFIX: svc-bundle
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for SVC commits
+        id: check_commits
+        run: |
+          COMMIT_COUNT=$(find ${{ env.SVC_DIR }} -name "*.json" 2>/dev/null | wc -l)
+          echo "commit_count=$COMMIT_COUNT" >> $GITHUB_OUTPUT
+
+          if [ "$COMMIT_COUNT" -eq 0 ]; then
+            echo "No SVC commits found"
+            echo "has_commits=false" >> $GITHUB_OUTPUT
+          else
+            echo "Found $COMMIT_COUNT SVC commits"
+            echo "has_commits=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get HEAD commit info
+        if: steps.check_commits.outputs.has_commits == 'true'
+        id: head_info
+        run: |
+          if [ -f "sov_vc/HEAD" ]; then
+            HEAD_FILE=$(cat sov_vc/HEAD | tr -d '\n\r')
+            echo "head_file=$HEAD_FILE" >> $GITHUB_OUTPUT
+
+            if [ -f "${{ env.SVC_DIR }}/$HEAD_FILE" ]; then
+              HEAD_HASH=$(jq -r '.commit_hash' "${{ env.SVC_DIR }}/$HEAD_FILE" | head -c 12)
+              HEAD_CASE=$(jq -r '.case_id' "${{ env.SVC_DIR }}/$HEAD_FILE")
+              HEAD_INTEGRITY=$(jq -r '.integrity_status' "${{ env.SVC_DIR }}/$HEAD_FILE")
+              echo "head_hash=$HEAD_HASH" >> $GITHUB_OUTPUT
+              echo "head_case=$HEAD_CASE" >> $GITHUB_OUTPUT
+              echo "head_integrity=$HEAD_INTEGRITY" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Create bundle
+        if: steps.check_commits.outputs.has_commits == 'true'
+        id: bundle
+        run: |
+          TIMESTAMP=$(date -u +%Y%m%d-%H%M%S)
+          BUNDLE_NAME="${{ env.BUNDLE_PREFIX }}-$TIMESTAMP"
+
+          # Create ZIP
+          zip -j "${BUNDLE_NAME}.zip" ${{ env.SVC_DIR }}/*.json
+
+          # Compute SHA-256
+          BUNDLE_HASH=$(sha256sum "${BUNDLE_NAME}.zip" | cut -d' ' -f1)
+          echo "$BUNDLE_HASH" > "${BUNDLE_NAME}.sha256"
+
+          # Create anchor manifest
+          cat > "${BUNDLE_NAME}.anchor.json" << EOF
+          {
+            "bundle_name": "$BUNDLE_NAME",
+            "created_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "bundle_hash": "$BUNDLE_HASH",
+            "commit_count": ${{ steps.check_commits.outputs.commit_count }},
+            "head_commit": "${{ steps.head_info.outputs.head_hash }}",
+            "head_case_id": "${{ steps.head_info.outputs.head_case }}",
+            "head_integrity": "${{ steps.head_info.outputs.head_integrity }}",
+            "workflow_run": "${{ github.run_id }}",
+            "repository": "${{ github.repository }}",
+            "ipfs_cid": null,
+            "arweave_uri": null
+          }
+          EOF
+
+          echo "bundle_name=$BUNDLE_NAME" >> $GITHUB_OUTPUT
+          echo "bundle_hash=$BUNDLE_HASH" >> $GITHUB_OUTPUT
+
+          echo "Bundle created: $BUNDLE_NAME"
+          echo "SHA-256: $BUNDLE_HASH"
+
+      - name: Upload to IPFS (web3.storage)
+        if: steps.check_commits.outputs.has_commits == 'true' && env.WEB3_STORAGE_TOKEN != ''
+        id: ipfs
+        env:
+          WEB3_STORAGE_TOKEN: ${{ secrets.WEB3_STORAGE_TOKEN }}
+        run: |
+          # Upload via web3.storage API
+          RESPONSE=$(curl -s -X POST \
+            -H "Authorization: Bearer $WEB3_STORAGE_TOKEN" \
+            -F "file=@${{ steps.bundle.outputs.bundle_name }}.zip" \
+            "https://api.web3.storage/upload")
+
+          CID=$(echo $RESPONSE | jq -r '.cid // empty')
+
+          if [ -n "$CID" ]; then
+            echo "Uploaded to IPFS: $CID"
+            echo "ipfs_cid=$CID" >> $GITHUB_OUTPUT
+
+            # Update anchor manifest with CID
+            jq --arg cid "$CID" '.ipfs_cid = $cid' \
+              "${{ steps.bundle.outputs.bundle_name }}.anchor.json" > tmp.json
+            mv tmp.json "${{ steps.bundle.outputs.bundle_name }}.anchor.json"
+          else
+            echo "IPFS upload failed or no token configured"
+            echo "Response: $RESPONSE"
+          fi
+
+      - name: Upload artifacts
+        if: steps.check_commits.outputs.has_commits == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.bundle.outputs.bundle_name }}
+          path: |
+            ${{ steps.bundle.outputs.bundle_name }}.zip
+            ${{ steps.bundle.outputs.bundle_name }}.sha256
+            ${{ steps.bundle.outputs.bundle_name }}.anchor.json
+          retention-days: 90
+
+      - name: Create summary
+        if: steps.check_commits.outputs.has_commits == 'true'
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << EOF
+          ## SVC Archive Report
+
+          | Field | Value |
+          |-------|-------|
+          | Bundle | \`${{ steps.bundle.outputs.bundle_name }}\` |
+          | Commits | ${{ steps.check_commits.outputs.commit_count }} |
+          | SHA-256 | \`${{ steps.bundle.outputs.bundle_hash }}\` |
+          | HEAD | \`${{ steps.head_info.outputs.head_hash }}\` |
+          | Case ID | ${{ steps.head_info.outputs.head_case }} |
+          | Integrity | ${{ steps.head_info.outputs.head_integrity }} |
+          | IPFS CID | \`${{ steps.ipfs.outputs.ipfs_cid || 'Not uploaded' }}\` |
+
+          ### Verification
+
+          \`\`\`bash
+          # Download and verify
+          sha256sum -c ${{ steps.bundle.outputs.bundle_name }}.sha256
+
+          # View on IPFS (if uploaded)
+          # https://w3s.link/ipfs/${{ steps.ipfs.outputs.ipfs_cid || 'CID' }}
+          \`\`\`
+          EOF
+
+      - name: No commits found
+        if: steps.check_commits.outputs.has_commits == 'false'
+        run: |
+          echo "No SVC commits to archive"
+          echo "## SVC Archive: No Commits" >> $GITHUB_STEP_SUMMARY
+          echo "No commits found in \`${{ env.SVC_DIR }}\`" >> $GITHUB_STEP_SUMMARY
