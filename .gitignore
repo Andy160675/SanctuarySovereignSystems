@@ -1,11 +1,24 @@
-# Data Directories (Sovereign Data)
+# =============================================================================
+# SOVEREIGN SYSTEM .gitignore
+# =============================================================================
+
+# Data Directories (Sovereign Data - Instance Specific)
 Evidence/
 Property/
 Governance/Logs/
 
+# Chain Data (Instance Specific - Keep schema, exclude actual data)
+DATA/_anchor_chain.json
+DATA/_automation_log.json
+DATA/_commits/
+DATA/_chain_verifications/
+DATA/_pipelines/
+DATA/_work/
+
 # Environment & Secrets
 .env
 *.env
+!.env.example
 
 # Python
 __pycache__/
@@ -14,10 +27,17 @@ __pycache__/
 .venv/
 venv/
 env/
+.pytest_cache/
+*.egg-info/
 
 # Logs
 *.log
-*.jsonl
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+checkpoints.db
 
 # OS
 .DS_Store
@@ -26,3 +46,19 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Build artifacts
+dist/
+build/
+*.egg
+
+# Test artifacts
+.coverage
+htmlcov/
+
+# Legacy/Archive directories (cleanup candidates)
+boardroom-shell-complete/
+elite-truth/
+boardroom-poc/
+sovereign-core/
+truth-engine-complete/
