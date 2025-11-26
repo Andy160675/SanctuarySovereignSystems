@@ -498,4 +498,60 @@ def commit_governance_decision(
     }
 
     commit_path.write_text(json.dumps(commit_record, indent=2), encoding="utf-8")
+
+    # === LOCAL CRYPTO ANCHOR ===
+    # Append this commit to the sovereign hash chain
+    from src.boardroom.anchoring import append_anchor
+
+    anchor_receipt = append_anchor("governance_commit", commit_path)
+
+    # Write anchor receipt alongside commit
+    anchor_path = commit_path.with_suffix(".anchor.json")
+    anchor_path.write_text(json.dumps(anchor_receipt, indent=2), encoding="utf-8")
+
+    # === EXTERNAL ANCHOR (OPTIONAL, CONFIG-DRIVEN) ===
+    # This adds external non-repudiation without altering internal truth
+    try:
+        from src.boardroom.external_anchor import (
+            ExternalAnchorRequest,
+            anchor_externally,
+        )
+
+        ext_req = ExternalAnchorRequest(
+            session_id=decision.session_id,
+            commit_id=commit_record.get("commit_id", f"govcommit-{safe_session}"),
+            record_type="governance_commit",
+            payload_hash=anchor_receipt.get("payload_hash", ""),
+            chain_hash=anchor_receipt.get("chain_hash", ""),
+            merkle_root=merkle.get("root"),
+            timestamp=anchor_receipt.get("timestamp", iso_now()),
+            metadata={
+                "topic": decision.topic,
+                "file_path": str(commit_path),
+                "prev_chain_hash": anchor_receipt.get("prev_chain_hash"),
+            },
+        )
+
+        ext_receipt = anchor_externally(ext_req)
+
+        if ext_receipt is not None:
+            # Update commit record with external anchor info
+            commit_record["external_anchor"] = ext_receipt.to_dict()
+            commit_path.write_text(
+                json.dumps(commit_record, indent=2),
+                encoding="utf-8",
+            )
+    except Exception as e:
+        # Failure to externally anchor must NOT block internal truth
+        # But it SHOULD be visible for operators
+        commit_record["external_anchor"] = {
+            "status": "ERROR",
+            "error": str(e),
+            "note": "External anchoring failed but internal commit is valid",
+        }
+        commit_path.write_text(
+            json.dumps(commit_record, indent=2),
+            encoding="utf-8",
+        )
+
     return commit_path

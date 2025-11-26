@@ -1,0 +1,10 @@
+{
+  "backend": "none",
+  "dry_run": true,
+  "rfc3161_url": null,
+  "rfc3161_cert_path": null,
+  "ipfs_gateway": "https://ipfs.io/ipfs",
+  "ipfs_api_url": null,
+  "arweave_gateway": "https://arweave.net",
+  "arweave_wallet_path": null
+}
