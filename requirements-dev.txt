@@ -1,0 +1,16 @@
+# Development dependencies for Sovereign System
+# Install with: pip install -r requirements-dev.txt
+
+# Testing
+pytest>=7.0
+pytest-cov>=4.0
+pytest-json-report>=1.5
+
+# Type checking
+mypy>=1.0
+
+# Linting
+ruff>=0.1.0
+
+# Pre-commit hooks
+pre-commit>=3.0

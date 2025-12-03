@@ -1,0 +1,103 @@
+# =============================================================================
+# E2E TESTS WITH COVERAGE GATE
+# =============================================================================
+# Purpose: Enforce minimum coverage threshold - CI as constitutional court
+#
+# If tests pass but coverage is embarrassingly low, CI says "nope".
+# The code bends to the law, not the other way around.
+# =============================================================================
+
+name: e2e-tests
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+env:
+  PYTHON_VERSION: '3.11'
+  # Start conservative, ratchet up as coverage improves
+  COVERAGE_THRESHOLD: 40
+
+jobs:
+  e2e:
+    name: E2E Tests + Coverage Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+
+      - name: Create test directories
+        run: |
+          mkdir -p DATA/_commits
+          mkdir -p DATA/_chain_verifications
+          mkdir -p tests/e2e
+          echo "[]" > DATA/_anchor_chain.json
+
+      - name: Run E2E tests with coverage gate
+        id: e2e_tests
+        run: |
+          # Run E2E tests if they exist, fall back to all tests
+          if [ -d "tests/e2e" ] && [ "$(ls -A tests/e2e/*.py 2>/dev/null)" ]; then
+            pytest tests/e2e \
+              -vv \
+              --cov=. \
+              --cov-report=xml \
+              --cov-report=term-missing \
+              --cov-fail-under=${{ env.COVERAGE_THRESHOLD }}
+          else
+            # Run all tests with coverage if no e2e directory yet
+            pytest tests/ \
+              -vv \
+              --ignore=tests/red_team/ \
+              --ignore=tests/fuzz/ \
+              --cov=. \
+              --cov-report=xml \
+              --cov-report=term-missing \
+              --cov-fail-under=${{ env.COVERAGE_THRESHOLD }}
+          fi
+
+      - name: Upload coverage report
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-coverage-report
+          path: |
+            .coverage
+            coverage.xml
+          retention-days: 30
+
+      - name: Coverage Summary
+        if: always()
+        run: |
+          echo "## E2E Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Threshold | ${{ env.COVERAGE_THRESHOLD }}% |" >> $GITHUB_STEP_SUMMARY
+          echo "| Commit | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f coverage.xml ]; then
+            COVERAGE=$(python -c "import xml.etree.ElementTree as ET; tree = ET.parse('coverage.xml'); print(f\"{float(tree.getroot().get('line-rate', 0)) * 100:.1f}%\")" 2>/dev/null || echo "N/A")
+            echo "| Actual | $COVERAGE |" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "If this job failed due to coverage, you must:" >> $GITHUB_STEP_SUMMARY
+          echo "1. Add tests to increase coverage above ${{ env.COVERAGE_THRESHOLD }}%" >> $GITHUB_STEP_SUMMARY
+          echo "2. Or update COVERAGE_THRESHOLD in this workflow (requires justification)" >> $GITHUB_STEP_SUMMARY
