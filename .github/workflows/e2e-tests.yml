@@ -44,12 +44,14 @@ jobs:
           pip install -r requirements.txt
           if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
 
-      - name: Create test directories
+      - name: Create test directories and env
         run: |
           mkdir -p DATA/_commits
           mkdir -p DATA/_chain_verifications
           mkdir -p tests/e2e
           echo "[]" > DATA/_anchor_chain.json
+          # Copy .env.example to .env for tests that depend on it
+          if [ -f .env.example ]; then cp .env.example .env; fi
 
       - name: Run E2E tests with coverage gate
         id: e2e_tests
