@@ -20,6 +20,14 @@ DATA/_work/
 *.env
 !.env.example
 
+# Private Keys (NEVER commit)
+keys/
+*.pem
+*.key
+id_rsa*
+*.p12
+*.pfx
+
 # Python
 __pycache__/
 *.py[cod]

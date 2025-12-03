@@ -76,5 +76,53 @@
       "verified_anchors": 7
     },
     "error": null
+  },
+  {
+    "timestamp": "2025-11-29T10:43:10Z",
+    "commit_id": "govcommit-chain-verify-20251129T104310Z-b6457e17",
+    "session_id": "chain-verify-20251129T104310Z-b6457e17",
+    "action": "VERIFY_CHAIN_NOW",
+    "commit_path": "DATA\\_commits\\decision_chain-verify-20251129T104310Z-b6457e17.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "chain_verification",
+      "report_file": "DATA\\_chain_verifications\\verify_chain-verify-20251129T104310Z-b6457e17.json",
+      "status": "INVALID",
+      "total_anchors": 8,
+      "verified_anchors": 1
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-11-29T10:51:05Z",
+    "commit_id": "govcommit-chain-verify-20251129T105105Z-cba6ddc0",
+    "session_id": "chain-verify-20251129T105105Z-cba6ddc0",
+    "action": "VERIFY_CHAIN_NOW",
+    "commit_path": "DATA\\_commits\\decision_chain-verify-20251129T105105Z-cba6ddc0.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "chain_verification",
+      "report_file": "DATA\\_chain_verifications\\verify_chain-verify-20251129T105105Z-cba6ddc0.json",
+      "status": "INVALID",
+      "total_anchors": 9,
+      "verified_anchors": 2
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-11-29T11:02:46Z",
+    "commit_id": "govcommit-chain-verify-20251129T110246Z-b604feac",
+    "session_id": "chain-verify-20251129T110246Z-b604feac",
+    "action": "VERIFY_CHAIN_NOW",
+    "commit_path": "DATA\\_commits\\decision_chain-verify-20251129T110246Z-b604feac.json",
+    "status": "EXECUTED",
+    "pipeline_result": {
+      "pipeline": "chain_verification",
+      "report_file": "DATA\\_chain_verifications\\verify_chain-verify-20251129T110246Z-b604feac.json",
+      "status": "INVALID",
+      "total_anchors": 10,
+      "verified_anchors": 3
+    },
+    "error": null
   }
 ]

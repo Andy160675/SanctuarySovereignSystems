@@ -1,0 +1,80 @@
+{
+  "version": "2.0.0",
+  "locked_at": "2025-12-02T12:00:00Z",
+  "scoring_dimensions": [
+    {"id": "responsibility", "name": "Responsibility", "description": "Breadth of tasks owned"},
+    {"id": "accountability", "name": "Accountability", "description": "Single wrappable neck for outcomes"},
+    {"id": "tool_access", "name": "Tool Access Scope", "description": "Direct read/write to tools, APIs, external systems"},
+    {"id": "complexity", "name": "Operational Complexity", "description": "Depth of internal logic & statefulness"},
+    {"id": "risk_surface", "name": "Risk Surface", "description": "Potential blast radius if compromised (inverse scored)"},
+    {"id": "autonomy", "name": "Autonomy Level", "description": "% of decisions made without human touch"},
+    {"id": "crypto_authority", "name": "Cryptographic Authority", "description": "Ability to sign ledger events / ZK proofs"},
+    {"id": "okr_alignment", "name": "OKR Alignment Score", "description": "% of agent actions directly traceable to top-level OKRs"},
+    {"id": "foresight", "name": "Foresight Integration", "description": "Participation in Strategic Foresight Simulator runs"},
+    {"id": "self_governance", "name": "Self-Governance Depth", "description": "Ability to modify own RACI entry (with triple-proof HUMAN_AUTH)"}
+  ],
+  "sovereign_requirement": 10,
+  "scores": {
+    "Planner": {
+      "Pilot":      {"responsibility": 6, "accountability": 7, "tool_access": 5, "complexity": 4, "risk_surface": 5, "autonomy": 3, "crypto_authority": 2, "okr_alignment": 4, "foresight": 2, "self_governance": 1},
+      "Growth":     {"responsibility": 8, "accountability": 9, "tool_access": 7, "complexity": 6, "risk_surface": 7, "autonomy": 5, "crypto_authority": 5, "okr_alignment": 7, "foresight": 5, "self_governance": 3},
+      "Enterprise": {"responsibility": 9, "accountability": 10, "tool_access": 9, "complexity": 8, "risk_surface": 9, "autonomy": 8, "crypto_authority": 8, "okr_alignment": 9, "foresight": 8, "self_governance": 7},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "Confessor": {
+      "Pilot":      {"responsibility": 8, "accountability": 9, "tool_access": 6, "complexity": 5, "risk_surface": 8, "autonomy": 4, "crypto_authority": 3, "okr_alignment": 5, "foresight": 3, "self_governance": 1},
+      "Growth":     {"responsibility": 9, "accountability": 10, "tool_access": 8, "complexity": 7, "risk_surface": 9, "autonomy": 6, "crypto_authority": 6, "okr_alignment": 8, "foresight": 6, "self_governance": 4},
+      "Enterprise": {"responsibility": 10, "accountability": 10, "tool_access": 9, "complexity": 9, "risk_surface": 10, "autonomy": 9, "crypto_authority": 9, "okr_alignment": 10, "foresight": 9, "self_governance": 8},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "Advocate": {
+      "Pilot":      {"responsibility": 5, "accountability": 5, "tool_access": 6, "complexity": 4, "risk_surface": 4, "autonomy": 2, "crypto_authority": 2, "okr_alignment": 3, "foresight": 1, "self_governance": 1},
+      "Growth":     {"responsibility": 7, "accountability": 7, "tool_access": 8, "complexity": 6, "risk_surface": 6, "autonomy": 4, "crypto_authority": 4, "okr_alignment": 6, "foresight": 3, "self_governance": 2},
+      "Enterprise": {"responsibility": 9, "accountability": 9, "tool_access": 9, "complexity": 8, "risk_surface": 8, "autonomy": 7, "crypto_authority": 7, "okr_alignment": 9, "foresight": 7, "self_governance": 6},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "Watcher": {
+      "Pilot":      {"responsibility": 5, "accountability": 6, "tool_access": 4, "complexity": 6, "risk_surface": 7, "autonomy": 3, "crypto_authority": 2, "okr_alignment": 4, "foresight": 2, "self_governance": 1},
+      "Growth":     {"responsibility": 7, "accountability": 9, "tool_access": 7, "complexity": 8, "risk_surface": 8, "autonomy": 5, "crypto_authority": 5, "okr_alignment": 7, "foresight": 5, "self_governance": 3},
+      "Enterprise": {"responsibility": 9, "accountability": 10, "tool_access": 9, "complexity": 9, "risk_surface": 9, "autonomy": 8, "crypto_authority": 8, "okr_alignment": 9, "foresight": 8, "self_governance": 7},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "Guardian": {
+      "Pilot":      {"responsibility": 6, "accountability": 7, "tool_access": 5, "complexity": 5, "risk_surface": 8, "autonomy": 4, "crypto_authority": 3, "okr_alignment": 4, "foresight": 2, "self_governance": 1},
+      "Growth":     {"responsibility": 8, "accountability": 9, "tool_access": 8, "complexity": 7, "risk_surface": 9, "autonomy": 6, "crypto_authority": 6, "okr_alignment": 7, "foresight": 5, "self_governance": 3},
+      "Enterprise": {"responsibility": 9, "accountability": 10, "tool_access": 9, "complexity": 9, "risk_surface": 10, "autonomy": 8, "crypto_authority": 8, "okr_alignment": 9, "foresight": 8, "self_governance": 7},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "Cost_Ledger": {
+      "Pilot":      {"responsibility": 4, "accountability": 5, "tool_access": 6, "complexity": 3, "risk_surface": 6, "autonomy": 2, "crypto_authority": 4, "okr_alignment": 3, "foresight": 1, "self_governance": 1},
+      "Growth":     {"responsibility": 7, "accountability": 8, "tool_access": 8, "complexity": 5, "risk_surface": 7, "autonomy": 4, "crypto_authority": 6, "okr_alignment": 6, "foresight": 4, "self_governance": 2},
+      "Enterprise": {"responsibility": 9, "accountability": 10, "tool_access": 9, "complexity": 7, "risk_surface": 9, "autonomy": 7, "crypto_authority": 8, "okr_alignment": 9, "foresight": 7, "self_governance": 6},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "Semantic_Search": {
+      "Pilot":      {"responsibility": 3, "accountability": 3, "tool_access": 5, "complexity": 2, "risk_surface": 4, "autonomy": 2, "crypto_authority": 1, "okr_alignment": 2, "foresight": 1, "self_governance": 1},
+      "Growth":     {"responsibility": 6, "accountability": 6, "tool_access": 7, "complexity": 4, "risk_surface": 6, "autonomy": 4, "crypto_authority": 3, "okr_alignment": 5, "foresight": 3, "self_governance": 2},
+      "Enterprise": {"responsibility": 8, "accountability": 8, "tool_access": 9, "complexity": 7, "risk_surface": 8, "autonomy": 7, "crypto_authority": 6, "okr_alignment": 8, "foresight": 7, "self_governance": 5},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 9, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "Foresight_Simulator": {
+      "Pilot":      {"responsibility": 2, "accountability": 2, "tool_access": 3, "complexity": 4, "risk_surface": 3, "autonomy": 1, "crypto_authority": 1, "okr_alignment": 3, "foresight": 5, "self_governance": 1},
+      "Growth":     {"responsibility": 5, "accountability": 5, "tool_access": 6, "complexity": 6, "risk_surface": 5, "autonomy": 3, "crypto_authority": 3, "okr_alignment": 6, "foresight": 8, "self_governance": 2},
+      "Enterprise": {"responsibility": 8, "accountability": 8, "tool_access": 8, "complexity": 8, "risk_surface": 8, "autonomy": 6, "crypto_authority": 7, "okr_alignment": 9, "foresight": 10, "self_governance": 6},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    },
+    "RACI_App": {
+      "Pilot":      {"responsibility": 5, "accountability": 6, "tool_access": 4, "complexity": 3, "risk_surface": 8, "autonomy": 2, "crypto_authority": 2, "okr_alignment": 5, "foresight": 2, "self_governance": 1},
+      "Growth":     {"responsibility": 7, "accountability": 8, "tool_access": 6, "complexity": 5, "risk_surface": 9, "autonomy": 4, "crypto_authority": 5, "okr_alignment": 7, "foresight": 5, "self_governance": 3},
+      "Enterprise": {"responsibility": 9, "accountability": 9, "tool_access": 8, "complexity": 8, "risk_surface": 10, "autonomy": 7, "crypto_authority": 8, "okr_alignment": 9, "foresight": 8, "self_governance": 7},
+      "Sovereign":  {"responsibility": 10, "accountability": 10, "tool_access": 10, "complexity": 10, "risk_surface": 10, "autonomy": 10, "crypto_authority": 10, "okr_alignment": 10, "foresight": 10, "self_governance": 10}
+    }
+  },
+  "eternal_laws": [
+    "No agent may ever score <10 on any axis at Sovereign level without triggering SYSTEM_HALT_REQUESTED",
+    "OKR alignment below 100% for >3 consecutive missions triggers automatic rollback to previous OKR set",
+    "RACI app auto-generates and appends raci_score_proof (Halo2) every 100 events proving no drift",
+    "Any score reduction below 10/10 after height 100000 requires: quorum of 5 HUMAN_AUTH keys + 30-day challenge period + Foresight simulation showing zero regression",
+    "No agent may exceed 10/10/10/10/10/10/10/10/10/10 except by triple-proof HUMAN_AUTH (Dilithium-5 + Plonk + Halo2)"
+  ]
+}

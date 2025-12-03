@@ -1,0 +1,33 @@
+name: Claims Check
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  claims_validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+
+      - name: Validate claims against artifacts
+        run: python scripts/validate_claims_against_artifacts.py
+
+      - name: Upload claims report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: claims-report
+          path: artifacts/claims_report.json

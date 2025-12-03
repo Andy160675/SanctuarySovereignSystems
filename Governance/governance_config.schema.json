@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sovereign System Governance Configuration",
+  "type": "object",
+  "required": [
+    "constitution_version",
+    "core_principles",
+    "phases",
+    "risk_gating",
+    "trinity",
+    "amendments",
+    "kill_switch"
+  ],
+  "properties": {
+    "constitution_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "last_amended": {
+      "type": "string",
+      "format": "date"
+    },
+    "ratified_by": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "core_principles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CP-\\d{3}$" },
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    },
+    "phases": {
+      "type": "object",
+      "required": ["active", "total", "promotion_requires"],
+      "properties": {
+        "active": { "type": "integer", "minimum": 0 },
+        "total": { "type": "integer", "minimum": 1 },
+        "promotion_requires": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "risk_gating": {
+      "type": "object",
+      "required": ["LOW", "MEDIUM", "HIGH"],
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "auto_approve_in_phase": { "type": ["integer", "null"] },
+          "human_approve_in_phase": { "type": "integer" },
+          "trinity_consensus_required": { "type": "boolean" }
+        }
+      }
+    },
+    "trinity": {
+      "type": "object",
+      "required": ["agents", "voting"],
+      "properties": {
+        "agents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 3
+        },
+        "voting": {
+          "type": "object",
+          "required": ["approval_threshold", "quorum_required"],
+          "properties": {
+            "approval_threshold": { "type": "number", "minimum": 0, "maximum": 1 },
+            "amendment_threshold": { "type": "number", "minimum": 0, "maximum": 1 },
+            "quorum_required": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "amendments": {
+      "type": "object",
+      "required": ["proposal_must_include", "forbidden_without_board", "approval_process"],
+      "properties": {
+        "proposal_must_include": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "forbidden_without_board": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "approval_process": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "kill_switch": {
+      "type": "object",
+      "required": ["enabled", "authorized_triggers", "scope"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "authorized_triggers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "scope": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "requires_evidence": { "type": "boolean" }
+      }
+    }
+  }
+}

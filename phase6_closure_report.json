@@ -1,0 +1,813 @@
+{
+  "test_start": "2025-12-02T22:37:59.786360+00:00",
+  "test_end": "2025-12-02T22:40:58.056607+00:00",
+  "blocks_tested": 100,
+  "consecutive_passes": 100,
+  "max_latency_s": 1.7950213,
+  "p9999_latency_s": 1.7950213,
+  "constitutional_ceiling_s": 2.8,
+  "all_blocks_passed": true,
+  "closure_status": "CLOSED",
+  "block_results": [
+    {
+      "block_height": 149300,
+      "status": "PASS",
+      "total_latency_s": 1.7832311,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:37:59.786372+00:00"
+    },
+    {
+      "block_height": 149301,
+      "status": "PASS",
+      "total_latency_s": 1.7816042,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:01.569674+00:00"
+    },
+    {
+      "block_height": 149302,
+      "status": "PASS",
+      "total_latency_s": 1.7813011,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:03.351349+00:00"
+    },
+    {
+      "block_height": 149303,
+      "status": "PASS",
+      "total_latency_s": 1.781523,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:05.132839+00:00"
+    },
+    {
+      "block_height": 149304,
+      "status": "PASS",
+      "total_latency_s": 1.7814479,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:06.914480+00:00"
+    },
+    {
+      "block_height": 149305,
+      "status": "PASS",
+      "total_latency_s": 1.7814764,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:08.696023+00:00"
+    },
+    {
+      "block_height": 149306,
+      "status": "PASS",
+      "total_latency_s": 1.781665,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:10.477570+00:00"
+    },
+    {
+      "block_height": 149307,
+      "status": "PASS",
+      "total_latency_s": 1.7813738,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:12.259314+00:00"
+    },
+    {
+      "block_height": 149308,
+      "status": "PASS",
+      "total_latency_s": 1.7826403,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:14.040766+00:00"
+    },
+    {
+      "block_height": 149309,
+      "status": "PASS",
+      "total_latency_s": 1.7811775,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:15.823472+00:00"
+    },
+    {
+      "block_height": 149310,
+      "status": "PASS",
+      "total_latency_s": 1.7811542,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:17.604833+00:00"
+    },
+    {
+      "block_height": 149311,
+      "status": "PASS",
+      "total_latency_s": 1.7820079,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:19.386050+00:00"
+    },
+    {
+      "block_height": 149312,
+      "status": "PASS",
+      "total_latency_s": 1.7821477,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:21.168107+00:00"
+    },
+    {
+      "block_height": 149313,
+      "status": "PASS",
+      "total_latency_s": 1.7813253,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:22.950345+00:00"
+    },
+    {
+      "block_height": 149314,
+      "status": "PASS",
+      "total_latency_s": 1.7821355,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:24.731908+00:00"
+    },
+    {
+      "block_height": 149315,
+      "status": "PASS",
+      "total_latency_s": 1.7818508,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:26.514160+00:00"
+    },
+    {
+      "block_height": 149316,
+      "status": "PASS",
+      "total_latency_s": 1.782256,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:28.296086+00:00"
+    },
+    {
+      "block_height": 149317,
+      "status": "PASS",
+      "total_latency_s": 1.7821771,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:30.078629+00:00"
+    },
+    {
+      "block_height": 149318,
+      "status": "PASS",
+      "total_latency_s": 1.7841857,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:31.860954+00:00"
+    },
+    {
+      "block_height": 149319,
+      "status": "PASS",
+      "total_latency_s": 1.7816487,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:33.645210+00:00"
+    },
+    {
+      "block_height": 149320,
+      "status": "PASS",
+      "total_latency_s": 1.7824261,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:35.426927+00:00"
+    },
+    {
+      "block_height": 149321,
+      "status": "PASS",
+      "total_latency_s": 1.7820851,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:37.209420+00:00"
+    },
+    {
+      "block_height": 149322,
+      "status": "PASS",
+      "total_latency_s": 1.7812591,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:38.991570+00:00"
+    },
+    {
+      "block_height": 149323,
+      "status": "PASS",
+      "total_latency_s": 1.7817625,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:40.772878+00:00"
+    },
+    {
+      "block_height": 149324,
+      "status": "PASS",
+      "total_latency_s": 1.7882479,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:42.554725+00:00"
+    },
+    {
+      "block_height": 149325,
+      "status": "PASS",
+      "total_latency_s": 1.7825369,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:44.343202+00:00"
+    },
+    {
+      "block_height": 149326,
+      "status": "PASS",
+      "total_latency_s": 1.7823134,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:46.125810+00:00"
+    },
+    {
+      "block_height": 149327,
+      "status": "PASS",
+      "total_latency_s": 1.7825611,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:47.908194+00:00"
+    },
+    {
+      "block_height": 149328,
+      "status": "PASS",
+      "total_latency_s": 1.7816158,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:49.690810+00:00"
+    },
+    {
+      "block_height": 149329,
+      "status": "PASS",
+      "total_latency_s": 1.7827964,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:51.472477+00:00"
+    },
+    {
+      "block_height": 149330,
+      "status": "PASS",
+      "total_latency_s": 1.7826487,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:53.255322+00:00"
+    },
+    {
+      "block_height": 149331,
+      "status": "PASS",
+      "total_latency_s": 1.7842377,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:55.038035+00:00"
+    },
+    {
+      "block_height": 149332,
+      "status": "PASS",
+      "total_latency_s": 1.782288,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:56.822345+00:00"
+    },
+    {
+      "block_height": 149333,
+      "status": "PASS",
+      "total_latency_s": 1.7815677,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:38:58.604735+00:00"
+    },
+    {
+      "block_height": 149334,
+      "status": "PASS",
+      "total_latency_s": 1.7818657,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:00.386351+00:00"
+    },
+    {
+      "block_height": 149335,
+      "status": "PASS",
+      "total_latency_s": 1.7823098,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:02.168261+00:00"
+    },
+    {
+      "block_height": 149336,
+      "status": "PASS",
+      "total_latency_s": 1.7827317,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:03.950648+00:00"
+    },
+    {
+      "block_height": 149337,
+      "status": "PASS",
+      "total_latency_s": 1.7822692,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:05.733469+00:00"
+    },
+    {
+      "block_height": 149338,
+      "status": "PASS",
+      "total_latency_s": 1.7818113,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:07.515803+00:00"
+    },
+    {
+      "block_height": 149339,
+      "status": "PASS",
+      "total_latency_s": 1.7818254,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:09.297743+00:00"
+    },
+    {
+      "block_height": 149340,
+      "status": "PASS",
+      "total_latency_s": 1.7806457,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:11.080053+00:00"
+    },
+    {
+      "block_height": 149341,
+      "status": "PASS",
+      "total_latency_s": 1.7852748,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:12.860751+00:00"
+    },
+    {
+      "block_height": 149342,
+      "status": "PASS",
+      "total_latency_s": 1.7819788,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:14.646101+00:00"
+    },
+    {
+      "block_height": 149343,
+      "status": "PASS",
+      "total_latency_s": 1.7811622,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:16.428134+00:00"
+    },
+    {
+      "block_height": 149344,
+      "status": "PASS",
+      "total_latency_s": 1.7816434,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:18.209357+00:00"
+    },
+    {
+      "block_height": 149345,
+      "status": "PASS",
+      "total_latency_s": 1.7809848,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:19.991070+00:00"
+    },
+    {
+      "block_height": 149346,
+      "status": "PASS",
+      "total_latency_s": 1.7824489,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:21.772124+00:00"
+    },
+    {
+      "block_height": 149347,
+      "status": "PASS",
+      "total_latency_s": 1.7818931,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:23.554674+00:00"
+    },
+    {
+      "block_height": 149348,
+      "status": "PASS",
+      "total_latency_s": 1.7831172,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:25.336676+00:00"
+    },
+    {
+      "block_height": 149349,
+      "status": "PASS",
+      "total_latency_s": 1.7828779,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:27.119861+00:00"
+    },
+    {
+      "block_height": 149350,
+      "status": "PASS",
+      "total_latency_s": 1.7840701,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:28.902807+00:00"
+    },
+    {
+      "block_height": 149351,
+      "status": "PASS",
+      "total_latency_s": 1.7816801,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:30.686941+00:00"
+    },
+    {
+      "block_height": 149352,
+      "status": "PASS",
+      "total_latency_s": 1.7876605,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:32.468749+00:00"
+    },
+    {
+      "block_height": 149353,
+      "status": "PASS",
+      "total_latency_s": 1.7814606,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:34.256581+00:00"
+    },
+    {
+      "block_height": 149354,
+      "status": "PASS",
+      "total_latency_s": 1.7824872,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:36.038105+00:00"
+    },
+    {
+      "block_height": 149355,
+      "status": "PASS",
+      "total_latency_s": 1.7809663,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:37.820660+00:00"
+    },
+    {
+      "block_height": 149356,
+      "status": "PASS",
+      "total_latency_s": 1.7823134,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:39.601719+00:00"
+    },
+    {
+      "block_height": 149357,
+      "status": "PASS",
+      "total_latency_s": 1.7836724,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:41.384103+00:00"
+    },
+    {
+      "block_height": 149358,
+      "status": "PASS",
+      "total_latency_s": 1.7825183,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:43.167857+00:00"
+    },
+    {
+      "block_height": 149359,
+      "status": "PASS",
+      "total_latency_s": 1.781697,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:44.950447+00:00"
+    },
+    {
+      "block_height": 149360,
+      "status": "PASS",
+      "total_latency_s": 1.7811721,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:46.732315+00:00"
+    },
+    {
+      "block_height": 149361,
+      "status": "PASS",
+      "total_latency_s": 1.7816769,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:48.513657+00:00"
+    },
+    {
+      "block_height": 149362,
+      "status": "PASS",
+      "total_latency_s": 1.7815086,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:50.295595+00:00"
+    },
+    {
+      "block_height": 149363,
+      "status": "PASS",
+      "total_latency_s": 1.7825742,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:52.077170+00:00"
+    },
+    {
+      "block_height": 149364,
+      "status": "PASS",
+      "total_latency_s": 1.7833148,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:53.859811+00:00"
+    },
+    {
+      "block_height": 149365,
+      "status": "PASS",
+      "total_latency_s": 1.7822713,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:55.643199+00:00"
+    },
+    {
+      "block_height": 149366,
+      "status": "PASS",
+      "total_latency_s": 1.7807874,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:57.425585+00:00"
+    },
+    {
+      "block_height": 149367,
+      "status": "PASS",
+      "total_latency_s": 1.7825969,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:39:59.206421+00:00"
+    },
+    {
+      "block_height": 149368,
+      "status": "PASS",
+      "total_latency_s": 1.7821691,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:00.989062+00:00"
+    },
+    {
+      "block_height": 149369,
+      "status": "PASS",
+      "total_latency_s": 1.7811516,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:02.771280+00:00"
+    },
+    {
+      "block_height": 149370,
+      "status": "PASS",
+      "total_latency_s": 1.7879324,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:04.552478+00:00"
+    },
+    {
+      "block_height": 149371,
+      "status": "PASS",
+      "total_latency_s": 1.7828602,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:06.340456+00:00"
+    },
+    {
+      "block_height": 149372,
+      "status": "PASS",
+      "total_latency_s": 1.787961,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:08.123391+00:00"
+    },
+    {
+      "block_height": 149373,
+      "status": "PASS",
+      "total_latency_s": 1.7819454,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:09.911428+00:00"
+    },
+    {
+      "block_height": 149374,
+      "status": "PASS",
+      "total_latency_s": 1.7829238,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:11.693463+00:00"
+    },
+    {
+      "block_height": 149375,
+      "status": "PASS",
+      "total_latency_s": 1.783423,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:13.476437+00:00"
+    },
+    {
+      "block_height": 149376,
+      "status": "PASS",
+      "total_latency_s": 1.7815873,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:15.259925+00:00"
+    },
+    {
+      "block_height": 149377,
+      "status": "PASS",
+      "total_latency_s": 1.7808947,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:17.041579+00:00"
+    },
+    {
+      "block_height": 149378,
+      "status": "PASS",
+      "total_latency_s": 1.7810556,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:18.822541+00:00"
+    },
+    {
+      "block_height": 149379,
+      "status": "PASS",
+      "total_latency_s": 1.7825994,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:20.603661+00:00"
+    },
+    {
+      "block_height": 149380,
+      "status": "PASS",
+      "total_latency_s": 1.7838386,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:22.386421+00:00"
+    },
+    {
+      "block_height": 149381,
+      "status": "PASS",
+      "total_latency_s": 1.7812571,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:24.170405+00:00"
+    },
+    {
+      "block_height": 149382,
+      "status": "PASS",
+      "total_latency_s": 1.7852548,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:25.951715+00:00"
+    },
+    {
+      "block_height": 149383,
+      "status": "PASS",
+      "total_latency_s": 1.7852082,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:27.737040+00:00"
+    },
+    {
+      "block_height": 149384,
+      "status": "PASS",
+      "total_latency_s": 1.7807298,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:29.522329+00:00"
+    },
+    {
+      "block_height": 149385,
+      "status": "PASS",
+      "total_latency_s": 1.7819931,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:31.303108+00:00"
+    },
+    {
+      "block_height": 149386,
+      "status": "PASS",
+      "total_latency_s": 1.7854484,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:33.085175+00:00"
+    },
+    {
+      "block_height": 149387,
+      "status": "PASS",
+      "total_latency_s": 1.7815835,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:34.870675+00:00"
+    },
+    {
+      "block_height": 149388,
+      "status": "PASS",
+      "total_latency_s": 1.7825239,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:36.652304+00:00"
+    },
+    {
+      "block_height": 149389,
+      "status": "PASS",
+      "total_latency_s": 1.781565,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:38.434895+00:00"
+    },
+    {
+      "block_height": 149390,
+      "status": "PASS",
+      "total_latency_s": 1.7827884,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:40.216534+00:00"
+    },
+    {
+      "block_height": 149391,
+      "status": "PASS",
+      "total_latency_s": 1.782136,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:41.999390+00:00"
+    },
+    {
+      "block_height": 149392,
+      "status": "PASS",
+      "total_latency_s": 1.7824659,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:43.781591+00:00"
+    },
+    {
+      "block_height": 149393,
+      "status": "PASS",
+      "total_latency_s": 1.7821884,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:45.564148+00:00"
+    },
+    {
+      "block_height": 149394,
+      "status": "PASS",
+      "total_latency_s": 1.7824756,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:47.346429+00:00"
+    },
+    {
+      "block_height": 149395,
+      "status": "PASS",
+      "total_latency_s": 1.7828694,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:49.129081+00:00"
+    },
+    {
+      "block_height": 149396,
+      "status": "PASS",
+      "total_latency_s": 1.7827015,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:50.912017+00:00"
+    },
+    {
+      "block_height": 149397,
+      "status": "PASS",
+      "total_latency_s": 1.7850057,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:52.694798+00:00"
+    },
+    {
+      "block_height": 149398,
+      "status": "PASS",
+      "total_latency_s": 1.7815744,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:54.479876+00:00"
+    },
+    {
+      "block_height": 149399,
+      "status": "PASS",
+      "total_latency_s": 1.7950213,
+      "event_sequence_valid": true,
+      "within_ceiling": true,
+      "timestamp": "2025-12-02T22:40:56.261519+00:00"
+    }
+  ]
+}

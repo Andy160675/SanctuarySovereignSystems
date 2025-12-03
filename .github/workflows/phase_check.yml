@@ -1,0 +1,50 @@
+name: Phase 0 Gate
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  phase0_gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml jsonschema
+
+      - name: Validate Phase 0 definition
+        run: python scripts/validate_phase.py governance/phases/phase0.yaml
+
+      - name: Check ledger integrity
+        run: python scripts/ledger_integrity_test.py
+
+      - name: Verify ACTIVE_PHASE file
+        run: |
+          if [ -f "governance/ACTIVE_PHASE" ]; then
+            PHASE=$(cat governance/ACTIVE_PHASE)
+            echo "Active phase: $PHASE"
+            if [ "$PHASE" -ne 0 ]; then
+              echo "WARNING: Not in Phase 0"
+            fi
+          else
+            echo "ERROR: ACTIVE_PHASE file not found"
+            exit 1
+          fi

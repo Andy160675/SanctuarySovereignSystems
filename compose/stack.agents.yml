@@ -1,0 +1,63 @@
+# Sovereign System - Agent Stack (Worker Nodes)
+# Deploy with: docker stack deploy -c compose/stack.agents.yml mission
+# Requires: mission-network overlay created first
+# Run AFTER stack.control-plane.yml is deployed on manager
+
+version: '3.8'
+
+services:
+  advocate:
+    image: sovereign/advocate:latest
+    environment:
+      - AGENT_NAME=advocate
+      - POLICY_URL=http://policy_gate:8181/v1/data/mission/authz
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+      - FILESYSTEM_URL=http://filesystem-proxy:8080
+      - OLLAMA_URL=http://ollama:11434
+      - PLANNER_URL=http://planner:8000
+      - LEDGER_URL=http://ledger_service:8082
+      - MODEL_NAME=llama3.2
+    networks:
+      - mission-network
+    deploy:
+      placement:
+        constraints:
+          - "node.role == worker"
+      replicas: 1
+      labels:
+        mission.role: "agent"
+        mission.agent-type: "advocate"
+        mission.killable: "true"
+    labels:
+      mission.role: "agent"
+      mission.agent-type: "advocate"
+      mission.killable: "true"
+
+  confessor:
+    image: sovereign/confessor:latest
+    environment:
+      - AGENT_NAME=confessor
+      - POLICY_URL=http://policy_gate:8181/v1/data/mission/authz
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+      - LEDGER_URL=http://ledger_service:8082
+      - OLLAMA_URL=http://ollama:11434
+      - MODEL_NAME=llama3.2
+    networks:
+      - mission-network
+    deploy:
+      placement:
+        constraints:
+          - "node.role == worker"
+      replicas: 1
+      labels:
+        mission.role: "agent"
+        mission.agent-type: "confessor"
+        mission.killable: "true"
+    labels:
+      mission.role: "agent"
+      mission.agent-type: "confessor"
+      mission.killable: "true"
+
+networks:
+  mission-network:
+    external: true

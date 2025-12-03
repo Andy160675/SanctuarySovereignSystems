@@ -1,0 +1,97 @@
+# Sovereign System - Control Plane Stack (Manager Node Only)
+# Deploy with: docker stack deploy -c compose/stack.control-plane.yml mission
+# Requires: mission-network overlay created first
+
+version: '3.8'
+
+services:
+  ledger_service:
+    image: sovereign/ledger_service:latest
+    ports:
+      - "8082:8082"
+    volumes:
+      - ledger-data:/data
+    environment:
+      - LEDGER_PATH=/data/ledger.jsonl
+      - HASH_CHAIN=true
+    networks:
+      - mission-network
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+      replicas: 1
+
+  evidence_writer:
+    image: sovereign/evidence_writer:latest
+    ports:
+      - "8083:8080"
+    volumes:
+      - evidence-data:/evidence
+    environment:
+      - EVIDENCE_PATH=/evidence
+      - LEDGER_URL=http://ledger_service:8082/append
+    networks:
+      - mission-network
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+      replicas: 1
+
+  control_killswitch:
+    image: sovereign/control_killswitch:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - LEDGER_URL=http://ledger_service:8082/append
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+    networks:
+      - mission-network
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+      replicas: 1
+
+  policy_gate:
+    image: sovereign/policy_gate:latest
+    ports:
+      - "8181:8181"
+    networks:
+      - mission-network
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+      replicas: 1
+
+  planner:
+    image: sovereign/planner:latest
+    ports:
+      - "8090:8000"
+    environment:
+      - AGENT_NAME=planner
+      - OLLAMA_URL=http://ollama:11434
+      - ADVOCATE_URL=http://advocate:8000
+      - LEDGER_URL=http://ledger_service:8082
+      - EVIDENCE_URL=http://evidence_writer:8080
+      - MODEL_NAME=llama3.2
+    networks:
+      - mission-network
+    deploy:
+      placement:
+        constraints:
+          - "node.role == manager"
+      replicas: 1
+
+volumes:
+  ledger-data:
+  evidence-data:
+
+networks:
+  mission-network:
+    external: true

@@ -1,0 +1,110 @@
+# Sovereign System Claims Registry
+# =================================
+# This file contains all claims about system capabilities.
+# Each claim must be backed by evidence: artifacts and/or tests.
+
+claims:
+  # Phase 0 Claims
+  - id: CLAIM-001
+    status: verified
+    phase_required: 0
+    claim: "System boots deterministically"
+    description: "The system produces identical boot behavior given identical inputs"
+    evidence:
+      - artifact: boot_manifest
+        description: "Boot manifest with commit hash and timestamp"
+      - test: boot_fixed_decision.py
+        description: "Fixed decision test produces consistent hash"
+
+  - id: CLAIM-002
+    status: verified
+    phase_required: 0
+    claim: "Ledger maintains hash chain integrity"
+    description: "All ledger entries are cryptographically chained"
+    evidence:
+      - artifact: ledger_genesis
+        description: "Genesis entry in ledger"
+      - test: ledger_integrity_test.py
+        description: "Ledger hash chain verification"
+
+  - id: CLAIM-003
+    status: pending
+    phase_required: 0
+    claim: "API produces consistent outputs for identical inputs"
+    description: "The decision API is deterministic"
+    evidence:
+      - artifact: decision_baseline_hash
+        description: "Baseline hash of decision output"
+      - test: api_determinism_test.py
+        description: "API determinism verification"
+
+  - id: CLAIM-004
+    status: pending
+    phase_required: 0
+    claim: "All actions are logged to immutable ledger"
+    description: "No action can occur without a ledger entry"
+    evidence:
+      - test: audit_completeness_test.py
+        description: "Verifies all API calls produce ledger entries"
+
+  # Phase 1 Claims
+  - id: CLAIM-005
+    status: prohibited_until_phase_1
+    phase_required: 1
+    claim: "Missions execute only with human approval"
+    description: "Human-in-the-loop governance is enforced"
+    evidence:
+      - artifact: approval_audit_trail
+        description: "Trail of human approvals"
+      - test: mission_approval_workflow_test.py
+        description: "Approval workflow verification"
+
+  - id: CLAIM-006
+    status: prohibited_until_phase_1
+    phase_required: 1
+    claim: "Policy gate enforces governance rules"
+    description: "OPA policy gate blocks unauthorized actions"
+    evidence:
+      - test: policy_gate_enforcement_test.py
+        description: "Policy gate enforcement verification"
+
+  # Phase 2 Claims
+  - id: CLAIM-007
+    status: prohibited_until_phase_2
+    phase_required: 2
+    claim: "Low-risk missions execute automatically"
+    description: "Risk-based auto-execution is functional"
+    evidence:
+      - test: auto_execution_low_risk_test.py
+        description: "Auto-execution for LOW risk"
+
+  - id: CLAIM-008
+    status: prohibited_until_phase_2
+    phase_required: 2
+    claim: "Circuit breaker protects against cascading failures"
+    description: "Circuit breaker pattern is implemented"
+    evidence:
+      - test: circuit_breaker_test.py
+        description: "Circuit breaker functionality"
+
+  # Phase 3 Claims
+  - id: CLAIM-009
+    status: prohibited_until_phase_3
+    phase_required: 3
+    claim: "System learns from operational outcomes"
+    description: "Feedback loop is active and improving model"
+    evidence:
+      - artifact: feedback_training_data
+        description: "Training data from successful missions"
+      - test: feedback_loop_validation_test.py
+        description: "Feedback loop verification"
+
+  # Phase 4 Claims
+  - id: CLAIM-010
+    status: prohibited_until_phase_4
+    phase_required: 4
+    claim: "Trinity consensus governs high-risk decisions"
+    description: "HIGH risk requires 75% Trinity approval"
+    evidence:
+      - test: trinity_consensus_test.py
+        description: "Trinity voting verification"

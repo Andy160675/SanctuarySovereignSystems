@@ -1,0 +1,656 @@
+# Sovereign System - Mission Runtime Stack
+# Charter-aligned governance with kill-switch capability
+# Run from dev container: docker compose -f compose/docker-compose.mission.yml up -d --build
+
+version: '3.8'
+
+services:
+  # ============================================
+  # CORE GOVERNANCE LAYER
+  # ============================================
+
+  # OPA Policy Gate - All decisions flow through here
+  policy_gate:
+    build:
+      context: ../services/policy_gate
+      dockerfile: Dockerfile
+    ports:
+      - "8181:8181"
+    volumes:
+      - ../policies:/policies:ro
+    environment:
+      - OPA_LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8181/v1/policies"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "governance"
+      mission.capability: "policy-enforcement"
+
+  # Ledger Service - Immutable audit trail
+  ledger_service:
+    build:
+      context: ../services/ledger_service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    volumes:
+      - ledger-data:/data
+    environment:
+      - LEDGER_PATH=/data/ledger.jsonl
+      - HASH_CHAIN=true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8082/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "audit"
+      mission.capability: "immutable-ledger"
+
+  # Evidence Writer - Structured evidence collection
+  evidence_writer:
+    build:
+      context: ../services/evidence_writer
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8080"
+    volumes:
+      - evidence-data:/evidence
+    environment:
+      - EVIDENCE_PATH=/evidence
+      - LEDGER_URL=http://ledger_service:8082/append
+    depends_on:
+      - ledger_service
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "audit"
+      mission.capability: "evidence-collection"
+
+  # Kill Switch - Emergency agent termination
+  control_killswitch:
+    build:
+      context: ../services/control_killswitch
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"  # DEV ONLY - remove for prod
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - LEDGER_URL=http://ledger_service:8082/append
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+    depends_on:
+      - ledger_service
+      - evidence_writer
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "control"
+      mission.capability: "emergency-stop"
+      mission.critical: "true"
+
+  # ============================================
+  # PROXY LAYER (Agent-facing)
+  # ============================================
+
+  # Filesystem Proxy - Controlled file access
+  filesystem-proxy:
+    build:
+      context: ../services/filesystem_proxy
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"  # DEV ONLY - remove for air-gapped/prod
+    volumes:
+      - tool-state:/state
+      - ../data:/data:ro
+    environment:
+      - STATE_ROOT=/state
+      - DATA_ROOT=/data
+      - POLICY_URL=http://policy_gate:8181/v1/data/mission/authz
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+    depends_on:
+      - policy_gate
+      - evidence_writer
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "tool"
+      mission.capability: "filesystem"
+      mission.data-scope: "restricted"
+
+  # API Gateway Proxy - External API access control
+  api-gateway-proxy:
+    build:
+      context: ../services/api_gateway_proxy
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      - POLICY_URL=http://policy_gate:8181/v1/data/mission/authz
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+      - ALLOWED_HOSTS=api.openai.com,api.anthropic.com
+    depends_on:
+      - policy_gate
+      - evidence_writer
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8084/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "tool"
+      mission.capability: "api-gateway"
+
+  # Database Proxy - Controlled DB access
+  db-proxy:
+    build:
+      context: ../services/db_proxy
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      - POLICY_URL=http://policy_gate:8181/v1/data/mission/authz
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING:-sqlite:///data/mission.db}
+    depends_on:
+      - policy_gate
+      - evidence_writer
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8085/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "tool"
+      mission.capability: "database"
+
+  # ============================================
+  # AGENT LAYER
+  # ============================================
+
+  # Planner Agent - Mission decomposition and orchestration
+  planner-agent:
+    build:
+      context: ../agents/planner
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8000"  # DEV ONLY - Planner API
+    environment:
+      - AGENT_NAME=planner
+      - OLLAMA_URL=http://ollama:11434
+      - ADVOCATE_URL=http://advocate-agent:8000
+      - CONFESSOR_URL=http://confessor-agent:8000
+      - LEDGER_URL=http://ledger_service:8082
+      - EVIDENCE_URL=http://evidence_writer:8080
+      - MODEL_NAME=llama3.2
+    depends_on:
+      - policy_gate
+      - evidence_writer
+      - ledger_service
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "agent"
+      mission.agent-type: "planner"
+      mission.killable: "true"
+
+  # Advocate Agent - Primary task executor (v2.0.0 with tool execution)
+  advocate-agent:
+    build:
+      context: ../agents/advocate
+      dockerfile: Dockerfile
+    ports:
+      - "8091:8000"  # DEV ONLY - Advocate API
+    environment:
+      - AGENT_NAME=advocate
+      - POLICY_URL=http://policy_gate:8181/v1/data/mission/authz
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+      - FILESYSTEM_URL=http://filesystem-proxy:8080
+      - API_GATEWAY_URL=http://api-gateway-proxy:8084
+      - DB_PROXY_URL=http://db-proxy:8085
+      - OLLAMA_URL=http://ollama:11434
+      - PLANNER_URL=http://planner-agent:8000
+      - LEDGER_URL=http://ledger_service:8082
+      - MODEL_NAME=llama3.2
+    depends_on:
+      - policy_gate
+      - evidence_writer
+      - filesystem-proxy
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "agent"
+      mission.agent-type: "advocate"
+      mission.killable: "true"
+
+  # Confessor Agent - Risk assessment and audit validation
+  confessor-agent:
+    build:
+      context: ../agents/confessor
+      dockerfile: Dockerfile
+    ports:
+      - "8092:8000"  # DEV ONLY - Confessor API
+    environment:
+      - AGENT_NAME=confessor
+      - POLICY_URL=http://policy_gate:8181/v1/data/mission/authz
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+      - LEDGER_URL=http://ledger_service:8082
+      - OLLAMA_URL=http://ollama:11434
+      - MODEL_NAME=llama3.2
+    depends_on:
+      - policy_gate
+      - evidence_writer
+      - ledger_service
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "agent"
+      mission.agent-type: "confessor"
+      mission.killable: "true"
+
+  # Watcher Agent - Dispute-clarity mirror for timeline reconstruction
+  # Now includes Guardian self-protection reflex
+  watcher-agent:
+    build:
+      context: ../agents/watcher
+      dockerfile: Dockerfile
+    ports:
+      - "8093:8000"  # DEV ONLY - Watcher API
+    environment:
+      - AGENT_NAME=watcher
+      - LEDGER_URL=http://ledger_service:8082
+      - EVIDENCE_URL=http://evidence_writer:8080
+      # Guardian Configuration
+      - CONTROL_KILL_URL=http://control_killswitch:8000/kill/label
+      - GUARDIAN_ENABLED=true
+      - GUARDIAN_LABEL=mission.killable=true
+      - WATCHER_ALERT_INTERVAL_SEC=300
+      - WATCHER_HIGH_THRESHOLD=3
+    depends_on:
+      - ledger_service
+      - control_killswitch
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "agent"
+      mission.agent-type: "watcher"
+      mission.killable: "false"  # Watcher is read-only, NEVER kill the observer
+
+  # ============================================
+  # INFRASTRUCTURE
+  # ============================================
+
+  # Ollama - Local LLM inference
+  # NOTE: Port 11434 not exposed - use host Ollama or change port if needed
+  ollama:
+    image: ollama/ollama:latest
+    # ports:
+    #   - "11434:11434"  # Commented out - host Ollama already using this port
+    volumes:
+      - ollama-data:/root/.ollama
+    environment:
+      - OLLAMA_MODELS=/root/.ollama/models
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 60s
+      timeout: 30s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "infrastructure"
+      mission.capability: "llm-inference"
+
+  # ============================================
+  # COMMAND CENTER & MONITORING
+  # ============================================
+
+  # Command Center Dashboard - Real-time system monitoring
+  command-center:
+    build:
+      context: ../services/command_center
+      dockerfile: Dockerfile
+    ports:
+      - "8100:8100"
+    environment:
+      - LEDGER_URL=http://ledger_service:8082
+      - LEDGER_WS_HOST=localhost
+      - LEDGER_WS_PORT=8082
+      - RUNTIME_INTERFACE_URL=http://runtime-interface:8096
+      - PLANNER_URL=http://planner-agent:8000
+      - ADVOCATE_URL=http://advocate-agent:8000
+      - CONFESSOR_URL=http://confessor-agent:8000
+      - WATCHER_URL=http://watcher-agent:8000
+      - POLICY_URL=http://policy_gate:8181
+      - KILLSWITCH_URL=http://control_killswitch:8000
+    depends_on:
+      - ledger_service
+      - runtime-interface
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8100/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "monitoring"
+      mission.capability: "dashboard"
+
+  # Anomaly Detector - Pattern recognition and alerting
+  anomaly-detector:
+    build:
+      context: ../services/anomaly_detector
+      dockerfile: Dockerfile
+    environment:
+      - LEDGER_WS_URL=ws://ledger_service:8082/ws/events
+      - LEDGER_URL=http://ledger_service:8082
+      - ALERT_THRESHOLD_GUARDIAN=3
+      - ALERT_THRESHOLD_FAILURES=5
+      - ALERT_THRESHOLD_HIGH_RISK=3
+      - EVENT_WINDOW_SECONDS=300
+    depends_on:
+      - ledger_service
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "monitoring"
+      mission.capability: "anomaly-detection"
+
+  # Amendment Service - Dynamic policy updates with Trinity voting
+  amendment-service:
+    build:
+      context: ../services/amendment_service
+      dockerfile: Dockerfile
+    ports:
+      - "8095:8095"
+    environment:
+      - LEDGER_URL=http://ledger_service:8082
+      - PLANNER_URL=http://planner-agent:8000
+      - ADVOCATE_URL=http://advocate-agent:8000
+      - CONFESSOR_URL=http://confessor-agent:8000
+    depends_on:
+      - ledger_service
+      - planner-agent
+      - advocate-agent
+      - confessor-agent
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8095/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "governance"
+      mission.capability: "constitutional-amendment"
+
+  # Runtime Interface - Unified API Gateway
+  runtime-interface:
+    build:
+      context: ../services/runtime_interface
+      dockerfile: Dockerfile
+    ports:
+      - "8096:8096"
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+      - MODEL_NAME=llama3.2
+      - PLANNER_URL=http://planner-agent:8000
+      - LEDGER_URL=http://ledger_service:8082
+      - POLICY_GATE_URL=http://policy_gate:8181
+      - POLICY_GATE_HEALTH=http://policy_gate:8181/v1/policies
+      - PLANNER_HEALTH=http://planner-agent:8000/health
+      - ADVOCATE_HEALTH=http://advocate-agent:8000/health
+      - CONFESSOR_HEALTH=http://confessor-agent:8000/health
+      - WATCHER_HEALTH=http://watcher-agent:8000/health
+      - LEDGER_HEALTH=http://ledger_service:8082/health
+      - KILLSWITCH_HEALTH=http://control_killswitch:8000/health
+      - AMENDMENT_HEALTH=http://amendment-service:8095/health
+    depends_on:
+      - ollama
+      - planner-agent
+      - ledger_service
+      - policy_gate
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8096/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "gateway"
+      mission.capability: "nl-interface"
+
+  # ============================================
+  # ACTUATOR LAYER
+  # ============================================
+
+  # Actuator Registry - Central discovery service for actuators
+  actuator_registry:
+    build:
+      context: ../services/actuator_registry
+      dockerfile: Dockerfile
+    ports:
+      - "5100:5100"
+    environment:
+      - HEALTH_CHECK_INTERVAL=30
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5100/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "infrastructure"
+      mission.capability: "actuator-discovery"
+
+  # Phase Status API - Governance state and claims validation
+  phase_status:
+    build:
+      context: ../services/phase_status
+      dockerfile: Dockerfile
+    ports:
+      - "8097:8097"
+    volumes:
+      - ../governance:/governance:ro
+      - ../claims:/claims:ro
+      - evidence-data:/artifacts:ro
+    environment:
+      - GOVERNANCE_ROOT=/governance
+      - ARTIFACTS_ROOT=/artifacts
+      - CLAIMS_ROOT=/claims
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8097/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "governance"
+      mission.capability: "phase-status"
+
+  # Legal Compliance Actuator - Contract review and policy checking
+  legal_compliance:
+    build:
+      context: ../services/legal_compliance
+      dockerfile: Dockerfile
+    ports:
+      - "5011:5011"
+    environment:
+      - ACTUATOR_REGISTRY_URL=http://actuator_registry:5100
+      - LEDGER_URL=http://ledger_service:8082
+      - EVIDENCE_URL=http://evidence_writer:8080/log
+    depends_on:
+      - ledger_service
+      - evidence_writer
+      - actuator_registry
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5011/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "actuator"
+      mission.capability: "legal-compliance"
+      mission.killable: "true"
+
+  # Cross-Domain Synthesis Agent - Holistic multi-sector risk assessment
+  synthesis_agent:
+    build:
+      context: ../services/synthesis_agent
+      dockerfile: Dockerfile
+    ports:
+      - "5800:5800"
+    environment:
+      - ACTUATOR_REGISTRY_URL=http://actuator_registry:5100
+      - OLLAMA_URL=http://ollama:11434
+      - MODEL_NAME=llama3.2
+      - LEDGER_URL=http://ledger_service:8082
+    depends_on:
+      - ollama
+      - actuator_registry
+      - ledger_service
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5800/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "agent"
+      mission.agent-type: "synthesis"
+      mission.capability: "cross-domain-analysis"
+      mission.killable: "true"
+
+  # ============================================
+  # BOARDROOM CONTROL PLANE
+  # ============================================
+
+  # Boardroom Coordinator - Elite control plane for 13-avatar governance
+  boardroom_coordinator:
+    build:
+      context: ../services/boardroom_coordinator
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8200"
+    environment:
+      - LEDGER_URL=http://ledger_service:8082
+    volumes:
+      - ../config:/app/config:ro
+    depends_on:
+      - ledger_service
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8200/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "governance"
+      mission.capability: "boardroom-coordination"
+      mission.critical: "true"
+
+  # RACI Matrix & Scoring App - Mission-critical governance artifact
+  raci_app:
+    build:
+      context: ../services/governance/raci_app
+      dockerfile: Dockerfile
+    ports:
+      - "8099:8099"
+    volumes:
+      - ../config:/app/config:ro
+    environment:
+      - LEDGER_URL=http://ledger_service:8082
+    depends_on:
+      - ledger_service
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8099/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+    labels:
+      mission.role: "governance"
+      mission.capability: "raci-scoring"
+      mission.critical: "true"
+
+# ============================================
+# VOLUMES
+# ============================================
+volumes:
+  ledger-data:
+    driver: local
+  evidence-data:
+    driver: local
+  tool-state:
+    driver: local
+  ollama-data:
+    driver: local
+
+# ============================================
+# NETWORKS
+# ============================================
+networks:
+  inner-mesh:
+    driver: bridge
+    labels:
+      mission.network: "inner-mesh"
+      mission.isolation: "true"

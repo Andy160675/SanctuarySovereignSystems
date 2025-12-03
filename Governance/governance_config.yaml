@@ -1,0 +1,103 @@
+# Sovereign System Governance Configuration
+# ==========================================
+# This file defines the constitutional rules that govern the system.
+# Changes require board approval and increment the constitution_version.
+
+constitution_version: "1.0.0"
+last_amended: "2025-12-02"
+ratified_by:
+  - "System Architect"
+  - "Board"
+
+# Core Principles (immutable)
+core_principles:
+  - id: CP-001
+    name: "Immutable Audit Trail"
+    description: "All actions must be logged to the ledger with hash chain integrity"
+
+  - id: CP-002
+    name: "Human Oversight"
+    description: "High-risk decisions require human approval"
+
+  - id: CP-003
+    name: "Constitutional Supremacy"
+    description: "No agent or process may override the constitution"
+
+  - id: CP-004
+    name: "Deterministic Behavior"
+    description: "Same inputs must produce same outputs in Phase 0"
+
+  - id: CP-005
+    name: "Graceful Degradation"
+    description: "System must fail safely, never silently"
+
+# Phase Configuration
+phases:
+  active: 0
+  total: 5
+  promotion_requires:
+    - automated_exit_tests_pass
+    - human_exit_conditions_met
+    - board_approval
+
+# Risk Gating
+risk_gating:
+  LOW:
+    auto_approve_in_phase: 2
+    human_approve_in_phase: 1
+  MEDIUM:
+    auto_approve_in_phase: 3
+    human_approve_in_phase: 2
+  HIGH:
+    auto_approve_in_phase: null  # Never auto-approve
+    human_approve_in_phase: 1
+    trinity_consensus_required: true
+
+# Trinity Configuration
+trinity:
+  agents:
+    - planner
+    - advocate
+    - confessor
+  voting:
+    approval_threshold: 0.75
+    amendment_threshold: 0.75
+    quorum_required: 3
+
+# Amendment Rules
+amendments:
+  proposal_must_include:
+    - justification
+    - impact_analysis
+    - rollback_plan
+  forbidden_without_board:
+    - core_principles_modification
+    - phase_demotion
+    - audit_trail_modification
+  approval_process:
+    - trinity_vote
+    - board_review
+    - 72_hour_waiting_period
+
+# Kill Switch
+kill_switch:
+  enabled: true
+  authorized_triggers:
+    - human_operator
+    - watcher_agent
+    - anomaly_detector
+  scope:
+    - individual_agent
+    - sector
+    - all_agents
+  requires_evidence: true
+
+# Actuator Governance
+actuators:
+  registration_requires:
+    - sector_declaration
+    - capability_list
+    - health_endpoint
+  health_check_interval_seconds: 30
+  unhealthy_threshold: 3
+  auto_deregister_on_unhealthy: true

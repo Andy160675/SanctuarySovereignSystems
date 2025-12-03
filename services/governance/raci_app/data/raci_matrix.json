@@ -1,0 +1,125 @@
+{
+  "version": "1.0.0",
+  "locked_at": "2025-12-02T12:00:00Z",
+  "expansion_levels": ["Pilot", "Growth", "Enterprise", "Sovereign"],
+  "agents": {
+    "Planner": {
+      "trinity": "Governance",
+      "description": "Mission decomposition and task orchestration",
+      "responsibilities": {
+        "Pilot": ["Mission Planning", "Task Decomposition"],
+        "Growth": ["Risk-Gated Execution", "Multi-Agent Coordination"],
+        "Enterprise": ["Cross-Domain Planning", "Resource Optimization"],
+        "Sovereign": ["Constitutional Compliance", "Full Autonomous Planning"]
+      }
+    },
+    "Confessor": {
+      "trinity": "Intelligence",
+      "description": "Risk assessment and ethical evaluation",
+      "responsibilities": {
+        "Pilot": ["Basic Risk Scoring"],
+        "Growth": ["Multi-Factor Risk Analysis", "Ethical Flagging"],
+        "Enterprise": ["Adversarial Risk Detection", "Compliance Verification"],
+        "Sovereign": ["Constitutional Risk Gating", "Full Ethical Oversight"]
+      }
+    },
+    "Advocate": {
+      "trinity": "Execution",
+      "description": "Task execution and evidence generation",
+      "responsibilities": {
+        "Pilot": ["Simple Task Execution"],
+        "Growth": ["Evidence-Generating Execution", "Audit Trail"],
+        "Enterprise": ["Multi-Step Workflows", "Error Recovery"],
+        "Sovereign": ["Autonomous Execution", "Self-Healing Operations"]
+      }
+    },
+    "Watcher": {
+      "trinity": "Support",
+      "description": "Real-time monitoring and timeline tracking",
+      "responsibilities": {
+        "Pilot": ["Basic Event Logging"],
+        "Growth": ["Timeline Correlation", "Anomaly Detection"],
+        "Enterprise": ["Cross-Service Monitoring", "Alert Escalation"],
+        "Sovereign": ["Predictive Monitoring", "Self-Healing Triggers"]
+      }
+    },
+    "Guardian": {
+      "trinity": "Execution",
+      "description": "Security enforcement and threat response",
+      "responsibilities": {
+        "Pilot": ["Basic Access Control"],
+        "Growth": ["Threat Detection", "Autopause Triggers"],
+        "Enterprise": ["Attack Surface Monitoring", "Incident Response"],
+        "Sovereign": ["Zero-Trust Enforcement", "Autonomous Defense"]
+      }
+    },
+    "Cost_Ledger": {
+      "trinity": "Governance",
+      "description": "Resource tracking and cost allocation",
+      "responsibilities": {
+        "Pilot": ["Basic Cost Logging"],
+        "Growth": ["Per-Mission Cost Tracking", "Budget Alerts"],
+        "Enterprise": ["Cost Optimization", "ROI Analysis"],
+        "Sovereign": ["Autonomous Budget Management", "Investment Decisions"]
+      }
+    },
+    "Semantic_Search": {
+      "trinity": "Intelligence",
+      "description": "Knowledge retrieval and context assembly",
+      "responsibilities": {
+        "Pilot": ["Basic Document Search"],
+        "Growth": ["Semantic Similarity", "Context Windows"],
+        "Enterprise": ["Cross-Domain RAG", "Knowledge Graphs"],
+        "Sovereign": ["Autonomous Learning", "Self-Indexing"]
+      }
+    },
+    "Foresight_Simulator": {
+      "trinity": "Intelligence",
+      "description": "Counterfactual analysis and scenario planning",
+      "responsibilities": {
+        "Pilot": ["Basic What-If Analysis"],
+        "Growth": ["Multi-Scenario Simulation", "Risk Projection"],
+        "Enterprise": ["Monte Carlo Modeling", "Strategic Foresight"],
+        "Sovereign": ["Autonomous Strategy", "Self-Optimization"]
+      }
+    }
+  },
+  "work_tasks": [
+    {"id": "WF-001", "name": "Mission Planning", "category": "Planning"},
+    {"id": "WF-002", "name": "Risk Assessment", "category": "Risk"},
+    {"id": "WF-003", "name": "Task Execution", "category": "Execution"},
+    {"id": "WF-004", "name": "Evidence Generation", "category": "Audit"},
+    {"id": "WF-005", "name": "Timeline Monitoring", "category": "Monitoring"},
+    {"id": "WF-006", "name": "Security Enforcement", "category": "Security"},
+    {"id": "WF-007", "name": "Cost Tracking", "category": "Finance"},
+    {"id": "WF-008", "name": "Knowledge Retrieval", "category": "Intelligence"},
+    {"id": "WF-009", "name": "Scenario Analysis", "category": "Strategy"},
+    {"id": "WF-010", "name": "Constitutional Compliance", "category": "Governance"}
+  ],
+  "raci_assignments": [
+    {"agent": "Planner", "task": "WF-001", "expansion": "Pilot", "raci": "R"},
+    {"agent": "Planner", "task": "WF-001", "expansion": "Growth", "raci": "A"},
+    {"agent": "Planner", "task": "WF-001", "expansion": "Enterprise", "raci": "A"},
+    {"agent": "Planner", "task": "WF-001", "expansion": "Sovereign", "raci": "A"},
+    {"agent": "Confessor", "task": "WF-002", "expansion": "Pilot", "raci": "R"},
+    {"agent": "Confessor", "task": "WF-002", "expansion": "Growth", "raci": "A"},
+    {"agent": "Confessor", "task": "WF-002", "expansion": "Enterprise", "raci": "A"},
+    {"agent": "Confessor", "task": "WF-002", "expansion": "Sovereign", "raci": "A"},
+    {"agent": "Advocate", "task": "WF-003", "expansion": "Pilot", "raci": "R"},
+    {"agent": "Advocate", "task": "WF-003", "expansion": "Growth", "raci": "R"},
+    {"agent": "Advocate", "task": "WF-003", "expansion": "Enterprise", "raci": "A"},
+    {"agent": "Advocate", "task": "WF-003", "expansion": "Sovereign", "raci": "A"},
+    {"agent": "Watcher", "task": "WF-005", "expansion": "Pilot", "raci": "R"},
+    {"agent": "Watcher", "task": "WF-005", "expansion": "Growth", "raci": "A"},
+    {"agent": "Watcher", "task": "WF-005", "expansion": "Enterprise", "raci": "A"},
+    {"agent": "Watcher", "task": "WF-005", "expansion": "Sovereign", "raci": "A"},
+    {"agent": "Guardian", "task": "WF-006", "expansion": "Pilot", "raci": "R"},
+    {"agent": "Guardian", "task": "WF-006", "expansion": "Growth", "raci": "A"},
+    {"agent": "Guardian", "task": "WF-006", "expansion": "Enterprise", "raci": "A"},
+    {"agent": "Guardian", "task": "WF-006", "expansion": "Sovereign", "raci": "A"},
+    {"agent": "Cost_Ledger", "task": "WF-007", "expansion": "Pilot", "raci": "R"},
+    {"agent": "Cost_Ledger", "task": "WF-007", "expansion": "Growth", "raci": "R"},
+    {"agent": "Cost_Ledger", "task": "WF-007", "expansion": "Enterprise", "raci": "A"},
+    {"agent": "Cost_Ledger", "task": "WF-007", "expansion": "Sovereign", "raci": "A"}
+  ]
+}

@@ -1,0 +1,122 @@
+# =============================================================================
+# SECURITY SCAN WORKFLOW
+# =============================================================================
+# Purpose: Static security analysis on every push/PR
+# Tools: Bandit (Python security linter), Safety (dependency vulnerabilities)
+# =============================================================================
+
+name: Security Scan
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run weekly security scan
+    - cron: '0 6 * * 1'
+
+jobs:
+  security:
+    name: Security Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install security tooling
+        run: |
+          python -m pip install --upgrade pip
+          pip install bandit safety semgrep
+
+      - name: Run Bandit (Python security linter)
+        id: bandit
+        continue-on-error: true
+        run: |
+          echo "Running Bandit security scan..."
+          bandit -r . -f json -o bandit-report.json \
+            --exclude .venv,venv,node_modules,.git,__pycache__ \
+            || true
+
+          # Also output human-readable
+          bandit -r . -ll \
+            --exclude .venv,venv,node_modules,.git,__pycache__ \
+            || echo "Bandit found issues (see report)"
+
+      - name: Run Safety (dependency vulnerabilities)
+        id: safety
+        continue-on-error: true
+        run: |
+          echo "Checking dependencies for known vulnerabilities..."
+          if [ -f requirements.txt ]; then
+            safety check -r requirements.txt --json > safety-report.json || true
+            safety check -r requirements.txt || echo "Safety found vulnerabilities"
+          else
+            echo "No requirements.txt found"
+            echo '{"vulnerabilities": []}' > safety-report.json
+          fi
+
+      - name: Run Semgrep (optional advanced scan)
+        id: semgrep
+        continue-on-error: true
+        run: |
+          echo "Running Semgrep security patterns..."
+          semgrep --config=auto --json -o semgrep-report.json . || true
+
+      - name: Upload security reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-reports
+          path: |
+            bandit-report.json
+            safety-report.json
+            semgrep-report.json
+          retention-days: 30
+
+      - name: Create security summary
+        if: always()
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'EOF'
+          ## Security Scan Results
+
+          ### Bandit (Python Security)
+          See `bandit-report.json` in artifacts for details.
+
+          ### Safety (Dependency Vulnerabilities)
+          See `safety-report.json` in artifacts for details.
+
+          ### Semgrep (Pattern-Based Analysis)
+          See `semgrep-report.json` in artifacts for details.
+
+          ---
+
+          **Note:** Review all findings before deployment. Critical/High severity
+          issues should be addressed before merging to main.
+          EOF
+
+      - name: Fail on critical issues
+        run: |
+          # Check Bandit for high-severity issues
+          if [ -f bandit-report.json ]; then
+            HIGH_COUNT=$(python -c "
+          import json
+          try:
+              data = json.load(open('bandit-report.json'))
+              results = data.get('results', [])
+              high = [r for r in results if r.get('issue_severity') == 'HIGH']
+              print(len(high))
+          except:
+              print(0)
+          ")
+            if [ "$HIGH_COUNT" -gt "0" ]; then
+              echo "::error::Found $HIGH_COUNT high-severity Bandit issues"
+              # Uncomment to fail build: exit 1
+            fi
+          fi

@@ -1,0 +1,23 @@
+canon_version: PHASE0_HYPOTHESES_v1.0
+axis_a_required: true
+
+H1:
+  delta_min: 0.15
+  adaptation_cycles: 5
+  validation_window: 50
+  baseline_convergence_eps: 0.05
+
+H2:
+  dominance_ratio: 0.70
+  max_resource_degradation: 0.20
+  max_timeout_rate: 0.10
+
+H3:
+  posterior_decay_min: 0.35
+  min_competing_hypotheses: 2
+  premature_collapse_threshold: 0.85
+
+verdicts:
+  pass: PASS
+  fail: FAIL
+  inconclusive: INCONCLUSIVE

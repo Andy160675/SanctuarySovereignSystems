@@ -1,0 +1,44 @@
+# Phase 3: Autonomous Operations
+# ===============================
+# With semi-autonomous operations proven, the system can execute
+# LOW and MEDIUM risk missions autonomously.
+
+phase: 3
+name: "Autonomous Operations"
+description: |
+  Phase 3 allows automatic execution of LOW and MEDIUM risk missions.
+  HIGH risk missions still require human approval. The feedback loop
+  is active and the system learns from its operations.
+
+entry_requirements:
+  - phase_2_exit_tests_passed
+  - minimum_100_semi_autonomous_missions
+  - board_approval_phase_3
+
+automated_exit_tests:
+  - auto_execution_medium_risk_test
+  - feedback_loop_validation_test
+  - self_healing_test
+  - performance_regression_test
+
+human_exit_conditions:
+  - "500 successful autonomous missions"
+  - "Feedback loop has improved model accuracy"
+  - "Board review of Phase 3 operations"
+
+allowed_capabilities:
+  - all_phase_2_capabilities
+  - auto_execute_medium_risk
+  - feedback_loop_active
+  - self_healing
+  - performance_monitoring
+
+forbidden_capabilities:
+  - auto_execute_high_risk
+  - unsupervised_model_training
+  - constitution_modification_without_unanimous_consent
+
+claims_allowed:
+  - "Medium-risk missions execute automatically"
+  - "System learns from operational outcomes"
+  - "Self-healing recovers from transient failures"

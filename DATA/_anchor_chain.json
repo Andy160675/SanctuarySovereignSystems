@@ -61,5 +61,32 @@
     "payload_hash": "07334cfc3c82f0909f258f3219a9ff2481345e81efb9add28d9b0bad5c6c20b0",
     "prev_chain_hash": "4141f8c704ff72d919b68e448ab7c7d949634065d08262fc7c19466065b21510",
     "chain_hash": "aeb57b05cbeec88410cdc82402a11a90e4cd473033805234736709088357291c"
+  },
+  {
+    "index": 7,
+    "timestamp": "2025-11-29T10:43:10Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA\\_commits\\decision_chain-verify-20251129T104310Z-b6457e17.json",
+    "payload_hash": "50bd34dd7784a6a0e8d9edeec899954cb06b1b668eaa61159ce729d8a887a643",
+    "prev_chain_hash": "aeb57b05cbeec88410cdc82402a11a90e4cd473033805234736709088357291c",
+    "chain_hash": "b172a10d346ba00e4c7a863e40447f50b22340f47a966c0eebdccb2944aa3242"
+  },
+  {
+    "index": 8,
+    "timestamp": "2025-11-29T10:51:05Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA\\_commits\\decision_chain-verify-20251129T105105Z-cba6ddc0.json",
+    "payload_hash": "7670da72fe6db1ddb30c9992fc8abd73b8be31b6c9989453d943dc0516137689",
+    "prev_chain_hash": "b172a10d346ba00e4c7a863e40447f50b22340f47a966c0eebdccb2944aa3242",
+    "chain_hash": "d3a6ca1467c4308432d09939acaf32e714bc6f355aff3b0541cd3f0854973a60"
+  },
+  {
+    "index": 9,
+    "timestamp": "2025-11-29T11:02:46Z",
+    "record_type": "governance_commit",
+    "file_path": "DATA\\_commits\\decision_chain-verify-20251129T110246Z-b604feac.json",
+    "payload_hash": "501604d7509691b034da4e217d4086a46427d6b11975a9522caafee425667e0f",
+    "prev_chain_hash": "d3a6ca1467c4308432d09939acaf32e714bc6f355aff3b0541cd3f0854973a60",
+    "chain_hash": "97a871f6f10c565bfa7b473af6d5e43214189c97c89aaaac82341755d0f7d2ea"
   }
 ]

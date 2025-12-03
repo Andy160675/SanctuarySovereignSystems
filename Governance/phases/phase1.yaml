@@ -1,0 +1,51 @@
+# Phase 1: Supervised Operations
+# ===============================
+# With determinism proven, the system can begin supervised operations
+# under human-in-the-loop governance.
+
+phase: 1
+name: "Supervised Operations"
+description: |
+  Phase 1 allows the Trinity agents to operate under supervision.
+  All missions require human approval before execution. Policy gate
+  enforces governance. Actuators can be deployed but require manual approval.
+
+entry_requirements:
+  - phase_0_exit_tests_passed
+  - board_approval_phase_1
+
+automated_exit_tests:
+  - mission_approval_workflow_test
+  - policy_gate_enforcement_test
+  - actuator_registration_test
+  - rollback_capability_test
+
+human_exit_conditions:
+  - "10 successful supervised missions"
+  - "Zero high-severity incidents"
+  - "Board review of Phase 1 operations"
+
+allowed_capabilities:
+  - all_phase_0_capabilities
+  - mission_submission
+  - human_approved_execution
+  - actuator_deployment_manual
+  - policy_gate_queries
+  - risk_assessment
+
+forbidden_capabilities:
+  - autonomous_execution
+  - model_training
+  - unsupervised_production_writes
+  - dynamic_policy_modification_without_vote
+
+claims_allowed:
+  - "Missions execute only with human approval"
+  - "Policy gate enforces governance rules"
+  - "Risk assessments precede all executions"
+  - "Rollback is always available"
+
+artifacts_required:
+  - mission_execution_logs
+  - approval_audit_trail
+  - policy_enforcement_proofs

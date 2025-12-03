@@ -1,0 +1,40 @@
+name: Governance Check
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  governance_validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml jsonschema
+
+      - name: Validate governance config
+        run: python scripts/validate_governance_config.py
+
+      - name: Validate active phase
+        run: python scripts/validate_phase.py governance/phases/phase0.yaml
+
+      - name: Scan forbidden features
+        run: python scripts/scan_forbidden_features.py governance/phases/phase0.yaml

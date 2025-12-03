@@ -1,0 +1,156 @@
+# =============================================================================
+# DEPLOY TO PC4 (Production Lane)
+# =============================================================================
+# Purpose: Trigger deployment on PC4 via SSH after CI passes
+# Model: "PC4 as Bridge" - GitHub Actions triggers, PC4 executes
+#
+# This workflow:
+#   1. Only runs after CI passes on main
+#   2. SSHs into PC4 via Tailscale
+#   3. Runs the deploy.sh script on PC4
+#   4. PC4 remains the ONLY place Swarm is driven
+# =============================================================================
+
+name: Deploy to PC4
+
+on:
+  # Auto-deploy after CI passes on main
+  workflow_run:
+    workflows: ["Sovereign CI/CD Pipeline"]
+    types: [completed]
+    branches: [main]
+
+  # Manual trigger for ops
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force deployment even if CI not green'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  deploy:
+    name: Deploy to PC4 (Swarm Manager)
+    runs-on: ubuntu-latest
+
+    # Only run if CI passed (or manual force)
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success')
+
+    steps:
+      - name: Checkout (for version metadata)
+        uses: actions/checkout@v4
+
+      - name: Validate deployment conditions
+        id: validate
+        run: |
+          echo "Checking deployment conditions..."
+
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            if [ "${{ github.event.inputs.force_deploy }}" == "true" ]; then
+              echo "::warning::Force deploy requested - bypassing CI check"
+              echo "proceed=true" >> $GITHUB_OUTPUT
+            else
+              echo "Manual deploy - CI status assumed OK"
+              echo "proceed=true" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "Auto-deploy triggered by successful CI"
+            echo "proceed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up SSH key
+        if: steps.validate.outputs.proceed == 'true'
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PC4_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          # Add PC4 to known hosts (via Tailscale or direct IP)
+          # Using StrictHostKeyChecking=accept-new for first connection
+          echo "Host pc4" >> ~/.ssh/config
+          echo "  HostName ${{ secrets.PC4_HOST }}" >> ~/.ssh/config
+          echo "  User ${{ secrets.PC4_USER }}" >> ~/.ssh/config
+          echo "  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking accept-new" >> ~/.ssh/config
+
+      - name: Deploy to PC4
+        if: steps.validate.outputs.proceed == 'true'
+        id: deploy
+        run: |
+          echo "Connecting to PC4 and running deploy.sh..."
+
+          ssh pc4 << 'DEPLOY_SCRIPT'
+            set -e
+
+            echo "=== PC4 Deployment Started ==="
+            echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+            echo "Triggered by: GitHub Actions"
+
+            # Navigate to project
+            cd ~/sovereign-system || cd ~/git-repos/sovereign-system
+
+            # Pull latest
+            echo "Pulling latest from origin/main..."
+            git fetch origin
+            git checkout main
+            git pull origin main
+
+            # Show current commit
+            echo "Current commit: $(git rev-parse --short HEAD)"
+
+            # Run deploy script
+            echo "Running deploy.sh..."
+            ./scripts/deploy.sh
+
+            echo "=== PC4 Deployment Complete ==="
+          DEPLOY_SCRIPT
+
+          echo "deploy_status=success" >> $GITHUB_OUTPUT
+
+      - name: Create deployment record
+        if: steps.deploy.outputs.deploy_status == 'success'
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << EOF
+          ## Deployment to PC4 Complete
+
+          | Field | Value |
+          |-------|-------|
+          | Commit | \`${{ github.sha }}\` |
+          | Branch | \`${{ github.ref_name }}\` |
+          | Deployed At | $(date -u +"%Y-%m-%dT%H:%M:%SZ") |
+          | Target | PC4 (Swarm Manager) |
+          | Status | SUCCESS |
+
+          ### Post-Deployment Verification
+
+          SSH into PC4 and verify:
+          \`\`\`bash
+          docker stack services sovereign-mesh
+          curl http://localhost:8000/health
+          \`\`\`
+
+          ### Rollback (if needed)
+
+          \`\`\`bash
+          ssh pc4 "cd ~/sovereign-system && git checkout <previous-sha> && ./scripts/deploy.sh"
+          \`\`\`
+          EOF
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Deployment to PC4 failed!"
+          cat >> $GITHUB_STEP_SUMMARY << EOF
+          ## Deployment FAILED
+
+          Check the logs above for details.
+
+          ### Manual Recovery
+
+          1. SSH into PC4: \`ssh pc4\`
+          2. Check service status: \`docker stack ps sovereign-mesh\`
+          3. View logs: \`docker service logs sovereign-mesh_api-gateway\`
+          EOF

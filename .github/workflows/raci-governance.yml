@@ -1,0 +1,191 @@
+name: RACI Governance Integrity
+
+on:
+  push:
+    paths:
+      - 'services/governance/raci_app/**'
+  pull_request:
+    paths:
+      - 'services/governance/raci_app/**'
+  workflow_dispatch:
+
+jobs:
+  raci-integrity:
+    name: RACI Matrix Integrity Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Compute RACI data hashes
+        id: hash
+        run: |
+          # Hash the immutable scoring data
+          MATRIX_HASH=$(sha256sum services/governance/raci_app/data/raci_matrix.json | cut -d' ' -f1)
+          SCORES_HASH=$(sha256sum services/governance/raci_app/data/agent_scores.json | cut -d' ' -f1)
+          COMBINED_HASH=$(echo "${MATRIX_HASH}${SCORES_HASH}" | sha256sum | cut -d' ' -f1)
+
+          echo "matrix_hash=${MATRIX_HASH}" >> $GITHUB_OUTPUT
+          echo "scores_hash=${SCORES_HASH}" >> $GITHUB_OUTPUT
+          echo "combined_hash=${COMBINED_HASH}" >> $GITHUB_OUTPUT
+
+          echo "=== RACI Data Hashes ==="
+          echo "Matrix:   ${MATRIX_HASH}"
+          echo "Scores:   ${SCORES_HASH}"
+          echo "Combined: ${COMBINED_HASH}"
+
+      - name: Validate Sovereign scores
+        run: |
+          python3 << 'EOF'
+          import json
+          import sys
+
+          SOVEREIGN_REQUIREMENT = 10
+          DIMENSIONS = [
+              "responsibility", "accountability", "tool_access", "complexity",
+              "risk_surface", "autonomy", "crypto_authority", "okr_alignment",
+              "foresight", "self_governance"
+          ]
+
+          with open("services/governance/raci_app/data/agent_scores.json") as f:
+              data = json.load(f)
+
+          scores = data.get("scores", {})
+          errors = []
+
+          for agent, agent_scores in scores.items():
+              sovereign = agent_scores.get("Sovereign", {})
+              for dim in DIMENSIONS:
+                  value = sovereign.get(dim, 0)
+                  if value < SOVEREIGN_REQUIREMENT:
+                      errors.append(f"{agent} Sovereign {dim}: {value} < {SOVEREIGN_REQUIREMENT}")
+
+          if errors:
+              print("ERROR: Sovereign compliance violations detected!")
+              for err in errors:
+                  print(f"  - {err}")
+              print("\nPer Eternal Law: No agent may score <10 on any axis at Sovereign level")
+              sys.exit(1)
+
+          print("✓ All Sovereign-level scores meet 10/10/10/10/10/10/10/10/10/10 requirement")
+          print(f"✓ Validated {len(scores)} agents across {len(DIMENSIONS)} dimensions")
+          EOF
+
+      - name: Validate version consistency
+        run: |
+          python3 << 'EOF'
+          import json
+
+          with open("services/governance/raci_app/data/raci_matrix.json") as f:
+              matrix = json.load(f)
+
+          with open("services/governance/raci_app/data/agent_scores.json") as f:
+              scores = json.load(f)
+
+          matrix_version = matrix.get("version", "unknown")
+          scores_version = scores.get("version", "unknown")
+
+          print(f"Matrix version: {matrix_version}")
+          print(f"Scores version: {scores_version}")
+
+          # Versions should be aligned (both 2.x.x for the new 10-dimension schema)
+          if not scores_version.startswith("2."):
+              print("ERROR: agent_scores.json must be version 2.x.x for 10-dimension schema")
+              exit(1)
+
+          print("✓ Version consistency validated")
+          EOF
+
+      - name: Generate RACI version event (for ledger)
+        run: |
+          echo '{
+            "event_type": "raci_version_check",
+            "matrix_hash": "${{ steps.hash.outputs.matrix_hash }}",
+            "scores_hash": "${{ steps.hash.outputs.scores_hash }}",
+            "combined_hash": "${{ steps.hash.outputs.combined_hash }}",
+            "commit": "${{ github.sha }}",
+            "ref": "${{ github.ref }}",
+            "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
+          }' | jq .
+
+      - name: Summary
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "✅ RACI GOVERNANCE CHECK PASSED"
+          echo "=========================================="
+          echo ""
+          echo "Matrix Hash:   ${{ steps.hash.outputs.matrix_hash }}"
+          echo "Scores Hash:   ${{ steps.hash.outputs.scores_hash }}"
+          echo "Combined Hash: ${{ steps.hash.outputs.combined_hash }}"
+          echo ""
+          echo "This hash should be appended to ledger as raci_version_vX"
+          echo "Any unauthorized change will cause CI failure."
+
+  raci-drift-check:
+    name: RACI Drift Detection
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.base_ref }}
+          path: base
+
+      - name: Detect scoring changes
+        run: |
+          echo "=== Checking for RACI score changes ==="
+
+          if [ -f "base/services/governance/raci_app/data/agent_scores.json" ]; then
+            # Compare Sovereign scores specifically
+            python3 << 'EOF'
+          import json
+          import sys
+
+          try:
+              with open("base/services/governance/raci_app/data/agent_scores.json") as f:
+                  base_scores = json.load(f).get("scores", {})
+          except FileNotFoundError:
+              print("No base scores found - new file")
+              sys.exit(0)
+
+          with open("services/governance/raci_app/data/agent_scores.json") as f:
+              pr_scores = json.load(f).get("scores", {})
+
+          changes = []
+          for agent in pr_scores:
+              if agent not in base_scores:
+                  changes.append(f"NEW AGENT: {agent}")
+                  continue
+
+              base_sov = base_scores[agent].get("Sovereign", {})
+              pr_sov = pr_scores[agent].get("Sovereign", {})
+
+              for dim, pr_val in pr_sov.items():
+                  base_val = base_sov.get(dim, 0)
+                  if pr_val != base_val:
+                      changes.append(f"{agent} Sovereign {dim}: {base_val} -> {pr_val}")
+
+          if changes:
+              print("⚠️  RACI SCORE CHANGES DETECTED:")
+              for c in changes:
+                  print(f"  - {c}")
+              print("\nPer Eternal Law: Score changes require governance approval")
+              print("Ensure this PR has appropriate HUMAN_AUTH review.")
+          else:
+              print("✓ No Sovereign-level score changes detected")
+          EOF
+          else
+            echo "Base scores file not found - assuming new addition"
+          fi

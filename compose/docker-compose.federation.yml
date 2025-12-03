@@ -1,0 +1,65 @@
+# Sovereign System - Federation Layer (Ring 1)
+# Cross-node proof verification for constitutional network
+#
+# Usage:
+#   docker compose -f compose/docker-compose.mission.yml -f compose/docker-compose.federation.yml up -d
+#
+# THINK + WORRY + REFUSE + ACT + REMEMBER = OK
+
+version: '3.8'
+
+services:
+  # ============================================
+  # FEDERATION LAYER - Ring 1
+  # ============================================
+
+  # Federation Sync - Proof-only cross-node verification
+  federation-sync:
+    build:
+      context: ../services/federation_sync
+      dockerfile: Dockerfile
+    ports:
+      - "8094:8094"  # Federation API
+    environment:
+      - NODE_ID=${NODE_ID:-node-genesis}
+      - LEDGER_URL=http://ledger_service:8082
+      - WATCHER_URL=http://watcher-agent:8000
+      # Comma-separated peer node URLs
+      # Example: http://node-b.example.com:8094,http://node-c.example.com:8094
+      - PEER_NODES=${PEER_NODES:-}
+      # Sync interval in seconds
+      - SYNC_INTERVAL=${SYNC_INTERVAL:-60}
+      # Signing key for attestations
+      - SIGNING_KEY_PATH=/keys/federation.key
+    volumes:
+      - ../keys:/keys:ro
+    depends_on:
+      - ledger_service
+      - watcher-agent
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8094/health', timeout=5).raise_for_status()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - inner-mesh
+      - federation-mesh
+    labels:
+      mission.role: "federation"
+      mission.capability: "peer-verification"
+      mission.ring: "1"
+
+# ============================================
+# NETWORKS
+# ============================================
+networks:
+  inner-mesh:
+    external: true
+    name: compose_inner-mesh
+  federation-mesh:
+    driver: bridge
+    labels:
+      mission.network: "federation-mesh"
+      mission.isolation: "false"
+      mission.ring: "1"

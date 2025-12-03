@@ -1,0 +1,237 @@
+name: Emergency Freeze Drill
+
+on:
+  push:
+    paths:
+      - 'tools/emergency_freeze/**'
+      - 'services/shared/freeze_guard.py'
+      - 'config/system_state.json'
+      - 'services/boardroom_coordinator/**'
+      - 'agents/planner/**'
+  pull_request:
+    paths:
+      - 'tools/emergency_freeze/**'
+      - 'services/shared/freeze_guard.py'
+      - 'config/system_state.json'
+      - 'services/boardroom_coordinator/**'
+      - 'agents/planner/**'
+  workflow_dispatch:
+
+env:
+  FREEZE_CODE: "7956"
+
+jobs:
+  freeze-drill:
+    name: Emergency Freeze Verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        run: |
+          pip install httpx pytest
+
+      - name: Start minimal stack
+        run: |
+          docker compose -f compose/docker-compose.mission.yml up -d \
+            boardroom_coordinator \
+            planner-agent \
+            ledger_service
+
+          echo "Waiting for services to be healthy..."
+          sleep 30
+
+          # Verify services are up
+          curl -f http://localhost:8090/health || echo "Boardroom not ready yet"
+          curl -f http://localhost:8001/health || echo "Planner not ready yet"
+
+      - name: Verify initial state (no freeze)
+        run: |
+          echo "=== Testing initial state (freeze OFF) ==="
+
+          # Verify freeze is OFF
+          FREEZE_STATUS=$(curl -s http://localhost:8090/freeze_status | jq -r '.emergency_freeze')
+          if [ "$FREEZE_STATUS" != "false" ]; then
+            echo "ERROR: Expected emergency_freeze=false, got $FREEZE_STATUS"
+            exit 1
+          fi
+          echo "✓ Freeze is initially OFF"
+
+          # Test that missions can start
+          MISSION_RESPONSE=$(curl -s -X POST http://localhost:8090/sessions/start_mission \
+            -H "Content-Type: application/json" \
+            -d '{"mission_id": "test-before-freeze", "prompt": "Test mission", "risk_level": "LOW"}')
+
+          MISSION_STATUS=$(echo $MISSION_RESPONSE | jq -r '.status')
+          if [ "$MISSION_STATUS" != "mission_started" ]; then
+            echo "ERROR: Expected status=mission_started, got $MISSION_STATUS"
+            echo "Response: $MISSION_RESPONSE"
+            exit 1
+          fi
+          echo "✓ Mission can be started when freeze is OFF"
+
+      - name: Engage Emergency Freeze (7956)
+        run: |
+          echo "=== Engaging Emergency Freeze ==="
+          python tools/emergency_freeze/toggle_freeze.py on ${{ env.FREEZE_CODE }}
+
+          # Verify state file was updated
+          FREEZE_STATE=$(cat config/system_state.json | jq -r '.emergency_freeze')
+          if [ "$FREEZE_STATE" != "true" ]; then
+            echo "ERROR: system_state.json not updated correctly"
+            exit 1
+          fi
+          echo "✓ Emergency freeze engaged via toggle_freeze.py"
+
+      - name: Verify freeze blocks missions (Boardroom)
+        run: |
+          echo "=== Testing Boardroom freeze enforcement ==="
+
+          # Check freeze status endpoint
+          FREEZE_STATUS=$(curl -s http://localhost:8090/freeze_status | jq -r '.emergency_freeze')
+          if [ "$FREEZE_STATUS" != "true" ]; then
+            echo "ERROR: Boardroom freeze_status should show true"
+            exit 1
+          fi
+          echo "✓ Boardroom freeze_status endpoint shows freeze active"
+
+          # Attempt to start mission - should be rejected
+          MISSION_RESPONSE=$(curl -s -X POST http://localhost:8090/sessions/start_mission \
+            -H "Content-Type: application/json" \
+            -d '{"mission_id": "test-during-freeze", "prompt": "Should be blocked", "risk_level": "LOW"}')
+
+          MISSION_STATUS=$(echo $MISSION_RESPONSE | jq -r '.status')
+          MISSION_REASON=$(echo $MISSION_RESPONSE | jq -r '.reason')
+
+          if [ "$MISSION_STATUS" != "rejected" ]; then
+            echo "ERROR: Mission should be rejected during freeze"
+            echo "Got status: $MISSION_STATUS"
+            echo "Response: $MISSION_RESPONSE"
+            exit 1
+          fi
+
+          if [ "$MISSION_REASON" != "SYSTEM_EMERGENCY_FREEZE_ACTIVE" ]; then
+            echo "ERROR: Expected reason=SYSTEM_EMERGENCY_FREEZE_ACTIVE"
+            echo "Got reason: $MISSION_REASON"
+            exit 1
+          fi
+
+          echo "✓ Boardroom correctly blocks missions with status=rejected, reason=SYSTEM_EMERGENCY_FREEZE_ACTIVE"
+
+      - name: Verify freeze blocks missions (Planner)
+        run: |
+          echo "=== Testing Planner freeze enforcement ==="
+
+          # Check freeze status endpoint
+          FREEZE_STATUS=$(curl -s http://localhost:8001/freeze_status | jq -r '.emergency_freeze')
+          if [ "$FREEZE_STATUS" != "true" ]; then
+            echo "ERROR: Planner freeze_status should show true"
+            exit 1
+          fi
+          echo "✓ Planner freeze_status endpoint shows freeze active"
+
+          # Attempt to create plan - should return HALTED
+          PLAN_RESPONSE=$(curl -s -X POST http://localhost:8001/plan \
+            -H "Content-Type: application/json" \
+            -d '{"objective": "This should be blocked", "jurisdiction": "UK"}')
+
+          PLAN_STATUS=$(echo $PLAN_RESPONSE | jq -r '.status')
+          PLAN_RISK_REASON=$(echo $PLAN_RESPONSE | jq -r '.risk_reason')
+
+          if [ "$PLAN_STATUS" != "HALTED" ]; then
+            echo "ERROR: Plan should have status=HALTED during freeze"
+            echo "Got status: $PLAN_STATUS"
+            echo "Response: $PLAN_RESPONSE"
+            exit 1
+          fi
+
+          if [[ "$PLAN_RISK_REASON" != *"SYSTEM_EMERGENCY_FREEZE_ACTIVE"* ]]; then
+            echo "ERROR: Expected risk_reason to contain SYSTEM_EMERGENCY_FREEZE_ACTIVE"
+            echo "Got: $PLAN_RISK_REASON"
+            exit 1
+          fi
+
+          echo "✓ Planner correctly returns HALTED status with SYSTEM_EMERGENCY_FREEZE_ACTIVE"
+
+      - name: Disengage Emergency Freeze
+        run: |
+          echo "=== Disengaging Emergency Freeze ==="
+          python tools/emergency_freeze/toggle_freeze.py off ${{ env.FREEZE_CODE }}
+
+          # Verify state file was updated
+          FREEZE_STATE=$(cat config/system_state.json | jq -r '.emergency_freeze')
+          if [ "$FREEZE_STATE" != "false" ]; then
+            echo "ERROR: system_state.json not updated correctly"
+            exit 1
+          fi
+          echo "✓ Emergency freeze disengaged via toggle_freeze.py"
+
+      - name: Verify missions resume after freeze off
+        run: |
+          echo "=== Testing mission resumption ==="
+
+          # Give services time to pick up state change
+          sleep 2
+
+          # Verify freeze is OFF
+          FREEZE_STATUS=$(curl -s http://localhost:8090/freeze_status | jq -r '.emergency_freeze')
+          if [ "$FREEZE_STATUS" != "false" ]; then
+            echo "ERROR: Boardroom freeze_status should show false"
+            exit 1
+          fi
+          echo "✓ Freeze status is OFF"
+
+          # Test that missions can start again
+          MISSION_RESPONSE=$(curl -s -X POST http://localhost:8090/sessions/start_mission \
+            -H "Content-Type: application/json" \
+            -d '{"mission_id": "test-after-freeze", "prompt": "Post-freeze mission", "risk_level": "LOW"}')
+
+          MISSION_STATUS=$(echo $MISSION_RESPONSE | jq -r '.status')
+          if [ "$MISSION_STATUS" != "mission_started" ]; then
+            echo "ERROR: Expected status=mission_started after freeze off"
+            echo "Got status: $MISSION_STATUS"
+            echo "Response: $MISSION_RESPONSE"
+            exit 1
+          fi
+          echo "✓ Missions can be started after freeze is disengaged"
+
+      - name: Verify invalid freeze code rejected
+        run: |
+          echo "=== Testing invalid freeze code rejection ==="
+
+          # Try with wrong code
+          python tools/emergency_freeze/toggle_freeze.py on 1234 2>&1 | grep -q "INVALID FREEZE CODE" || {
+            echo "ERROR: Invalid code should be rejected"
+            exit 1
+          }
+          echo "✓ Invalid freeze code correctly rejected"
+
+      - name: Cleanup
+        if: always()
+        run: |
+          docker compose -f compose/docker-compose.mission.yml down -v --remove-orphans || true
+
+      - name: Summary
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "✅ EMERGENCY FREEZE DRILL PASSED"
+          echo "=========================================="
+          echo ""
+          echo "Verified:"
+          echo "  • toggle_freeze.py correctly engages/disengages freeze"
+          echo "  • SHA-256 code verification works (7956 accepted, others rejected)"
+          echo "  • Boardroom /sessions/start_mission blocks with status=rejected"
+          echo "  • Planner /plan returns HALTED status"
+          echo "  • Operations resume after freeze disengaged"
+          echo ""
+          echo "This CI workflow ensures any change that weakens freeze"
+          echo "enforcement will cause deployment to fail."
