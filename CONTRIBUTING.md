@@ -67,6 +67,23 @@ Changes to V3 core require explicit governance approval.
 
 V4 changes must be **additive** and **non-breaking**.
 
+---
+
+## Automation Baseline
+
+All contributions must respect the current Automation Baseline:
+
+- **Current baseline tag:** `v0.1.0-automation-baseline`
+- **Current baseline commit:** `1cb2f04661ab7de247fab18ffd779638f156aaa8`
+- **Required checks on `main`:** security, container, E2E, scheduled ops
+- **Coverage gate:** 40% minimum (enforced by CI)
+
+**Rule:** No demo, governance decision, or investor artifact may reference a commit older than the current Automation Baseline.
+
+See [docs/AUTOMATION_CANON.md](docs/AUTOMATION_CANON.md) for full details.
+
+---
+
 ## Testing Requirements
 
 All PRs must:
