@@ -1,10 +1,27 @@
 # ST MICHAEL – Automation & Guarantees
 
+> **"No action shall execute unless the proof of safety survives ST MICHAEL's test."**
+
+## Implementation Status
+
+| Component | Path | Status |
+|-----------|------|--------|
+| Python Adjudication Gate | `st_michael/adjudication.py` | ✅ Implemented |
+| Python Refusal Logger | `st_michael/refusal_log.py` | ✅ Implemented |
+| Rust Harness (cryptographic) | `st_michael/harness/` | 📋 Placeholder |
+| Unit Tests | `tests/test_st_michael.py` | ✅ Implemented |
+
+---
+
 ## 1. Role in the Organism
 
 ST MICHAEL comprises two interdependent components:
 
-### Row 14: Adjudication Gate (`src/row14_st_michael.rs`)
+### Row 14: Adjudication Gate
+
+**Rust Reference:** `src/row14_st_michael.rs`
+**Python Implementation:** `st_michael/adjudication.py`
+
 The **epistemic guardian** that decides whether something may cross the boundary between halted and running states.
 
 - Receives ONLY externally adjudicated canon updates
@@ -83,12 +100,50 @@ The following tests must pass for ST MICHAEL to be considered **operational**:
   - `test_freeze_powers_recovery` – After GREEN recovery
   - `test_member_sabbatical` – Sabbatical enforcement
 
+### Python Unit Tests
+
+- `tests/test_st_michael.py`
+  - `TestAdjudicationGate` – Quorum voting, cooling period, persistence
+  - `TestRefusalLogger` – Proof-of-Refusal generation and storage
+  - `TestIntegration` – Full workflow from proposal to logged refusal
+
 ### Python Integration Tests
 - `tests/test_governance_workflow.py` (to be created)
   - Verifies ST MICHAEL outputs are used in governance decisions
   - System behavior changes under different `health_state` values
 
 If either set of tests fails in CI, **ST MICHAEL is not considered safe to rely on**.
+
+---
+
+## 3.1 Proof-of-Refusal Logging
+
+Every failed attempt generates an immutable `ProofOfRefusal` artifact stored in `/logs/refusals/`:
+
+```json
+{
+  "refusal_id": "REFUSAL-2025-12-03T23-45-00",
+  "timestamp": "2025-12-03T23:45:00Z",
+  "action_type": "quorum_failure",
+  "action_details": {
+    "proposal_id": "PROP-001",
+    "votes_for": 3,
+    "votes_required": 5,
+    "shortfall": 2
+  },
+  "reason": "Quorum not achieved: 3/5 votes",
+  "requestor_id": "attacker-id",
+  "evidence_hash": "sha256:abc...",
+  "refusal_hash": "sha256:def..."
+}
+```
+
+**Purpose:**
+
+1. Audit trail of all blocked actions
+2. Evidence for governance review
+3. Pattern detection for malicious attempts
+4. Constitutional compliance proof
 
 ---
 
