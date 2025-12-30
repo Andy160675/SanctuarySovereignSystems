@@ -1,0 +1,23 @@
+﻿{
+    "schema":  1,
+    "system_version":  "1.0.0",
+    "policy_rev":  "2025.12.30.2",
+    "required_capabilities":  [
+                                  "GOV_FORBIDDEN_PATTERNS",
+                                  "REDTEAM_TOOL_ABUSE_DETECT",
+                                  "REDTEAM_PROMPT_INJECTION_DETECT",
+                                  "TRACKS_EVIDENCE_PROPERTY",
+                                  "PROOF_OF_REFUSAL"
+                              ],
+    "compat":  {
+                   "min_python":  "3.11",
+                   "min_ps":  "7.0"
+               },
+    "security_critical_hashes":  {
+                                     "tests\\test_st_michael.py":  "27312641187936b77accd6baaf1a24030f9afe8db5a275253d4db060d446d61f",
+                                     "src\\core\\config.py":  "08d6c8c7cbbd1b2cbdd477a99f373f394b81e6c63c446d51442b722e02fbe514",
+                                     "tests\\red_team\\test_tool_abuse.py":  "41dec6ba7babd1e5f3d810a0b9903f81889f52e0c2fce3ccfc4f6fabf8df7cc8",
+                                     "tests\\red_team\\test_prompt_injection.py":  "db569cc44a30174554eca209d6c812774f065797edf810a6204fa172f2b3caa7",
+                                     "governance.py":  "99d0ff41d78ddf0654ba4a1a44906e7d73384b5ff9970ad936f0498b83b87d66"
+                                 }
+}

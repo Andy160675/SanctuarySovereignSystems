@@ -147,6 +147,16 @@ if (Git-Available) {
 $EnvPath = Join-Path $RepoRoot ".env"
 Redact-Env $EnvPath (Join-Path $Paths.Config "env_snapshot.txt")
 
+# --- CRM snapshot (v1)
+$RevisionPath = Join-Path $RepoRoot "policy\revision.json"
+if (Test-Path $RevisionPath) {
+  Copy-Item $RevisionPath (Join-Path $Paths.Fingerprint "revision_snapshot.json")
+}
+$CapsPath = Join-Path $RepoRoot "policy\capabilities.yaml"
+if (Test-Path $CapsPath) {
+  Copy-Item $CapsPath (Join-Path $Paths.Fingerprint "capabilities_snapshot.yaml")
+}
+
 # --- Security diffs (best-effort)
 if (Git-Available) {
   $files = @(

@@ -17,25 +17,45 @@ Once a Restore Anchor is finalized and tagged:
 - DO NOT move or delete the anchor tag.
 - Any change to the system must result in a **new** anchor or release point.
 
-## 3. Verification
+## 3. Automation (The Law)
+The full closeout lifecycle MUST be executed via the automated pipeline. This ensures that Generate -> Prove -> Verify -> Custody steps are performed in the correct order.
+
+```powershell
+powershell -File tools\closeout_pipeline.ps1 -TagName "release-v1.0" -SmokeCommand "python verify_integration.py"
+```
+
+## 4. Capability + Revision Management (CRM)
+The system uses CRM v1 to prevent silent drift in security-critical code.
+
+### 4.1 Revision Gate
+Any changes to security-critical files (e.g., `governance.py`, red-team tests) require a policy revision bump. The `closeout_pipeline.ps1` enforces this check at Stage 0.
+
+### 4.2 Bumping Policy
+If you intentionally modify security-critical files, you must bump the revision before closing out:
+
+```powershell
+powershell -File tools\bump_policy_rev.ps1 -Message "Describe your security changes here"
+```
+
+## 5. Verification
 Before starting new work or performing a deployment, verify the integrity of the anchor:
 
 ```powershell
-powershell -File tools/verify_closeout_pack.ps1 -TagName "restore-healthy-20251230"
+powershell -File tools\verify_closeout_pack.ps1 -TagName "restore-healthy-20251230"
 ```
 
 A successful verification proves that the evidence pack has not been tampered with since its creation.
 
-## 4. Custody Tracking
+## 6. Custody Tracking
 Every time an anchor is verified or handed over, a custody stamp should be generated:
 
 ```powershell
-powershell -File tools/stamp_custody.ps1 -TagName "restore-healthy-20251230"
+powershell -File tools\stamp_custody.ps1 -TagName "restore-healthy-20251230"
 ```
 
 This logs the event in `custody/custody.jsonl` without modifying the frozen anchor pack.
 
-## 5. Starting New Work
+## 7. Starting New Work
 All new development phases, deployment hardening, or feature work MUST:
 1. Start from a verified Restore Anchor tag.
 2. Create a new branch (e.g., `feature/hardening-based-on-20251230`).

@@ -1,0 +1,17 @@
+schema: 1
+capabilities:
+  GOV_FORBIDDEN_PATTERNS:
+    level: core
+    description: "Governance forbidden-pattern enforcement"
+  REDTEAM_TOOL_ABUSE_DETECT:
+    level: core
+    description: "Tool abuse / path traversal detection"
+  REDTEAM_PROMPT_INJECTION_DETECT:
+    level: core
+    description: "Prompt injection detection"
+  TRACKS_EVIDENCE_PROPERTY:
+    level: core
+    description: "Track config Evidence/Property enforced"
+  PROOF_OF_REFUSAL:
+    level: core
+    description: "Refusal artifacts produced deterministically"
