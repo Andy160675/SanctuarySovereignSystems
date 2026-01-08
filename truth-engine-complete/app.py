@@ -4,6 +4,7 @@ Sovereign System - Phase 3 Module 2
 """
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 try:
@@ -17,6 +18,9 @@ import os
 import json
 import hashlib
 import subprocess
+import time
+from collections import deque
+from threading import Lock
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -103,6 +107,30 @@ def _write_export_event(event: dict) -> None:
 
     except Exception as e:
         print(f"Export write failed: {e}")
+
+
+_SEARCH_RATE_LIMIT_PER_MINUTE = 30
+_search_request_times = deque()
+_search_rate_lock = Lock()
+
+
+def _rate_limit_search() -> bool:
+    """Returns True if the request should be rate-limited (process-local)."""
+    now = time.time()
+    cutoff = now - 60.0
+    with _search_rate_lock:
+        while _search_request_times and _search_request_times[0] < cutoff:
+            _search_request_times.popleft()
+
+        if len(_search_request_times) >= _SEARCH_RATE_LIMIT_PER_MINUTE:
+            return True
+
+        _search_request_times.append(now)
+        return False
+
+
+def _search_error(status_code: int, error_code: str, message: str) -> JSONResponse:
+    return JSONResponse(status_code=status_code, content={"error": {"code": error_code, "message": message}})
 
 
 class Document(BaseModel):
@@ -222,22 +250,80 @@ async def index_batch(docs: List[Document]):
 @app.post("/search")
 async def search(query: SearchQuery):
     """Search the indexed documents"""
-    _write_export_event({
-        "event_type": "search_request",
-        "created_utc": _utc_now_iso(),
-        "query": query.query,
-        "limit": query.limit,
-        "documents_indexed": len(documents),
-        "txtai_available": embeddings is not None,
-    })
+    created_utc = _utc_now_iso()
+    raw_query = "" if query.query is None else query.query
+    normalized_query = raw_query.strip()
+
+    # Deterministic bounds
+    if len(normalized_query) < 1 or len(normalized_query) > 512:
+        event = {
+            "event_type": "search",
+            "created_utc": created_utc,
+            "query": normalized_query,
+            "limit": max(1, min(query.limit, 25)),
+            "outcome": "bad_request",
+            "total": 0,
+            "error_code": "BAD_QUERY",
+        }
+        _write_export_event(event)
+        return _search_error(400, "BAD_QUERY", "query must be 1-512 characters")
+
+    normalized_limit = max(1, min(int(query.limit), 25))
+
+    # Minimal spam guard (process-local)
+    if _rate_limit_search():
+        event = {
+            "event_type": "search",
+            "created_utc": created_utc,
+            "query": normalized_query,
+            "limit": normalized_limit,
+            "outcome": "rate_limited",
+            "total": 0,
+            "error_code": "RATE_LIMITED",
+        }
+        _write_export_event(event)
+        return _search_error(429, "RATE_LIMITED", "too many requests")
 
     if embeddings is None:
-        raise HTTPException(status_code=503, detail="txtai not available")
+        event = {
+            "event_type": "search",
+            "created_utc": created_utc,
+            "query": normalized_query,
+            "limit": normalized_limit,
+            "outcome": "unavailable",
+            "total": 0,
+            "error_code": "TXT_AI_UNAVAILABLE",
+        }
+        _write_export_event(event)
+        return _search_error(503, "TXT_AI_UNAVAILABLE", "txtai not available")
 
     if not documents:
+        event = {
+            "event_type": "search",
+            "created_utc": created_utc,
+            "query": normalized_query,
+            "limit": normalized_limit,
+            "outcome": "ok",
+            "total": 0,
+            "error_code": None,
+        }
+        _write_export_event(event)
         return {"results": [], "message": "No documents indexed yet"}
 
-    results = embeddings.search(query.query, query.limit)
+    try:
+        results = embeddings.search(normalized_query, normalized_limit)
+    except Exception:
+        event = {
+            "event_type": "search",
+            "created_utc": created_utc,
+            "query": normalized_query,
+            "limit": normalized_limit,
+            "outcome": "error",
+            "total": 0,
+            "error_code": "INTERNAL_ERROR",
+        }
+        _write_export_event(event)
+        return _search_error(500, "INTERNAL_ERROR", "internal error")
 
     # Enrich results with document text and metadata
     enriched_results = []
@@ -251,15 +337,18 @@ async def search(query: SearchQuery):
                 "metadata": doc.get("metadata", {})
             })
 
-    _write_export_event({
+    event = {
         "event_type": "search",
-        "created_utc": _utc_now_iso(),
-        "query": query.query,
-        "limit": query.limit,
-        "results_count": len(enriched_results),
-    })
+        "created_utc": created_utc,
+        "query": normalized_query,
+        "limit": normalized_limit,
+        "outcome": "ok",
+        "total": len(enriched_results),
+        "error_code": None,
+    }
+    _write_export_event(event)
 
-    return {"results": enriched_results, "query": query.query}
+    return {"results": enriched_results, "query": normalized_query}
 
 
 @app.get("/status")
