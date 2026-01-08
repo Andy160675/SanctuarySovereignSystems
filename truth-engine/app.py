@@ -65,10 +65,46 @@ def _git_head(repo_root: Path) -> str | None:
         return None
 
 
+_event_seq = 0
+_event_seq_lock = Lock()
+
+
+def _next_event_seq() -> int:
+    global _event_seq
+    with _event_seq_lock:
+        _event_seq += 1
+        return _event_seq
+
+
+def _compute_event_id(*, producer_commit: str | None, seq: int, event: dict) -> str:
+    # Minimal, deterministic event_id: stable hash over selected fields.
+    payload = {
+        "producer_commit": producer_commit or "",
+        "seq": seq,
+        "event_type": event.get("event_type"),
+        "created_utc": event.get("created_utc"),
+        "query": event.get("query"),
+        "limit": event.get("limit"),
+        "outcome": event.get("outcome"),
+        "total": event.get("total"),
+        "error_code": event.get("error_code"),
+    }
+    canonical = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
 def _write_export_event(event: dict) -> None:
     """Export-only firewall: write local artifacts; never call cross-system services."""
     try:
         root = _repo_root()
+        producer_commit = _git_head(root)
+        seq = _next_event_seq()
+
+        # Add integrity fields (do not rely on callers)
+        event = dict(event)
+        event.setdefault("seq", seq)
+        event.setdefault("event_id", _compute_event_id(producer_commit=producer_commit, seq=seq, event=event))
+
         exports_dir = root / "exports" / "truth_engine"
         exports_dir.mkdir(parents=True, exist_ok=True)
 
@@ -86,7 +122,7 @@ def _write_export_event(event: dict) -> None:
             "schema_name": "blade2ai.truth_export",
             "schema_version": "1.0.0",
             "created_utc": _utc_now_iso(),
-            "producer_commit": _git_head(root),
+            "producer_commit": producer_commit,
             "files": files,
         }
 
