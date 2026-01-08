@@ -6,10 +6,19 @@ Sovereign System - Phase 3 Module 2
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from txtai.embeddings import Embeddings
+try:
+    from txtai.embeddings import Embeddings
+    _TXT_AI_IMPORT_ERROR = None
+except Exception as e:
+    Embeddings = None
+    _TXT_AI_IMPORT_ERROR = str(e)
 from typing import List, Optional
 import os
 import json
+import hashlib
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
 
 app = FastAPI(title="Truth Engine", version="0.1.0")
 
@@ -23,17 +32,77 @@ app.add_middleware(
 )
 
 # Initialize txtai embeddings
-embeddings = Embeddings({
-    "method": "sentence-transformers",
-    "path": "sentence-transformers/all-MiniLM-L6-v2",
-    "content": True
-})
+embeddings = None
+if Embeddings is not None:
+    embeddings = Embeddings({
+        "method": "sentence-transformers",
+        "path": "sentence-transformers/all-MiniLM-L6-v2",
+        "content": True
+    })
 
 # Index storage path
 INDEX_PATH = os.path.join(os.path.dirname(__file__), "data", "index")
 
 # In-memory document store (will be persisted)
 documents = []
+
+
+def _sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _repo_root() -> Path:
+    # app.py is under <repo>/truth-engine-complete/app.py
+    return Path(__file__).resolve().parents[1]
+
+
+def _git_head(repo_root: Path) -> str | None:
+    try:
+        out = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(repo_root), stderr=subprocess.STDOUT)
+        return out.decode("utf-8", errors="replace").strip()
+    except Exception:
+        return None
+
+
+def _write_export_event(event: dict) -> None:
+    """Export-only firewall: write local artifacts; never call cross-system services."""
+    try:
+        root = _repo_root()
+        exports_dir = root / "exports" / "truth_engine"
+        exports_dir.mkdir(parents=True, exist_ok=True)
+
+        events_path = exports_dir / "truth_events.jsonl"
+        meta_path = exports_dir / "truth_export_meta.json"
+
+        with events_path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(event, ensure_ascii=False) + "\n")
+
+        files = []
+        if events_path.exists():
+            files.append({"path": str(events_path.relative_to(root)).replace("\\", "/"), "sha256": _sha256_file(events_path)})
+
+        meta = {
+            "schema_name": "blade2ai.truth_export",
+            "schema_version": "1.0.0",
+            "created_utc": _utc_now_iso(),
+            "producer_commit": _git_head(root),
+            "files": files,
+        }
+
+        with meta_path.open("w", encoding="utf-8") as f:
+            json.dump(meta, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+
+    except Exception as e:
+        print(f"Export write failed: {e}")
 
 
 class Document(BaseModel):
@@ -51,6 +120,10 @@ class SearchQuery(BaseModel):
 async def startup_event():
     """Load existing index if available"""
     global documents
+    if embeddings is None:
+        print(f"txtai not available: {_TXT_AI_IMPORT_ERROR}")
+        return
+
     if os.path.exists(INDEX_PATH):
         print(f"Loading existing index from {INDEX_PATH}")
         embeddings.load(INDEX_PATH)
@@ -68,6 +141,16 @@ async def startup_event():
 async def index_document(doc: Document):
     """Index a single document"""
     global documents
+
+    _write_export_event({
+        "event_type": "index_request",
+        "created_utc": _utc_now_iso(),
+        "count": 1,
+        "txtai_available": embeddings is not None,
+    })
+
+    if embeddings is None:
+        raise HTTPException(status_code=503, detail="txtai not available")
 
     # Generate ID if not provided
     if not doc.id:
@@ -101,6 +184,16 @@ async def index_batch(docs: List[Document]):
     """Index multiple documents at once"""
     global documents
 
+    _write_export_event({
+        "event_type": "index_batch_request",
+        "created_utc": _utc_now_iso(),
+        "count": len(docs),
+        "txtai_available": embeddings is not None,
+    })
+
+    if embeddings is None:
+        raise HTTPException(status_code=503, detail="txtai not available")
+
     for doc in docs:
         if not doc.id:
             doc.id = f"doc_{len(documents)}"
@@ -129,6 +222,18 @@ async def index_batch(docs: List[Document]):
 @app.post("/search")
 async def search(query: SearchQuery):
     """Search the indexed documents"""
+    _write_export_event({
+        "event_type": "search_request",
+        "created_utc": _utc_now_iso(),
+        "query": query.query,
+        "limit": query.limit,
+        "documents_indexed": len(documents),
+        "txtai_available": embeddings is not None,
+    })
+
+    if embeddings is None:
+        raise HTTPException(status_code=503, detail="txtai not available")
+
     if not documents:
         return {"results": [], "message": "No documents indexed yet"}
 
@@ -145,6 +250,14 @@ async def search(query: SearchQuery):
                 "text": doc["text"],
                 "metadata": doc.get("metadata", {})
             })
+
+    _write_export_event({
+        "event_type": "search",
+        "created_utc": _utc_now_iso(),
+        "query": query.query,
+        "limit": query.limit,
+        "results_count": len(enriched_results),
+    })
 
     return {"results": enriched_results, "query": query.query}
 
