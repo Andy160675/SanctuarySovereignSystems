@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accelerated Adoption Scenario</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .scenario-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        /* Timeline Line */
+        .scenario-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            background: #eee;
+        }
+
+        .phase-block {
+            position: relative;
+            background: #F9F9F9;
+            padding: 25px 30px;
+            border-left: 6px solid #2C3E50;
+            margin-bottom: 20px;
+        }
+
+        .phase-block::before {
+            content: '';
+            position: absolute;
+            left: -49px; /* Adjust for padding + line */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: #2C3E50;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .phase-block.urgent {
+            border-left-color: #FF4500;
+            background: #FFF5F0;
+        }
+
+        .phase-block.urgent::before {
+            background: #FF4500;
+        }
+
+        .phase-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .phase-year {
+            font-weight: 300;
+            color: #777;
+        }
+
+        .phase-desc {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .phase-desc strong {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #999;
+            text-align: right;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Accelerated Adoption Scenario</h1>
+            <h2>Major incident triggers rapid global mandates</h2>
+        </div>
+
+        <div class="scenario-container">
+            <!-- Phase 1: The Trigger -->
+            <div class="phase-block urgent">
+                <div class="phase-title">
+                    <span>The Catalyst</span>
+                    <span class="phase-year">2026-2027</span>
+                </div>
+                <div class="phase-desc">
+                    A high-profile AI failure causes significant physical damage, financial collapse, or loss of life. Public tolerance for "black box" systems evaporates overnight.
+                </div>
+            </div>
+
+            <!-- Phase 2: The Reaction -->
+            <div class="phase-block">
+                <div class="phase-title">
+                    <span>The Mandate</span>
+                    <span class="phase-year">Immediate Response</span>
+                </div>
+                <div class="phase-desc">
+                    Regulators enact <strong>emergency frameworks</strong>. Burden of proof shifts to the operator. Systems unable to produce an audit trail are summarily shut down.
+                </div>
+            </div>
+
+            <!-- Phase 3: The Outcome -->
+            <div class="phase-block">
+                <div class="phase-title">
+                    <span>The New Standard</span>
+                    <span class="phase-year">Post-Event</span>
+                </div>
+                <div class="phase-desc">
+                    Evidence-first governance becomes the <strong>license to operate</strong>. The Codex of Record transitions from "Best Practice" to "Compliance Baseline".
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Scenario Probability: Moderate | Impact: High
+        </div>
+    </div>
+</body>
+</html>

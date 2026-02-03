@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragmented Regulation Scenario</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .blocs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            flex-grow: 1;
+            margin-bottom: 30px;
+        }
+
+        .bloc-col {
+            border-right: 1px solid #eee;
+            padding-right: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bloc-col:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .bloc-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .bloc-title i {
+            color: #FF4500;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .bloc-desc {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.4;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .bloc-keyword {
+            font-size: 14px;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            background: #f5f5f5;
+            padding: 5px 10px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .solution-box {
+            background: #2C3E50;
+            color: #fff;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .solution-text {
+            font-size: 20px;
+            font-weight: 300;
+            width: 70%;
+        }
+
+        .solution-text strong {
+            color: #FF4500;
+            font-weight: 700;
+        }
+
+        .solution-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa;
+            font-weight: 700;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Fragmented Regulation</h1>
+            <h2>Jurisdictional divergence creates complexity</h2>
+        </div>
+
+        <div class="blocs-grid">
+            <!-- EU Bloc -->
+            <div class="bloc-col">
+                <div class="bloc-title"><i class="fas fa-euro-sign"></i> The Regulator (EU)</div>
+                <div class="bloc-desc">
+                    Driven by the <strong>Precautionary Principle</strong>. Focus on fundamental rights, pre-market conformity assessments, and heavy fines.
+                </div>
+                <div>
+                    <span class="bloc-keyword">GDPR-Style</span>
+                    <span class="bloc-keyword">Ex-Ante Rules</span>
+                </div>
+            </div>
+
+            <!-- US Bloc -->
+            <div class="bloc-col">
+                <div class="bloc-title"><i class="fas fa-dollar-sign"></i> The Litigator (US)</div>
+                <div class="bloc-desc">
+                    Driven by <strong>Market Liability</strong>. A patchwork of state laws enforced through class-action lawsuits and tort law.
+                </div>
+                <div>
+                    <span class="bloc-keyword">Common Law</span>
+                    <span class="bloc-keyword">Ex-Post Enforcement</span>
+                </div>
+            </div>
+
+            <!-- Global Bloc -->
+            <div class="bloc-col">
+                <div class="bloc-title"><i class="fas fa-globe-asia"></i> The Controller (Global)</div>
+                <div class="bloc-desc">
+                    Driven by <strong>State Security</strong>. Focus on information control, data localization, and sovereignty.
+                </div>
+                <div>
+                    <span class="bloc-keyword">Censorship</span>
+                    <span class="bloc-keyword">Data Residency</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <div>
+                <div class="solution-label">The Codex Strategy</div>
+                <div class="solution-text">
+                    We adopt a <strong>Superset Compliance</strong> model — satisfying the strictest constraints globally to ensure universal operability without forking.
+                </div>
+            </div>
+            <i class="fas fa-check-circle" style="font-size: 40px; color: #FF4500;"></i>
+        </div>
+    </div>
+</body>
+</html>

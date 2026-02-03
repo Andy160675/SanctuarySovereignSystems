@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Problem We Solve</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+        }
+
+        .sidebar {
+            background: #2C3E50;
+            color: #FFFFFF;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .sidebar h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #FF4500; /* Orange Accent */
+            margin-bottom: 20px;
+        }
+        
+        .sidebar p {
+            font-size: 20px;
+            font-weight: 300;
+            opacity: 0.8;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+
+        .content-main {
+            padding: 80px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .core-statement {
+            font-size: 38px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 60px;
+            line-height: 1.2;
+            border-left: 8px solid #FF4500;
+            padding-left: 30px;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .point-list li::before {
+            content: "■";
+            color: #FF4500;
+            font-size: 18px;
+            margin-right: 20px;
+            margin-top: 4px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #2C3E50;
+        }
+
+        .footer-strip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="sidebar">
+            <h1>The<br>Problem<br>We Solve</h1>
+            <p>Current AI governance relies on assertions, dashboards, and policy documents.</p>
+        </div>
+        
+        <div class="content-main">
+            <div class="core-statement">
+                AI systems cannot prove their own safety under <span class="highlight">adversarial challenge</span>.
+            </div>
+
+            <ul class="point-list">
+                <li>When challenged adversarially, most systems collapse or produce silence.</li>
+                <li>Regulators, insurers, and courts require <strong>reconstructable evidence</strong> — not narratives.</li>
+                <li>The gap between "we say it's safe" and "we can prove it's safe" is an <strong>existential risk</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="footer-strip"></div>
+    </div>
+</body>
+</html>

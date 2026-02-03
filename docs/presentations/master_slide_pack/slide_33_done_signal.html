@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The System Signals Done</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 60px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .signals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            flex-grow: 1;
+        }
+
+        .signal-col {
+            display: flex;
+            flex-direction: column;
+            border-top: 8px solid #2C3E50;
+            padding-top: 30px;
+        }
+
+        .signal-col:nth-child(2) {
+            border-color: #FF4500;
+        }
+
+        .signal-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #2C3E50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .signal-desc {
+            font-size: 20px;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .signal-desc strong {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .check-box {
+            margin-top: auto;
+            font-size: 16px;
+            color: #666;
+            border-left: 4px solid #eee;
+            padding-left: 15px;
+        }
+
+        .check-box span {
+            display: block;
+            font-weight: 700;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>The System Signals Done</h1>
+            <h2>Completion is objective, not subjective</h2>
+        </div>
+
+        <div class="signals-grid">
+            <!-- Signal 1 -->
+            <div class="signal-col">
+                <div class="signal-title">Structural</div>
+                <div class="signal-desc">
+                    The repository layout is canonical. There is <strong>no overlap</strong> between Law (Codex) and Execution (Code). The artifacts are sealed and hashed.
+                </div>
+                <div class="check-box">
+                    <span>Indicator</span>
+                    Git Status: Clean
+                </div>
+            </div>
+
+            <!-- Signal 2 -->
+            <div class="signal-col">
+                <div class="signal-title" style="color: #FF4500;">Epistemic</div>
+                <div class="signal-desc">
+                    We have moved from "Unknown Unknowns" to "Managed Risks". The <strong>ALARP Register</strong> is populated, and residual risk is accepted.
+                </div>
+                <div class="check-box">
+                    <span>Indicator</span>
+                    Questions: Answered
+                </div>
+            </div>
+
+            <!-- Signal 3 -->
+            <div class="signal-col">
+                <div class="signal-title">Narrative</div>
+                <div class="signal-desc">
+                    The "myth" of the build is over. There are no more features to invent, only <strong>operations to execute</strong>. The prompt chain ends here.
+                </div>
+                <div class="check-box">
+                    <span>Indicator</span>
+                    Drift: Zero
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">Project Closure Criteria</div>
+    </div>
+</body>
+</html>

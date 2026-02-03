@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trinity Loop Protocol</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .trinity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            flex-grow: 1;
+            margin-bottom: 40px;
+        }
+
+        .role-card {
+            border: 1px solid #eee;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: #F9F9F9;
+        }
+
+        .role-card.witness {
+            background: #2C3E50;
+            color: #fff;
+        }
+
+        .role-icon {
+            font-size: 48px;
+            color: #2C3E50;
+            margin-bottom: 20px;
+        }
+
+        .role-card.witness .role-icon {
+            color: #FF4500;
+        }
+
+        .role-title {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .role-desc {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .role-card.witness .role-desc {
+            color: #ddd;
+        }
+
+        .arrow-connector {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #ccc;
+            z-index: 10;
+        }
+
+        .protocol-box {
+            border-top: 4px solid #FF4500;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .protocol-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+        .protocol-text {
+            font-size: 18px;
+            color: #555;
+            font-style: italic;
+            width: 70%;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Trinity Loop Protocol</h1>
+            <h2>Continuous adversarial review, not one-time audit</h2>
+        </div>
+
+        <div class="trinity-grid">
+            <!-- Architect -->
+            <div class="role-card">
+                <div class="role-icon"><i class="fas fa-drafting-compass"></i></div>
+                <div class="role-title">The Architect</div>
+                <div class="role-desc">
+                    Defines the <strong>Intent Contract</strong>. Specifies the "What" and the "Why" without touching the code.
+                </div>
+                <div class="arrow-connector"><i class="fas fa-chevron-right"></i></div>
+            </div>
+
+            <!-- Builder -->
+            <div class="role-card">
+                <div class="role-icon"><i class="fas fa-tools"></i></div>
+                <div class="role-title">The Builder</div>
+                <div class="role-desc">
+                    Executes the <strong>Implementation</strong>. Writes the code to satisfy the contract (Layers 2-12).
+                </div>
+                <div class="arrow-connector"><i class="fas fa-chevron-right"></i></div>
+            </div>
+
+            <!-- Witness -->
+            <div class="role-card witness">
+                <div class="role-icon"><i class="fas fa-eye"></i></div>
+                <div class="role-title">The Witness</div>
+                <div class="role-desc">
+                    Validates the <strong>Evidence</strong>. Adversarially tests the output against the Intent. If it fails, the loop repeats.
+                </div>
+            </div>
+        </div>
+
+        <div class="protocol-box">
+            <div class="protocol-title">The Paradox of the Witness</div>
+            <div class="protocol-text">
+                "The system cannot certify itself. The Witness must be independent, adversarial, and evidence-bound."
+            </div>
+        </div>
+    </div>
+</body>
+</html>

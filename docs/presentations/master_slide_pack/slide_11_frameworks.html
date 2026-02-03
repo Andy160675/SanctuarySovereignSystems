@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Not a Novel Invention</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 80px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .category-block {
+            border-left: 4px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .framework-list {
+            font-size: 24px;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .framework-list strong {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .bottom-visual {
+            flex-grow: 1;
+            position: relative;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .blueprint-image {
+            height: 150px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.8;
+            border: 1px solid #ccc;
+        }
+
+        .quote-box {
+            width: 50%;
+            text-align: right;
+        }
+
+        .quote-text {
+            font-size: 22px;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: #FF4500;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Not a Novel Invention — A Synthesis</h1>
+            <h2>The Codex unifies 11 proven professional frameworks</h2>
+        </div>
+
+        <div class="framework-grid">
+            <!-- Project Management -->
+            <div class="category-block">
+                <div class="category-title">Project Management</div>
+                <div class="framework-list">
+                    <strong>PRINCE2</strong>, <strong>APM/APMP</strong>
+                </div>
+            </div>
+
+            <!-- Leadership & Ethics -->
+            <div class="category-block">
+                <div class="category-title">Leadership & Ethics</div>
+                <div class="framework-list">
+                    <strong>ILM</strong>, <strong>CIPS</strong>, <strong>BAR 100</strong>
+                </div>
+            </div>
+
+            <!-- Safety & Quality -->
+            <div class="category-block">
+                <div class="category-title">Safety & Quality</div>
+                <div class="framework-list">
+                    <strong>NEBOSH</strong>, <strong>PPAP</strong>, <strong>APQP</strong>
+                </div>
+            </div>
+
+            <!-- Oversight & Dispute -->
+            <div class="category-block">
+                <div class="category-title">Oversight & Dispute</div>
+                <div class="framework-list">
+                    <strong>AI Ombudsman</strong>, <strong>Supreme Court</strong>, <strong>SDR</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-visual">
+            <!-- Using the Blueprint image to signify architecture -->
+            <img src="/home/ubuntu/master-repo/assets/images/KJqoYyzX6QXh.jpg" alt="Enterprise Blueprint" class="blueprint-image">
+            
+            <div class="quote-box">
+                <div class="quote-text">"This is elite, boring, correct engineering — the kind that holds up years later."</div>
+                <div class="quote-author">Codex of Record</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

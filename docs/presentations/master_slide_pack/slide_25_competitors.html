@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Competitors vs Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 60px 80px 20px 80px;
+            border-bottom: 2px solid #2C3E50;
+            background: #fff;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            flex-grow: 1;
+        }
+
+        .col-competitors {
+            background: #F4F4F4;
+            padding: 60px 60px 60px 80px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #ddd;
+        }
+
+        .col-us {
+            background: #FFFFFF;
+            padding: 60px 80px 60px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-title {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .col-competitors .col-title {
+            color: #777;
+        }
+
+        .col-us .col-title {
+            color: #2C3E50;
+            border-left: 5px solid #FF4500;
+            padding-left: 20px;
+        }
+
+        .metric-list {
+            list-style: none;
+        }
+
+        .metric-item {
+            margin-bottom: 40px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #999;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .col-competitors .metric-value {
+            color: #555;
+        }
+
+        .col-us .metric-value {
+            color: #2C3E50;
+            font-weight: 700;
+        }
+
+        .vs-badge {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #2C3E50;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 900;
+            font-size: 20px;
+            border: 4px solid #fff;
+            z-index: 5;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>The Optimization Gap</h1>
+            <h2>What the market sells vs. what we built</h2>
+        </div>
+
+        <div class="comparison-container">
+            <!-- Competitors -->
+            <div class="col-competitors">
+                <div class="col-title">Competitors Optimize</div>
+                
+                <ul class="metric-list">
+                    <li class="metric-item">
+                        <div class="metric-label">Primary Metric</div>
+                        <div class="metric-value">Tokens per Second</div>
+                    </li>
+                    <li class="metric-item">
+                        <div class="metric-label">Safety Model</div>
+                        <div class="metric-value">"Trust & Safety" Teams</div>
+                    </li>
+                    <li class="metric-item">
+                        <div class="metric-label">Architecture</div>
+                        <div class="metric-value">Black Box SaaS</div>
+                    </li>
+                    <li class="metric-item">
+                        <div class="metric-label">Goal</div>
+                        <div class="metric-value">User Engagement</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Us -->
+            <div class="col-us">
+                <div class="col-title">We Built</div>
+
+                <ul class="metric-list">
+                    <li class="metric-item">
+                        <div class="metric-label">Primary Metric</div>
+                        <div class="metric-value">Proofs per Second</div>
+                    </li>
+                    <li class="metric-item">
+                        <div class="metric-label">Safety Model</div>
+                        <div class="metric-value">Cryptographic Attestation</div>
+                    </li>
+                    <li class="metric-item">
+                        <div class="metric-label">Architecture</div>
+                        <div class="metric-value">Evidence-Bound Kernel</div>
+                    </li>
+                    <li class="metric-item">
+                        <div class="metric-label">Goal</div>
+                        <div class="metric-value">Liability Shield</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="vs-badge">VS</div>
+    </div>
+</body>
+</html>

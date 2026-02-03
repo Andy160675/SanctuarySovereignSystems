@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Political Forces</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .forces-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 60px;
+            flex-grow: 1;
+        }
+
+        .force-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-top: 4px solid #2C3E50;
+            padding-top: 20px;
+        }
+
+        .force-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .force-icon {
+            font-size: 32px;
+            color: #FF4500;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .force-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+        .force-desc {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .force-desc strong {
+            color: #333;
+            font-weight: 700;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Political Forces</h1>
+            <h2>Regulatory pressure is accelerating globally</h2>
+        </div>
+
+        <div class="forces-grid">
+            <!-- Force 1 -->
+            <div class="force-item">
+                <div class="force-header">
+                    <div class="force-icon"><i class="fas fa-globe-europe"></i></div>
+                    <div class="force-title">The Brussels Effect</div>
+                </div>
+                <div class="force-desc">
+                    The <strong>EU AI Act</strong> is setting the de facto global standard. Compliance is no longer optional for international operators; it is the price of market access.
+                </div>
+            </div>
+
+            <!-- Force 2 -->
+            <div class="force-item">
+                <div class="force-header">
+                    <div class="force-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="force-title">National Security</div>
+                </div>
+                <div class="force-desc">
+                    AI is now classified as <strong>critical infrastructure</strong>. Governments are demanding sovereign control, auditability, and "kill switches" for high-risk systems.
+                </div>
+            </div>
+
+            <!-- Force 3 -->
+            <div class="force-item">
+                <div class="force-header">
+                    <div class="force-icon"><i class="fas fa-gavel"></i></div>
+                    <div class="force-title">Liability Shift</div>
+                </div>
+                <div class="force-desc">
+                    Regulators are moving liability from the user to the <strong>developer</strong>. "Move fast and break things" is now a legal liability strategy.
+                </div>
+            </div>
+
+            <!-- Force 4 -->
+            <div class="force-item">
+                <div class="force-header">
+                    <div class="force-icon"><i class="fas fa-flag"></i></div>
+                    <div class="force-title">Data Sovereignty</div>
+                </div>
+                <div class="force-desc">
+                    Nations are erecting digital borders. Systems must prove <strong>data residency</strong> and isolation to operate in regulated jurisdictions.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">PESTLE Analysis // Political</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRINCE2 Alignment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            padding: 60px 80px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .mapping-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .mapping-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background: #F9F9F9;
+            padding: 20px;
+            border-left: 6px solid #ccc;
+        }
+
+        .mapping-row.highlight {
+            border-left-color: #FF4500;
+            background: #FFF5F0;
+        }
+
+        .prince-term {
+            font-size: 20px;
+            font-weight: 700;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .arrow {
+            color: #2C3E50;
+            font-size: 18px;
+            padding: 0 20px;
+        }
+
+        .codex-term {
+            font-size: 22px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-align: right;
+        }
+
+        .highlight .codex-term {
+            color: #FF4500;
+        }
+
+        .visual-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #2C3E50;
+            padding: 20px;
+            position: relative;
+        }
+
+        .blueprint-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.9;
+            border: 1px solid #fff;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 10px;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 80px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>PRINCE2 Alignment</h1>
+            <p>Mapping stage gates, roles, and justification</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="mapping-container">
+                <div class="mapping-row">
+                    <div class="prince-term">Continued Business Justification</div>
+                    <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="codex-term">Declaration of Law</div>
+                </div>
+
+                <div class="mapping-row highlight">
+                    <div class="prince-term">Manage by Stages</div>
+                    <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="codex-term">Adversarial Collision</div>
+                </div>
+
+                <div class="mapping-row">
+                    <div class="prince-term">Manage by Exception</div>
+                    <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="codex-term">ALARP Tolerance</div>
+                </div>
+
+                <div class="mapping-row highlight">
+                    <div class="prince-term">Defined Roles & Resp.</div>
+                    <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="codex-term">Builder / Adversary / Witness</div>
+                </div>
+            </div>
+
+            <div class="visual-container">
+                <img src="/home/ubuntu/master-repo/assets/images/4wrr7Ll64etB.jpg" alt="Structured Architecture Blueprint" class="blueprint-image">
+                <div class="caption">Structured Governance Architecture</div>
+            </div>
+        </div>
+
+        <div class="footer">Standard Project Management Principles Applied to AI</div>
+    </div>
+</body>
+</html>

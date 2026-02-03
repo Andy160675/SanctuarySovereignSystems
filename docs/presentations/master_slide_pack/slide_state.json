@@ -1,0 +1,432 @@
+{
+  "project_info": {
+    "title": "Sovereign System — Evidence-First AI Governance",
+    "created": 1770142892.5760372,
+    "last_updated": 1770143242.6123078,
+    "total_slides": 35
+  },
+  "slides": [
+    {
+      "id": "slide_01_title",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_02_problem",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_03_solution",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_04_codex_intro",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_05_paradox",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_06_roles",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "slide_07_phases",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "slide_08_loop",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "slide_09_evidence",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "slide_10_oath",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "slide_11_frameworks",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "slide_12_prince2",
+      "state": "edited",
+      "pageNum": 12
+    },
+    {
+      "id": "slide_13_nebosh",
+      "state": "edited",
+      "pageNum": 13
+    },
+    {
+      "id": "slide_14_quality",
+      "state": "edited",
+      "pageNum": 14
+    },
+    {
+      "id": "slide_15_legal",
+      "state": "edited",
+      "pageNum": 15
+    },
+    {
+      "id": "slide_16_political",
+      "state": "edited",
+      "pageNum": 16
+    },
+    {
+      "id": "slide_17_economic",
+      "state": "edited",
+      "pageNum": 17
+    },
+    {
+      "id": "slide_18_social",
+      "state": "edited",
+      "pageNum": 18
+    },
+    {
+      "id": "slide_19_legal_env",
+      "state": "edited",
+      "pageNum": 19
+    },
+    {
+      "id": "slide_20_outlook_intro",
+      "state": "edited",
+      "pageNum": 20
+    },
+    {
+      "id": "slide_21_baseline",
+      "state": "edited",
+      "pageNum": 21
+    },
+    {
+      "id": "slide_22_accelerated",
+      "state": "edited",
+      "pageNum": 22
+    },
+    {
+      "id": "slide_23_fragmented",
+      "state": "edited",
+      "pageNum": 23
+    },
+    {
+      "id": "slide_24_valuation",
+      "state": "edited",
+      "pageNum": 24
+    },
+    {
+      "id": "slide_25_competitors",
+      "state": "edited",
+      "pageNum": 25
+    },
+    {
+      "id": "slide_26_differentiation",
+      "state": "edited",
+      "pageNum": 26
+    },
+    {
+      "id": "slide_27_markets",
+      "state": "edited",
+      "pageNum": 27
+    },
+    {
+      "id": "slide_28_revenue",
+      "state": "edited",
+      "pageNum": 28
+    },
+    {
+      "id": "slide_29_blade",
+      "state": "edited",
+      "pageNum": 29
+    },
+    {
+      "id": "slide_30_canonical",
+      "state": "edited",
+      "pageNum": 30
+    },
+    {
+      "id": "slide_31_crypto",
+      "state": "edited",
+      "pageNum": 31
+    },
+    {
+      "id": "slide_32_trinity",
+      "state": "edited",
+      "pageNum": 32
+    },
+    {
+      "id": "slide_33_done_signal",
+      "state": "edited",
+      "pageNum": 33
+    },
+    {
+      "id": "slide_34_next_steps",
+      "state": "edited",
+      "pageNum": 34
+    },
+    {
+      "id": "slide_35_final",
+      "state": "edited",
+      "pageNum": 35
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_01_title",
+      "title": "Sovereign System — Evidence-First AI Governance",
+      "summary": "Title slide introducing the framework, author, and steward.",
+      "image_plan": "/home/ubuntu/upload/search_images/EYASyvkvv5H5.png - Image 1 visually represents AI governance, which is the core topic of the title slide.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_02_problem",
+      "title": "The Problem We Solve",
+      "summary": "AI systems cannot prove their own safety under adversarial challenge.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_03_solution",
+      "title": "Our Solution in One Sentence",
+      "summary": "Governance is a safety system, not a reporting layer.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_04_codex_intro",
+      "title": "What is the Codex of Record?",
+      "summary": "A meta-framework for evidence-first governance.",
+      "image_plan": "/home/ubuntu/upload/search_images/wZjxXNJBf6Bc.png; /home/ubuntu/upload/search_images/d0omuyZLle6N.jpg - Images 2 and 3 both depict AI governance frameworks and processes, aligning with the concept of a meta-framework for evidence-first governance.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_05_paradox",
+      "title": "The Prime Governance Paradox",
+      "summary": "A system must prove it cannot escape its own governance.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_06_roles",
+      "title": "Three Roles — Separation of Concern",
+      "summary": "Builder, Adversary, and Witness roles must remain separate.",
+      "image_plan": "/home/ubuntu/upload/search_images/uMMjbh3gkMi2.jpg; /home/ubuntu/upload/search_images/4C0oNOX01bC4.webp - Images 7 and 8 both show corporate governance structures with distinct roles, which aligns with the 'Three Roles - Separation of Concern' slide.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_07_phases",
+      "title": "Six Execution Phases",
+      "summary": "Industry-grade safety review phases from Declaration to ALARP.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_08_loop",
+      "title": "Loop Closure — The System Must Terminate",
+      "summary": "Iterate until stable or contradiction is reached.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_09_evidence",
+      "title": "Evidence Standard — No Exceptions",
+      "summary": "All outputs must be append-only, hash-sealed, and reproducible.",
+      "image_plan": "/home/ubuntu/upload/search_images/T7Dt7XJTMKE6.png; /home/ubuntu/upload/search_images/jEaVkDjrYJAL.jpg - Images 15 and 16 both illustrate audit trails and blockchain concepts, which align with the 'append-only, hash-sealed, timestamped' evidence standard.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_10_oath",
+      "title": "The Final Witness Oath",
+      "summary": "The review must be reconstructable without the author.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_11_frameworks",
+      "title": "Not a Novel Invention — A Synthesis",
+      "summary": "The Codex unifies 11 proven professional frameworks.",
+      "image_plan": "/home/ubuntu/upload/search_images/9pi6ZhxQym5z.webp; /home/ubuntu/upload/search_images/KJqoYyzX6QXh.jpg - Images 4 and 5 both depict enterprise architecture blueprints, which can represent the synthesis of multiple frameworks.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_12_prince2",
+      "title": "PRINCE2 Alignment",
+      "summary": "Mapping stage gates, roles, and continued justification.",
+      "image_plan": "/home/ubuntu/upload/search_images/4wrr7Ll64etB.jpg - Image 6 shows a ServiceNow ESM Architecture Blueprint, which can represent a structured project management framework like PRINCE2.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_13_nebosh",
+      "title": "NEBOSH & ALARP Alignment",
+      "summary": "Safety engineering discipline applied to AI governance.",
+      "image_plan": "/home/ubuntu/upload/search_images/Zfiz3PGHi8I3.jpg; /home/ubuntu/upload/search_images/9c5NwcBlSD5o.jpg; /home/ubuntu/upload/search_images/Z9fNmwDt8C5P.png - Images 9, 10, and 11 all relate to safety management systems and processes, aligning with NEBOSH and ALARP alignment.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_14_quality",
+      "title": "Quality Management Alignment (PPAP/APQP)",
+      "summary": "Production Part Approval Process for AI systems.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_15_legal",
+      "title": "Legal & Ethical Alignment",
+      "summary": "Professional conduct standards for AI operators.",
+      "image_plan": "/home/ubuntu/upload/search_images/VSpCeUBMDwAx.png; /home/ubuntu/upload/search_images/Ne7XhkZVOYzV.jpeg; /home/ubuntu/upload/search_images/sKETCkirsUZb.png - Images 12, 13, and 14 all depict compliance and governance frameworks, aligning with legal and ethical standards.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_16_political",
+      "title": "Political Forces Driving Adoption",
+      "summary": "Regulatory pressure is accelerating globally.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_17_economic",
+      "title": "Economic Forces",
+      "summary": "Governance-grade AI is a market requirement.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_18_social",
+      "title": "Social & Technological Forces",
+      "summary": "Public trust is conditional on demonstrable safety.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_19_legal_env",
+      "title": "Legal & Environmental Forces",
+      "summary": "Litigation and sustainability are converging on AI.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_20_outlook_intro",
+      "title": "Scenario-Based, Falsifiable, Assumption-Explicit",
+      "summary": "Structured foresight, not futurism.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_21_baseline",
+      "title": "Baseline Scenario (2026-2051)",
+      "summary": "Steady regulatory convergence and governance adoption.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_22_accelerated",
+      "title": "Accelerated Adoption Scenario",
+      "summary": "Major incident triggers rapid global mandates.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_23_fragmented",
+      "title": "Fragmented Regulation Scenario",
+      "summary": "Jurisdictional divergence creates complexity.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_24_valuation",
+      "title": "From Founder Narrative to Auditable Valuation",
+      "summary": "Valuation grounded in concrete deliverables.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_25_competitors",
+      "title": "What We Built vs What Competitors Optimize",
+      "summary": "We optimized constraint and proof, not noise.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_26_differentiation",
+      "title": "Competitive Differentiation",
+      "summary": "Evidence-first governance is a defensible moat.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_27_markets",
+      "title": "Target Markets",
+      "summary": "Regulated industries with high liability exposure.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_28_revenue",
+      "title": "Revenue Model",
+      "summary": "Licensing, certification, consulting, and training.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_29_blade",
+      "title": "The Blade of Truth — 13-Layer Implementation",
+      "summary": "From intent contract to done-done release gate.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_30_canonical",
+      "title": "Canonical Layout — No Overlap",
+      "summary": "Physical separation of concerns enforced.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_31_crypto",
+      "title": "Cryptographic Attestation",
+      "summary": "Hash-sealed, timestamped, append-only evidence chain.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_32_trinity",
+      "title": "Trinity Loop Protocol",
+      "summary": "Continuous adversarial review, not one-time audit.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_33_done_signal",
+      "title": "The System Signals Done",
+      "summary": "Structural, epistemic, and narrative indicators of completion.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_34_next_steps",
+      "title": "Next Steps — Publication Mode",
+      "summary": "The build phase is closed; communication begins.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_35_final",
+      "title": "Final Statement",
+      "summary": "We tried to be right, and the evidence will endure.",
+      "image_plan": "",
+      "slide_template_key": ""
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cryptographic Attestation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .chain-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 20px;
+        }
+
+        .chain-block {
+            width: 800px;
+            background: #fff;
+            border: 2px solid #2C3E50;
+            padding: 20px 30px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            box-shadow: 10px 10px 0px rgba(44, 62, 80, 0.1);
+        }
+
+        .chain-block:last-child {
+            margin-bottom: 0;
+            border-color: #FF4500;
+            background: #FFF5F0;
+        }
+
+        /* Connecting Line */
+        .chain-block:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -42px; /* Gap + Border */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 40px;
+            background: #ccc;
+        }
+
+        /* Arrow Head */
+        .chain-block:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            bottom: -48px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #ccc;
+        }
+
+        .block-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .block-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .block-desc {
+            font-size: 16px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .hash-display {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            color: #FF4500;
+            background: #eee;
+            padding: 8px 12px;
+            border-radius: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-note {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Cryptographic Attestation</h1>
+            <h2>Hash-sealed, timestamped, append-only evidence chain</h2>
+        </div>
+
+        <div class="chain-container">
+            <!-- Block 1 -->
+            <div class="chain-block">
+                <div class="block-content">
+                    <div class="block-title">1. Artifact Creation</div>
+                    <div class="block-desc">The system generates a file (Log, Report, Code).</div>
+                </div>
+                <div class="hash-display">INPUT: FILE_CONTENT</div>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="chain-block">
+                <div class="block-content">
+                    <div class="block-title">2. The Seal</div>
+                    <div class="block-desc">SHA-256 Hash + Trusted Timestamp.</div>
+                </div>
+                <div class="hash-display">HASH: 5446f9df9989...</div>
+            </div>
+
+            <!-- Block 3 -->
+            <div class="chain-block">
+                <div class="block-content">
+                    <div class="block-title">3. The Chain</div>
+                    <div class="block-desc">Hash is added to the Merkle Root. Immutable.</div>
+                </div>
+                <div class="hash-display">ROOT: 9ee1d20c6b49...</div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Technical Architecture // Integrity
+        </div>
+    </div>
+</body>
+</html>
