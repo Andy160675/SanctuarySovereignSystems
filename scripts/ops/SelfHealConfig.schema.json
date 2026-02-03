@@ -1,0 +1,120 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://sovereign-system/SelfHealConfig.schema.json",
+    "title": "SelfHealAutomation Configuration Schema",
+    "description": "Configuration schema for SelfHealAutomation.ps1 — The Blade of Truth",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "Reference to this schema file"
+        },
+        "version": {
+            "type": "string",
+            "description": "Configuration version",
+            "pattern": "^\\d+\\.\\d+$",
+            "default": "1.0"
+        },
+        "checks": {
+            "type": "object",
+            "description": "Health check configuration",
+            "properties": {
+                "disk": {
+                    "type": "object",
+                    "properties": {
+                        "criticalThresholdGb": {
+                            "type": "integer",
+                            "description": "Disk space threshold for critical alert (GB)",
+                            "minimum": 1,
+                            "maximum": 100,
+                            "default": 10
+                        },
+                        "warningThresholdGb": {
+                            "type": "integer",
+                            "description": "Disk space threshold for warning alert (GB)",
+                            "minimum": 5,
+                            "maximum": 200,
+                            "default": 20
+                        },
+                        "driveLetter": {
+                            "type": "string",
+                            "description": "Drive letter to monitor",
+                            "pattern": "^[A-Z]$",
+                            "default": "C"
+                        }
+                    }
+                },
+                "services": {
+                    "type": "object",
+                    "properties": {
+                        "criticalServices": {
+                            "type": "array",
+                            "description": "List of critical Windows services to monitor",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": ["Spooler"]
+                        }
+                    }
+                },
+                "network": {
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "type": "string",
+                            "description": "IP address for connectivity test",
+                            "default": "8.8.8.8"
+                        },
+                        "dnsTarget": {
+                            "type": "string",
+                            "description": "Hostname for DNS resolution test",
+                            "default": "dns.google"
+                        },
+                        "latencyThresholdMs": {
+                            "type": "integer",
+                            "description": "Maximum acceptable latency in milliseconds",
+                            "minimum": 10,
+                            "maximum": 5000,
+                            "default": 100
+                        }
+                    }
+                }
+            }
+        },
+        "remediations": {
+            "type": "object",
+            "description": "Remediation guardrail configuration",
+            "properties": {
+                "maxActionsPerCycle": {
+                    "type": "integer",
+                    "description": "Maximum remediation actions per cycle",
+                    "minimum": 1,
+                    "maximum": 10,
+                    "default": 3
+                },
+                "cooldownMinutes": {
+                    "type": "integer",
+                    "description": "Minimum minutes between same remediation",
+                    "minimum": 1,
+                    "maximum": 60,
+                    "default": 5
+                },
+                "circuitBreakerLimit": {
+                    "type": "integer",
+                    "description": "Consecutive failures before circuit breaker trips",
+                    "minimum": 3,
+                    "maximum": 20,
+                    "default": 5
+                }
+            }
+        },
+        "intervalSeconds": {
+            "type": "integer",
+            "description": "Seconds between cycles in continuous mode",
+            "minimum": 30,
+            "maximum": 3600,
+            "default": 300
+        }
+    },
+    "additionalProperties": false
+}

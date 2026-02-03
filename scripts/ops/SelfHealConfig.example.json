@@ -1,0 +1,25 @@
+{
+    "$schema": "./SelfHealConfig.schema.json",
+    "version": "1.0",
+    "checks": {
+        "disk": {
+            "criticalThresholdGb": 10,
+            "warningThresholdGb": 20,
+            "driveLetter": "C"
+        },
+        "services": {
+            "criticalServices": ["Spooler", "wuauserv", "WinRM"]
+        },
+        "network": {
+            "target": "8.8.8.8",
+            "dnsTarget": "dns.google",
+            "latencyThresholdMs": 100
+        }
+    },
+    "remediations": {
+        "maxActionsPerCycle": 3,
+        "cooldownMinutes": 5,
+        "circuitBreakerLimit": 5
+    },
+    "intervalSeconds": 300
+}
