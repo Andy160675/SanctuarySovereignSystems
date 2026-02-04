@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-02-04T14:55:01.415987Z",
+  "ledger_path": "Governance/Logs/audit_chain.jsonl",
+  "status": "PASS",
+  "entry_count": 3,
+  "first_entry": {
+    "timestamp": "2026-02-04T10:00:00Z",
+    "event_type": "SYSTEM_INIT"
+  },
+  "last_entry": {
+    "timestamp": "2026-02-04T10:02:00Z",
+    "event_type": "DECISION"
+  },
+  "chain_valid": true,
+  "errors": []
+}
