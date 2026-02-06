@@ -1,4 +1,25 @@
+﻿---
+DOCUMENT_ID: SOV-SOP-001
+AUTHORITY: Ops Command
+REVISION: 1.1
+LAST_AUDIT: 2026-02-06
+STATUS: AUDITED
+---
 # SOVEREIGN STANDARD OPERATING PROCEDURES (SOP) - DAILY RHYTHM
+
+## CROSS-VALIDATION DOCTRINE (Core Invariant)
+Reliability comes from forcing independent components to agree â€” and treating disagreement as a first-class signal.
+
+### 1. Operational Rules
+*   **Independence**: Components must not share hidden assumptions, tooling, or data paths.
+*   **Disagreement = Signal**: Never average or suppress divergence. Log it, escalate it, investigate it.
+*   **Graceful Degradation**: Loss of a component reduces authority, not safety.
+*   **Explicit Accountability**: A human remains the final decision authority. Always attributable.
+
+### 2. Escalation States
+*   **Green**: All nodes agree. **Action: Execute.**
+*   **Yellow**: Partial disagreement. **Action: Hold + Review.**
+*   **Red**: No agreement/Majority disagreement. **Action: Halt + Investigate.**
 
 ## 08:00 UTC - INGESTION
 1.  **Physical Transfer**: Connect "Air Gap" USB or download via secure channel.
@@ -9,7 +30,10 @@
 
 ## 08:30 UTC - EXECUTION
 1.  **Launch**: Run `./launch.sh` (if not running).
-2.  **Execute**:
+2.  **Cross-Validate**: Run task "Ops: Verify Evidence Agreement (Cross-Node)".
+    *   **GREEN**: Proceed to Ingest/Analyze.
+    *   **YELLOW/RED**: HALT. Human investigation required per Cross-Validation Doctrine.
+3.  **Execute**:
     *   `docker-compose run --rm executor python src/agents/evidence_validator.py`
     *   `docker-compose run --rm executor python src/agents/property_analyst.py`
 
@@ -29,3 +53,4 @@
 1.  **Update Code**: `git pull origin main` (if updates available).
 2.  **Prune Docker**: `docker system prune -f` to clear old layers.
 3.  **Rotate Keys**: If using API keys, rotate them.
+

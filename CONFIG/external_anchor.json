@@ -1,7 +1,7 @@
 {
-  "backend": "none",
-  "dry_run": true,
-  "rfc3161_url": null,
+  "backend": "rfc3161",
+  "dry_run": false,
+  "rfc3161_url": "http://timestamp.digicert.com",
   "rfc3161_cert_path": null,
   "ipfs_gateway": "https://ipfs.io/ipfs",
   "ipfs_api_url": null,

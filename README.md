@@ -16,6 +16,7 @@ Continuous, self-monitoring sovereign truth engine with automated golden master 
 - **truth-engine/**: txtai + FastAPI + health monitoring
 - **boardroom-shell/**: Electron + React with live event relay
 - **blade-watcher/**: Continuous filesystem monitoring
+- **agents/thread-recovery/**: AI thread recovery and GDrive consolidation
 - **scripts/**: Automated golden master + nightly backups
 - **golden-master/**: SHA-256 + GPG manifest integrity
 
@@ -69,6 +70,24 @@ curl http://localhost:5050/health
 ✅ GPG signature verification for all manifests  
 ✅ SHA-256 checksums for file integrity  
 ✅ Automated backup encryption and archiving  
+✅ **MCP Integration**: Standardized Model Context Protocol configuration  
+
+## Model Context Protocol (MCP)
+
+This project includes a standardized MCP configuration for VS Code and compatible tools.
+
+- **Config Path**: `.vscode/mcp-servers.json`
+- **Active Servers**: 
+  - `Context7`: `@upstash/context7-mcp` (via `npx`)
+
+### Prerequisites
+
+1. **Node.js**: Required for `npx` based servers.
+2. **VS Code Extension**: Install an MCP-compatible extension (e.g., "MCP" by Anthropic or similar).
+
+### Usage
+
+The configuration is automatically detected by compatible extensions when you open this folder or the `sovereign.code-workspace`. To add or disable servers, edit `.vscode/mcp-servers.json`.
 
 ## Data Paths
 

@@ -1,4 +1,4 @@
-# Sovereign System - Self-Build Makefile
+﻿# Sovereign System - Self-Build Makefile
 # ======================================
 #
 # THINK + WORRY + REFUSE + ACT + REMEMBER = OK
@@ -22,15 +22,19 @@ YELLOW = \033[0;33m
 NC     = \033[0m # No Color
 
 # Default target
-all: mission-up mission-drill mission-status
+all: pre-verify mission-up mission-drill mission-status
 	@echo "$(GREEN)=== SOVEREIGN SYSTEM: ALL CHECKS PASSED ===$(NC)"
+
+# Pre-build verification
+pre-verify:
+	@python3 scripts/pre-build-verify.py
 
 # Start the mission runtime stack
 mission-up:
 	@echo "$(YELLOW)=== Starting Mission Runtime Stack ===$(NC)"
-	docker compose -f $(COMPOSE_FILE) up -d --build
-	@echo "Waiting for services to initialize..."
-	@sleep 30
+	docker compose -f $(COMPOSE_FILE) up -d --build --parallel
+	@echo "Polling services for health status..."
+	@python3 scripts/health-poll.py
 	@echo "$(GREEN)=== Mission Stack Started ===$(NC)"
 	@$(MAKE) mission-status
 

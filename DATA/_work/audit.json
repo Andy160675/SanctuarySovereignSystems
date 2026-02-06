@@ -4,5 +4,1427 @@
     "timestamp": "2025-11-26T11:48:20Z",
     "topic": "Test investor compliance review",
     "snapshot_path": "DATA\\_work\\snapshots\\20251126T114820Z-3d9ea901.json"
+  },
+  {
+    "session_id": "sim-DNS_and_Eg-1770348340",
+    "timestamp": "2026-02-06T03:25:40Z",
+    "topic": "DNS and Egress Security",
+    "snapshot_path": "DATA\\_work\\snapshots\\sim-DNS_and_Eg-1770348340.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 54.148.248.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 104.18.39.21:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: tailscaled -> 192.200.0.112:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: tailscaled -> 199.165.136.101:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 160.79.104.10:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: OneDrive -> 52.106.5.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 54.209.2.128:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: idea64 -> 18.172.153.53:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 150.171.28.11:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 140.82.112.26:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: idea64 -> 18.244.124.66:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: idea64 -> 18.244.124.66:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 54.158.45.102:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 13.107.6.158:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: tailscaled -> 176.58.92.254:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 72.144.120.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 57.153.79.230:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 40.79.197.35:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 74.178.130.41:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: OneDrive -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 18.97.36.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: GetHelp -> 20.50.88.234:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 163.70.151.60:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 54.148.248.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 104.18.39.21:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: tailscaled -> 192.200.0.112:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: tailscaled -> 199.165.136.101:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 160.79.104.10:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: OneDrive -> 52.106.5.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 54.209.2.128:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: idea64 -> 18.172.153.53:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 150.171.28.11:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 140.82.112.26:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: idea64 -> 18.244.124.66:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: idea64 -> 18.244.124.66:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 54.158.45.102:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 13.107.6.158:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: tailscaled -> 176.58.92.254:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 72.144.120.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 40.79.197.35:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 74.178.130.41:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: OneDrive -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 18.97.36.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: GetHelp -> 20.50.88.234:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedge -> 100.50.22.71:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.129.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.74.13:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.22.17:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: WINWORD -> 52.111.236.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: SearchHost -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 52.182.143.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: Copilot -> 52.182.141.63:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.189.173.1:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.190.169.27:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.129.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.74.13:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.22.17:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: WINWORD -> 52.111.236.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: SearchHost -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 52.182.143.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: Copilot -> 52.182.141.63:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.189.173.1:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.190.169.27:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.129.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.74.13:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.22.17:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: WINWORD -> 52.111.236.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: SearchHost -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 52.182.143.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:11Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349211",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349211.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: Copilot -> 52.182.141.63:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.189.173.1:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.190.169.27:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.129.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.74.13:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.22.17:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: WINWORD -> 52.111.236.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: SearchHost -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 52.182.143.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: Copilot -> 52.182.141.63:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.189.173.1:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.190.169.27:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.129.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.74.13:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.22.17:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: WINWORD -> 52.111.236.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: SearchHost -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 52.182.143.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: Copilot -> 52.182.141.63:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.189.173.1:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.190.169.27:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.129.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.74.13:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 150.171.22.17:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 52.123.128.14:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: WINWORD -> 52.111.236.18:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: SearchHost -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 52.182.143.211:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: M365Copilot -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 172.187.86.72:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 40.99.213.34:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: svchost -> 20.190.160.67:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: Copilot -> 52.182.141.63:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.189.173.1:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 74.248.75.28:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 20.190.169.27:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
+  },
+  {
+    "session_id": "egress-1770349212",
+    "timestamp": "2026-02-06T03:40:12Z",
+    "topic": "Egress Violation Detected: msedgewebview2 -> 13.89.179.8:443",
+    "snapshot_path": "DATA\\_work\\snapshots\\egress-1770349212.json"
   }
 ]
