@@ -28,6 +28,8 @@ class SovereignReceipt:
     drift_detected: bool = False
     drift_details: Optional[List[Dict]] = None
     timestamp: int = int(time.time())
+    # Operational invariants snapshot at time of receipt (optional)
+    ops_invariants: Optional[List[str]] = None
 
 def _column_exists(cur: sqlite3.Cursor, table: str, column: str) -> bool:
     cur.execute(f"PRAGMA table_info({table})")

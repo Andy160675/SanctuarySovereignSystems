@@ -23,3 +23,9 @@
 {"Iteration":23,"EfficiencyGain":0,"Timestamp":"2026-02-06 04:57:39Z","AgentQty":2700,"Status":"SUCCESS","SkewDetected":[]}
 {"Iteration":24,"EfficiencyGain":0,"Timestamp":"2026-02-06 04:57:43Z","AgentQty":2700,"Status":"SUCCESS","SkewDetected":[]}
 {"Iteration":25,"EfficiencyGain":0,"Timestamp":"2026-02-06 04:57:47Z","AgentQty":2700,"Status":"SUCCESS","SkewDetected":[]}
+{"Iteration":1,"EfficiencyGain":0,"Timestamp":"2026-02-06 05:03:08Z","AgentQty":2700,"Status":"SKEW_DETECTED","SkewDetected":true}
+{"Iteration":2,"EfficiencyGain":0,"Timestamp":"2026-02-06 05:03:15Z","AgentQty":2430,"Status":"SKEW_DETECTED","SkewDetected":true}
+{"Iteration":3,"EfficiencyGain":0,"Timestamp":"2026-02-06 05:03:22Z","AgentQty":2187,"Status":"SKEW_DETECTED","SkewDetected":true}
+{"Iteration":1,"EfficiencyGain":0,"Timestamp":"2026-02-06 05:04:14Z","AgentQty":2700,"Status":"SKEW_DETECTED","SkewDetected":true}
+{"Iteration":2,"EfficiencyGain":0,"Timestamp":"2026-02-06 05:04:21Z","AgentQty":2430,"Status":"SKEW_DETECTED","SkewDetected":true}
+{"Iteration":3,"EfficiencyGain":0,"Timestamp":"2026-02-06 05:04:28Z","AgentQty":2187,"Status":"SKEW_DETECTED","SkewDetected":true}

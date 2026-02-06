@@ -10,7 +10,12 @@ Versioning rules:
   - A signed tag/release (e.g., git tag -s vX.Y.Z)
   - A manifest of file hashes: `governance/bundle_manifest.json` (SHA-256 for each included file)
 
+Automation tools (Codex/Architecture/):
+- `generate_bundle_manifest.py`: Creates the `bundle_manifest.json` for a release.
+- `verify_bundle.py`: Validates local governance state against a manifest.
+
 Node sync:
 - Nodes pin to a bundle version X.Y.Z and fetch the release artifact.
 - Local evidence is emitted per node, but governance inputs are pinned to the version.
 - Upgrades require explicit bump + signature verification.
+- Run `python Codex/Architecture/verify_bundle.py` before operation to ensure alignment.
