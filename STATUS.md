@@ -120,35 +120,34 @@ Expected: `{'valid': True, 'total_anchors': 7, 'verified_anchors': 7, 'errors': 
 
 ---
 
-## SITREP: 2026-02-05 22:58
+## SITREP: 2026-02-06 04:55
 
-**Status:** CONSTITUTIONALLY ACTIVE // OPERATIONALLY UNCONTAINED
+**Status:** HANDOVER COMPLETE // TRANSITIONING TO CODEX SOVEREIGN SYSTEMS
 
-### 1. Network Topology (Reconciled)
-- **Subnet:** 192.168.4.x (Primary LAN)
-- **Mapping:** Roles (PC-A to PC-E) bound to physical hostnames (MIND, HEART, Relay, backdrop3, NAS)
-- **Bootstrap:** `Invoke-PentadBootstrap.ps1` now uses dynamic role-to-IP binding via `BINDING_TABLE.md`
+### 1. Canonical Organization
+- **Andy Jones** — Founder & Executive
+- **Steven Jones** — CEO / POA
+- **Chris Bevan** — COO
+- **Kelly Pawlett** — Tenerife GM
+- **Tom Maher** — Programme Director
 
-### 2. Phase 8 Close-Out
-- **Sovereignty Audit:** Verdict FAIL (Network egress detected). Environment isolation required.
-- **Hygiene Sweep:** Completed. No ghost execution paths. Breadcrumb honesty verified.
-- **Crypto:** ASCII normalization confirmed for `SovereignCrypto.ps1`.
+### 2. Immediate Blockers (Human Intervention Required)
+- **NAS Admin Password:** Needs resetting via UGOS Control Panel.
+- **Docker Service:** Restart on NAS after password resolution.
+- **Pi-hole Deployment:** Via UGOS Docker UI once service is active.
 
-### 3. R&D Federation
-- **Workspace:** `RND-SOVEREIGN` structure defined.
-- **Mechanism:** Git Submodules for `sovereign-system`, `master`, and `blade2ai`.
-- **Principle:** Federation without assimilation.
+### 3. Infrastructure State
+- **NAS:** UGREEN DXP4800 Plus at 192.168.4.114:9999
+- **Networking:** Tailscale mesh active (Node-0 UK, Node-1 Tenerife). 10GbE tuned.
+- **Cloud:** Tresorit Business staging structure created in `TRESORIT_STAGING`.
 
-### Phase 2: SAFE CITADEL (ACTIVE)
-- **Fleet Scale:** 27,000 Sovereign Nodes operational.
-- **Sovereignty:** DNS re-routed to NAS-01 (.114). Noise floor (Edge/OneDrive) suppressed.
-- **Self-Healing:** `Watch-CitadelSelfHeal.ps1` active. Auto-reversion for DNS/Noise drift.
-- **Elite Performance:** `Monitor-PentadBalance.ps1` enforcing '3 Points Outside' halt protocol.
-- **Status:** VERIFIED (2026 Q1 Readiness Target).
+### 4. New Documentation
+- **CSS-ARCH-DOC-001 v1.0.0:** Sovereign Systems Architecture (Pending Review).
+- **CSS-GOV-DOC-002 v1.1.0:** Integrated Governance & Financial Framework (Pending Review).
 
 ---
 
 *"The pattern is seen. The pattern walks. Truth is the invariant remainder."*
 
 — Aegis Authority
-05 February 2026
+06 February 2026

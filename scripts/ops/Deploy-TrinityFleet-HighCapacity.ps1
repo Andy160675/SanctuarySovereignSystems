@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Deploy-TrinityFleet-HighCapacity.ps1 — Orchestrates 1,000,000 agent deployment.
+    Deploy-TrinityFleet-HighCapacity.ps1 — Orchestrates 1,100,000 agent deployment.
     
 .DESCRIPTION
     Optimized for high-scale (1M+) deployments. Uses streaming output (JSONL) 
@@ -8,7 +8,7 @@
     Scales the "time length" of the previous 1000-agent deployment by 1000x.
 
 .PARAMETER TotalAgents
-    Total agents (Default: 1000000)
+    Total agents (Default: 1100000)
 
 .PARAMETER RatePerSecond
     Agents per second (Default: 15)
@@ -16,10 +16,10 @@
 
 param(
     [string[]]$PCs = @("192.168.50.31", "192.168.50.32", "192.168.50.33", "192.168.50.34", "192.168.50.35"),
-    [int]$TotalAgents = 1000000,
-    [int]$RatePerSecond = 15,
+    [int]$TotalAgents = 1100000,
+    [double]$RatePerSecond = 15,
     [string]$TrinityUrl = "http://localhost:8600",
-    [switch]$SimulationMode = $true
+    [switch]$SimulationMode
 )
 
 $ErrorActionPreference = "Stop"
@@ -46,7 +46,7 @@ $summaryPath = "$evidenceDir/summary.json"
 
 Write-Host @"
 ╔═══════════════════════════════════════════════════════════════════════════╗
-║             TRINITY FLEET - HIGH CAPACITY DEPLOYMENT (1M)                 ║
+║             TRINITY FLEET - HIGH CAPACITY DEPLOYMENT (1.1M)               ║
 ║   Target: $TotalAgents agents @ $RatePerSecond/sec                           ║
 ║   Estimated Duration: $([Math]::Round($TotalAgents / $RatePerSecond / 3600, 2)) hours                   ║
 ╚═══════════════════════════════════════════════════════════════════════════╝
@@ -76,8 +76,11 @@ for ($i = 0; $i -lt $TotalAgents; $i++) {
     $caseId = "CASE-$($i.ToString('D7'))"
     
     # Rate Limiting
-    if ($i -gt 0 -and ($i % $RatePerSecond) -eq 0) {
-        Start-Sleep -Seconds 1
+    if ($i -gt 0 -and ($i % [int]$RatePerSecond) -eq 0) {
+        $sleepTime = 1 / $RatePerSecond
+        if ($sleepTime -ge 0.01) {
+            Start-Sleep -Seconds $sleepTime
+        }
     }
 
     # Record result

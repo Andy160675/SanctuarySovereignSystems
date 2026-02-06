@@ -1,6 +1,17 @@
 # Sovereign System – Phase 5 (Living & Operational)
 
+**SESSION HANDOVER — 2026-02-06**
+- **Founder:** Andy Jones
+- **CEO/POA:** Steven Jones
+- **Constitutional Triad:** 1. Prefer stopping to lying | 2. Never optimise signal | 3. Preserve emergent patterns
+
 Continuous, self-monitoring sovereign truth engine with automated golden master generation.
+
+## Infrastructure Status
+- **NAS:** UGREEN DXP4800 Plus (192.168.4.114:9999) - *Docker service in ERROR state*
+- **Connectivity:** Tailscale mesh (Node-0 UK, Node-1 Tenerife)
+- **Storage:** Tresorit Business (Secure E2E) - *NOT Google Drive*
+- **DNS:** Working via NAS + 1.1.1.1 fallback
 
 ## Quick Start
 

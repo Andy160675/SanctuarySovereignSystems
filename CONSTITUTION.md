@@ -1,16 +1,28 @@
 ﻿---
 DOCUMENT_ID: SOV-DOC-001
 AUTHORITY: Sovereign Authority
-REVISION: 1.2
+REVISION: 1.3
 LAST_AUDIT: 2026-02-06
 STATUS: AUDITED
 ---
-# SOVEREIGN VALUE ALIGNMENT SYSTEM v1.0.1
+# SOVEREIGN VALUE ALIGNMENT SYSTEM v1.1.0
+
+## 0. Canonical Organization
+- **Andy Jones** — Founder & Executive
+- **Steven Jones** — CEO / POA
+- **Chris Bevan** — COO
+- **Kelly Pawlett** — Tenerife GM
+- **Tom Maher** — Programme Director
 
 ## 1. Core Constitution
 This system is dedicated to the preservation of human autonomy, dignity, and truth through deterministic, machine-verifiable governance.
 
-### 1.1 Red Lines
+### 1.1 The Constitutional Triad (Invariants)
+1. **Prefer stopping to lying.**
+2. **Never optimise away the signal that tells you you're wrong.**
+3. **Preserve emergent pattern signal long enough to learn from it.**
+
+### 1.2 Red Lines
 - No Systemic Dehumanization.
 - No Mass Surveillance.
 - No Behavior Modification without Informed Consent.
