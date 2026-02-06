@@ -1,0 +1,5 @@
+74de7732dd5774dd280a62793ec8240793d5976168192e9203e62cce76e8fb00  prompts/safety/child_safety_guard.md
+bytes: 1257
+timestamp_utc: 2026-02-04T05:09:05Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

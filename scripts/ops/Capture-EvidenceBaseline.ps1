@@ -2,7 +2,8 @@
 param(
     [string]$NodeId = $env:COMPUTERNAME,
     [string]$SharePath = "S:\baselines",
-    [string]$RepoRoot = ""
+    [string]$RepoRoot = "",
+    [string]$FirmwarePath = ""
 )
 
 $ErrorActionPreference = 'Stop'
@@ -47,6 +48,21 @@ foreach ($file in $CriticalFiles) {
             Status = "MISSING"
         }
         Write-Host "Warning: Missing critical file $file" -ForegroundColor Yellow
+    }
+}
+
+# Capture Firmware if provided
+if (-not [string]::IsNullOrWhiteSpace($FirmwarePath)) {
+    if (Test-Path $FirmwarePath) {
+        $hash = (Get-FileHash -Algorithm SHA256 -Path $FirmwarePath).Hash.ToLower()
+        $BaselineData.Evidence += [ordered]@{
+            Path = [System.IO.Path]::GetFileName($FirmwarePath)
+            SHA256 = $hash
+            Type = "Firmware"
+        }
+        Write-Host "Captured Firmware: $FirmwarePath ($hash)" -ForegroundColor Green
+    } else {
+        Write-Host "Warning: Firmware path $FirmwarePath not found." -ForegroundColor Yellow
     }
 }
 

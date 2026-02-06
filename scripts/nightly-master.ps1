@@ -47,9 +47,18 @@ try {
         $Current++
         Write-Progress -Activity "Hashing files" -Status "$Current of $TotalFiles" -PercentComplete (($Current / $TotalFiles) * 100)
         
-        $Hash = Get-FileHash -Path $File.FullName -Algorithm SHA256
+        # Use incremental hash cache
+        $ResultJson = python scripts/lib/hash_cache.py $File.FullName
+        $Result = $ResultJson | ConvertFrom-Json
+        $HashValue = $Result.hash
+        $IsCached = $Result.cached
+
         $RelativePath = $File.FullName.Replace($Root, "").TrimStart('\\')
-        $Manifest += "$($Hash.Hash)  $RelativePath"
+        $Manifest += "$($HashValue)  $RelativePath"
+        
+        if ($IsCached -eq $false) {
+            Write-Host "   (Re-hashed: $RelativePath)" -ForegroundColor Gray
+        }
     }
     
     $Manifest | Out-File -FilePath $ManifestFile -Encoding UTF8

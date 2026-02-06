@@ -33,9 +33,16 @@ const EmpathyTimeline = () => {
     {
       phase: 'Phase 5',
       title: 'Evolution',
+      date: '2026-02-05',
+      status: 'active',
+      description: 'Triosphere Architecture & Software Orchestration'
+    },
+    {
+      phase: 'Phase 6',
+      title: 'Closure',
       date: 'TBD',
       status: 'pending',
-      description: 'Advanced features and optimization'
+      description: 'Full autonomy and final mission'
     }
   ]
 

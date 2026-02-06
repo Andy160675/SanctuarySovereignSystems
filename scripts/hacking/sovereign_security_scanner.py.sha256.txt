@@ -1,0 +1,5 @@
+bfee3fa9e02fd0280f8dc65619502ff017a1397dd71e80efba5c4f0ca3702b08  scripts/hacking/sovereign_security_scanner.py
+bytes: 3232
+timestamp_utc: 2026-02-04T05:12:36Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

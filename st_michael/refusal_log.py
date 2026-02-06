@@ -96,7 +96,9 @@ class RefusalLogger:
             ProofOfRefusal artifact (also persisted to disk)
         """
         timestamp = _utc_now().isoformat()
-        refusal_id = f"REFUSAL-{timestamp.replace(':', '-').replace('.', '-')}"
+        # Add a counter or use more precision if needed, but for now just ensure uniqueness
+        import uuid
+        refusal_id = f"REFUSAL-{timestamp.replace(':', '-').replace('.', '-')}-{uuid.uuid4().hex[:8]}"
 
         # Hash the evidence (what was refused)
         evidence_content = json.dumps(action_details, sort_keys=True)

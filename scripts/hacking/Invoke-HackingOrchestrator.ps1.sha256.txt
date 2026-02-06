@@ -1,0 +1,5 @@
+54f1092019ab05bfa70a4cc14ae3756de70b9b2eca30d2968ae92523eef39d6b  scripts/hacking/Invoke-HackingOrchestrator.ps1
+bytes: 2616
+timestamp_utc: 2026-02-04T05:12:36Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

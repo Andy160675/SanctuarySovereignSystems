@@ -48,7 +48,7 @@ const EmpathyBanner = () => {
         "Every search honors both precision and humanity.
         Every result respects both facts and feelings."
       </div>
-      <div style={styles.badge}>PHASE 4 ACTIVE</div>
+      <div style={styles.badge}>PHASE 5: TRIOSPHERE ACTIVE</div>
     </div>
   )
 }

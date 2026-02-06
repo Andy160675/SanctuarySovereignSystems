@@ -35,11 +35,13 @@ if ($LatestBaselines.Count -lt 2) {
     return
 }
 
-$Diverged = $false
+$DivergedCount = 0
+$TotalComparisons = 0
 $Report = [ordered]@{
     VerificationTimestamp = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
     NodesChecked = $LatestBaselines.Keys
     Results = @()
+    EscalationState = "GREEN"
 }
 
 # Use the first node as the reference
@@ -68,8 +70,9 @@ foreach ($node in $NodeNames) {
         }
     }
 
+    $TotalComparisons++
     if (-not $Agreement) {
-        $Diverged = $true
+        $DivergedCount++
         Write-Host "DIVERGENCE DETECTED on node: $node" -ForegroundColor Red
         foreach($m in $Mismatches) { Write-Host "  - $m" -ForegroundColor Red }
     } else {
@@ -81,6 +84,19 @@ foreach ($node in $NodeNames) {
         Agreement = $Agreement
         Mismatches = $Mismatches
     }
+}
+
+# Determine Escalation State
+# Green: agreement -> execute
+# Yellow: partial disagreement -> hold + review (e.g. 1 node disagrees out of many)
+# Red: no agreement -> halt (e.g. majority disagrees or all nodes disagree)
+
+if ($DivergedCount -eq 0) {
+    $Report.EscalationState = "GREEN"
+} elseif ($DivergedCount -lt ($TotalComparisons / 2)) {
+    $Report.EscalationState = "YELLOW"
+} else {
+    $Report.EscalationState = "RED"
 }
 
 # Final telemetry
@@ -96,9 +112,16 @@ $ReceiptPath = $ReportPath + ".sha256"
 Write-Host "Report written: $ReportPath" -ForegroundColor Green
 Write-Host "Receipt written: $ReceiptPath" -ForegroundColor Green
 
-if ($Diverged) {
-    Write-Host "STATUS: RED - Disagreement detected. Humans investigate, system halts." -ForegroundColor Red
-    if ($Gate) { exit 1 }
-} else {
-    Write-Host "STATUS: GREEN - All nodes in agreement." -ForegroundColor Green
+switch ($Report.EscalationState) {
+    "GREEN" {
+        Write-Host "STATUS: GREEN - All nodes in agreement. Execute." -ForegroundColor Green
+    }
+    "YELLOW" {
+        Write-Host "STATUS: YELLOW - Partial disagreement ($DivergedCount/$TotalComparisons nodes). HOLD + REVIEW." -ForegroundColor Yellow
+        if ($Gate) { exit 1 }
+    }
+    "RED" {
+        Write-Host "STATUS: RED - Significant disagreement ($DivergedCount/$TotalComparisons nodes). HALT + INVESTIGATE." -ForegroundColor Red
+        if ($Gate) { exit 1 }
+    }
 }

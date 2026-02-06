@@ -28,10 +28,10 @@
 ---
 register_metadata:
   system: SelfHealAutomation
-  version: "2.0.0"
+  version: "3.0.0"
   created: "2026-02-03"
-  last_reviewed: "2026-02-03"
-  next_review: "2026-05-03"
+  last_reviewed: "2026-02-05"
+  next_review: "2026-05-05"
   owner: Architect
   classification: INTERNAL
 
@@ -440,17 +440,69 @@ register_metadata:
 
 ---
 # ============================================================================
+# HAZARD 6: FLEET COORDINATION OVERLOAD
+# ============================================================================
+- hazard_id: HAZ-006
+  hazard_class: SCALING
+  scenario: >
+    Deployment of massive fleets (e.g. 30,000+ nodes) causes coordination
+    bottlenecks, event storms, or synchronization lag, leading to 
+    stale truth states or delayed remediations.
+  
+  likelihood: POSSIBLE
+  impact: MODERATE
+  
+  controls_in_place:
+    - control_id: CTL-023
+      control_type: PREVENTIVE
+      description: "Distributed verification via Sovereign Seeds"
+      implementation: "Deploy-MassiveFleet.ps1 seed allocation"
+      effectiveness: HIGH
+      evidence_link: "evidence/fleet_30k_deployment.json"
+    
+    - control_id: CTL-024
+      control_type: DETECTIVE
+      description: "Node-level ALARP status monitoring"
+      implementation: "last_checkin and risk_level fields in fleet manifest"
+      effectiveness: HIGH
+      evidence_link: "evidence/fleet_30k_deployment.json"
+  
+  residual_risk:
+    level: TOLERABLE
+    description: >
+      Large scale introduces inherent complexity. Individual nodes may
+      experience lag, but the aggregate truth remains valid through
+      majority consensus and seed audit prompts.
+    quantification: "< 2% node desynchronization per cycle"
+  
+  alarp_justification: >
+    Scaling to 30,000 nodes improves system resilience and truth coverage.
+    The residual coordination risk is mitigated by local agent autonomy
+    and distributed seeds. Further centralization would increase 
+    vulnerability.
+  
+  review_cadence: MONTHLY
+  evidence_links:
+    - "scripts/ops/Deploy-MassiveFleet.ps1"
+    - "evidence/fleet_30k_deployment.json"
+  owner: Architect
+  created_date: "2026-02-05"
+  last_reviewed: "2026-02-05"
+  review_notes: "Massive fleet deployment verified. Scaling hazards managed via distributed seeds."
+
+---
+# ============================================================================
 # CONTROL SUMMARY MATRIX
 # ============================================================================
 control_summary:
-  total_controls: 22
+  total_controls: 24
   by_type:
-    PREVENTIVE: 14
-    DETECTIVE: 7
+    PREVENTIVE: 15
+    DETECTIVE: 8
     CORRECTIVE: 1
     COMPENSATING: 0
   by_effectiveness:
-    HIGH: 13
+    HIGH: 15
     MEDIUM: 9
     LOW: 0
   coverage:
@@ -459,6 +511,7 @@ control_summary:
     HAZ-003_DRIFT: 4 controls
     HAZ-004_MISUSE: 4 controls
     HAZ-005_AVAILABILITY: 5 controls
+    HAZ-006_SCALING: 2 controls
 
 ---
 # ============================================================================
@@ -473,7 +526,7 @@ attestation:
     Practicable for the intended deployment context.
   
   attested_by: Architect
-  attested_date: "2026-02-03"
+  attested_date: "2026-02-05"
   
   third_party_reviewable: true
   third_party_question: >

@@ -1,6 +1,13 @@
+﻿---
+DOCUMENT_ID: SOV-DOC-002
+AUTHORITY: Sovereign Authority
+REVISION: 1.0
+LAST_AUDIT: 2026-02-06
+STATUS: AUDITED
+---
 # THE DIAMOND DOCTRINE
 
-## One-Page Internal Standard — Sovereign System Governance
+## One-Page Internal Standard â€” Sovereign System Governance
 
 **Version:** 1.0  
 **Date:** 2026-02-03  
@@ -46,14 +53,14 @@ Everything else is implementation detail.
 ## The Closed Loop
 
 ```
-Doctrine → Index → Review → Evidence → Ledger → Status
+Doctrine â†’ Index â†’ Review â†’ Evidence â†’ Ledger â†’ Status
 ```
 
 No dashboards required.  
 No human memory required.  
 No "we meant to."
 
-The system doesn't just *pass* checks — it **remembers that it passed**, and can prove it later.
+The system doesn't just *pass* checks â€” it **remembers that it passed**, and can prove it later.
 
 ---
 
@@ -61,10 +68,10 @@ The system doesn't just *pass* checks — it **remembers that it passed**, and c
 
 | Audience | Answer |
 | :--- | :--- |
-| **Enterprises** | "How do I know it won't do something I didn't authorise?" → *It can't.* |
-| **Regulators** | "Can we inspect this?" → *Yes. The evidence chain is designed for third-party audit.* |
-| **Individuals** | "Is this transparent?" → *The system cannot act in secret. All actions are logged.* |
-| **Future Maintainers** | "What was the intent?" → *Read the Intent Contract. It's sealed at the top of every file.* |
+| **Enterprises** | "How do I know it won't do something I didn't authorise?" â†’ *It can't.* |
+| **Regulators** | "Can we inspect this?" â†’ *Yes. The evidence chain is designed for third-party audit.* |
+| **Individuals** | "Is this transparent?" â†’ *The system cannot act in secret. All actions are logged.* |
+| **Future Maintainers** | "What was the intent?" â†’ *Read the Intent Contract. It's sealed at the top of every file.* |
 
 ---
 
@@ -111,3 +118,4 @@ Status:         LOCKED
 ---
 
 **END OF DOCTRINE**
+

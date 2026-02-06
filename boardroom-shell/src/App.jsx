@@ -3,13 +3,19 @@ import EmpathyBanner from './components/EmpathyBanner'
 import EmpathyTimeline from './components/EmpathyTimeline'
 import TruthPanel from './components/TruthPanel'
 import SystemStatus from './components/SystemStatus'
+import TriosphereStatus from './components/TriosphereStatus'
 
 const App = () => {
   const [currentView, setCurrentView] = useState('truth')
   const [systemStatus, setSystemStatus] = useState({
     truthEngine: 'checking',
     ollama: 'checking',
-    index: 'checking'
+    index: 'checking',
+    triosphere: {
+      intent: 'active',
+      evidence: 'active',
+      action: 'active'
+    }
   })
 
   useEffect(() => {
@@ -145,6 +151,7 @@ const App = () => {
       <main style={styles.main}>
         <aside style={styles.sidebar}>
           <EmpathyBanner />
+          <TriosphereStatus telemetry={systemStatus.triosphere} />
         </aside>
         <div style={styles.content}>
           {renderContent()}
