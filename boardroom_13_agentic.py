@@ -16,9 +16,35 @@ Recorder and Archivist evidence anchors are wired to these real files.
 import sys
 import json
 import uuid
+import subprocess
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any
+
+# --- System Context / Metrics -------------------------------------------------
+
+def get_live_metrics() -> Dict[str, Any]:
+    """Retrieve real system metrics for non-simulated analysis."""
+    metrics = {
+        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "platform": sys.platform,
+        "cpu_percent": 0.0,
+        "memory_avail_mb": 0
+    }
+    if sys.platform == "win32":
+        try:
+            # Quick check for CPU
+            cpu_cmd = "powershell -Command \"(Get-Counter '\\Processor(_Total)\\% Processor Time' -ErrorAction SilentlyContinue).CounterSamples.CookedValue\""
+            out = subprocess.check_output(cpu_cmd, shell=True).decode().strip()
+            if out: metrics["cpu_percent"] = round(float(out), 2)
+            
+            # Quick check for Memory
+            mem_cmd = "powershell -Command \"(Get-Counter '\\Memory\\Available MBytes' -ErrorAction SilentlyContinue).CounterSamples.CookedValue\""
+            out = subprocess.check_output(mem_cmd, shell=True).decode().strip()
+            if out: metrics["memory_avail_mb"] = int(float(out))
+        except Exception:
+            pass
+    return metrics
 
 # Import role definitions
 try:
@@ -136,14 +162,19 @@ class RoleAgent:
 
     def evaluate(self, topic: str, context: str = "") -> Dict[str, Any]:
         """
-        Produce a small structured output according to the constitutional genome.
-        The evaluation is heuristic and deterministic for local testing.
+        Produce a structured output according to the constitutional genome.
+        Integration: Ingests live system metrics for grounded analysis.
         """
         ts = iso_now()
-        verdict = self._verdict(topic, context)
-        rationale = self._rationale(topic, context)
-        action = self._action(topic, context)
-        evidence = self._evidence_anchor(topic, context)
+        metrics = get_live_metrics()
+        
+        # Ground the evaluation in real system state if the topic is infrastructure-related
+        grounded_context = f"{context} | System State: CPU={metrics['cpu_percent']}%, RAM_Avail={metrics['memory_avail_mb']}MB"
+        
+        verdict = self._verdict(topic, grounded_context)
+        rationale = self._rationale(topic, grounded_context)
+        action = self._action(topic, grounded_context)
+        evidence = self._evidence_anchor(topic, grounded_context)
 
         out = {
             "role_key": self.role.key,
@@ -153,12 +184,20 @@ class RoleAgent:
             "rationale": rationale,
             "action": action,
             "evidence": evidence,
+            "system_metrics": metrics
         }
         return out
 
     def _verdict(self, topic: str, context: str) -> str:
         t = topic.lower()
         key = self.role.key
+        
+        # Analyze metrics from context string
+        cpu = 0.0
+        if "CPU=" in context:
+            try: cpu = float(context.split("CPU=")[1].split("%")[0])
+            except: pass
+
         if key == "recorder":
             return f"Record accepted: snapshot created for topic '{topic}'."
         if key == "chair":
@@ -170,6 +209,8 @@ class RoleAgent:
                 else "No immediate ethical red flags detected."
             )
         if key == "engineer":
+            if cpu > 90:
+                return f"CRITICAL: High CPU load ({cpu}%) detected. Technical feasibility restricted; recommend immediate throttle."
             return "Technical feasibility appears plausible; requires proof-of-concept for verification."
         if key == "empath":
             return "Prioritise human-context checks and empathetic framing in communications."
@@ -180,7 +221,7 @@ class RoleAgent:
         if key == "guardian":
             return "Apply security and access restrictions until integrity is verified."
         if key == "analyst":
-            return f"Initial analytic check: topic length {len(topic.split())} words; request data for metrics."
+            return f"Initial analytic check: topic length {len(topic.split())} words; system CPU at {cpu}%."
         if key == "linguist":
             return "Recommend concise, disambiguated phrasing; remove ambiguous adjectives."
         if key == "jurist":
@@ -193,6 +234,13 @@ class RoleAgent:
 
     def _rationale(self, topic: str, context: str) -> List[str]:
         key = self.role.key
+        
+        # Parse metrics for rationale
+        cpu = 0.0
+        if "CPU=" in context:
+            try: cpu = float(context.split("CPU=")[1].split("%")[0])
+            except: pass
+
         if key == "recorder":
             return [f"Snapshot at {iso_now()}", "Canonical audit trail entry created."]
         if key == "chair":
@@ -200,7 +248,9 @@ class RoleAgent:
         if key == "ethicist":
             return ["Check for harm indicators", "Assess affected stakeholders"]
         if key == "engineer":
-            return ["Feasibility heuristic", "Architectural constraints", "Test plan recommendation"]
+            base = ["Feasibility heuristic", "Architectural constraints", "Test plan recommendation"]
+            if cpu > 80: base.append(f"Load factor ({cpu}%) exceeds elite performance limits.")
+            return base
         if key == "empath":
             return ["Human impact focus", "Prefer harm-minimising language"]
         if key == "archivist":
@@ -210,7 +260,7 @@ class RoleAgent:
         if key == "guardian":
             return ["Limit access", "Require integrity proofs", "Check encryption at rest"]
         if key == "analyst":
-            return [f"Word count: {len(topic.split())}", "Request structured data for validation"]
+            return [f"Word count: {len(topic.split())}", f"System CPU Load: {cpu}%", "Request structured data for validation"]
         if key == "linguist":
             return ["Clarify ambiguous terms", "Standardise terminology", "Provide short definitions"]
         if key == "jurist":
@@ -224,6 +274,12 @@ class RoleAgent:
     def _action(self, topic: str, context: str) -> str:
         key = self.role.key
         t = topic.lower()
+        
+        cpu = 0.0
+        if "CPU=" in context:
+            try: cpu = float(context.split("CPU=")[1].split("%")[0])
+            except: pass
+
         if key in ("recorder", "archivist"):
             return "NO_ACTION (recording)"
         if key == "chair":
@@ -231,6 +287,7 @@ class RoleAgent:
         if key == "ethicist":
             return "REQUEST_ETHICS_REVIEW" if any(w in t for w in ["risk", "harm", "privacy"]) else "NO_ACTION"
         if key == "engineer":
+            if cpu > 85: return "INITIATE_THROTTLE"
             return "PROPOSE_POC"
         if key == "guardian":
             return "LOCK_READ_ACCESS" if any(w in t for w in ["secret", "credential", "token"]) else "NO_ACTION"

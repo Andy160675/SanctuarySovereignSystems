@@ -20,6 +20,20 @@ $PSScriptRoot = Get-Location
 $LogFile = "validation/citadel_loop_metrics.jsonl"
 $CurrentAgentQty = $InitialAgentQty
 
+function Write-Log {
+    param([string]$Message, [string]$Level = "INFO")
+    $ts = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $color = switch ($Level) {
+        "INFO"     { "White" }
+        "WARN"     { "Yellow" }
+        "ERROR"    { "Red" }
+        "OK"       { "Green" }
+        "CITADEL"  { "Cyan" }
+        default    { "White" }
+    }
+    Write-Host "[$ts] [$Level] $Message" -ForegroundColor $color
+}
+
 Write-Host "`n============================================================" -ForegroundColor Cyan
 Write-Host "   CITADEL SCALE VERIFICATION: DYNAMIC AGENT MANAGEMENT" -ForegroundColor Cyan
 Write-Host "   Protocol: Autonomous Optimization | Target: $Iterations Cycles" -ForegroundColor Cyan
@@ -41,28 +55,28 @@ for ($i = 1; $i -le $Iterations; $i++) {
     
     # 3. Capture Metric
     $Efficiency = 0
-    # Search in array output
-    $Match = $OptResult | Where-Object { $_ -match "Average System Efficiency Gain: ([\d.]+)%" }
-    if ($Match -and $Match -match "Average System Efficiency Gain: ([\d.]+)%") {
-        $Efficiency = [double]$matches[1]
+    $MatchLine = $OptResult | Out-String -Stream | Where-Object { $_ -match "Average System Efficiency Gain: ([\d.]+)%" }
+    if ($MatchLine -and $MatchLine -match "Average System Efficiency Gain: ([\d.]+)%") {
+        $Efficiency = [double]$Matches[1]
     }
     
     # 4. Check Monitor for Skew
-    Start-Sleep -Seconds 2
+    Start-Sleep -Seconds 5 # Increased for real measurement
     $MonitorOutput = Receive-Job -Job $MonitorJob
-    $SkewDetected = $MonitorOutput -match "EMERGENCY STOP"
+    $SkewDetected = $MonitorOutput -match "EMERGENCY STOP" -or $MonitorOutput -match "CRITICAL_SKEW" -or $MonitorOutput -match "distribution skew detected"
     
     Stop-Job $MonitorJob
     Remove-Job $MonitorJob
     
-    $Status = if ($SkewDetected) { "SKEW_DETECTED" } else { "SUCCESS" }
+    $Status = "SUCCESS"
+    if ($SkewDetected) { $Status = "SKEW_DETECTED" }
     
     $LogEntry = @{
         Iteration = $i
         Timestamp = (Get-Date).ToString("yyyy-MM-dd HH:mm:ssZ")
         AgentQty = $CurrentAgentQty
         EfficiencyGain = $Efficiency
-        SkewDetected = $SkewDetected
+        SkewDetected = ($SkewDetected -eq $true)
         Status = $Status
     }
     
@@ -74,9 +88,9 @@ for ($i = 1; $i -le $Iterations; $i++) {
     if ($SkewDetected) {
         $Reduction = [Math]::Max(100, [int]($CurrentAgentQty * 0.1))
         $CurrentAgentQty -= $Reduction
-        Write-Host "[!!!] Critical Skew Detected. Reducing Agent Qty by $Reduction to $CurrentAgentQty for next cycle." -ForegroundColor Yellow
+        Write-Log "Critical Skew Detected. Reducing Agent Qty by $Reduction to $CurrentAgentQty for next cycle." "WARN"
         if ($CurrentAgentQty -lt 100) {
-            Write-Host "[!!!] Agent Qty below minimum threshold. Terminating Sequence." -ForegroundColor Red
+            Write-Log "Agent Qty below minimum threshold. Terminating Sequence." "ERROR"
             break
         }
     }
