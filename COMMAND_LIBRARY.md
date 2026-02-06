@@ -36,6 +36,7 @@ This library documents the primary operational commands for the Sovereign System
 |---------|-------------|--------|
 | `powershell -File scripts/learning/Invoke-LearningSuite.ps1` | Executes the full learning and self-improvement suite. | Learning logs |
 | `powershell -File scripts/learning/rapid_self_improvement.ps1` | Runs accelerated self-improvement cycles. | Improvement reports |
+| `powershell -File scripts/learning/Invoke-NatureMathematicsCycle.ps1 -AuthCode 0000` | Executes a 24-hour learning cycle on geometry and mathematics in nature. | `validation/nature_math_report_<ts>.json` |
 
 ## 5. System Utilities
 
