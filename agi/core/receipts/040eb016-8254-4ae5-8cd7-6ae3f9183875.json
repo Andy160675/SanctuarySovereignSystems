@@ -1,0 +1,21 @@
+{
+  "receipt_id": "040eb016-8254-4ae5-8cd7-6ae3f9183875",
+  "answer_id": "25d2b11a-95d7-45f8-abd8-6e84940a3b0a",
+  "model_id": "stack-routed",
+  "policy_version": "v0.1a",
+  "mode": "explained",
+  "agent_path": [
+    "specialist",
+    "validator",
+    "arbiter",
+    "interpreter"
+  ],
+  "prompt_hash": "1dd53066494dd2e28c4b3240fdcd4dd5a73d1661af0b0b801306cf06dfa4ab46",
+  "answer_hash": "34d33187afaf7f4f255a71d67588be8a37d94981262652e4b6ea8e2b48f20efe",
+  "interpreter_prompt_hash": "9af72896cc7a1cca7944f783d74943ea6f8b44b0e374635f578996fb7f80f669",
+  "assistant_system_prompt_hash": "a125d12f8b666886784c36ee2d33974770503e87d72a97ae611668bff6c8aeb9",
+  "parent_receipt_id": null,
+  "drift_detected": false,
+  "drift_details": [],
+  "timestamp": 1763676248
+}

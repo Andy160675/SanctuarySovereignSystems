@@ -1,0 +1,31 @@
+{
+  "receipt_id": "9f52fe56-ef9e-471e-9b2c-8c0f19aac5e8",
+  "answer_id": "373cc348-2f14-40e1-a49a-472824922ab4",
+  "model_id": "stack-routed",
+  "policy_version": "v0.1a",
+  "mode": "explained",
+  "agent_path": [
+    "specialist",
+    "validator",
+    "arbiter",
+    "interpreter"
+  ],
+  "prompt_hash": "2b0a8fb035e0ad9e8d5d394d95419df557ed667a6fda1b35501fa3da1bceaa99",
+  "answer_hash": "5da06bf31064194e17bf44b537ffa30ce123aefcf20242aaaa8c821e42b94e0e",
+  "interpreter_prompt_hash": "b9b6480e08a679ef00665dd3e60462921cc2098d7ce43d1387fdd2b2d5fec48a",
+  "assistant_system_prompt_hash": "a125d12f8b666886784c36ee2d33974770503e87d72a97ae611668bff6c8aeb9",
+  "parent_receipt_id": null,
+  "drift_detected": false,
+  "drift_details": [],
+  "timestamp": 1763677538,
+  "validator": {
+    "policy_ok": true,
+    "violations": [
+      {
+        "code": "POTENTIAL_OVERCERTAINTY",
+        "patterns": "none"
+      }
+    ]
+  },
+  "arbiter_status": "OK"
+}

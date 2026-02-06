@@ -1,0 +1,22 @@
+pentad_fleet:
+  pc_a:
+    role: Constitutional
+    ip: 192.168.4.137
+    hostname: DESKTOP-V20CP12
+  pc_b:
+    role: Orchestration
+    ip: 192.168.4.124
+    hostname: Relay
+  pc_c:
+    role: Verification
+    ip: TBD
+  pc_d:
+    role: Analytics
+    ip: 192.168.4.117
+    hostname: backdrop3
+  pc_e:
+    role: Safety
+    ip: TBD
+  nas:
+    ip: 192.168.4.78
+    path: "\\\\192.168.4.78\\Sovereign"

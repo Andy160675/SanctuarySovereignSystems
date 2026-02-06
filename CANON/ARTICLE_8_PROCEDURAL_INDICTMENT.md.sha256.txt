@@ -1,0 +1,5 @@
+b968907587d9b42d3df3daec50eeb5788fabf0fc9c81a5cc34258e99a72f5cbe  CANON/ARTICLE_8_PROCEDURAL_INDICTMENT.md
+bytes: 2348
+timestamp_utc: 2026-02-04T06:01:55Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

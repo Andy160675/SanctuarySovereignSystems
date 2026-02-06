@@ -1,0 +1,27 @@
+﻿{
+    "NodeId":  "DESKTOP-V20CP12",
+    "Timestamp":  "2026-02-06T00:20:58Z",
+    "Environment":  {
+                        "OS":  null,
+                        "PSVersion":  "5.1.26100.7462"
+                    },
+    "Evidence":  [
+                     {
+                         "Path":  "CANON/TRINITY_DEPLOYMENT_PROTOCOL.md",
+                         "SHA256":  null,
+                         "Status":  "MISSING"
+                     },
+                     {
+                         "Path":  "CONSTITUTION.md",
+                         "SHA256":  "e89f00063c87be5c3f961a29f4f269f64457314d54e7bd435e3a2b5b9aef3a0c"
+                     },
+                     {
+                         "Path":  "SECURITY.md",
+                         "SHA256":  "d064e71fa47d905f9ca616ce8e7a9e98998b703b7d177008cc44bb4a3f23c487"
+                     },
+                     {
+                         "Path":  "scripts/ops/Capture-EvidenceBaseline.ps1",
+                         "SHA256":  "e53c623f0efd0df018544ee7be56c6acbdf8de377a49fe68078c70918911a8bf"
+                     }
+                 ]
+}

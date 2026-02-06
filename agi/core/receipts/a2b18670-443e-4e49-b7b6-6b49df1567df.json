@@ -1,0 +1,39 @@
+{
+  "receipt_id": "a2b18670-443e-4e49-b7b6-6b49df1567df",
+  "answer_id": "c986387f-6093-4eee-beaa-3b122faaf418",
+  "model_id": "stack-routed",
+  "policy_version": "v0.1c",
+  "mode": "explained",
+  "agent_path": [
+    "specialist",
+    "validator",
+    "arbiter",
+    "interpreter"
+  ],
+  "prompt_hash": "2b0a8fb035e0ad9e8d5d394d95419df557ed667a6fda1b35501fa3da1bceaa99",
+  "answer_hash": "e2cb482e26147dcb0fb691b7f60f8837296769d19a60c9c477e5920f187348e1",
+  "interpreter_prompt_hash": "4af21ad484c2069c85462a6edcd93e73a24c2a2e5bc8357486bec2a498635b8a",
+  "assistant_system_prompt_hash": "a125d12f8b666886784c36ee2d33974770503e87d72a97ae611668bff6c8aeb9",
+  "parent_receipt_id": null,
+  "drift_detected": false,
+  "drift_details": [],
+  "timestamp": 1763678295,
+  "validator": {
+    "policy_ok": true,
+    "violations": [
+      {
+        "code": "POTENTIAL_OVERCERTAINTY",
+        "patterns": "none"
+      }
+    ]
+  },
+  "arbiter_status": "OK",
+  "calls": {
+    "specialist": {
+      "prompt": "You are the Sovereign specialist agent.\n- Answer truthfully and precisely.\n- Prefer evidence and clarity over style.\n- Do not fabricate sources or facts.\n\nQuestion:\nExplain lawful property acquisition strategies\n",
+      "model_key": "governance",
+      "provider": "ollama"
+    },
+    "specialist_receipt": null
+  }
+}

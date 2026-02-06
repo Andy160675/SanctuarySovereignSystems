@@ -1,0 +1,5 @@
+9fbc404f3b3b3fdb767372c26595829ea72462c94e5003d76600b68deaf5c17d  Codex/Safety/detection_redaction_logic.md
+bytes: 2279
+timestamp_utc: 2026-02-04T05:10:49Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

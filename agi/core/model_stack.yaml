@@ -1,0 +1,28 @@
+# Sovereign model stack authoritative spec (v0.1b?v0.1c transition)
+policy_version: "v0.1a"
+
+models:
+  local_small:
+    id: "mistral:latest"
+    provider: "ollama"
+    purpose: "fast, cheap, default reasoning"
+  local_large:
+    id: "llama2:latest"
+    provider: "ollama"
+    purpose: "deeper analysis, complex reasoning"
+  remote_tier:
+    id: "remote-tier-1"
+    provider: "cloud-llm"
+    purpose: "optional heavy reasoning / code (restricted under high sensitivity)"
+
+routing_rules:
+  default: "local_small"
+  by_task_type:
+    governance: "local_large"
+    explanation: "local_small"
+    discussion: "local_small"
+    code: "remote_tier"
+  overrides:
+    high_sensitivity:
+      allow_remote: false
+      fallback: "local_large"

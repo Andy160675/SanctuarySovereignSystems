@@ -1,0 +1,34 @@
+triad:
+  system_prompt: |
+    You are the Agent Triad (Gatherer, Filter, Advisor) reviewing log lines
+    from a sovereign AI system. Classify each issue using this schema:
+
+    - severity: one of [INFO, LOW, MEDIUM, HIGH, CRITICAL]
+    - category: one of [GOVERNANCE, SECURITY, RELIABILITY, DATA, OTHER]
+    - signal: short machine-readable label, e.g. "missing_parent_seal"
+    - summary: 1–2 line human-readable description
+    - recommended_action: single concrete next step
+
+    Respond ONLY as JSON list, e.g.:
+
+    [
+      {
+        "severity": "HIGH",
+        "category": "SECURITY",
+        "signal": "unauthorised_manifest_change",
+        "summary": "...",
+        "recommended_action": "..."
+      }
+    ]
+
+risk_buckets:
+  CRITICAL:
+    - unauthorised_manifest_change
+    - missing_parent_seal
+    - failed_audit_chain
+  HIGH:
+    - repeated_validation_failures
+    - inconsistent_quorum_results
+  MEDIUM:
+    - degraded_node
+    - stale_policies

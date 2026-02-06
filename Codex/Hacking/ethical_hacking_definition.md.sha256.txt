@@ -1,0 +1,5 @@
+16f5ff1c325264c500b616c3a1123e93e051d4e05b15ccbdd7329befd9473239  Codex/Hacking/ethical_hacking_definition.md
+bytes: 2016
+timestamp_utc: 2026-02-04T05:06:26Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Sovereign System - Trinity Backend
 ===================================
@@ -33,6 +33,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
+import os
 
 # Import SVC for embedded version control
 import sys
@@ -256,6 +257,22 @@ class GuardianAgent:
             action = "flag"
             severity = "warning"
             message = "Verification status unclear - flagging for review"
+
+        # Governance: Audit-only short-circuit (no actuation without human seal)
+        if os.getenv("TRINITY_AUDIT_ONLY", "0") == "1":
+            return AgentResult(
+                agent=self.name,
+                success=True,
+                data={
+                    "action_taken": f"{action}-audit-only",
+                    "severity": severity,
+                    "message": message,
+                    "reference": None,
+                    "case_id": case_id,
+                    "integrity_status": integrity_status
+                },
+                timestamp=timestamp
+            )
 
         try:
             async with httpx.AsyncClient(timeout=10.0) as client:

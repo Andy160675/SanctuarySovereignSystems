@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-02-04T07:47:00Z",
+  "version": "1.0.1",
+  "personnel": [
+    {
+      "name": "Steven",
+      "title": "CEO",
+      "role": "CEO",
+      "scope": "Group Level, R&D Lead",
+      "location": "Southampton",
+      "status": "ACTIVE",
+      "reports_to": null
+    },
+    {
+      "name": "Chris Bevan",
+      "title": "COO",
+      "role": "AUDITOR",
+      "scope": "Profit & NFP Oversight, Back Office HQ",
+      "location": "Rhondda HQ",
+      "status": "Pending Signature",
+      "reports_to": "Steven"
+    },
+    {
+      "name": "Phil Segal",
+      "title": "CTO",
+      "role": "OPERATOR_OF_RECORD",
+      "scope": "Technical Authority",
+      "location": "Remote",
+      "status": "Pending Signature",
+      "reports_to": "Steven"
+    },
+    {
+      "name": "Tom Maher",
+      "title": "Consultant",
+      "role": "ATTESTOR",
+      "scope": "Independent Risk Witness",
+      "location": "External",
+      "status": "Pending Signature",
+      "reports_to": null
+    },
+    {
+      "name": "Andy Jones",
+      "title": "Architect",
+      "role": "ARCHITECT",
+      "scope": "Sovereign Systems",
+      "location": "Remote",
+      "status": "ACTIVE",
+      "reports_to": "Steven",
+      "reporting_line": "Dotted"
+    }
+  ]
+}

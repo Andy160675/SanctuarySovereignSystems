@@ -1,0 +1,5 @@
+7be3eea6647734283f6a50c0e39bba95dc71a7f69f6fe0d0be0656ff4ff6333d  Codex/Safety/child_safety_protocol.md
+bytes: 1994
+timestamp_utc: 2026-02-04T05:09:05Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

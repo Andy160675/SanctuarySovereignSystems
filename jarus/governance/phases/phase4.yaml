@@ -1,0 +1,45 @@
+# Phase 4: Full Sovereignty
+# =========================
+# The system achieves full operational sovereignty under constitutional
+# governance with human oversight.
+
+phase: 4
+name: "Full Sovereignty"
+description: |
+  Phase 4 represents full operational sovereignty. The system can execute
+  all mission types under constitutional governance. HIGH risk missions
+  require Trinity consensus. The system is self-improving and self-healing.
+
+entry_requirements:
+  - phase_3_exit_tests_passed
+  - minimum_500_autonomous_missions
+  - board_approval_phase_4
+  - constitutional_ratification
+
+automated_exit_tests:
+  - full_sovereignty_validation_test
+  - constitutional_compliance_test
+  - trinity_consensus_test
+  - immutable_audit_complete_test
+
+human_exit_conditions:
+  - "Continuous operation with zero constitutional violations"
+  - "Annual board review and re-ratification"
+
+allowed_capabilities:
+  - all_phase_3_capabilities
+  - trinity_consensus_execution
+  - constitutional_amendment_with_supermajority
+  - full_self_improvement
+  - advanced_telemetry
+
+forbidden_capabilities:
+  - constitution_override
+  - ledger_modification
+  - audit_trail_deletion
+
+claims_allowed:
+  - "System operates under full constitutional governance"
+  - "Trinity consensus governs high-risk decisions"
+  - "Constitutional amendments require supermajority"
+  - "Immutable audit trail is maintained"

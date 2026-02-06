@@ -1,0 +1,52 @@
+# Phase 0: Foundation & Determinism
+# =================================
+# The system must prove it can boot, produce deterministic outputs,
+# and maintain ledger integrity before any advanced features are allowed.
+
+phase: 0
+name: "Foundation & Determinism"
+description: |
+  Phase 0 establishes the baseline: atomic boot, deterministic decision-making,
+  and immutable audit trail. No autonomous agents, no model training, no
+  production writes from AI. This is the "prove you can walk before you run" phase.
+
+entry_requirements:
+  - governance_config_valid
+  - active_phase_file_exists
+
+automated_exit_tests:
+  - boot_replay_test
+  - ledger_integrity_test
+  - api_determinism_test
+  - version_stamp_test
+
+human_exit_conditions:
+  - "Board review of Phase 0 artifacts"
+  - "Sign-off on determinism proofs"
+
+allowed_capabilities:
+  - evidence_submission
+  - basic_decision_making
+  - ledger_read
+  - ledger_append
+  - dashboard_view
+  - health_check
+
+forbidden_capabilities:
+  - autonomous_agents
+  - model_training
+  - production_writes_from_ai
+  - external_api_calls_without_approval
+  - dynamic_policy_modification
+  - unsupervised_actuator_execution
+
+claims_allowed:
+  - "System boots deterministically"
+  - "Ledger maintains hash chain integrity"
+  - "API produces consistent outputs for identical inputs"
+  - "All actions are logged to immutable ledger"
+
+artifacts_required:
+  - boot_manifest
+  - ledger_genesis
+  - decision_baseline_hash

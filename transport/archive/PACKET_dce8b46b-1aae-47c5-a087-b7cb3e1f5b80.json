@@ -1,0 +1,14 @@
+﻿{
+    "signature":  "pa5ECNTNh4yAwa/MXEEiBQ9tRWsuKJCMf/2iV3tlZvScCILOXkPAbtG82YsNNb7dgj2UFrjiYUaaHBcOs25u80T1WD40VhEr1S7d3M+o1hwW6vtDKBELc5VuQ7maBSy0VsK2WFD/lM8MoCTyHBdlSDjk0QEN+jT/QldH06hFxsHnRRY0dDmP5eKx8g32GukTyeGjv57eW1EchihXztOYu5kvu89OmeaukmM72VSMo7KJEBSM74kHw9nzGnfpjht2QACS2qxzcCskH6v7/iDKijGy2XE8K49uUDGRHs3GRxjLif0wRR3oIV7o+foOI0FsbR/AGvjYMVQwIofqK4Wheg==",
+    "data":  {
+                 "metadata":  {
+                                  "sender":  "LocalNode",
+                                  "recipient":  "Manus",
+                                  "timestamp":  "2026-02-04T01:57:18Z",
+                                  "packet_id":  "dce8b46b-1aae-47c5-a087-b7cb3e1f5b80",
+                                  "type":  "HEARTBEAT"
+                              },
+                 "payload":  "HEARTBEAT: Local Node is stabilized and synchronized. Phase 8 Active."
+             },
+    "signer":  "LocalNode_RSA_2048"
+}

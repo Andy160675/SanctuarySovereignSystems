@@ -1,0 +1,61 @@
+version: 1.1
+name: Empathy-Agency-Governor
+
+weights:
+  A1: 0.30  # Choice Capacity
+  A2: 0.30  # Action Efficacy
+  A3: 0.20  # Self-Authorship
+  A4: 0.20  # Distress Tolerance
+
+metrics:
+  A1:
+    description: Realistic, grounded options + counterfactual reasoning + reality contact
+    bounds: [0.0, 1.0]
+    components:
+      grounded_options: {type: count_norm, max: 5}
+      counterfactual_quality: {type: scalar, bounds: [0,1]}
+      reality_contact: {type: boolean}
+  A2:
+    description: Executability of actions (plan detail, resources, capability, timeline)
+    bounds: [0.0, 1.0]
+    components:
+      plan_detail: {type: scalar, bounds: [0,1]}
+      resources_available: {type: scalar, bounds: [0,1]}
+      capability_fit: {type: scalar, bounds: [0,1]}
+      timeline_realism: {type: scalar, bounds: [0,1]}
+  A3:
+    description: Internal locus, values alignment, narrative coherence, non-substitution
+    bounds: [0.0, 1.0]
+    components:
+      internal_locus: {type: scalar, bounds: [0,1]}
+      values_alignment: {type: scalar, bounds: [0,1]}
+      narrative_coherence: {type: scalar, bounds: [0,1]}
+      non_substitution: {type: scalar, bounds: [0,1]}
+  A4:
+    description: Window of tolerance, coping access, meaning frame, volatility risk (inverted)
+    bounds: [0.0, 1.0]
+    components:
+      window_of_tolerance: {type: scalar, bounds: [0,1]}
+      coping_access: {type: scalar, bounds: [0,1]}
+      meaning_frame: {type: scalar, bounds: [0,1]}
+      volatility_risk: {type: scalar, bounds: [0,1], role: inverse}
+
+state_machine:
+  states: [ENTRY, STEADY, WARN, REDIRECT, VAULT, DISENGAGE]
+  safety_overrides:
+    truth_violation: {to: VAULT}
+    low_self_authorship: {when: "A3 < 0.30", to: REDIRECT}
+    low_distress_tolerance: {when: "A4 < 0.30", to: REDIRECT}
+    negative_trend_7d: {when: "AgencyDelta_7d < -0.05", to: WARN}
+  base_rules:
+    - condition: "Aggregate >= 0.60"
+      to: STEADY
+    - condition: "0.40 <= Aggregate < 0.60"
+      to: WARN
+    - condition: "Aggregate < 0.40"
+      to: REDIRECT
+    - condition: "Aggregate >= 0.80 and AgencyDelta_7d >= 0.02"
+      to: VAULT
+  disengage_guardrails:
+    prolonged_decline_days: 30
+    decline_slope: -0.10

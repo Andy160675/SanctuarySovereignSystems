@@ -1,0 +1,5 @@
+cb5038655ebb0f993a89c6d96b3c9375e99bffa7bfea970c3f8fea535cc28967  scenarios/proof_cases/CASE_02.md
+bytes: 489
+timestamp_utc: 2026-02-04T06:01:56Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

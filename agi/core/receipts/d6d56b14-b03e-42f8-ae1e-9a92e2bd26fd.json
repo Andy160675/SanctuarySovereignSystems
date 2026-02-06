@@ -1,0 +1,21 @@
+{
+  "receipt_id": "d6d56b14-b03e-42f8-ae1e-9a92e2bd26fd",
+  "answer_id": "3fe2a3f8-ef16-4632-bf02-b7069f1286b7",
+  "model_id": "local-small-1",
+  "policy_version": "v0.1a",
+  "mode": "explained",
+  "agent_path": [
+    "specialist",
+    "validator",
+    "arbiter",
+    "interpreter"
+  ],
+  "prompt_hash": "84b03d093a062a8a715d30bc2165d9513593135c0ecf63fb06391424002eccbb",
+  "answer_hash": "6c86a312a14312fe6a5b7cdc2e239f3e01a784949fe3a42a128051dc606757c7",
+  "interpreter_prompt_hash": "5fe0fa61cf2067827f015b3dab1aba0f8bcf661bf6ec1c54190d36f5938977c5",
+  "assistant_system_prompt_hash": "a125d12f8b666886784c36ee2d33974770503e87d72a97ae611668bff6c8aeb9",
+  "parent_receipt_id": null,
+  "drift_detected": false,
+  "drift_details": [],
+  "timestamp": 1763674848
+}

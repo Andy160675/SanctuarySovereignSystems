@@ -1,0 +1,5 @@
+76fa1fa49a08ba9dfe99030d28d306206e36d7c0cc818c129c56f2e57d38e9e7  Codex/Hacking/tamper-evidence_bypassing_(theoretical).md
+bytes: 386
+timestamp_utc: 2026-02-04T05:12:32Z
+git_state: dirty
+git_head: d94b080824e7324a4caa31e870da50b286ac47f4

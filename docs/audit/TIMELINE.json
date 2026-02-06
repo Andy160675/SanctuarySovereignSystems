@@ -1,0 +1,308 @@
+﻿[
+    {
+        "type":  "Commit",
+        "id":  "a6f19d2",
+        "timestamp":  "2025-11-26T13:00:07Z",
+        "description":  "fix: cross-platform path handling in anchor chain"
+    },
+    {
+        "type":  "Commit",
+        "id":  "78e0601",
+        "timestamp":  "2025-11-26T13:01:35Z",
+        "description":  "fix: rebuild anchor chain with current file hashes"
+    },
+    {
+        "type":  "Commit",
+        "id":  "b692c6d",
+        "timestamp":  "2025-11-26T13:13:34Z",
+        "description":  "fix: use LF-normalized hashes for cross-platform compatibility"
+    },
+    {
+        "type":  "Commit",
+        "id":  "0654d81",
+        "timestamp":  "2025-11-26T12:25:58Z",
+        "description":  "docs: ratify Sovereign Machine V3 as complete baseline"
+    },
+    {
+        "type":  "Commit",
+        "id":  "a3b1fa4",
+        "timestamp":  "2025-11-26T12:26:47Z",
+        "description":  "docs: V4 Charter - evolutionary lineage boundary"
+    },
+    {
+        "type":  "Commit",
+        "id":  "2a11973",
+        "timestamp":  "2025-11-26T12:41:55Z",
+        "description":  "[V3] One-click demo bundle with launchers"
+    },
+    {
+        "type":  "Commit",
+        "id":  "72d1c0f",
+        "timestamp":  "2025-11-26T15:23:28Z",
+        "description":  "[V4] Update STATUS.md to reflect current V3/V4 state"
+    },
+    {
+        "type":  "Commit",
+        "id":  "aa2b794",
+        "timestamp":  "2025-11-26T15:27:08Z",
+        "description":  "[V4] Add invariant tests for governed chain verification"
+    },
+    {
+        "type":  "Commit",
+        "id":  "876415c",
+        "timestamp":  "2025-11-26T16:04:29Z",
+        "description":  "[V4] Add sanitization tools - repo scrubber and synthetic demo generator"
+    },
+    {
+        "type":  "Commit",
+        "id":  "b8f22af",
+        "timestamp":  "2025-11-26T13:14:00Z",
+        "description":  "fix: normalize line endings in hash computation for cross-platform"
+    },
+    {
+        "type":  "Commit",
+        "id":  "a56f988",
+        "timestamp":  "2025-11-26T14:31:09Z",
+        "description":  "[V4] Governed Chain Verification - First governed UI action"
+    },
+    {
+        "type":  "Commit",
+        "id":  "a60c05f",
+        "timestamp":  "2025-11-26T15:21:32Z",
+        "description":  "[V4] Open source preparation - governance layer ready for public"
+    },
+    {
+        "type":  "Commit",
+        "id":  "97c3e58",
+        "timestamp":  "2025-11-26T12:22:53Z",
+        "description":  "[Sovereign 3.1] Add Governance Cockpit + Evidence Data"
+    },
+    {
+        "type":  "Milestone",
+        "id":  "M-20251120",
+        "timestamp":  "2025-11-20T00:00:00Z",
+        "description":  "Phase 5 Completion (Golden Master established)"
+    },
+    {
+        "type":  "Commit",
+        "id":  "a4fb521",
+        "timestamp":  "2025-11-20T03:48:23Z",
+        "description":  "chore(ops): promote evidence-validator to stable"
+    },
+    {
+        "type":  "Commit",
+        "id":  "40deab5",
+        "timestamp":  "2025-11-20T04:48:05Z",
+        "description":  "Sovereign System: Constitutional enforcement active. Code locked."
+    },
+    {
+        "type":  "Milestone",
+        "id":  "M-20260206",
+        "timestamp":  "2026-02-06T00:00:00Z",
+        "description":  "Retroactive Audit Pipeline Initiated"
+    },
+    {
+        "type":  "Milestone",
+        "id":  "M-20260205",
+        "timestamp":  "2026-02-05T00:00:00Z",
+        "description":  "AI Thread Recovery Baseline Captured"
+    },
+    {
+        "type":  "Milestone",
+        "id":  "M-20260204",
+        "timestamp":  "2026-02-04T00:00:00Z",
+        "description":  "Decorrelated Validation Workflow Implemented"
+    },
+    {
+        "type":  "Commit",
+        "id":  "2608b00",
+        "timestamp":  "2025-11-26T12:00:27Z",
+        "description":  "[Governance 3.1] Add Governance Gate with Commit pathway + Merkle receipts"
+    },
+    {
+        "type":  "Commit",
+        "id":  "2bdccac",
+        "timestamp":  "2025-11-26T12:07:46Z",
+        "description":  "[Sovereign 3.1] Execution directive implementation - Hash chain + automation"
+    },
+    {
+        "type":  "Commit",
+        "id":  "2b4be36",
+        "timestamp":  "2025-11-26T12:12:39Z",
+        "description":  "[Sovereign 3.1] External Anchor Adapter - Non-repudiation layer"
+    },
+    {
+        "type":  "Commit",
+        "id":  "715c227",
+        "timestamp":  "2025-11-25T18:34:45Z",
+        "description":  "[Closeout] Away Kit v1 + Session Complete"
+    },
+    {
+        "type":  "Commit",
+        "id":  "d2768b0",
+        "timestamp":  "2025-11-26T10:38:40Z",
+        "description":  "[Prototype 3.1] BoardRoom SVC integration + evidence anchoring"
+    },
+    {
+        "type":  "Commit",
+        "id":  "e82555d",
+        "timestamp":  "2025-11-26T11:50:10Z",
+        "description":  "[Boardroom 3.1] Add 13-role agentic harness with audit wiring"
+    },
+    {
+        "type":  "Commit",
+        "id":  "6fbff17",
+        "timestamp":  "2025-11-26T16:13:29Z",
+        "description":  "[V4] Fix test suite and update .gitignore"
+    },
+    {
+        "type":  "Commit",
+        "id":  "89a3cbe",
+        "timestamp":  "2025-12-30T21:03:03Z",
+        "description":  "docs: add baseline expected state and alignment audit tool"
+    },
+    {
+        "type":  "Commit",
+        "id":  "6b1039d",
+        "timestamp":  "2026-01-08T17:47:42Z",
+        "description":  "seal(runtime): export-only truth engine; no cross-system imports"
+    },
+    {
+        "type":  "Commit",
+        "id":  "56cf466",
+        "timestamp":  "2026-01-08T17:57:25Z",
+        "description":  "seal(runtime): export-only truth-engine-complete; no cross-system imports"
+    },
+    {
+        "type":  "Commit",
+        "id":  "4dc5fd1",
+        "timestamp":  "2025-12-30T20:23:57Z",
+        "description":  "closeout: restore healthy (160/160) + smoke evidence + deterministic tooling"
+    },
+    {
+        "type":  "Commit",
+        "id":  "acf465d",
+        "timestamp":  "2025-12-30T20:56:43Z",
+        "description":  "closeout: finalize verification + custody tracking + anchor policy"
+    },
+    {
+        "type":  "Commit",
+        "id":  "73f5a50",
+        "timestamp":  "2025-12-30T21:01:25Z",
+        "description":  "crm: implement Capability + Revision Management v1 and automated pipeline"
+    },
+    {
+        "type":  "Commit",
+        "id":  "26182c4",
+        "timestamp":  "2026-01-08T19:08:31Z",
+        "description":  "integrity(runtime): add seq + event_id to truth export (truth-engine)"
+    },
+    {
+        "type":  "Commit",
+        "id":  "5d591c4",
+        "timestamp":  "2026-01-08T19:08:46Z",
+        "description":  "integrity(runtime): add seq + event_id to truth export (truth-engine-complete)"
+    },
+    {
+        "type":  "Commit",
+        "id":  "1bc1a1e",
+        "timestamp":  "2026-01-08T19:11:44Z",
+        "description":  "chore(line-endings): pin LF via .gitattributes"
+    },
+    {
+        "type":  "Commit",
+        "id":  "c6926d2",
+        "timestamp":  "2026-01-08T18:11:21Z",
+        "description":  "docs(runtime): declare canonical entrypoints; mark core mirrors non-canonical"
+    },
+    {
+        "type":  "Commit",
+        "id":  "966af7a",
+        "timestamp":  "2026-01-08T18:36:42Z",
+        "description":  "hardening(runtime): bounds + rate-limit + deterministic search export"
+    },
+    {
+        "type":  "Commit",
+        "id":  "592cf39",
+        "timestamp":  "2026-01-08T18:55:45Z",
+        "description":  "hardening(runtime): mirror bounds + rate-limit + deterministic search export (truth-engine-complete)"
+    },
+    {
+        "type":  "Commit",
+        "id":  "d59d628",
+        "timestamp":  "2025-12-25T15:58:51Z",
+        "description":  "Fix: remove broken nested submodules"
+    },
+    {
+        "type":  "Commit",
+        "id":  "f991e27",
+        "timestamp":  "2025-12-03T22:28:11Z",
+        "description":  "[Release] Open-source preparation: full agent framework"
+    },
+    {
+        "type":  "Commit",
+        "id":  "d56a878",
+        "timestamp":  "2025-12-03T22:36:32Z",
+        "description":  "docs: add collaborator access instructions (read-only)"
+    },
+    {
+        "type":  "Commit",
+        "id":  "df124ff",
+        "timestamp":  "2025-12-03T22:42:45Z",
+        "description":  "docs: add investor presentation deck (14 slides)"
+    },
+    {
+        "type":  "Commit",
+        "id":  "0ebdda5",
+        "timestamp":  "2025-12-03T20:45:52Z",
+        "description":  "ci: add coverage gate and document ST MICHAEL automation"
+    },
+    {
+        "type":  "Commit",
+        "id":  "9bd7b0b",
+        "timestamp":  "2025-12-03T21:29:08Z",
+        "description":  "sync: Mobile Command Centre handoff package"
+    },
+    {
+        "type":  "Commit",
+        "id":  "551bdef",
+        "timestamp":  "2025-12-03T22:11:52Z",
+        "description":  "docs: add CONNECTION_MANIFEST for multi-node setup"
+    },
+    {
+        "type":  "Commit",
+        "id":  "cc7e49d",
+        "timestamp":  "2025-12-03T23:31:36Z",
+        "description":  "ci: fix deps + disable unstable workflow for honest green"
+    },
+    {
+        "type":  "Commit",
+        "id":  "f81bfb8",
+        "timestamp":  "2025-12-03T23:36:53Z",
+        "description":  "ci: copy .env.example to .env in CI for track tests"
+    },
+    {
+        "type":  "Commit",
+        "id":  "776865c",
+        "timestamp":  "2025-12-04T00:10:32Z",
+        "description":  "[ST MICHAEL] Implement adjudication gate and refusal logging"
+    },
+    {
+        "type":  "Commit",
+        "id":  "01275ef",
+        "timestamp":  "2025-12-03T22:48:46Z",
+        "description":  "docs: investor deck v1.1 + written brief (final versions)"
+    },
+    {
+        "type":  "Commit",
+        "id":  "e3c93f8",
+        "timestamp":  "2025-12-03T22:49:43Z",
+        "description":  "docs: update brief with final polished version"
+    },
+    {
+        "type":  "Commit",
+        "id":  "04061e6",
+        "timestamp":  "2025-12-03T23:27:43Z",
+        "description":  "ci: fix e2e-tests - add httpx dep, scope coverage to core/"
+    }
+]

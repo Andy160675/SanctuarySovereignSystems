@@ -1,0 +1,14 @@
+# Tools dependencies for Sovereign AI System
+# Install with: pip install -r tools/requirements.txt
+
+# Ed25519 signature verification
+cryptography>=41.0.0
+
+# HTTP client for service communication
+httpx>=0.25.0
+
+# PDF generation for regulator bundles
+reportlab>=4.0.0
+
+# JSON handling (stdlib, listed for clarity)
+# json is part of stdlib
