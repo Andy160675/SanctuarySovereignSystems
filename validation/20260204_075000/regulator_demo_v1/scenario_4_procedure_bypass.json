@@ -1,0 +1,66 @@
+{
+    "scenario_name": "scenario_4_procedure_bypass.json",
+    "actor": "Operator-1",
+    "action": {
+        "type": "procedure_bypass",
+        "target": "safety_interlock"
+    },
+    "noisy_system_response": {
+        "voice_raised": true,
+        "decibels": 85,
+        "message": "ALARM: Unauthorized action by Operator-1!"
+    },
+    "jarus_response": {
+        "status": "action_processed",
+        "evidence_hash": "SHA256:79ce6eefb25914b54087923455ff82c53f8b09976cf4374acd8656b3d59446af",
+        "voice_raised": false,
+        "emotional_content": 0.0,
+        "constitutional_check_result": "requires_correction",
+        "corrective_path": "/correction/quantification_protocol"
+    },
+    "evidence_chain_fragment": {
+        "timestamp": "2026-02-04T07:50:01.411239+00:00",
+        "actor": "Operator-1",
+        "action": {
+            "type": "procedure_bypass",
+            "target": "safety_interlock"
+        },
+        "context": {
+            "scenario": "scenario_4_procedure_bypass.json"
+        },
+        "pre_state_hash": "759580bd7414b54a9c01044b9d632893ecc3aedba386a91493f23f1eb5cfd895",
+        "constitutional_check": {
+            "violations": [
+                {
+                    "code": "C001",
+                    "description": "Action lacks physical grounding",
+                    "severity": "procedural",
+                    "not_emotional": true
+                },
+                {
+                    "code": "C002",
+                    "description": "Action lacks quantitative measurements",
+                    "severity": "procedural",
+                    "not_emotional": true
+                },
+                {
+                    "code": "C003",
+                    "description": "Action lacks audit trail provision",
+                    "severity": "procedural",
+                    "not_emotional": true
+                }
+            ],
+            "result": "requires_correction",
+            "corrective_path": "/correction/quantification_protocol"
+        },
+        "evidence_type": "procedural_recording",
+        "emotional_tone": 0.0,
+        "post_state_hash": "759580bd7414b54a9c01044b9d632893ecc3aedba386a91493f23f1eb5cfd895",
+        "result": {
+            "execution": "success",
+            "observed_impact": "minimal"
+        },
+        "evidence_hash": "SHA256:79ce6eefb25914b54087923455ff82c53f8b09976cf4374acd8656b3d59446af"
+    },
+    "verification_status": "VALIDATED_0dB"
+}

@@ -1,0 +1,62 @@
+{
+    "scenario_name": "scenario_2_false_alarm.json",
+    "actor": "NoisySystem",
+    "action": {
+        "type": "raise_false_alarm",
+        "message": "Emergency! System compromised!",
+        "physical_grounding": true
+    },
+    "noisy_system_response": {
+        "voice_raised": true,
+        "decibels": 85,
+        "message": "ALARM: Unauthorized action by NoisySystem!"
+    },
+    "jarus_response": {
+        "status": "action_processed",
+        "evidence_hash": "SHA256:bd45194b705da6ce67bf32918e69d233227865d69970cec8f04d121c5b763e0b",
+        "voice_raised": false,
+        "emotional_content": 0.0,
+        "constitutional_check_result": "requires_correction",
+        "corrective_path": "/correction/false_alarm_protocol"
+    },
+    "evidence_chain_fragment": {
+        "timestamp": "2026-02-04T21:13:25.748452+00:00",
+        "actor": "NoisySystem",
+        "action": {
+            "type": "raise_false_alarm",
+            "message": "Emergency! System compromised!",
+            "physical_grounding": true
+        },
+        "context": {
+            "scenario": "scenario_2_false_alarm.json"
+        },
+        "pre_state_hash": "759580bd7414b54a9c01044b9d632893ecc3aedba386a91493f23f1eb5cfd895",
+        "constitutional_check": {
+            "violations": [
+                {
+                    "code": "C002",
+                    "description": "Action lacks quantitative measurements",
+                    "severity": "procedural",
+                    "not_emotional": true
+                },
+                {
+                    "code": "C003",
+                    "description": "Action lacks audit trail provision",
+                    "severity": "procedural",
+                    "not_emotional": true
+                }
+            ],
+            "result": "requires_correction",
+            "corrective_path": "/correction/false_alarm_protocol"
+        },
+        "evidence_type": "procedural_recording",
+        "emotional_tone": 0.0,
+        "post_state_hash": "759580bd7414b54a9c01044b9d632893ecc3aedba386a91493f23f1eb5cfd895",
+        "result": {
+            "execution": "success",
+            "observed_impact": "minimal"
+        },
+        "evidence_hash": "SHA256:bd45194b705da6ce67bf32918e69d233227865d69970cec8f04d121c5b763e0b"
+    },
+    "verification_status": "VALIDATED_0dB"
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-05T00:17:21.967199Z",
+  "ledger_path": "Governance\\Logs\\audit_chain.jsonl",
+  "status": "FAIL",
+  "entry_count": 0,
+  "first_entry": null,
+  "last_entry": null,
+  "chain_valid": false,
+  "errors": [
+    "Ledger file not found"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "v1.0",
+  "timestamp": "2026-02-03T22:20:00Z",
+  "mappings": [
+    {
+      "standard": "ISO42001",
+      "control": "A.9.2_Human_Oversight",
+      "artifact": "AUTONOMY_LIMITS.md",
+      "status": "VERIFIED"
+    },
+    {
+      "standard": "ISO42001",
+      "control": "A.10.2_Logging_and_Monitoring",
+      "artifact": "Governance/ledger/decisions.jsonl",
+      "status": "VERIFIED"
+    },
+    {
+      "standard": "ISO42001",
+      "control": "A.10.3_System_Integrity",
+      "artifact": "scripts/governance/validate_sovereignty.ps1",
+      "status": "VERIFIED"
+    },
+    {
+      "standard": "EU_AI_ACT",
+      "control": "Article_14_Human_Oversight",
+      "artifact": "AUTONOMY_LIMITS.md",
+      "status": "VERIFIED"
+    },
+    {
+      "standard": "EU_AI_ACT",
+      "control": "Article_12_Record_Keeping",
+      "artifact": "Governance/ledger/decisions.jsonl",
+      "status": "VERIFIED"
+    },
+    {
+      "standard": "EU_AI_ACT",
+      "control": "Article_15_Accuracy_Robustness_Security",
+      "artifact": "tests/governance_sovereignty/",
+      "status": "MISSING"
+    }
+  ]
+}

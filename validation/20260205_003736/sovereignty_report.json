@@ -1,0 +1,27 @@
+﻿[
+    {
+        "Detail":  "Hash: E89F00063C87BE5C...",
+        "Status":  "PASS",
+        "Check":  "Constitution"
+    },
+    {
+        "Detail":  "Config and schema present",
+        "Status":  "PASS",
+        "Check":  "Governance Config"
+    },
+    {
+        "Detail":  "Active Phase: 0",
+        "Status":  "PASS",
+        "Check":  "Phase Gate"
+    },
+    {
+        "Detail":  "Limits defined with escalation",
+        "Status":  "PASS",
+        "Check":  "Autonomy Limits"
+    },
+    {
+        "Detail":  "6 entries",
+        "Status":  "PASS",
+        "Check":  "Decision Ledger"
+    }
+]
