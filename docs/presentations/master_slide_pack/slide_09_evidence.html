@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evidence Standard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            padding: 60px 80px;
+        }
+
+        .header {
+            border-bottom: 4px solid #FF4500;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #555;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        /* Left Column: The Standard */
+        .standard-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .requirement-list {
+            list-style: none;
+        }
+
+        .requirement-item {
+            font-size: 28px;
+            color: #2C3E50;
+            margin-bottom: 25px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .requirement-item i {
+            color: #FF4500;
+            margin-right: 20px;
+            font-size: 24px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .conclusion {
+            margin-top: auto;
+            background: #2C3E50;
+            color: #fff;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 300;
+            border-left: 5px solid #FF4500;
+        }
+
+        /* Right Column: Alignment & Visual */
+        .alignment-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .alignment-box {
+            background: #F9F9F9;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .alignment-title {
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #888;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .alignment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .align-item {
+            font-size: 16px;
+            color: #444;
+            display: flex;
+            align-items: center;
+        }
+
+        .align-item::before {
+            content: "✓";
+            color: #2C3E50;
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .visual-container {
+            flex-grow: 1;
+            border: 1px solid #eee;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            max-height: 250px;
+        }
+
+        .visual-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .caption {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Evidence Standard</h1>
+            <div class="subtitle">No Exceptions</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left Column -->
+            <div class="standard-col">
+                <ul class="requirement-list">
+                    <li class="requirement-item"><i class="fas fa-lock"></i> Append-only</li>
+                    <li class="requirement-item"><i class="fas fa-fingerprint"></i> Hash-sealed</li>
+                    <li class="requirement-item"><i class="fas fa-clock"></i> Timestamped (UTC)</li>
+                    <li class="requirement-item"><i class="fas fa-redo"></i> Reproducible</li>
+                    <li class="requirement-item"><i class="fas fa-user-tag"></i> Attributable</li>
+                </ul>
+
+                <div class="conclusion">
+                    This is not optional — it is the <strong>minimum standard</strong> for defensible governance.
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="alignment-col">
+                <div class="alignment-box">
+                    <div class="alignment-title">Regulatory Alignment</div>
+                    <div class="alignment-grid">
+                        <div class="align-item">EU AI Act (Arts 9, 12-15)</div>
+                        <div class="align-item">NIST AI RMF</div>
+                        <div class="align-item">ISO/IEC 42001</div>
+                        <div class="align-item">ALARP Safety Doctrine</div>
+                    </div>
+                </div>
+
+                <div class="visual-container">
+                    <img src="/home/ubuntu/master-repo/assets/images/T7Dt7XJTMKE6.png" alt="Audit Trail Visualization">
+                </div>
+                <div class="caption">Cryptographic Chain of Custody</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

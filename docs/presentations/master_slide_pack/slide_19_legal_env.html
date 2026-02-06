@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legal & Environmental Forces</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            flex-grow: 1;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-header {
+            font-size: 32px;
+            font-weight: 900;
+            color: #2C3E50;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .col-header i {
+            color: #FF4500;
+            margin-right: 15px;
+            font-size: 28px;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-item {
+            margin-bottom: 35px;
+            border-left: 4px solid #eee;
+            padding-left: 20px;
+        }
+
+        .point-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .point-desc {
+            font-size: 18px;
+            color: #666;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Legal & Environmental Forces</h1>
+            <h2>Litigation and sustainability are converging on AI</h2>
+        </div>
+
+        <div class="content-grid">
+            <!-- Legal Column -->
+            <div class="column">
+                <div class="col-header">
+                    <i class="fas fa-balance-scale"></i> Legal Landscape
+                </div>
+                <ul class="point-list">
+                    <li class="point-item">
+                        <div class="point-title">The Litigation Wave</div>
+                        <div class="point-desc">Class-action lawsuits regarding copyright infringement and data scraping are defining the boundaries of "Fair Use".</div>
+                    </li>
+                    <li class="point-item">
+                        <div class="point-title">Regulatory Enforcement</div>
+                        <div class="point-desc">GDPR and AI Act fines (up to 7% of global turnover) make non-compliance an existential financial risk.</div>
+                    </li>
+                    <li class="point-item">
+                        <div class="point-title">Contractual Indemnity</div>
+                        <div class="point-desc">Enterprise clients are demanding unlimited indemnification for AI-generated output errors.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Environmental Column -->
+            <div class="column">
+                <div class="col-header">
+                    <i class="fas fa-leaf"></i> Environmental Reality
+                </div>
+                <ul class="point-list">
+                    <li class="point-item">
+                        <div class="point-title">The Energy Wall</div>
+                        <div class="point-desc">Data center power consumption is competing with residential grids, leading to moratoriums on new builds.</div>
+                    </li>
+                    <li class="point-item">
+                        <div class="point-title">Scope 3 Emissions</div>
+                        <div class="point-desc">Corporate ESG mandates require reporting the carbon footprint of AI inference and training.</div>
+                    </li>
+                    <li class="point-item">
+                        <div class="point-title">Resource Constraints</div>
+                        <div class="point-desc">Water usage for cooling is becoming a critical bottleneck in drought-prone regions.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">PESTLE Analysis // Legal & Environmental</div>
+    </div>
+</body>
+</html>

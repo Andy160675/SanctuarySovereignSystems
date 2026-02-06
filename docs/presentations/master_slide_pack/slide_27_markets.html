@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Target Markets</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .markets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 0; /* Borders handled by cells */
+            flex-grow: 1;
+            border-top: 1px solid #eee;
+            border-left: 1px solid #eee;
+        }
+
+        .market-cell {
+            padding: 30px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .market-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .market-icon {
+            font-size: 32px;
+            color: #FF4500;
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .market-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+        .market-desc {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.4;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .market-driver {
+            margin-top: auto;
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .market-driver span {
+            color: #FF4500;
+            margin-right: 5px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Target Markets</h1>
+            <h2>Where the cost of failure is non-negotiable</h2>
+        </div>
+
+        <div class="markets-grid">
+            <!-- Market 1 -->
+            <div class="market-cell">
+                <div class="market-header">
+                    <div class="market-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="market-title">Finance & Fintech</div>
+                </div>
+                <div class="market-desc">
+                    Algorithmic trading, credit scoring, and fraud detection systems requiring absolute explainability for regulators.
+                </div>
+                <div class="market-driver"><span>Driver:</span> Auditability & Compliance</div>
+            </div>
+
+            <!-- Market 2 -->
+            <div class="market-cell">
+                <div class="market-header">
+                    <div class="market-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="market-title">Healthcare</div>
+                </div>
+                <div class="market-desc">
+                    Diagnostic AI and drug discovery pipelines where model hallucination can lead to loss of life.
+                </div>
+                <div class="market-driver"><span>Driver:</span> Patient Safety</div>
+            </div>
+
+            <!-- Market 3 -->
+            <div class="market-cell">
+                <div class="market-header">
+                    <div class="market-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="market-title">Critical Infrastructure</div>
+                </div>
+                <div class="market-desc">
+                    Energy grid management, water treatment, and autonomous transport systems.
+                </div>
+                <div class="market-driver"><span>Driver:</span> Public Safety & Resilience</div>
+            </div>
+
+            <!-- Market 4 -->
+            <div class="market-cell">
+                <div class="market-header">
+                    <div class="market-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="market-title">Defense & Gov</div>
+                </div>
+                <div class="market-desc">
+                    Intelligence analysis and logistics requiring strict data residency and zero-trust architecture.
+                </div>
+                <div class="market-driver"><span>Driver:</span> National Sovereignty</div>
+            </div>
+        </div>
+
+        <div class="footer">Market Strategy</div>
+    </div>
+</body>
+</html>

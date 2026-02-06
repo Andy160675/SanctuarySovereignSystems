@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Six Execution Phases</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+        }
+
+        .phases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            column-gap: 80px;
+            row-gap: 40px;
+            flex-grow: 1;
+        }
+
+        .phase-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .phase-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #FF4500;
+            margin-right: 25px;
+            line-height: 1;
+            opacity: 0.8;
+        }
+
+        .phase-content {
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .phase-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .phase-desc {
+            font-size: 18px;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Six Execution Phases</h1>
+            <p>Industry-grade safety review, not creativity</p>
+        </div>
+
+        <div class="phases-grid">
+            <!-- Phase 1 -->
+            <div class="phase-item">
+                <div class="phase-number">01</div>
+                <div class="phase-content">
+                    <div class="phase-title">Declaration of Law</div>
+                    <div class="phase-desc">Define state guarantees and where they are enforced. The foundation of the system.</div>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="phase-item">
+                <div class="phase-number">04</div>
+                <div class="phase-content">
+                    <div class="phase-title">Adversarial Collision</div>
+                    <div class="phase-desc">Test realistic failure narratives against existing controls. Assume hostile reality.</div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-item">
+                <div class="phase-number">02</div>
+                <div class="phase-content">
+                    <div class="phase-title">State Exhaustion</div>
+                    <div class="phase-desc">Enumerate all valid states, transitions, and triggers. No hidden modes allowed.</div>
+                </div>
+            </div>
+
+            <!-- Phase 5 -->
+            <div class="phase-item">
+                <div class="phase-number">05</div>
+                <div class="phase-content">
+                    <div class="phase-title">Governance Escape</div>
+                    <div class="phase-desc">Attempt to bypass controls via ambiguity, silence, or overrides. Stress test boundaries.</div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-item">
+                <div class="phase-number">03</div>
+                <div class="phase-content">
+                    <div class="phase-title">Temporal Reconstruction</div>
+                    <div class="phase-desc">Can a future inquiry reconstruct events solely from evidence? Ensure auditability.</div>
+                </div>
+            </div>
+
+            <!-- Phase 6 -->
+            <div class="phase-item">
+                <div class="phase-number">06</div>
+                <div class="phase-content">
+                    <div class="phase-title">ALARP & Residual Risk</div>
+                    <div class="phase-desc">Own the risk or reject disproportionate controls. Document the decision logic.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">Codex of Record // Execution Protocol</div>
+    </div>
+</body>
+</html>

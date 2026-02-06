@@ -228,19 +228,46 @@ class HumanAgencyGuard:
         self.kill_switch_active = False
         self.decision_history: List[Dict] = []
 
-    def human_override(self, decision_id: str, new_decision: any) -> bool:
-        """Allow human to override any AI decision."""
+    def human_override(self, decision_id: str, new_decision: any, surge_wrapper: any = None) -> bool:
+        """
+        Allow human to override any AI decision.
+        (Refactored: Now routes through Surge as a classified action).
+        """
         if not self.override_enabled:
             return False
 
-        self.decision_history.append({
-            "id": decision_id,
-            "type": "override",
-            "new_value": str(new_decision),
-            "timestamp": datetime.now().isoformat()
-        })
-        print(f"[HARMONY] Human override applied to decision {decision_id}")
-        return True
+        def override_handler():
+            self.decision_history.append({
+                "id": decision_id,
+                "type": "override",
+                "new_value": str(new_decision),
+                "timestamp": datetime.now().isoformat()
+            })
+            print(f"[HARMONY] Human override applied to decision {decision_id}")
+            return True
+
+        if surge_wrapper:
+            # Route through Surge funnel as a classified action
+            try:
+                result = surge_wrapper.execute_sovereign_action(
+                    action_name=f"human_override_{decision_id}",
+                    context={
+                        'action': 'human_override',
+                        'decision_id': decision_id,
+                        'new_decision': str(new_decision),
+                        'requires_approval': True # Always requires explicit approval record
+                    },
+                    handler=override_handler,
+                    actor="operator"
+                )
+                return result['status'] == "SUCCESS"
+            except Exception as e:
+                print(f"[HARMONY] Override blocked by Surge: {e}")
+                return False
+        else:
+            # Fallback for un-wrapped contexts (logged as advisory)
+            print(f"[HARMONY] WARNING: Advisory-only override applied (No Surge context)")
+            return override_handler()
 
     def activate_kill_switch(self, reason: str) -> bool:
         """Emergency stop all AI operations."""

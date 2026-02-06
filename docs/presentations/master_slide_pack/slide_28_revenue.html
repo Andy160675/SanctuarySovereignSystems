@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Revenue Model</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        .revenue-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-left: 6px solid #2C3E50;
+            padding-left: 30px;
+            padding-top: 10px;
+        }
+
+        .revenue-item:nth-child(2), .revenue-item:nth-child(3) {
+            border-left-color: #FF4500;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .item-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+        .item-tag {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            background: #2C3E50;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .revenue-item:nth-child(2) .item-tag, .revenue-item:nth-child(3) .item-tag {
+            background: #FF4500;
+        }
+
+        .item-desc {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .item-desc strong {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .footer-bar {
+            margin-top: auto;
+            background: #F9F9F9;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            color: #777;
+            font-weight: 400;
+        }
+
+        .footer-highlight {
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Revenue Model</h1>
+            <h2>Monetizing Governance & Trust</h2>
+        </div>
+
+        <div class="revenue-grid">
+            <!-- Item 1 -->
+            <div class="revenue-item">
+                <div class="item-header">
+                    <div class="item-title">Licensing</div>
+                    <div class="item-tag">Recurring ARR</div>
+                </div>
+                <div class="item-desc">
+                    Enterprise licensing of the <strong>Sovereign Core OS</strong> and Codex framework. A scalable, high-margin software revenue stream for regulated deployments.
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="revenue-item">
+                <div class="item-header">
+                    <div class="item-title">Certification</div>
+                    <div class="item-tag">High Margin</div>
+                </div>
+                <div class="item-desc">
+                    Third-party <strong>Audit & Seal</strong> services. Verifying external AI systems against the Codex of Record standards for insurance and regulatory compliance.
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="revenue-item">
+                <div class="item-header">
+                    <div class="item-title">Consulting</div>
+                    <div class="item-tag">Service Retainer</div>
+                </div>
+                <div class="item-desc">
+                    Strategic <strong>Architecture & Deployment</strong>. Helping Fortune 500 clients build their own zero-trust, sovereign infrastructure stacks.
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="revenue-item">
+                <div class="item-header">
+                    <div class="item-title">Training</div>
+                    <div class="item-tag">Education</div>
+                </div>
+                <div class="item-desc">
+                    <strong>Operator Accreditation</strong>. Training the "Human-in-the-Loop" (Responsible Persons) to manage sovereign systems, aligned with ILM/NEBOSH.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <span class="footer-text">Ecosystem Strategy</span>
+            <span class="footer-highlight">Product + Services Flywheel</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quality Management Alignment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .columns-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            flex-grow: 1;
+        }
+
+        .quality-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-header {
+            font-size: 32px;
+            font-weight: 900;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .col-sub {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 30px;
+            font-weight: 400;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .mapping-list {
+            list-style: none;
+        }
+
+        .mapping-item {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .industry-term {
+            font-size: 16px;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .codex-term {
+            font-size: 24px;
+            font-weight: 400;
+            color: #2C3E50;
+            border-left: 4px solid #FF4500;
+            padding-left: 15px;
+        }
+
+        .footer-statement {
+            margin-top: 40px;
+            background: #F9F9F9;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #444;
+            border-left: 10px solid #2C3E50;
+        }
+
+        .footer-statement strong {
+            color: #2C3E50;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Quality Management Alignment</h1>
+            <h2>Applying Automotive Standards (APQP & PPAP) to AI</h2>
+        </div>
+
+        <div class="columns-container">
+            <!-- Left Column: APQP -->
+            <div class="quality-column">
+                <div class="col-header">APQP</div>
+                <div class="col-sub">Advanced Product Quality Planning (Design Phase)</div>
+                
+                <ul class="mapping-list">
+                    <li class="mapping-item">
+                        <span class="industry-term">Voice of Customer</span>
+                        <span class="codex-term">Intent Contract (Layer 1)</span>
+                    </li>
+                    <li class="mapping-item">
+                        <span class="industry-term">Failure Mode Effects Analysis (FMEA)</span>
+                        <span class="codex-term">Adversarial Collision (Layer 4)</span>
+                    </li>
+                    <li class="mapping-item">
+                        <span class="industry-term">Control Plan</span>
+                        <span class="codex-term">Guardrails & Invariants</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Column: PPAP -->
+            <div class="quality-column">
+                <div class="col-header">PPAP</div>
+                <div class="col-sub">Production Part Approval Process (Release Gate)</div>
+
+                <ul class="mapping-list">
+                    <li class="mapping-item">
+                        <span class="industry-term">Design Records</span>
+                        <span class="codex-term">Sealed Codex Artifacts</span>
+                    </li>
+                    <li class="mapping-item">
+                        <span class="industry-term">Dimensional Results</span>
+                        <span class="codex-term">Metric Validation Reports</span>
+                    </li>
+                    <li class="mapping-item">
+                        <span class="industry-term">Part Submission Warrant (PSW)</span>
+                        <span class="codex-term">Final Witness Oath</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-statement">
+            We treat AI models like <strong>safety-critical hardware components</strong>, not experimental software.
+        </div>
+    </div>
+</body>
+</html>

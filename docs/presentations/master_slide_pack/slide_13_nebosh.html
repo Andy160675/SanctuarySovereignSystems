@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEBOSH & ALARP Alignment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .mapping-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mapping-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            background: #F9F9F9;
+            padding: 20px;
+            border-left: 6px solid #2C3E50;
+        }
+
+        .term-nebosh {
+            flex: 1;
+            font-size: 20px;
+            font-weight: 700;
+            color: #555;
+        }
+
+        .arrow {
+            padding: 0 20px;
+            color: #FF4500;
+            font-size: 24px;
+        }
+
+        .term-codex {
+            flex: 1;
+            font-size: 20px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        .visual-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 20px;
+        }
+
+        .visual-column img {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .caption {
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .statement-box {
+            margin-top: auto;
+            background: #2C3E50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 300;
+        }
+
+        .statement-box strong {
+            color: #FF4500;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>NEBOSH & ALARP Alignment</h1>
+            <h2>Safety engineering discipline applied to AI governance</h2>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="mapping-column">
+                <div class="mapping-row">
+                    <div class="term-nebosh">Plan-Do-Check-Act (PDCA)</div>
+                    <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="term-codex">Loop Closure</div>
+                </div>
+
+                <div class="mapping-row">
+                    <div class="term-nebosh">Hierarchy of Controls</div>
+                    <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="term-codex">ALARP Phase</div>
+                </div>
+
+                <div class="mapping-row">
+                    <div class="term-nebosh">Risk Assessment</div>
+                    <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="term-codex">State Exhaustion</div>
+                </div>
+            </div>
+
+            <div class="visual-column">
+                <!-- Using the Safety Management System image -->
+                <img src="/home/ubuntu/master-repo/assets/images/Zfiz3PGHi8I3.jpg" alt="Safety Management System">
+                <div class="caption">Standard Safety Management System (SMS) Framework</div>
+            </div>
+        </div>
+
+        <div class="statement-box">
+            The Codex treats AI governance as a <strong>safety system</strong>, not a compliance checkbox.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Competitive Differentiation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 60px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .moat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            flex-grow: 1;
+        }
+
+        .moat-col {
+            display: flex;
+            flex-direction: column;
+            border-top: 8px solid #2C3E50;
+            padding-top: 30px;
+        }
+
+        .moat-col:nth-child(2) {
+            border-color: #FF4500;
+        }
+
+        .moat-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #2C3E50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .moat-desc {
+            font-size: 20px;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .moat-desc strong {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .vs-box {
+            background: #F9F9F9;
+            padding: 15px;
+            border-left: 4px solid #ccc;
+        }
+
+        .vs-label {
+            font-size: 12px;
+            font-weight: 900;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .vs-text {
+            font-size: 16px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Competitive Differentiation</h1>
+            <h2>Evidence-first governance is a defensible moat</h2>
+        </div>
+
+        <div class="moat-grid">
+            <!-- Moat 1 -->
+            <div class="moat-col">
+                <div class="moat-title">The Evidence Moat</div>
+                <div class="moat-desc">
+                    We provide a <strong>cryptographically sealed chain of custody</strong> for every decision. Proof is an asset, not an afterthought.
+                </div>
+                <div class="vs-box">
+                    <span class="vs-label">Vs. Competitors</span>
+                    <span class="vs-text">Ephemeral logs and "trust me" dashboards.</span>
+                </div>
+            </div>
+
+            <!-- Moat 2 -->
+            <div class="moat-col">
+                <div class="moat-title" style="color: #FF4500;">The Governance Moat</div>
+                <div class="moat-desc">
+                    We enforce <strong>structural invariants</strong> (guardrails) that cannot be bypassed by the model. Safety is compiled-in.
+                </div>
+                <div class="vs-box">
+                    <span class="vs-label">Vs. Competitors</span>
+                    <span class="vs-text">Probabilistic "safety filters" and prompt engineering.</span>
+                </div>
+            </div>
+
+            <!-- Moat 3 -->
+            <div class="moat-col">
+                <div class="moat-title">The Sovereignty Moat</div>
+                <div class="moat-desc">
+                    We offer <strong>zero-SaaS dependency</strong>. The system runs on bare metal, air-gapped, with total owner control.
+                </div>
+                <div class="vs-box">
+                    <span class="vs-label">Vs. Competitors</span>
+                    <span class="vs-text">API wrappers and vendor lock-in.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">Strategic Analysis // Differentiation</div>
+    </div>
+</body>
+</html>

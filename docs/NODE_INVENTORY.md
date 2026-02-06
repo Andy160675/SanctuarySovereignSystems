@@ -122,12 +122,29 @@ gpg -c sovereign-$(date +%Y%m%d).tgz
           ▼                    ▼                    ▼
    ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
    │ NODE-MOBILE │     │  PC-CORE-1  │     │   NAS-01    │
-   │  (laptop)   │◄───►│ (this PC)   │────►│  (backup)   │
+   │ ★ COMMAND ★ │◄───►│ (core svcs) │────►│  (backup)   │
    └─────────────┘     └─────────────┘     └─────────────┘
          │                    │
          │    Tailscale       │
          └────────────────────┘
 ```
+
+### Node Classification
+
+| Node | Hostname | Classification | Role | Access Methods |
+|------|----------|----------------|------|----------------|
+| **NODE-MOBILE** | Laptop | **Class S (Supreme)** | Main Command Node — full orchestration authority | Hardwired Ethernet / Tailscale SSH / Chrome Remote Desktop |
+| PC-CORE-1 | DESKTOP-V20CP12 | Class B | Core services host | RDP / JetBrains Gateway / Tailscale SSH |
+| NAS-01 | nas-01 | Class A | Backup and storage archive | Tailscale SSH (restricted to backup user) |
+
+### Access Policy Classes
+
+| Class | Description | Allowed Access |
+|-------|-------------|----------------|
+| **Class S** | Supreme Command Node | Unrestricted — full authority over all systems |
+| **Class A** | Core Sovereign Nodes | Tailscale SSH only — no GUI, minimal attack surface |
+| **Class B** | Operational Support | Tailscale SSH + RDP/JetBrains Gateway — GUI access permitted |
+| **Class C** | Restricted Nodes | No persistent remote access — supervised only |
 
 ---
 
@@ -175,4 +192,4 @@ The repo contains everything needed to reconstruct the node.
 
 ---
 
-*Last updated: December 3, 2025*
+*Last updated: February 2, 2026*

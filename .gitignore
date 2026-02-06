@@ -1,4 +1,4 @@
-# =============================================================================
+﻿# =============================================================================
 # SOVEREIGN SYSTEM .gitignore
 # =============================================================================
 
@@ -76,5 +76,14 @@ boardroom_ledger.jsonl
 ledger.jsonl
 evidence_store/
 
+# Sovereign Secrets
+github_pat.encrypted
+github_pat.dpapi.json
+
 # Tool outputs (regenerable)
 tools/sanitize_report.json
+
+# IDE Shared (Local Scratches)
+ide_shared/*
+!ide_shared/.gitignore
+!ide_shared/README.md

@@ -1,0 +1,44 @@
+version: "1.0"
+date: "2026-02-04"
+author: "Manus AI"
+
+principles:
+  - "All research must align with sovereign doctrine"
+  - "Evidence generation is mandatory at every stage"
+  - "Red lines cannot be crossed, even in experimentation"
+  - "Knowledge must be preserved, never lost"
+
+phases:
+  research:
+    risk_level: "MEDIUM"
+    attestation: "SINGLE_OPERATOR"
+    evidence_required: true
+    time_limit: "7 days"
+    deliverable: "Research Report"
+    
+  design:
+    risk_level: "HIGH"
+    attestation: "DUAL_OPERATOR"
+    evidence_required: true
+    time_limit: "3 days"
+    deliverable: "Design Specification"
+    
+  implementation:
+    risk_level: "MEDIUM"
+    attestation: "SINGLE_OPERATOR"
+    evidence_required: true
+    time_limit: "5 days"
+    deliverable: "Working Implementation"
+    
+  verification:
+    risk_level: "HIGH"
+    attestation: "DUAL_OPERATOR"
+    evidence_required: true
+    time_limit: "2 days"
+    deliverable: "Verification Report"
+
+red_lines:
+  - "No external dependencies without isolation"
+  - "No data sovereignty violations"
+  - "No bypassing of safety controls"
+  - "No undocumented changes"

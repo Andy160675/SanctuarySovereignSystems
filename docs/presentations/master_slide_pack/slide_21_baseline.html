@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baseline Scenario</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2C3E50;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 300;
+            color: #FF4500;
+            letter-spacing: 1px;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        .phase-col {
+            display: flex;
+            flex-direction: column;
+            border-top: 8px solid #ddd;
+            padding-top: 30px;
+        }
+
+        .phase-col.active {
+            border-color: #2C3E50;
+        }
+
+        .phase-col.future {
+            border-color: #FF4500;
+        }
+
+        .time-range {
+            font-size: 32px;
+            font-weight: 900;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .phase-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF4500;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .phase-desc {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .phase-desc strong {
+            color: #333;
+            font-weight: 700;
+        }
+
+        .key-driver {
+            margin-top: auto;
+            background: #F9F9F9;
+            padding: 15px;
+            font-size: 14px;
+            color: #666;
+            border-left: 3px solid #ccc;
+        }
+
+        .key-driver span {
+            display: block;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Baseline Scenario</h1>
+            <h2>Steady regulatory convergence and governance adoption</h2>
+        </div>
+
+        <div class="timeline-grid">
+            <!-- Phase 1 -->
+            <div class="phase-col active">
+                <div class="time-range">2026-2030</div>
+                <div class="phase-name">The Great Filter</div>
+                <div class="phase-desc">
+                    The EU AI Act sets the global floor. Unverified "black box" models are effectively banned from critical infrastructure, finance, and healthcare. Compliance is the primary market gatekeeper.
+                </div>
+                <div class="key-driver">
+                    <span>Driver</span>
+                    Regulatory Market Access
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-col future">
+                <div class="time-range">2031-2040</div>
+                <div class="phase-name">The Insurance Era</div>
+                <div class="phase-desc">
+                    Liability costs skyrocket. You cannot deploy without coverage, and you cannot get coverage without <strong>Codex-level proof</strong>. Governance becomes a financial necessity, not just legal.
+                </div>
+                <div class="key-driver">
+                    <span>Driver</span>
+                    Actuarial Risk & Liability
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-col active">
+                <div class="time-range">2041-2051</div>
+                <div class="phase-name">The Utility Era</div>
+                <div class="phase-desc">
+                    AI governance becomes like electrical code—boring, mandatory, and invisible. The "Wild West" is a distant memory. Systems are <strong>safe by design</strong> or they do not exist.
+                </div>
+                <div class="key-driver">
+                    <span>Driver</span>
+                    Standardization & Commoditization
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

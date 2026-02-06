@@ -1,0 +1,196 @@
+# ============================================================================
+# ALARP REGISTER SCHEMA
+# As Low As Reasonably Practicable — Risk Register Format
+# ============================================================================
+# 
+# Purpose:
+#   Define the structure for documenting hazards, controls, residual risks,
+#   and ALARP justifications for SelfHealAutomation and related systems.
+#
+# This schema enables:
+#   - Demonstrable, reviewable governance
+#   - Third-party audit capability
+#   - Regulatory defensibility
+#   - Continuous risk review
+#
+# Version: 1.0
+# Author: Architect
+# Date: 2026-02-03
+# ============================================================================
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://sovereign-system/ALARP_Register.schema.yaml"
+title: "ALARP Register Entry"
+description: "Schema for documenting hazards and ALARP justifications"
+
+type: object
+required:
+  - hazard_id
+  - hazard_class
+  - scenario
+  - controls_in_place
+  - residual_risk
+  - alarp_justification
+  - review_cadence
+  - owner
+
+properties:
+  hazard_id:
+    type: string
+    description: "Unique identifier for the hazard (e.g., HAZ-001)"
+    pattern: "^HAZ-[0-9]{3}$"
+
+  hazard_class:
+    type: string
+    description: "Category of hazard"
+    enum:
+      - MISUSE              # Intentional misuse by operators or adversaries
+      - BIAS                # Unfair or discriminatory outcomes
+      - DRIFT               # Silent degradation or model drift
+      - ESCALATION          # Agent exceeds intended scope
+      - CORRUPTION          # Evidence or data integrity compromise
+      - AVAILABILITY        # System unavailability or failure
+      - PRIVACY             # Unauthorized data exposure
+      - SAFETY              # Physical or operational safety impact
+
+  scenario:
+    type: string
+    description: "Specific scenario describing how the hazard manifests"
+    minLength: 20
+    maxLength: 500
+
+  likelihood:
+    type: string
+    description: "Probability of occurrence"
+    enum:
+      - RARE                # < 1% annually
+      - UNLIKELY            # 1-10% annually
+      - POSSIBLE            # 10-50% annually
+      - LIKELY              # 50-90% annually
+      - ALMOST_CERTAIN      # > 90% annually
+
+  impact:
+    type: string
+    description: "Severity if hazard materializes"
+    enum:
+      - NEGLIGIBLE          # Minor inconvenience
+      - MINOR               # Limited operational impact
+      - MODERATE            # Significant operational impact
+      - MAJOR               # Severe operational/financial impact
+      - CATASTROPHIC        # Existential or irreversible harm
+
+  controls_in_place:
+    type: array
+    description: "List of controls mitigating this hazard"
+    items:
+      type: object
+      required:
+        - control_id
+        - control_type
+        - description
+        - effectiveness
+      properties:
+        control_id:
+          type: string
+          description: "Unique identifier for the control (e.g., CTL-001)"
+          pattern: "^CTL-[0-9]{3}$"
+        control_type:
+          type: string
+          enum:
+            - PREVENTIVE      # Stops hazard from occurring
+            - DETECTIVE       # Identifies hazard occurrence
+            - CORRECTIVE      # Remediates after occurrence
+            - COMPENSATING    # Alternative control
+        description:
+          type: string
+          description: "What the control does"
+        implementation:
+          type: string
+          description: "Where/how the control is implemented"
+        effectiveness:
+          type: string
+          enum:
+            - HIGH            # Reduces risk by > 80%
+            - MEDIUM          # Reduces risk by 40-80%
+            - LOW             # Reduces risk by < 40%
+        evidence_link:
+          type: string
+          description: "Path to evidence artifact (log, code, config)"
+
+  rejected_controls:
+    type: array
+    description: "Controls considered but not implemented"
+    items:
+      type: object
+      required:
+        - control_description
+        - rejection_reason
+      properties:
+        control_description:
+          type: string
+          description: "What the control would have done"
+        rejection_reason:
+          type: string
+          description: "Why it was rejected (cost, complexity, disproportionate)"
+        disproportionality_justification:
+          type: string
+          description: "Why the cost/effort exceeds the risk reduction benefit"
+
+  residual_risk:
+    type: object
+    description: "Risk remaining after controls applied"
+    required:
+      - level
+      - description
+    properties:
+      level:
+        type: string
+        enum:
+          - ACCEPTABLE        # Within tolerance, no further action
+          - TOLERABLE         # Acceptable with monitoring
+          - UNACCEPTABLE      # Requires additional controls
+      description:
+        type: string
+        description: "What residual risk remains"
+      quantification:
+        type: string
+        description: "Numeric or qualitative measure if available"
+
+  alarp_justification:
+    type: string
+    description: "Explicit statement of why residual risk is As Low As Reasonably Practicable"
+    minLength: 50
+
+  review_cadence:
+    type: string
+    description: "When this hazard assessment will be re-reviewed"
+    enum:
+      - MONTHLY
+      - QUARTERLY
+      - SEMI_ANNUALLY
+      - ANNUALLY
+      - ON_CHANGE          # Triggered by system changes
+
+  evidence_links:
+    type: array
+    description: "Links to supporting evidence artifacts"
+    items:
+      type: string
+
+  owner:
+    type: string
+    description: "Person responsible for this hazard's management"
+
+  created_date:
+    type: string
+    format: date
+    description: "When this entry was created"
+
+  last_reviewed:
+    type: string
+    format: date
+    description: "When this entry was last reviewed"
+
+  review_notes:
+    type: string
+    description: "Notes from most recent review"

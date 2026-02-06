@@ -1,0 +1,8 @@
+{
+    "diskThresholdPercent": 10,
+    "criticalServices": ["Spooler", "wuauserv", "BITS"],
+    "networkTarget": "8.8.8.8",
+    "intervalSeconds": 300,
+    "maxActionsPerCycle": 3,
+    "cooldownSeconds": 300
+}
