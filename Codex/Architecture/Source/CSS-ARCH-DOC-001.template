@@ -1,0 +1,53 @@
+# Template: CSS-ARCH-DOC-001
+# Codex Sovereign Systems — Architectural Doctrine
+# Assembled mechanically from tagged evidence blocks.
+# DO NOT EDIT THIS TEMPLATE'S OUTPUT. Edit source fragments instead.
+
+title: Codex Sovereign Systems — Architectural Doctrine
+doc_id: CSS-ARCH-DOC-001
+version: 0.1.0
+
+# Sections are assembled in order. Each section pulls blocks by ID.
+# Blocks not found will produce a [MISSING] marker in output.
+
+---
+
+## Executive Summary
+[arch.summary.executive]
+
+## Constitutional Principles
+
+### Prevention Over Detection
+[arch.principle.001]
+
+### Prefer Stopping to Lying
+[arch.principle.002]
+
+### Append-Only Evidence
+[arch.principle.003]
+
+## Enforcement Architecture
+
+### Three-Layer Enforcement Model
+[arch.enforcement.model]
+
+### Trust Model
+[arch.trust.model]
+
+## Governance
+
+### BOARDROOM-13 Deliberation Chamber
+[arch.governance.chamber]
+
+## Infrastructure
+
+### Distributed Mesh Architecture
+[arch.infrastructure.mesh]
+
+### Offline-First Sovereignty
+[arch.offline.first]
+
+## Audit and Verification
+
+### Cryptographic Audit Chain
+[arch.audit.chain]
