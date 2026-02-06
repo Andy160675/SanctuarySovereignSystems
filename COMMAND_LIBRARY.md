@@ -21,6 +21,7 @@ This library documents the primary operational commands for the Sovereign System
 | `powershell -File scripts/ops/SelfHealAutomation.ps1 -Once -AuditOnly` | Runs system self-healing checks in audit-only mode. | `evidence/self_heal/` |
 | `powershell -File scripts/ops/Invoke-TrinityLoop.ps1` | Starts the Trinity orchestration loop. | Console/Logs |
 | `powershell -File scripts/ops/Triage-FleetDocker.ps1 [-Gate]` | Performs Docker triage (ps/logs) across the fleet with optional restart gate. | `validation/fleet_triage.jsonl` |
+| `powershell -File scripts/ops/Invoke-CitadelScaleLoop.ps1 -AuthCode 0000 -OptimizationCode 1234` | Executes 25-cycle scale verification with dynamic agent management. | `validation/citadel_loop_metrics.jsonl` |
 
 ## 3. Security & Hacking Suite
 
