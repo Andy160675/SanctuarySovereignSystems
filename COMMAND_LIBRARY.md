@@ -20,6 +20,7 @@ This library documents the primary operational commands for the Sovereign System
 | `powershell -File scripts/ops/Invoke-SovereignElite.ps1` | Runs the Sovereign Elite PoC demonstration (Agentic multi-sphere coordination). | Console Output |
 | `powershell -File scripts/ops/SelfHealAutomation.ps1 -Once -AuditOnly` | Runs system self-healing checks in audit-only mode. | `evidence/self_heal/` |
 | `powershell -File scripts/ops/Invoke-TrinityLoop.ps1` | Starts the Trinity orchestration loop. | Console/Logs |
+| `powershell -File scripts/ops/Triage-FleetDocker.ps1 [-Gate]` | Performs Docker triage (ps/logs) across the fleet with optional restart gate. | `validation/fleet_triage.jsonl` |
 
 ## 3. Security & Hacking Suite
 
