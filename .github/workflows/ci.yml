@@ -37,12 +37,10 @@ jobs:
 
       - name: Type check with mypy
         run: mypy . --ignore-missing-imports
-        continue-on-error: true
 
       - name: Run tests
-        run: pytest --no-header -q
-        continue-on-error: true
+        if: hashFiles('tests/**') != ''
+        run: pytest
 
       - name: Audit dependencies
         run: pip-audit
-        continue-on-error: true
