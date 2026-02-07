@@ -1,7 +1,0 @@
-﻿{
-    "manual_start":  "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"C:\\Blade2AI\\deployment\\startup_master.ps1\"",
-    "recovery_mode":  "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"C:\\Blade2AI\\deployment\\recovery_mode.ps1\"",
-    "check_status":  "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"C:\\Blade2AI\\deployment\\node_health_monitor.ps1\" -CheckOnly",
-    "force_reboot":  "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"C:\\Blade2AI\\deployment\\auto_reboot_manager.ps1\" -ForceReboot",
-    "pc":  "PC5"
-}
