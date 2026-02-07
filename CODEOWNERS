@@ -1,0 +1,20 @@
+# Code Owners
+# These owners will be requested for review when someone opens a pull request.
+
+# Default owners for everything in the repo
+* @Andy160675
+
+# Documentation and governance
+/docs/ @Andy160675
+/docs/templates/ @Andy160675
+
+# Security-related files
+SECURITY.md @Andy160675
+/evidence/ @Andy160675
+
+# Infrastructure and CI
+/ci/ @Andy160675
+/.github/ @Andy160675
+
+# Configuration
+/configs/ @Andy160675
