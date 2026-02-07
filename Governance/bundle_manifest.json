@@ -1,0 +1,29 @@
+{
+  "files": {
+    "ACTIVE_PHASE": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "ALARP_Register.schema.yaml": "cfafb9206472292c2ef75720ab64af6ab99ed66290e9d7452bdaa4d731e19089",
+    "ALARP_Register.yaml": "866422671e1e6a32d98d60968ed2866c6fb5a9ac6e90c44561ed9705312b1a55",
+    "config.py": "cc6f1e15a08ca7005b7aaeb9e514ebeffe7985b12e76c9b7540be71456815202",
+    "FRAMEWORK_CODEX_ALIGNMENT.md": "f73e0d26d21ed5cab2a1bdb22457a6b332302c584bf3b2161569273ac20acfc9",
+    "GOVERNANCE_BUNDLE_VERSION.md": "612f11b841e5d4899c28b1f565e36edb9d5ef34022f0b53341b9ffaf9bfcc11e",
+    "governance_config.schema.json": "01bbc8e4cb21bc1434fca295d48729d2838fbc8ce3a04ba01138ba624a1981bf",
+    "governance_config.yaml": "ce25802f0938885be3636771e3cbcc3471dbb6906505b17a9af7826d9a3e181b",
+    "ledger/intent_ledger.jsonl": "cba276b6a4e8690004d6680a6837dd8cd317013551c4f232cc2b91295579bbfe",
+    "ledger/poc_ledger.jsonl": "9fddaadda88d967bf72476549296d1e34c97f2db6895be98dd693f817de6d80e",
+    "Logs/audit_chain.jsonl": "f0ab974a11b84963487ebbb9d9aa0beb57a08d60b70b5962c776d1d0c6396812",
+    "Logs/audit_chain.old.jsonl": "0cb44096bcd430ef3549d97552b462d8b2343183ede7eafdfa9887e497c77cb0",
+    "Logs/boardroom_ledger.jsonl": "3d408fc862b6871dc8ae7750c801636e2d7b49051640bc85eb7b59fdfb52effb",
+    "Logs/boardroom_state.json": "1f2762173190fb20ba5ff495fb12fd0db57816acc2a733f47ac2876c462f3885",
+    "OPS-INVARIANTS.md": "8072353083ab4f863f9ba91512a6b11f96fc2d98f08bc4c7479b4c2b9098e331",
+    "phases/phase0.yaml": "9da3ae7dc64ba17eeae81b93d85e87545e00c00c5b6aa50f4676fdfea2aa324e",
+    "phases/phase1.yaml": "9dddfca5ad1a61b44345147d10b9b76e6fb3ad66d7fdf6be62289a022c6e8587",
+    "phases/phase2.yaml": "3cb82836a2d814ef5a9ea6d864576828c61aa0a58a807f7df67e8755e085503d",
+    "phases/phase3.yaml": "1d641c80da7464495988f58cdbf3ae3e9d7087441b2947a2bec0670729473ca8",
+    "phases/phase4.yaml": "a852866b93b051d15a125d1b9bf9e0f25b99551335b9903ce4891043d14ba8ee",
+    "promotion_ledger.jsonl": "f21d36c0f55892097225fdbbc96026c526af1f25e41b4571065fcdcffc5d5cb2",
+    "SITREP_SWOT_EXPLANATION.md": "617408661968ae68f7d2848f09f1f4e94da7f4ab97764340dd181e0bb47c665c",
+    "THE_DIAMOND_DOCTRINE.md": "031f333ef94de8af27351ad4fb366a6f3590b361f92e672b61fdf5be4ba3221d",
+    "VERSION": "3d097c315a1c543040f548da4c7051265e94c77211a2411ced1d4621344270de"
+  },
+  "version": "0.1.0"
+}

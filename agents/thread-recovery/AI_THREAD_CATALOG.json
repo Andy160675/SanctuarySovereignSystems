@@ -1,0 +1,96 @@
+{
+  "catalog_version": "2.0",
+  "catalog_timestamp": "2026-02-05T18:08:44Z",
+  "description": "AI Thread Recovery Catalog - Consolidated index of AI-related Gmail threads and Google Drive files",
+  "metadata": {
+    "scan_type": "baseline",
+    "gmail_queries": [
+      "from:openai OR subject:openai OR subject:ChatGPT",
+      "from:anthropic OR subject:anthropic OR subject:Claude",
+      "from:github.com OR from:notifications@github.com",
+      "subject:AI OR subject:GPT OR subject:LLM OR subject:machine learning"
+    ],
+    "gdrive_folders_scanned": [
+      "AI_VAULT",
+      "JARUS_SYSTEM",
+      "SOVEREIGN_SYSTEM",
+      "knowledge_exchange"
+    ]
+  },
+  "summary": {
+    "total_gmail_threads": 394,
+    "total_gdrive_files": 481,
+    "gmail_categories": {
+      "OpenAI": 109,
+      "Anthropic": 89,
+      "GitHub": 100,
+      "AI_General": 96
+    },
+    "gdrive_folders": {
+      "AI_VAULT": 70,
+      "JARUS_SYSTEM": 124,
+      "SOVEREIGN_SYSTEM": 285,
+      "knowledge_exchange": 2
+    },
+    "gdrive_total_size_mb": 402.4
+  },
+  "sources": {
+    "gmail_threads_file": "gmail_threads_consolidated.json",
+    "gdrive_files_file": "gdrive_files_consolidated.json",
+    "delta_report_file": "delta_report.json",
+    "refresh_state_file": "refresh_state.json"
+  },
+  "recent_highlights": {
+    "gmail": [
+      {
+        "thread_id": "19c2ee9d69d4f726",
+        "subject": "☕️ Sam Altman clashes with Anthropic over Super Bowl ads",
+        "category": "Anthropic",
+        "date": "2026-02-05T17:45:36Z"
+      },
+      {
+        "thread_id": "19c2ed9437983aa6",
+        "subject": "[GitHub] A personal access token (classic) has been regenerated",
+        "category": "GitHub",
+        "date": "2026-02-05T17:28:35Z"
+      },
+      {
+        "thread_id": "19c2e89c397fc8b9",
+        "subject": "[Task Update] Fisheries Improvement Programme deadline approaching",
+        "category": "OpenAI",
+        "date": "2026-02-05T16:01:46Z"
+      },
+      {
+        "thread_id": "19c2e5840b68e2b0",
+        "subject": "Why your AI output feels generic (it's not your prompting)",
+        "category": "AI_General",
+        "date": "2026-02-05T14:03:42Z"
+      }
+    ],
+    "gdrive": [
+      {
+        "path": "SOVEREIGN_SYSTEM/vision/TRINITY_OS_VISION.md",
+        "type": "document",
+        "size": 16655,
+        "modified": "2026-02-04T23:48:36Z"
+      },
+      {
+        "path": "SOVEREIGN_SYSTEM/releases/sovereign-elite-v4.5-COMPLETE.tar.gz",
+        "type": "archive",
+        "size": 5519008,
+        "modified": "2026-01-27T00:00:00Z"
+      },
+      {
+        "path": "AI_VAULT/trading-core/releases/2026-01-06_dde410f8/closeout/02_LEDGER/TRADING_LEDGER.chain.jsonl",
+        "type": "other",
+        "size": 338682,
+        "modified": "2026-01-06T00:00:00Z"
+      }
+    ]
+  },
+  "refresh_cycle": {
+    "last_refresh": "2026-02-05T18:08:44Z",
+    "next_scheduled": null,
+    "refresh_interval_hours": 24
+  }
+}

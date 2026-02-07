@@ -7,9 +7,30 @@
 
 Continuous, self-monitoring sovereign truth engine with automated golden master generation.
 
+## Sovereign Infrastructure (Docker-Less)
+
+This system is transitioning away from Docker towards **Sovereign Process Isolation**.
+
+### The Sovereign Way
+Instead of opaque containers, we use deterministic process boundaries and cryptographic evidence.
+
+**Run a service with sovereignty:**
+```powershell
+.\sovereign-run.ps1 -ServicePath "truth-engine" -ServiceName "truth-engine"
+```
+
+**What this does:**
+1. **Isolation**: Creates a fresh workspace in `$env:TEMP` for each run.
+2. **Determinism**: Verifies `requirements.txt` SHA-256 hash.
+3. **Governance**: Records cryptographic "Intent" and "Outcome" in the `EvidenceLedger`.
+4. **Transparency**: All logs redirected to the isolated workspace.
+
+---
+
 ## Infrastructure Status
 - **NAS:** UGREEN DXP4800 Plus (192.168.4.114:9999) - *Docker service in ERROR state*
 - **Connectivity:** Tailscale mesh (Node-0 UK, Node-1 Tenerife)
+- **Sovereignty:** `sovereign-run.ps1` active (Bypassing Docker)
 - **Storage:** Tresorit Business (Secure E2E) - *NOT Google Drive*
 - **DNS:** Working via NAS + 1.1.1.1 fallback
 

@@ -83,6 +83,20 @@ github_pat.dpapi.json
 # Tool outputs (regenerable)
 tools/sanitize_report.json
 
+# Validation & Execution Artifacts
+validation/
+exports/
+builds/
+NAS/04_LOGS/
+NAS/shared/
+DATA/test_runs/
+logs/
+*.zip
+
+# Node.js
+node_modules/
+package-lock.json
+
 # IDE Shared (Local Scratches)
 ide_shared/*
 !ide_shared/.gitignore

@@ -1,0 +1,26 @@
+title: Autonomous Runtime Governance Doctrine
+doc_id: CSS-GOV-AUTONOMY-001
+version: 0.1.0
+allow_proposed: false
+---
+
+## Executive Summary
+
+This document defines the constraints and invariants for autonomous agents and scripts operating within the Sovereign System. It establishes the "Stability Basin" model, treating autonomy not as a risk to be eliminated, but as a dynamical state to be bounded by mechanical governance.
+
+## Core Doctrines
+
+### 1. Autonomous Agents
+[arch.autonomous.agents]
+
+### 2. Cascade Failure & Containment
+[arch.cascade.failure]
+
+### 3. The Necessity of Scaffolding
+[arch.invisible.scaffolding]
+
+### 4. Calibration & Attractors
+[arch.autonomy.calibration]
+
+---
+*End of Assembly*

@@ -100,6 +100,7 @@ def main():
     - **Governance Board** - View decisions, anchors, and chain health
     - **Export Evidence** - Generate sealed forensic bundles
     - **Configuration** - System settings and directory status
+    - **Audit Dashboard** - Interactive Backward Audit Model and forensic timeline
 
     ---
 
