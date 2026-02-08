@@ -50,7 +50,7 @@ if ($dirty) { Fail "Working tree is not clean. Commit/stash first." }
 # ----------------------------
 # 1) Branch anchoring
 # ----------------------------
-Run-Cmd { git fetch --all --tags } "Fetch remotes + tags"
+Run-Cmd { git fetch --all --tags --force } "Fetch remotes + tags"
 Run-Cmd { git checkout master } "Checkout master"
 Run-Cmd { git status } "Check status"
 
@@ -64,14 +64,14 @@ Run-Cmd { git checkout -B $branch $BaselineRef } "Create/reset branch '$branch' 
 # 2) ROADMAP compliance pre-check
 # ----------------------------
 if (-not (Test-Path "ROADMAP.md")) { Fail "ROADMAP.md missing." }
-$roadmapHit = Select-String -Path "ROADMAP.md" -Pattern [regex]::Escape($ExtensionId) -SimpleMatch -ErrorAction SilentlyContinue
+$roadmapHit = Select-String -Path "ROADMAP.md" -Pattern ([regex]::Escape($ExtensionId)) -SimpleMatch -ErrorAction SilentlyContinue
 if (-not $roadmapHit) { Fail "$ExtensionId not found in ROADMAP.md" }
 Ok "ROADMAP linkage verified for $ExtensionId"
 
 # ----------------------------
 # 3) Scaffold extension + docs/evidence
 # ----------------------------
-$extPath = "sovereign_engine/extensions/$ExtensionSlug"
+$extPath = "extensions/$ExtensionSlug"
 $prDir   = "extensions/$ExtensionId"
 $evDir   = "evidence/$ExtensionId"
 Ensure-Dir $extPath
@@ -169,7 +169,7 @@ Implements read-only telemetry extension for Season 3.
 # ----------------------------
 # 4) Validate
 # ----------------------------
-Run-Cmd { python -m pytest "sovereign_engine/extensions/$ExtensionSlug" -q } "Run extension tests"
+Run-Cmd { python -m pytest "extensions/$ExtensionSlug" -q } "Run extension tests"
 Run-Cmd { python -m sovereign_engine.tests.run_all } "Run kernel invariant suite (74/74)"
 
 # ----------------------------
@@ -240,7 +240,7 @@ Ok "Evidence written to $evDir"
 # ----------------------------
 # 7) Commit / push / optional PR
 # ----------------------------
-Run-Cmd { git add "sovereign_engine/extensions/$ExtensionSlug" $prDir $evDir "docs/procedures/rollback_$ExtensionSlug.md" } "Stage files"
+Run-Cmd { git add "extensions/$ExtensionSlug" $prDir $evDir "docs/procedures/rollback_$ExtensionSlug.md" } "Stage files"
 
 $staged = git diff --cached --name-only
 if (-not $staged) { Fail "Nothing staged to commit." }
@@ -257,7 +257,7 @@ if ($CreatePr) {
     if (-not $gh) {
         Info "gh CLI not found; skipping PR creation."
     } else {
-        Run-Cmd { gh pr create --base main --head $branch --title "$ExtensionId: $ExtensionSlug" --body-file $prBodyPath } "Create PR via gh"
+        Run-Cmd { gh pr create --base main --head $branch --title "${ExtensionId}: $ExtensionSlug" --body-file $prBodyPath } "Create PR via gh"
     }
 }
 
