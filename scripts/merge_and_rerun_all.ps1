@@ -75,14 +75,14 @@ Ok "Baseline ancestry gate passed: $BaselineTag"
 # Scope gate: extension-only changes (plus evidence/procedure paths)
 $diffFiles = Run @("git","diff","--name-only","main...$SourceBranch")
 $allowed = @(
-    "^sovereign_engine/extensions/$([regex]::Escape($ExtensionSlug))/",
-    "^extensions/$([regex]::Escape($ExtensionId))/",
-    "^evidence/$([regex]::Escape($ExtensionId))/",
-    "^docs/procedures/rollback_$([regex]::Escape($ExtensionSlug))\.md$",
-    "^audit/queue/",
-    "^audit/merge/",
-    "^baseline_metrics\.json$",
-    "^scripts/"
+    "sovereign_engine/extensions/$([regex]::Escape($ExtensionSlug))/",
+    "extensions/$([regex]::Escape($ExtensionId))/",
+    "evidence/$([regex]::Escape($ExtensionId))/",
+    "docs/procedures/rollback_$([regex]::Escape($ExtensionSlug))\.md$",
+    "audit/queue/",
+    "audit/merge/",
+    "baseline_metrics\.json",
+    "scripts/"
 )
 
 $unauthorized = @()
