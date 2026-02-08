@@ -1,0 +1,28 @@
+name: Constitutional Compliance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run Constitutional Compliance Suite
+        run: python3 tests/compliance/test_constitutional_compliance.py
+
+      - name: Run Integration Test Suite
+        run: python3 tests/integration/test_kernel_pipeline.py
