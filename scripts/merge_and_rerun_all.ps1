@@ -22,7 +22,7 @@ function Run([string[]]$cmd, [string]$logPath = "") {
     $args = @()
     if ($cmd.Count -gt 1) { $args = $cmd[1..($cmd.Count - 1)] }
 
-    $out = & $exe @args 2>&1
+    $out = & $exe @args 2>$null
     if ($logPath) { $out | Tee-Object -FilePath $logPath -Append | Out-Host } else { $out | Out-Host }
     if ($LASTEXITCODE -ne 0) { Fail ("Command failed: " + ($cmd -join " ")) }
     return $out
