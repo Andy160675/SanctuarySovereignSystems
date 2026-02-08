@@ -82,10 +82,33 @@ class BoardroomDecisionEngine:
         ]
 
     def _aggregate_verdicts(self, agent_verdicts: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Aggregate multiple verdicts into a single decision."""
-        # Simple majority for the foundation sprint
+        """
+        Aggregate multiple verdicts into a single decision.
+        Implements 7/13 quorum for Federated Governance.
+        """
+        total_votes = len(agent_verdicts)
         approvals = [v for v in agent_verdicts if v["vote"] == "APPROVE"]
-        if len(approvals) > len(agent_verdicts) / 2:
-            return {"vote": "APPROVE", "reason": "Majority consensus reached."}
-        else:
-            return {"vote": "REJECT", "reason": "Insufficient consensus."}
+        escalations = [v for v in agent_verdicts if v["vote"] == "ESCALATE"]
+        abstentions = [v for v in agent_verdicts if v["vote"] == "ABSTAIN"]
+        
+        # 7-vote Quorum Check (Hard Invariant for Federated Archetype)
+        if len(approvals) >= 7:
+            return {
+                "vote": "APPROVE",
+                "reason": f"Quorum met ({len(approvals)}/7 required approvals).",
+                "compliance_score": (len(approvals) / total_votes) * 100
+            }
+        
+        # Auto-Escalation Logic
+        if len(escalations) > 0:
+            return {
+                "vote": "ESCALATE",
+                "reason": f"Constitutional violation detected by {len(escalations)} agents. Auto-escalating.",
+                "compliance_score": (len(approvals) / total_votes) * 100
+            }
+
+        return {
+            "vote": "REJECT",
+            "reason": f"Insufficient consensus ({len(approvals)} approvals, 7 required).",
+            "compliance_score": (len(approvals) / total_votes) * 100
+        }
