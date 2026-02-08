@@ -20,10 +20,12 @@ $branch = "emergency-recovery-" + (Get-Date -Format "yyyyMMdd-HHmmss")
 git checkout -b $branch $BaseRef
 
 Write-Host "Running kernel invariant suite..."
+$env:PYTHONPATH = "."
 python -m sovereign_engine.tests.run_all
 if ($LASTEXITCODE -ne 0) { throw "Kernel tests failed." }
 
 Write-Host "Running security validation + fingerprint checkpoint..."
+$env:PYTHONPATH = "."
 python scripts/security_validate.py --repo-root . --write-fingerprint
 if ($LASTEXITCODE -ne 0) { throw "Security validation failed." }
 
@@ -46,9 +48,11 @@ if ($MergeToMain) {
   git pull --ff-only origin main
   git merge --no-ff $featureBranch -m "security(governance): emergency recovery merge"
 
+  $env:PYTHONPATH = "."
   python -m sovereign_engine.tests.run_all
   if ($LASTEXITCODE -ne 0) { throw "Post-merge kernel tests failed." }
 
+  $env:PYTHONPATH = "."
   python scripts/security_validate.py --repo-root .
   if ($LASTEXITCODE -ne 0) { throw "Post-merge security validation failed." }
 
