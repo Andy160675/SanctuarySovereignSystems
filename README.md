@@ -1,159 +1,165 @@
-# Sanctuary Sovereign Systems
+# Sovereign Recursion Engine
 
-**Governance For AI — Constitutional Kernel Framework**
+**Constitutional governance for autonomous systems.**
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Codex](https://img.shields.io/badge/Codex-v1.0-green.svg)](#the-codex)
-[![Tests](https://img.shields.io/badge/Tests-72%2F72%20Passed-brightgreen.svg)](#testing)
+The Sovereign Recursion Engine enforces machine-readable authority, deterministic routing, and cryptographic auditability for AI agent systems. It implements subtractive invariance — eliminating impossible states architecturally rather than detecting them after the fact.
 
----
+```
+VIABLE = TOTAL - FORBIDDEN
+```
 
-## What This Is
+The engine cannot structurally misroute authority or propagate illegal state. Not because it's clever. Because the impossible states are architecturally excluded.
 
-Sanctuary Sovereign Systems is an open-source constitutional governance framework for AI and autonomous systems. It enforces governance through **structural impossibility** rather than policy compliance — illegal states cannot be represented, not merely detected.
+## Why This Exists
 
-The framework implements the principle of **Subtractive Invariance**: a system achieves stability by eliminating impossibilities, not by accumulating features.
+AI execution speed is outpacing governance capability. The bottleneck is no longer automation — it's trust, verification, and accountable authority. This engine provides the governance substrate that makes fast inner loops safe to run.
+
+Constraints aren't friction. They're what lets you keep the throttle open.
+
+## Quick Start
+
+```bash
+# Clone
+git clone https://github.com/Andy160675/SanctuarySovereignSystems.git
+cd SanctuarySovereignSystems
+
+# Run all invariant tests (74 tests)
+python -m sovereign_engine.tests.run_all
+```
+
+Requires Python 3.8+. No external dependencies.
 
 ## Architecture
 
-The system is organized into four layers, each enforcing the one above it.
+```
+constitution.json → signals → router → legality → audit → timing → failure → configurator → engine → extensions
+      P0              P1        P2        P3        P4       P5       P6          P7           P8        P9
+```
 
-| Layer | Name | Purpose |
-|-------|------|---------|
-| **Layer 0** | Axioms of Sovereignty | Three non-negotiable truths the kernel exists to enforce |
-| **Layer 1** | Six Invariants of Governance | Industry-agnostic governance pillars |
-| **Layer 2** | Constitutional Kernel | Nine articles of mechanical enforcement (this codebase) |
-| **Layer 3** | Adaptive Interface | Controlled extension points for Season 3 bolt-ons |
+Each phase depends on all prior phases. Skipping breaks containment.
 
-### The Three Axioms
+See [`SEASONS.md`](SEASONS.md) for normative Season 1/2/3 boundary definitions.
 
-**Axiom I — Evidence is Immutable.** All state transitions are recorded in an append-only, hash-chained ledger. The past cannot be altered.
+| Phase | Module | Purpose |
+|-------|--------|---------|
+| 0 | `phase0_constitution.py` | Schema loader, validator, 16 invariant tests |
+| 1 | `phase1_signals.py` | Typed signal tuple, factory, schema-guarded bus |
+| 2 | `phase2_router.py` | Deterministic hierarchical router, authority handlers |
+| 3 | `phase3_legality.py` | Pre-routing legality gate, containment events |
+| 4 | `phase4_audit.py` | SHA-256 hash-chained append-only audit ledger |
+| 5 | `phase5_timing.py` | Latency contracts, watchdog, halt controller |
+| 6 | `phase6_failure.py` | Failure matrix, health monitors |
+| 7 | `phase7_configurator.py` | Archetype compiler (managerial / immutable / federated) |
+| 8 | `phase8_engine.py` | Full integration — boot-to-route pipeline |
+| 9 | `phase9_extensions.py` | Season-3 plugin scaffold + compliance gate |
 
-**Axiom II — Ambiguity Resolves to Containment.** Any undefined or ambiguous state resolves to halt. The system never guesses.
+## The 7 Invariants
 
-**Axiom III — Illegality is Unrepresentable.** The system cannot represent or execute a state that violates its constitutional laws.
+These are non-negotiable. All contributions must preserve them.
 
-### The Nine Articles
+1. **Halt doctrine** — Ambiguity → halt. Unknown failure → halt. Halt rule is FIRST in routing grammar.
+2. **Authority separation** — Three tiers: operator / innovator / steward. No cross-authority direct calls.
+3. **Legality gate** — Illegal states terminated before routing. Every termination produces a containment event.
+4. **Audit chain** — SHA-256 hash-linked, append-only, boot-validated. Corruption triggers truncation.
+5. **Escalation protocol** — operator → innovator → steward. Exhausted escalation → halt.
+6. **Default safe failure** — Router failure → halt. Audit failure → halt. Unknown → halt.
+7. **Extension boundary** — Season-3 bolt-ons cannot modify halt doctrine, authority ladder, or audit requirements.
 
-| Article | Component | Impossibility Eliminated |
-|---------|-----------|--------------------------|
-| I | Typed Signal Ontology | Implicit or untyped routing |
-| II | Hierarchical Router | Jurisdictional leakage |
-| III | Legality Lane | Downstream illegal states |
-| IV | Authority Separation | Mode bleed between roles |
-| V | Escalation Protocol | Arbitrary escalation |
-| VI | Minimal Feedback Log | Un-auditable actions |
-| VII | Pathology Detection | Systemic blindness |
-| VIII | Jurisdiction Context | Cross-domain contamination |
-| IX | Safe Failure State | Silent fall-through failures |
+## Constitutional Ground Truth
+
+`sovereign_engine/configs/constitution.json` is the canonical schema. It defines:
+
+- **Authority ladder** — operator → innovator → steward
+- **Signal schema** — required fields, valid types, domains, authority levels
+- **Routing grammar** — deterministic rules with halt-on-ambiguity default
+- **Forbidden states** — structural prohibitions enforced before routing
+- **Failure semantics** — prescribed response for every failure type
+- **Timing contracts** — latency bounds for routing, escalation, audit, halt
+- **Audit requirements** — append-only, hash-chained, boot-validated
+- **Archetypes** — governance profiles (managerial, immutable, federated)
+
+Every module enforces this schema. Nothing overrides it.
+
+## Governance Archetypes
+
+The configurator (Phase 7) compiles governance profiles into runtime configurations:
+
+| Archetype | Steward Role | Routing | Upgrades |
+|-----------|-------------|---------|----------|
+| **Managerial** | Active | Mutable | Enabled |
+| **Immutable** | Passive | Locked | Disabled |
+| **Federated** | Quorum | Quorum-mutable | Quorum-gated |
+
+No archetype may violate the 7 kernel invariants.
+
+## Design Principles
+
+**Prefer stopping to lying.** The minus sign is not decorative.
+
+- Ambiguity → halt (router)
+- Unknown failure → halt (constitution)
+- Corruption → truncate or seal (audit)
+- Halted bus only accepts halt signals (signal bus)
+- No silent success — every state transition is audited
 
 ## Project Structure
 
 ```
 SanctuarySovereignSystems/
-├── kernel/                     # Constitutional Kernel (Layer 2)
-│   ├── sovereign_kernel.py     # Main orchestrator
-│   ├── router/                 # Article II: Hierarchical Router
-│   ├── legality/               # Article III: Legality Lane
-│   ├── escalation/             # Article V: Escalation Protocol
-│   ├── context/                # Article VIII: Jurisdiction Context
-│   └── failure/                # Article IX: Safe Failure State
-├── engine/                     # Signal Processing Engine
-│   ├── signals/                # Article I: Typed Signal Ontology
-│   ├── handlers/               # Signal handlers
-│   ├── feedback/               # Article VI: Feedback Log
-│   └── pathology/              # Article VII: Pathology Detection
-├── governance/                 # Governance Layer
-│   └── authority/              # Trust-to-Action Interface
-├── ops/                        # Operations Layer (G.I.y)
-│   ├── audit/                  # Git Intelligence Audit
-│   ├── sync/                   # Sovereign Sync
-│   ├── deploy/                 # Deployment tooling
-│   └── integrity/              # Integrity verification
-├── tests/
-│   ├── compliance/             # Constitutional compliance tests
-│   ├── integration/            # End-to-end pipeline tests
-│   └── unit/                   # Component unit tests
-└── docs/                       # Documentation
+├── README.md
+├── LICENSE                          # Apache 2.0
+├── CLAUDE.md                        # Claude Code anchor prompt
+├── CONTRIBUTING.md                  # Contribution rules
+├── SEASONS.md                       # Normative Season 1/2/3 boundary definitions
+├── sovereign_engine/
+│   ├── configs/
+│   │   └── constitution.json        # Constitutional ground truth
+│   ├── core/
+│   │   ├── phase0_constitution.py   # 420 lines
+│   │   ├── phase1_signals.py        # 267 lines
+│   │   ├── phase2_router.py         # 301 lines
+│   │   ├── phase3_legality.py       # 183 lines
+│   │   ├── phase4_audit.py          # 247 lines
+│   │   ├── phase5_timing.py         # 178 lines
+│   │   ├── phase6_failure.py        # 142 lines
+│   │   ├── phase7_configurator.py   # 135 lines
+│   │   ├── phase8_engine.py         # 288 lines
+│   │   └── phase9_extensions.py     # 136 lines
+│   └── tests/
+│       └── run_all.py               # 74 tests incl. adversarial
+└── docs/
+    ├── ARCHITECTURE.md
+    └── INVARIANTS.md
 ```
 
-## Quick Start
+**Total: 3,331 lines of Python. 103 lines of JSON. Zero dependencies.**
 
-```python
-from kernel.sovereign_kernel import SovereignKernel
-from engine.signals.typed_signal import SignalType, AuthorityLevel, create_signal
-from governance.authority.trust_classes import TrustClass
+## Test Results
 
-# Initialize the constitutional kernel
-kernel = SovereignKernel()
-
-# Register a handler
-kernel.register_handler(
-    AuthorityLevel.OPERATOR, "state_check",
-    lambda signal: print(f"Handled: {signal.signal_id}")
-)
-
-# Create a typed signal
-signal = create_signal(
-    signal_type=SignalType.STATE_CHECK,
-    authority=AuthorityLevel.OPERATOR,
-    jurisdiction="audit",
-    payload={"target": "system_health"},
-    source="operator_console",
-)
-
-# Process through the full constitutional pipeline
-result = kernel.process(signal, TrustClass.T1_CONDITIONAL)
-print(f"Accepted: {result.accepted}")
-print(f"Handler: {result.handler_name}")
-
-# Check kernel status
-status = kernel.status()
-print(f"State: {status.system_state}")
-print(f"Chain Integrity: {status.chain_integrity}")
 ```
+74/74 tests passing. All invariants hold.
 
-## Testing
-
-Run the full compliance and integration suites:
-
-```bash
-# Constitutional compliance (all 9 Articles)
-python3 tests/compliance/test_constitutional_compliance.py
-
-# End-to-end integration
-python3 tests/integration/test_kernel_pipeline.py
+Phase 0 (Constitutional Ground Truth):  9/9
+Phase 1 (Typed Signal Substrate):      11/11
+Phase 2 (Router & Authority Kernel):    8/8
+Phase 3 (Legality Gate):               9/9
+Phase 4 (Audit Ledger):                6/6
+Phase 5 (Timing & Halt):               4/4
+Phase 6 (Failure Semantics):           4/4
+Phase 7 (Configurator):                5/5
+Phase 8 (Full Engine):                10/10
+Phase 9 (Extension Scaffold):          5/5
+Adversarial Scenarios:                  3/3
 ```
-
-## Trust Classes
-
-The Trust-to-Action Interface provides graduated autonomy:
-
-| Class | Name | Behaviour | Required Authority |
-|-------|------|-----------|-------------------|
-| T0 | ADVISORY | Manual only | Operator |
-| T1 | CONDITIONAL | Auto-check, manual trigger | Operator |
-| T2 | PRE_APPROVED | Automatic within bounds | Innovator |
-| T3 | AUTO_EXECUTABLE | Immediate autonomous response | Steward |
-
-## Enforcement
-
-Violations trigger one of three non-negotiable responses:
-
-| Response | Trigger | Effect |
-|----------|---------|--------|
-| `process_block` | Gate bypass attempt | Operation halted |
-| `transaction_hold` | Authority violation | Held in escrow |
-| `kernel_panic` | Axiom violation | System-wide halt |
-
-## Origin
-
-This framework was condensed from the BLADE2/VENICE Git Intelligence Suite (G.I.y) and elevated to constitutional production grade under the Season 2 Sovereign Codex. The original concept of authority-grade truth alignment has been preserved and hardened into structural law.
 
 ## License
 
-Apache License 2.0 — See [LICENSE](LICENSE) for details.
+Apache License 2.0 — see [LICENSE](LICENSE).
 
-## Auth Code
+## Author
 
-`CODEX-V1-SUBTRACTIVE-INVARIANCE`
+Andy Jones — [Codex Sovereign Systems](https://sovereigsanctuarysystems.co.uk)
+
+---
+
+*If the industrial age optimized production, and the information age optimized distribution, the AI age will optimize alignment under acceleration.*

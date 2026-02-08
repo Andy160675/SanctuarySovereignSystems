@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "document": "CSS-ENG-CONST-001",
+    "version": "1.0.0",
+    "created": "2026-02-07",
+    "principle": "VIABLE = TOTAL - FORBIDDEN",
+    "halt_doctrine": "prefer stopping to lying"
+  },
+
+  "authority_ladder": {
+    "levels": ["operator", "innovator", "steward"],
+    "escalation_rules": {
+      "stable": "operator",
+      "degraded": "innovator",
+      "constitutional": "steward"
+    },
+    "invariants": [
+      "no_level_may_overwrite_another_silently",
+      "escalation_via_protocol_only",
+      "steward_cannot_be_bypassed_on_constitutional_matters"
+    ]
+  },
+
+  "signal_schema": {
+    "required_fields": ["type", "domain", "authority", "payload", "hash", "timestamp"],
+    "valid_types": ["query", "command", "escalation", "alert", "audit", "halt"],
+    "valid_domains": ["operational", "governance", "constitutional", "emergency"],
+    "valid_authorities": ["operator", "innovator", "steward", "system"]
+  },
+
+  "routing_grammar": {
+    "rules": [
+      { "condition": "type == halt", "target": "system" },
+      { "condition": "domain == operational AND type != escalation", "target": "operator" },
+      { "condition": "domain == governance", "target": "innovator" },
+      { "condition": "domain == constitutional", "target": "steward" },
+      { "condition": "domain == emergency", "target": "steward" },
+      { "condition": "type == escalation AND source == operator", "target": "innovator" },
+      { "condition": "type == escalation AND source == innovator", "target": "steward" }
+    ],
+    "default_on_ambiguity": "halt",
+    "fallback_on_failure": "contain_and_log"
+  },
+
+  "legality_constraints": {
+    "forbidden_states": [
+      "untyped_signal_in_router",
+      "cross_authority_direct_call",
+      "audit_write_without_hash",
+      "routing_without_legality_check",
+      "execution_after_halt_signal",
+      "steward_override_without_dual_key",
+      "silent_authority_escalation"
+    ],
+    "enforcement": "architectural_exclusion",
+    "violation_response": "halt_contain_log"
+  },
+
+  "failure_semantics": {
+    "router_failure": { "action": "halt", "recovery": "restart_with_ledger_validation" },
+    "legality_failure": { "action": "escalate_and_contain", "recovery": "steward_review" },
+    "audit_failure": { "action": "halt", "recovery": "no_resume_until_integrity_verified" },
+    "timing_breach": { "action": "escalate", "recovery": "reduce_load_or_halt" },
+    "authority_breach": { "action": "halt", "recovery": "full_constitutional_review" }
+  },
+
+  "timing_contracts": {
+    "max_routing_latency_ms": 500,
+    "escalation_timeout_ms": 2000,
+    "audit_write_timeout_ms": 1000,
+    "watchdog_interval_ms": 5000,
+    "halt_response_max_ms": 100
+  },
+
+  "audit_requirements": {
+    "format": "append_only",
+    "integrity": "sha256_hash_chain",
+    "minimum_record": ["signal_type", "route", "handler", "outcome", "timestamp", "hash"],
+    "boot_validation": "full_chain_verify",
+    "corruption_response": "truncate_at_last_valid"
+  },
+
+  "archetypes": {
+    "managerial": {
+      "steward_mode": "active",
+      "routing_tables": "mutable",
+      "upgrade_paths": "enabled",
+      "description": "Flexible governance with active steward oversight"
+    },
+    "immutable": {
+      "steward_mode": "passive",
+      "routing_tables": "locked",
+      "upgrade_paths": "disabled",
+      "description": "Physics-locked governance — no runtime modification"
+    },
+    "federated": {
+      "steward_mode": "quorum",
+      "routing_tables": "quorum_mutable",
+      "upgrade_paths": "quorum_gated",
+      "description": "Distributed governance with quorum-based authority"
+    }
+  }
+}
