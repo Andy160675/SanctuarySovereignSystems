@@ -93,7 +93,10 @@ foreach ($f in $diffFiles) {
     foreach ($rx in $allowed) {
         if ($file -match $rx) { $ok = $true; break }
     }
-    if (-not $ok) { $unauthorized += $file }
+    if (-not $ok) { 
+        Write-Host "Unauthorized file: $file" -ForegroundColor Yellow
+        $unauthorized += $file 
+    }
 }
 if ($unauthorized.Count -gt 0) {
     if (-not (Test-Path "audit\merge")) { New-Item -ItemType Directory -Path "audit\merge" -Force | Out-Null }
