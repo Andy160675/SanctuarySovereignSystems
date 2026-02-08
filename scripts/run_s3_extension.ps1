@@ -114,7 +114,7 @@ def export_snapshot_json(snapshot: Dict[str, Any], out_file: str) -> str:
 "@
 
 Ensure-File "$extPath/test_instrumentation.py" @"
-from sovereign_engine.extensions.$ExtensionSlug.instrumentation import collect_runtime_snapshot
+from extensions.$ExtensionSlug.instrumentation import collect_runtime_snapshot
 
 def test_collect_runtime_snapshot_has_required_keys():
     s = collect_runtime_snapshot()
@@ -123,7 +123,7 @@ def test_collect_runtime_snapshot_has_required_keys():
 "@
 
 Ensure-File "$extPath/test_export.py" @"
-from sovereign_engine.extensions.$ExtensionSlug.export import export_snapshot_json
+from extensions.$ExtensionSlug.export import export_snapshot_json
 
 def test_export_snapshot_json_writes_file(tmp_path):
     out = tmp_path / "telemetry" / "snapshot.json"
