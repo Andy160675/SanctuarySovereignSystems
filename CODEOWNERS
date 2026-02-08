@@ -1,0 +1,17 @@
+﻿# CODEOWNERS
+# Kernel paths frozen for Season 2
+
+# Kernel Core (Season 2)
+/sovereign_engine/core/ @Andy160675
+/sovereign_engine/configs/constitution.json @Andy160675
+
+# Documentation Invariants
+/docs/INVARIANTS.md @Andy160675
+/SEASONS.md @Andy160675
+
+# Governance
+/ROADMAP.md @Andy160675
+
+# Extensions (Season 3 intake)
+/extensions/ @Andy160675
+
