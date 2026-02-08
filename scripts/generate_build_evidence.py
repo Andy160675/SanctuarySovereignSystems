@@ -24,6 +24,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate build evidence entry.")
     parser.add_argument("--bolt-on-version", required=True, help="e.g. governance-core/v1.0")
     parser.add_argument("--storage", default="audit/evidence/chain.jsonl")
+    parser.add_argument("--event-type", default="build_validation")
     args = parser.parse_args()
 
     commit = _run(["git", "rev-parse", "HEAD"])
@@ -31,7 +32,7 @@ def main() -> None:
     status = _run(["git", "status", "--porcelain"])
 
     content = {
-        "event": "build_validation",
+        "event": args.event_type,
         "commit": commit,
         "branch": branch,
         "working_tree_clean": status == "",
@@ -39,7 +40,7 @@ def main() -> None:
 
     chain = get_global_evidence_chain(Path(args.storage))
     rec = chain.append(
-        event_type="build_validation",
+        event_type=args.event_type,
         content=content,
         bolt_on_version=args.bolt_on_version,
     )

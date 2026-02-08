@@ -24,6 +24,9 @@ jobs:
       - name: Run Sovereign Engine Test Suite
         run: python -m sovereign_engine.tests.run_all
 
+      - name: Run Adversarial Stress Simulation
+        run: python scripts/run_adversarial_simulation.py
+
       - name: CI Sanity Assertion (Artifact Check)
         run: |
           if [ ! -f "audit/kernel74/TEST_RESULTS.log" ]; then
