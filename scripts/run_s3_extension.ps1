@@ -51,8 +51,8 @@ if ($dirty) { Fail "Working tree is not clean. Commit/stash first." }
 # 1) Branch anchoring
 # ----------------------------
 Run-Cmd { git fetch --all --tags } "Fetch remotes + tags"
-Run-Cmd { git checkout main } "Checkout main"
-Run-Cmd { git pull --ff-only } "Fast-forward main"
+Run-Cmd { git checkout master } "Checkout master"
+Run-Cmd { git status } "Check status"
 
 $extNum = "000"
 if ($ExtensionId -match '^S3-EXT-(\d+)$') { $extNum = $Matches[1].PadLeft(3, '0') }

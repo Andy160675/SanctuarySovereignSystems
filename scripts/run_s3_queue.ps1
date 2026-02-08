@@ -84,13 +84,16 @@ foreach ($item in $queue) {
     Add-Content -Path $runLog -Value "START $id $slug $(Get-Date -Format o)"
 
     try {
+        $extraArgs = @()
+        if ($Push) { $extraArgs += "-Push" }
+        if ($CreatePr) { $extraArgs += "-CreatePr" }
+
         & powershell -NoProfile -ExecutionPolicy Bypass -File $runner `
             -RepoPath $RepoPath `
             -ExtensionId $id `
             -ExtensionSlug $slug `
             -BaselineRef $BaselineRef `
-            @($Push ? "-Push" : $null) `
-            @($CreatePr ? "-CreatePr" : $null)
+            @extraArgs
 
         if ($LASTEXITCODE -ne 0) {
             throw "Runner exit code: $LASTEXITCODE"
@@ -109,7 +112,7 @@ foreach ($item in $queue) {
             id = $id; slug = $slug; status = "FAIL"; head = $head; error = $_.Exception.Message; timestamp = (Get-Date).ToString("o")
         }
         Add-Content -Path $runLog -Value "FAIL  $id $slug $head $($_.Exception.Message) $(Get-Date -Format o)"
-        Write-Host "FAIL at $id: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "FAIL at $($id): $($_.Exception.Message)" -ForegroundColor Red
 
         if (-not $ContinueOnFailure) {
             Info "Halting queue (Stop-on-first-failure is active)."
