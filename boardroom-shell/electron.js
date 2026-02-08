@@ -20,8 +20,9 @@ function createWindow() {
 
   const isDev = process.env.NODE_ENV === 'development'
   
+  const port = process.env.BOARDROOM_PORT || 3000
   if (isDev) {
-    mainWindow.loadURL('http://localhost:3000')
+    mainWindow.loadURL(`http://localhost:${port}`)
     mainWindow.webContents.openDevTools()
   } else {
     mainWindow.loadFile(path.join(__dirname, 'dist/index.html'))
@@ -45,7 +46,8 @@ app.on('activate', () => {
 // IPC Handlers
 ipcMain.handle('search-truth', async (event, query) => {
   try {
-    const response = await fetch(`http://localhost:5050/search?q=${encodeURIComponent(query)}&limit=10`)
+    const truthUrl = process.env.TRUTH_ENGINE_URL || 'http://localhost:5050'
+    const response = await fetch(`${truthUrl}/search?q=${encodeURIComponent(query)}&limit=10`)
     return await response.json()
   } catch (error) {
     return { error: error.message }

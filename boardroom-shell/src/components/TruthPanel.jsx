@@ -31,7 +31,8 @@ const TruthPanel = () => {
     try {
       EventRelay.emit('searchStart', { query })
       
-      const response = await fetch(`http://localhost:5050/search?q=${encodeURIComponent(query)}&limit=10`)
+      const truthUrl = process.env.TRUTH_ENGINE_URL || 'http://localhost:5050'
+      const response = await fetch(`${truthUrl}/search?q=${encodeURIComponent(query)}&limit=10`)
       
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`)

@@ -7,7 +7,7 @@
     "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
     "electron": "electron .",
-    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:${BOARDROOM_PORT:-3000} && electron .\"",
     "pack": "electron-builder",
     "dist": "npm run build && electron-builder"
   },

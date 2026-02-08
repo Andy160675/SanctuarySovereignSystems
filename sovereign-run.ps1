@@ -18,7 +18,18 @@ function Write-Sovereign {
 
 Write-Sovereign "=== INITIATING SOVEREIGN RUN: $ServiceName ===" "Magenta"
 
-# 1. Fresh Workspace (Process Isolation)
+# 1. Load environment from .env if present
+$ProjectRoot = Get-Location
+$EnvFile = Join-Path $ProjectRoot ".env"
+if (Test-Path $EnvFile) {
+    Write-Sovereign "Loading environment from .env"
+    Get-Content $EnvFile | Where-Object { $_ -match '=' -and $_ -notmatch '^#' } | ForEach-Object {
+        $key, $value = $_ -split '=', 2
+        [System.Environment]::SetEnvironmentVariable($key.Trim(), $value.Trim())
+    }
+}
+
+# 2. Fresh Workspace (Process Isolation)
 $Timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
 $Workdir = Join-Path $env:TEMP "sov-run-$ServiceName-$Timestamp"
 New-Item -ItemType Directory -Path $Workdir -Force | Out-Null
@@ -43,9 +54,8 @@ if (!(Test-Path $ReqFile)) {
 }
 
 # 3. Evidence Chain (Triosphere Integration)
-$LedgerPath = Join-Path (Get-Location) "Governance/ledger/sovereign_run_ledger.jsonl"
-$ProjectRoot = Get-Location
-if (!(Test-Path "Governance/ledger")) { New-Item -ItemType Directory "Governance/ledger" -Force | Out-Null }
+$LedgerPath = Join-Path $ProjectRoot "Governance/ledger/sovereign_run_ledger.jsonl"
+if (!(Test-Path (Join-Path $ProjectRoot "Governance/ledger"))) { New-Item -ItemType Directory (Join-Path $ProjectRoot "Governance/ledger") -Force | Out-Null }
 
 Write-Sovereign "Recording Intent in Evidence Ledger..."
 $Context = @{

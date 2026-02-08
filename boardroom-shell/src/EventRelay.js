@@ -30,11 +30,13 @@ class SovereignEventRelay extends EventEmitter {
   async performHealthCheck() {
     try {
       // Check Truth Engine
-      const truthResponse = await fetch('http://localhost:5050/health')
+      const truthUrl = process.env.TRUTH_ENGINE_URL || 'http://localhost:5050'
+      const truthResponse = await fetch(`${truthUrl}/health`)
       const truthStatus = truthResponse.ok ? 'active' : 'offline'
       
       // Check Ollama  
-      const ollamaResponse = await fetch('http://localhost:11434/api/tags')
+      const ollamaHost = process.env.OLLAMA_HOST || 'http://localhost:11434'
+      const ollamaResponse = await fetch(`${ollamaHost}/api/tags`)
       const ollamaStatus = ollamaResponse.ok ? 'active' : 'offline'
       
       this.updateState({

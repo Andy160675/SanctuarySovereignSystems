@@ -110,13 +110,13 @@ const SystemStatus = ({ status, onRefresh }) => {
       name: 'Truth Engine',
       key: 'truthEngine',
       description: 'txtai + FastAPI search service',
-      endpoint: 'http://localhost:5050'
+      endpoint: process.env.TRUTH_ENGINE_URL || 'http://localhost:5050'
     },
     {
       name: 'Ollama',
       key: 'ollama',
       description: 'Local LLM inference server',
-      endpoint: 'http://localhost:11434'
+      endpoint: process.env.OLLAMA_HOST || 'http://localhost:11434'
     },
     {
       name: 'Index',

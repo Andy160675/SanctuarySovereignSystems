@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 try:
     from txtai.embeddings import Embeddings
     _TXT_AI_IMPORT_ERROR = None
@@ -19,6 +20,15 @@ from pathlib import Path
 
 app = FastAPI(title="Sovereign Truth Engine")
 
+# Enable CORS for boardroom-shell and other services
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins for distributed sovereign nodes
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 embeddings = None
 if Embeddings is not None:
     embeddings = Embeddings({
@@ -29,7 +39,18 @@ if Embeddings is not None:
         "weights": {"id": 2.0}
     })
 
-index_path = "/app/data/elite-truth-index"
+# In Docker, index is at /app/data/elite-truth-index
+# In local/sovereign-run, we prefer relative to repo root
+index_path = os.getenv("TRUTH_INDEX_PATH")
+if not index_path:
+    # Try local dev path first
+    local_path = os.path.join(os.path.dirname(__file__), "data", "elite-truth-index")
+    if os.path.exists(local_path):
+        index_path = local_path
+    else:
+        # Fallback to absolute container path
+        index_path = "/app/data/elite-truth-index"
+
 index_loaded = False
 
 if embeddings is not None and os.path.exists(index_path):
@@ -302,4 +323,5 @@ def stats():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=5050)
+    port = int(os.getenv("TRUTH_ENGINE_PORT", 5050))
+    uvicorn.run(app, host="0.0.0.0", port=port)

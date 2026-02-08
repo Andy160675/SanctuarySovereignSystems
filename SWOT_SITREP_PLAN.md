@@ -9,16 +9,18 @@
 
 | **STRENGTHS** | **WEAKNESSES** |
 | :--- | :--- |
-| **Sealed Trust Framework**: RSA-2048 identity and "Sealed Packet" protocol ensure verifiable inter-system data exchange. | **Infrastructure Blockers**: NAS Docker service in `ERROR` state and lost admin password prevent full deployment. |
+| **Sealed Trust Framework**: RSA-2048 identity and "Sealed Packet" protocol ensure verifiable inter-system data exchange. | **Infrastructure Blockers**: NAS Docker service in `ERROR` state. (Mitigated by Sovereign Process Isolation). |
 | **Constitutional Alignment**: Firm adherence to the Triad (Truth > Theatre, Signal preservation, Emergent patterns). | **Git Hygiene**: 100+ untracked files (logs/bundles) and mixed staging states create "noise" in the repository. |
 | **Consolidated Core**: Successful unification of 3 truth engines and 5 agent types into a single workspace. | **IDE Sovereignty Leakage**: Persistent residual connections in IDEs and system services bypass isolation. |
 | **High-Fidelity Audit**: Hash-chained decision ledger with 100% integrity verification. | **Permission Boundaries**: Lack of local admin prevents full "Default Deny" OS-level firewall enforcement. |
+| **Distributed Resilience**: Decoupled service endpoints allow operation across mesh networks bypassing failed local services. | |
 
 | **OPPORTUNITIES** | **THREATS** |
 | :--- | :--- |
 | **Cognitive Integration**: Mapping Manus evidence to Local Node via sealed transport for unified intelligence. | **Sync Divergence**: High-velocity local changes risk permanent drift from remote canonical state. |
 | **Autonomous Scaling**: Road 1234 protocol ready for 25-cycle scale verification across the fleet. | **Institutional Audit Failure**: "Warning" status in sovereignty validator may trigger red-button freeze if not remediated. |
 | **Self-Healing Maturity**: Promotion of `SelfHealAutomation` to full active mode for infrastructure recovery. | **Resource Exhaustion**: Large volume of validation logs (`validation/`) could impact disk I/O and storage. |
+| **Sovereign Isolation**: Further decoupling from Docker reduces dependency on opaque container runtimes. | |
 
 ---
 
@@ -28,7 +30,8 @@
 - **Node-0 (Local):** `ONLINE`. Streamlit Governance Cockpit active.
 - **NAS (UGREEN DXP4800 Plus):** `PARTIAL`. Connectivity active via Tailscale (192.168.4.114), but Docker service is failed.
 - **Critical Action:** Reset NAS password via UGOS Control Panel and restart Docker daemon.
-- **Connectivity:** Tailscale Mesh (UK <-> Tenerife) verified at 10GbE tuned speeds.
+- **Connectivity:** `VERIFIED`. Tailscale Mesh (UK <-> Tenerife) verified. Service endpoints decoupled from localhost. `verify-connections.ps1` confirms active mesh communication.
+- **Isolation:** `sovereign-run.ps1` successfully bypasses Docker using process-level isolation and .env loading.
 
 ### 2.2 Governance & Sovereignty
 - **Constitution:** v1.3 Ratified. Last audit: 2026-02-06.
@@ -38,7 +41,7 @@
 
 ### 2.3 Operational Readiness
 - **Consolidation:** `100% COMPLETE`. All operational components (Truth Engines, agents, UI) unified.
-- **Services:** `truth-engine`, `boardroom-shell`, `blade-watcher` ready for full stack deployment.
+- **Services:** `truth-engine`, `boardroom-shell`, `blade-watcher` ready for full stack deployment. Endpoints configurable via `.env`.
 - **Assistive Lab:** New lab framework (`assistive_lab/`) initialized for governor and validator testing.
 
 ---

@@ -19,6 +19,17 @@ Instead of opaque containers, we use deterministic process boundaries and crypto
 .\sovereign-run.ps1 -ServicePath "truth-engine" -ServiceName "truth-engine"
 ```
 
+### Connection Configuration
+Services can be configured via environment variables (or a `.env` file).
+
+- `TRUTH_ENGINE_URL`: URL of the Truth Engine API (default: `http://localhost:5050`)
+- `OLLAMA_HOST`: URL of the Ollama API (default: `http://localhost:11434`)
+
+To verify connections:
+```powershell
+.\scripts\verify-connections.ps1
+```
+
 **What this does:**
 1. **Isolation**: Creates a fresh workspace in `$env:TEMP` for each run.
 2. **Determinism**: Verifies `requirements.txt` SHA-256 hash.

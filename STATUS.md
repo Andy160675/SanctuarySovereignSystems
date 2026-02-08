@@ -120,9 +120,9 @@ Expected: `{'valid': True, 'total_anchors': 7, 'verified_anchors': 7, 'errors': 
 
 ---
 
-## SITREP: 2026-02-06 04:55
+## SITREP: 2026-02-07 06:20
 
-**Status:** HANDOVER COMPLETE // TRANSITIONING TO CODEX SOVEREIGN SYSTEMS
+**Status:** LIVING & OPERATIONAL // DECOUPLED CONNECTIVITY VERIFIED
 
 ### 1. Canonical Organization
 - **Andy Jones** — Founder & Executive
@@ -133,17 +133,19 @@ Expected: `{'valid': True, 'total_anchors': 7, 'verified_anchors': 7, 'errors': 
 
 ### 2. Immediate Blockers (Human Intervention Required)
 - **NAS Admin Password:** Needs resetting via UGOS Control Panel.
-- **Docker Service:** Restart on NAS after password resolution.
+- **Docker Service:** Restart on NAS after password resolution. (Alternative: Use `sovereign-run.ps1` for bypass).
 - **Pi-hole Deployment:** Via UGOS Docker UI once service is active.
 
 ### 3. Infrastructure State
-- **NAS:** UGREEN DXP4800 Plus at 192.168.4.114:9999
-- **Networking:** Tailscale mesh active (Node-0 UK, Node-1 Tenerife). 10GbE tuned.
-- **Cloud:** Tresorit Business staging structure created in `TRESORIT_STAGING`.
+- **Node-0 (Local):** `ONLINE`.
+- **NAS:** UGREEN DXP4800 Plus at 192.168.4.114:9999 (`PARTIAL` - Docker failed).
+- **Networking:** Tailscale mesh active (Node-0 UK, Node-1 Tenerife). Decoupled from `localhost`.
+- **Connectivity:** Verified via `scripts/verify-connections.ps1`.
+- **Isolation:** `sovereign-run.ps1` active, allowing Docker-less service execution with deterministic boundaries.
 
 ### 4. New Documentation
-- **CSS-ARCH-DOC-001 v1.0.0:** Sovereign Systems Architecture (Pending Review).
-- **CSS-GOV-DOC-002 v1.1.0:** Integrated Governance & Financial Framework (Pending Review).
+- **SWOT_SITREP_PLAN.md:** Integrated Strategic Assessment and Situation Report.
+- **README.md:** Updated with connection configuration and verification instructions.
 
 ---
 

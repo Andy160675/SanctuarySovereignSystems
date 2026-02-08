@@ -1,6 +1,6 @@
-<#
+﻿<#
 .SYNOPSIS
-    Sovereign-PAT-Verify.ps1 — Verify encrypted GitHub PAT without revealing it.
+    Sovereign-PAT-Verify.ps1 â€” Verify encrypted GitHub PAT without revealing it.
     
 .DESCRIPTION
     Decrypts 'github_pat.encrypted' to verify it is readable and valid, 
@@ -17,7 +17,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "═══ Sovereign PAT Verification Tool ═══" -ForegroundColor Cyan
+Write-Host "â•â•â• Sovereign PAT Verification Tool â•â•â•" -ForegroundColor Cyan
 
 $artifactPath = Join-Path (Get-Location) "github_pat.encrypted"
 
@@ -51,7 +51,7 @@ try {
         $hashBytes = $sha256.ComputeHash($tokenBytes)
         $hashStr = [System.BitConverter]::ToString($hashBytes).Replace("-", "").ToLower()
         
-        Write-Host "`n✓ SUCCESS: Artifact is decryptable." -ForegroundColor Green
+        Write-Host "`nâœ“ SUCCESS: Artifact is decryptable." -ForegroundColor Green
         Write-Host "Metadata for verification:" -ForegroundColor White
         Write-Host "  token_len:    $tokenLen"
         Write-Host "  token_sha256: $hashStr"
@@ -73,3 +73,5 @@ catch {
 }
 
 Write-Host "`nSovereign status: Verification Complete." -ForegroundColor Gray
+
+

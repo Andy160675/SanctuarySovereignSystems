@@ -25,7 +25,8 @@ const App = () => {
   const checkSystemStatus = async () => {
     // Check Truth Engine
     try {
-      const response = await fetch('http://localhost:5050/search?q=test&limit=1')
+      const truthUrl = process.env.TRUTH_ENGINE_URL || 'http://localhost:5050'
+      const response = await fetch(`${truthUrl}/search?q=test&limit=1`)
       if (response.ok) {
         setSystemStatus(prev => ({ ...prev, truthEngine: 'active' }))
       }
@@ -35,7 +36,8 @@ const App = () => {
 
     // Check Ollama
     try {
-      const response = await fetch('http://localhost:11434/api/tags')
+      const ollamaHost = process.env.OLLAMA_HOST || 'http://localhost:11434'
+      const response = await fetch(`${ollamaHost}/api/tags`)
       if (response.ok) {
         setSystemStatus(prev => ({ ...prev, ollama: 'active' }))
       }
