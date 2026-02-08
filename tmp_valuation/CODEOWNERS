@@ -1,0 +1,39 @@
+# CODEOWNERS — Codex Sovereign Systems
+# Referenced by: SEASON_TRANSITION_1-2_to_3.md (Section 2.1)
+#
+# This file enforces path-level access control.
+# Protected paths require steward-tier approval for ANY modification.
+# Season 3 extensions CANNOT touch these paths.
+
+# ============================================================
+# SEASON 2 SEALED PATHS — KERNEL FROZEN
+# ============================================================
+# These paths are the locked kernel. No Season 3 commit may
+# modify any file here without steward dual-key approval.
+# A modification without approval is a constitutional violation.
+
+/sovereign_engine/core/                @Andy160675
+/sovereign_engine/configs/             @Andy160675
+/sovereign_engine/tests/               @Andy160675
+
+# ============================================================
+# CONSTITUTIONAL DOCUMENTS — APPEND-ONLY
+# ============================================================
+# These documents define the system's governance. Modifications
+# require steward approval. Append operations only.
+
+/CLAUDE.md                             @Andy160675
+/SEASONS.md                            @Andy160675
+/SEASON_TRANSITION_1-2_to_3.md         @Andy160675
+/CODEOWNERS                            @Andy160675
+/GOVERNANCE_MERGE_CHECKLIST_S3.md       @Andy160675
+
+# ============================================================
+# SEASON 3 EXTENSION SURFACE — GOVERNED
+# ============================================================
+# Extensions live here. Each extension must pass Phase 9
+# compliance gate and the governance merge checklist.
+# Steward reviews required for new extension directories.
+
+/sovereign_engine/extensions/          @Andy160675
+/ROADMAP.md                            @Andy160675

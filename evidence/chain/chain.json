@@ -1,0 +1,114 @@
+[
+  {
+    "id": "e85a2987a102ebe5e554b139915683b0d74a62fc51564bc35b230f306cecb06b",
+    "timestamp": "2026-02-08T05:20:39.003301",
+    "event_type": "policy_loaded",
+    "content_hash": "970ff88dfaee86e68888c6580cbce89468dcd5313dbdc9f84ee36d4a35360d32",
+    "content": {
+      "name": "strict_merge",
+      "schema": {
+        "rules": [
+          {
+            "field": "kernel_tests",
+            "operator": "eq",
+            "value": "passed"
+          },
+          {
+            "field": "codeowners_protected",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "field": "authority",
+            "operator": "in",
+            "value": [
+              "innovator",
+              "steward"
+            ]
+          }
+        ]
+      }
+    },
+    "previous_id": "0000000000000000000000000000000000000000000000000000000000000000",
+    "bolt_on_version": "policy-compiler/1.0.0"
+  },
+  {
+    "id": "f2f01f9d14f7fb9b0a48372687a7c90486980c32e9107b3b6b54fb7f417cc046",
+    "timestamp": "2026-02-08T05:20:44.221386",
+    "event_type": "policy_loaded",
+    "content_hash": "970ff88dfaee86e68888c6580cbce89468dcd5313dbdc9f84ee36d4a35360d32",
+    "content": {
+      "name": "strict_merge",
+      "schema": {
+        "rules": [
+          {
+            "field": "kernel_tests",
+            "operator": "eq",
+            "value": "passed"
+          },
+          {
+            "field": "codeowners_protected",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "field": "authority",
+            "operator": "in",
+            "value": [
+              "innovator",
+              "steward"
+            ]
+          }
+        ]
+      }
+    },
+    "previous_id": "e85a2987a102ebe5e554b139915683b0d74a62fc51564bc35b230f306cecb06b",
+    "bolt_on_version": "policy-compiler/1.0.0"
+  },
+  {
+    "id": "875802dc262536c3788311b2eb1bb4dceba6793908a840b6c09a164a61cd40c2",
+    "timestamp": "2026-02-08T05:20:44.222385",
+    "event_type": "policy_loaded",
+    "content_hash": "565f25d15e234f5cc1a486a2eb01ed714144d53e88d3bb4e4273b6455a7be9f0",
+    "content": {
+      "name": "boardroom_default",
+      "schema": {
+        "rules": [
+          {
+            "field": "amount",
+            "operator": "lt",
+            "value": 1000
+          }
+        ]
+      }
+    },
+    "previous_id": "f2f01f9d14f7fb9b0a48372687a7c90486980c32e9107b3b6b54fb7f417cc046",
+    "bolt_on_version": "policy-compiler/1.0.0"
+  },
+  {
+    "id": "4ee073eadf70584a4ae8e0452ba7da76c5cd22959552a972f2e6bb9f4a42ed2c",
+    "timestamp": "2026-02-08T05:20:44.222385",
+    "event_type": "boardroom_deliberation_start",
+    "content_hash": "2e50971085792ac19fbf60ab500af733c47cbca259ea406be5784dad19ad049b",
+    "content": {
+      "proposal_id": "PROP-2026-001",
+      "timestamp": "2026-02-08T05:20:44.222385"
+    },
+    "previous_id": "875802dc262536c3788311b2eb1bb4dceba6793908a840b6c09a164a61cd40c2",
+    "bolt_on_version": "boardroom-pro/1.0.0"
+  },
+  {
+    "id": "2b027a1133ea418232f9b8085ef63c5a917b7b9185eb20cfa23c985d5cc118b2",
+    "timestamp": "2026-02-08T05:20:44.223386",
+    "event_type": "boardroom_decision",
+    "content_hash": "e68450e357e781074ee8c690e37f4c540fe2f1817bdcb75bdc57bac995545e7a",
+    "content": {
+      "proposal_id": "PROP-2026-001",
+      "verdict": "REJECT",
+      "reason": "Policy violations: [\"Policy 'boardroom_default' not found\"]",
+      "timestamp": "2026-02-08T05:20:44.223386"
+    },
+    "previous_id": "4ee073eadf70584a4ae8e0452ba7da76c5cd22959552a972f2e6bb9f4a42ed2c",
+    "bolt_on_version": "boardroom-pro/1.0.0"
+  }
+]
