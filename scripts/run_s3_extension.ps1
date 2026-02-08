@@ -240,7 +240,7 @@ Ok "Evidence written to $evDir"
 # ----------------------------
 # 7) Commit / push / optional PR
 # ----------------------------
-Run-Cmd { git add "extensions/$ExtensionSlug" $prDir $evDir "docs/procedures/rollback_$ExtensionSlug.md" } "Stage files"
+Run-Cmd { git add -f "extensions/$ExtensionSlug" $prDir $evDir "docs/procedures/rollback_$ExtensionSlug.md" } "Stage files"
 
 $staged = git diff --cached --name-only
 if (-not $staged) { Fail "Nothing staged to commit." }
