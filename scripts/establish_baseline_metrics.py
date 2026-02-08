@@ -17,12 +17,8 @@ def run_once() -> float:
     )
     t1 = time.perf_counter()
     out = (p.stdout or "") + "\n" + (p.stderr or "")
-    if p.returncode != 0 or "74/74" in out: # Wait, "74/74" in out is GOOD.
-        # Check for success
-        if "74/74" not in out:
-             raise RuntimeError("Kernel validation failed during baseline run.")
-    else:
-         raise RuntimeError("Kernel validation failed during baseline run.")
+    if p.returncode != 0 or "74/74" not in out:
+        raise RuntimeError("Kernel validation failed during baseline run.")
     return t1 - t0
 
 def main() -> int:

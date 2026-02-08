@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-02-08T02:34:06.681505Z",
+  "command": "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -m sovereign_engine.tests.run_all",
+  "runs": 3,
+  "build_time_seconds": {
+    "samples": [
+      0.024795500095933676,
+      0.022769899806007743,
+      0.024074700195342302
+    ],
+    "min": 0.022769899806007743,
+    "max": 0.024795500095933676,
+    "mean": 0.02388003336576124,
+    "median": 0.024074700195342302
+  },
+  "test_parallelism": 1,
+  "manual_steps_estimate": 2
+}
