@@ -16,6 +16,7 @@ Reliability comes from forcing independent components to agree â€” and trea
 *   **Disagreement = Signal**: Never average or suppress divergence. Log it, escalate it, investigate it.
 *   **Graceful Degradation**: Loss of a component reduces authority, not safety.
 *   **Explicit Accountability**: A human remains the final decision authority. Always attributable.
+*   **Evidence Bundle**: Every PR must include a Phase-9 evidence bundle.
 
 ### 2. Escalation States
 *   **Green**: All nodes agree. **Action: Execute.**

@@ -73,10 +73,19 @@ V4 changes must be **additive** and **non-breaking**.
 
 All contributions must respect the current Automation Baseline:
 
-- **Current baseline tag:** `v0.1.0-automation-baseline`
-- **Current baseline commit:** `1cb2f04661ab7de247fab18ffd779638f156aaa8`
-- **Required checks on `main`:** security, container, E2E, scheduled ops
+- **Current baseline tag:** `v1.0.2-s3-autonomy-dryrun`
+- **Current baseline commit:** `35c3ed9fb44c5a0160f7188be81d50eb6a806613`
+- **Required checks on `main`:** `security`, `container`, `E2E`, `scheduled ops`, `Phase-9-Evidence-Bundle`
 - **Coverage gate:** 40% minimum (enforced by CI)
+
+## Branch Protection (Main)
+
+The `main` branch is protected by the following rules:
+1. **Pull Request Required**: All changes must be submitted via PR.
+2. **Status Checks Required**: All pinned CI jobs must pass before merge.
+3. **Force Push Disabled**: `git push --force` is strictly prohibited on `main`.
+4. **Deletion Disabled**: The `main` branch cannot be deleted.
+5. **CODEOWNERS Enforced**: Merges to locked kernel paths require approval from designated owners.
 
 **Rule:** No demo, governance decision, or investor artifact may reference a commit older than the current Automation Baseline.
 

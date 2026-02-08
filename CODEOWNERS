@@ -1,0 +1,8 @@
+# Sovereign Kernel Paths - CODEOWNERS
+# These paths require explicit approval for any changes.
+
+/sovereign_engine/       @sovereign-authority
+/tools/sovereign_stack/  @sovereign-authority
+/src/boardroom/          @sovereign-authority
+/CONSTITUTION.md         @sovereign-authority
+/AUTONOMY_LIMITS.md      @sovereign-authority

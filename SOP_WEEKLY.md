@@ -6,7 +6,7 @@
    * Procedure: 
      1. Identify the most recent extension (e.g., `autonomous_build_command`).
      2. Execute the rollback procedure in `docs/procedures/rollback_<extension>.md`.
-     3. Run `74/74` kernel tests.
+     3. Run `74/74` kernel tests: `python -m sovereign_engine.tests.run_all`.
      4. Restore the extension state and verify functionality.
    * Target: < 15 minutes to verified green state.
 
