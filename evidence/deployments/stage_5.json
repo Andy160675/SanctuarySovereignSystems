@@ -1,0 +1,15 @@
+{
+  "stage": 5,
+  "agent_count": 50000,
+  "duration": 3.0319955348968506,
+  "pass_rate": 100.0,
+  "success_count": 50000,
+  "failure_count": 0,
+  "engine_stats": {
+    "signals_processed": 50000,
+    "signals_terminated": 0,
+    "signals_routed": 50000,
+    "ledger_entries": 50001,
+    "halted": false
+  }
+}
