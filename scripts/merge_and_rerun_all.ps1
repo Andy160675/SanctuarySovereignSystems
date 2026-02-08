@@ -31,6 +31,11 @@ function Run([string[]]$cmd, [string]$logPath = "") {
     $pinfo.UseShellExecute = $false
     $pinfo.CreateNoWindow = $true
     
+    # Set UTF8 encoding for Python
+    if ($exe -eq "python") {
+        $pinfo.EnvironmentVariables["PYTHONUTF8"] = "1"
+    }
+    
     $p = New-Object System.Diagnostics.Process
     $p.StartInfo = $pinfo
     $p.Start() | Out-Null
