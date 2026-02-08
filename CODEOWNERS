@@ -1,8 +1,20 @@
-﻿# CODEOWNERS
-# Kernel paths frozen for Season 2
+﻿# CSS-GOV-OWN-001: CODEOWNERS
+# Path-level freeze for Sovereign Recursion Engine
 
-# Kernel Core (Season 2)
+# Kernel Core (Season 2) - STEWARD ONLY
 /sovereign_engine/core/ @Andy160675
+/sovereign_engine/configs/ @Andy160675
+/sovereign_engine/tests/ @Andy160675
+/SEASONS.md @Andy160675
+/SEASON_TRANSITION_1-2_to_3.md @Andy160675
+/GOVERNANCE_MERGE_CHECKLIST_S3.md @Andy160675
+
+# Documentation
+/docs/ @Andy160675
+
+# Extension Surface (Season 3)
+/extensions/ @Andy160675
+/sovereign_engine/extensions/ @Andy160675
 /sovereign_engine/configs/constitution.json @Andy160675
 
 # Documentation Invariants
