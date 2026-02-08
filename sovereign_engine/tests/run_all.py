@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-import time
-import sys
-
-def run_tests():
-    print("Running kernel invariant tests...")
-    # Mocking the 74 tests
-    for i in range(1, 75):
-        # print(f"Test {i}/74: PASS")
-        pass
-    print("----------------------------------------------------------------------")
-    print("Ran 74 tests in 0.001s")
-    print("")
-    print("OK")
-    print("74/74 tests passed")
-
-if __name__ == "__main__":
-    run_tests()
-=======
 """
 SOVEREIGN RECURSION ENGINE — Full Test Harness
 CSS-ENG-TEST-001
@@ -1050,4 +1031,3 @@ def run_all():
 if __name__ == "__main__":
     success = run_all()
     sys.exit(0 if success else 1)
->>>>>>> s3-ext-009-autonomous_build_command

@@ -12,6 +12,7 @@ Reliability comes from forcing independent components to agree â€” and trea
 
 ### 1. Operational Rules
 *   **Independence**: Components must not share hidden assumptions, tooling, or data paths.
+*   **74/74 Kernel Pass**: Every 24 hours, the `python -m sovereign_engine.tests.run_all` suite must pass.
 *   **Disagreement = Signal**: Never average or suppress divergence. Log it, escalate it, investigate it.
 *   **Graceful Degradation**: Loss of a component reduces authority, not safety.
 *   **Explicit Accountability**: A human remains the final decision authority. Always attributable.
