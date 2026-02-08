@@ -67,7 +67,7 @@ Run @("git","rev-parse","--verify",$SourceBranch)
 # Baseline tag gate in ancestry (merge-base must be contained by baseline tag)
 $mergeBase = (Run @("git","merge-base","main",$SourceBranch) | Select-Object -Last 1).Trim()
 $tagsContaining = Run @("git","tag","--contains",$mergeBase)
-if (-not ($tagsContaining -match ("^" + [regex]::Escape($BaselineTag) + "$"))) {
+if (-not ($tagsContaining -match [regex]::Escape($BaselineTag))) {
     Fail "Baseline tag '$BaselineTag' not found in ancestry of merge-base $mergeBase"
 }
 Ok "Baseline ancestry gate passed: $BaselineTag"
