@@ -1,0 +1,32 @@
+﻿[
+    {
+        "id":  "S3-EXT-001",
+        "slug":  "confluence",
+        "enabled":  true
+    },
+    {
+        "id":  "S3-EXT-002",
+        "slug":  "vestibule",
+        "enabled":  true
+    },
+    {
+        "id":  "S3-EXT-003",
+        "slug":  "tribunal",
+        "enabled":  true
+    },
+    {
+        "id":  "S3-EXT-004",
+        "slug":  "gazette",
+        "enabled":  true
+    },
+    {
+        "id":  "S3-EXT-005",
+        "slug":  "bazaar",
+        "enabled":  true
+    },
+    {
+        "id":  "S3-EXT-006",
+        "slug":  "observatory",
+        "enabled":  true
+    }
+]
