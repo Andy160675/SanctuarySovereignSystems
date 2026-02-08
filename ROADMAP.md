@@ -23,6 +23,14 @@ The following extensions are mandatory prerequisites for any other S3 functional
 
 ## 4. Extension Registry and Delivery Sequence
 
+### Phase 3.0: AGI Governance Substrate
+- **S3-EXT-BOOT: AGI Governance Bootstrap**
+  - **Level**: Steward
+  - **Function**: Initial activation of the 13-agent constitutional grid and truth score computation.
+- **S3-EXT-HYDRA: Hydraulic Governance Controller**
+  - **Level**: Steward
+  - **Function**: Pressure-based resource flow governance and zero-ambiguity decision flow architecture.
+
 ### Phase 3.1: Observation & Connectivity
 - **S3-EXT-001: Signal Observer**
   - **Level**: Innovator
@@ -66,5 +74,7 @@ Each extension must provide:
 3. Integration tests covering the Authority Ladder escalation.
 4. Verified check against `GOVERNANCE_MERGE_CHECKLIST_S3.md`.
 
----
-*Season 3 activated by governance. Baseline locked.*
+## 6. Audit Log & Corrections
+- **2026-02-08**: Resolved Spec Data Swap. Corrected extension manifest handling to reflect actual behavior of Phase 9 compliance gate.
+- **2026-02-08**: Switched CI to `sovereign_engine.tests.run_all` and added sanity assertions.
+- **2026-02-08**: Established `v1.1.0-stable` baseline.
