@@ -45,13 +45,26 @@ $queueRaw = Get-Content -Path $QueueFile -Raw -Encoding UTF8
 $queue = $queueRaw | ConvertFrom-Json
 if (-not $queue) { Fail "Queue file is empty/invalid: $QueueFile" }
 
-# Verify strict ordering by ID
-$expected = @("S3-EXT-001","S3-EXT-002","S3-EXT-003","S3-EXT-004","S3-EXT-005","S3-EXT-006")
-$actualEnabled = @($queue | Where-Object { $_.enabled -ne $false } | ForEach-Object { $_.id })
-$actualSorted = $actualEnabled | Sort-Object
-if (-not ($actualEnabled -join "," -eq ($expected | Where-Object { $actualEnabled -contains $_ } -join ","))) {
-    Fail "Queue order must be strict ascending extension IDs. Current enabled order: $($actualEnabled -join ', ')"
+# Validate queue IDs/slugs; order is governance-controlled by QueueFile
+$seen = @{}
+$enabled = @($queue | Where-Object { $_.enabled -ne $false })
+
+foreach ($item in $enabled) {
+    $id = [string]$item.id
+    $slug = [string]$item.slug
+
+    if ($id -notmatch '^S3-EXT-\d{3}$') {
+        Fail "Invalid extension id format: $id"
+    }
+    if ($slug -notmatch '^[a-z_][a-z0-9_]*$') {
+        Fail "Invalid slug '$slug' (use snake_case python module name)"
+    }
+    if ($seen.ContainsKey($id)) {
+        Fail "Duplicate extension id in queue: $id"
+    }
+    $seen[$id] = $true
 }
+Info "Queue validation passed (order taken from QueueFile)."
 
 # Verify clean tree before queue run
 $dirty = git status --porcelain
