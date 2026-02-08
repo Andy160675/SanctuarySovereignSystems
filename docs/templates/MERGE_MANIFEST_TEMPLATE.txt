@@ -1,0 +1,8 @@
+MERGE TRANSACTION RECORD
+Timestamp: {{TIMESTAMP}}
+PR: {{PR_NUMBER}}
+From: {{SOURCE_COMMIT}}
+To: {{TARGET_COMMIT}}
+Kernel Tag: v1.0.0-kernel74
+Evidence Hash: {{EVIDENCE_HASH}}
+Reviewer: {{REVIEWER_NAME}}
