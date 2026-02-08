@@ -25,7 +25,14 @@ function Run([string[]]$cmd, [string]$logPath = "") {
     # Use a simpler execution method to avoid NativeCommandError exceptions from git stderr
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
     $pinfo.FileName = $exe
-    $pinfo.Arguments = $args -join " "
+    # Do NOT join arguments with spaces if we want to preserve them as distinct arguments
+    # StandardProcess uses Arguments string, but we can use ArgumentList in PowerShell 6+ 
+    # For Windows PowerShell 5.1, we must escape arguments correctly.
+    $escapedArgs = @()
+    foreach ($a in $args) {
+        if ($a -match "\s") { $escapedArgs += "`"$a`"" } else { $escapedArgs += $a }
+    }
+    $pinfo.Arguments = $escapedArgs -join " "
     $pinfo.RedirectStandardOutput = $true
     $pinfo.RedirectStandardError = $true
     $pinfo.UseShellExecute = $false
@@ -129,6 +136,7 @@ Run @("python","-m","pytest","sovereign_engine/extensions/$ExtensionSlug","-q") 
 Run @("git","checkout","main")
 Run @("git","pull","--ff-only","origin","main")
 
+# Create merge commit with standardized message
 $mergeMessage = @"
 merge($ExtensionId): $ExtensionSlug under Phase-9 governance gate
 
@@ -139,6 +147,7 @@ Compliance:
 - Rollback procedure required in docs/procedures/rollback_$ExtensionSlug.md
 "@
 
+# Fix: Ensure merge message is passed correctly and use full branch name if needed
 Run @("git","merge","--no-ff",$SourceBranch,"-m",$mergeMessage)
 
 # Post-merge validations
