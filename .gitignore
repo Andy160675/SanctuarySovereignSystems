@@ -3,7 +3,7 @@
 # =============================================================================
 
 # Data Directories (Sovereign Data - Instance Specific)
-# Evidence/
+Evidence/
 Property/
 Governance/Logs/
 
@@ -80,6 +80,9 @@ evidence_store/
 # Sovereign Secrets
 github_pat.encrypted
 github_pat.dpapi.json
+
+# Extension Evidence
+!evidence/S3-EXT-*/
 
 # Tool outputs (regenerable)
 tools/sanitize_report.json
