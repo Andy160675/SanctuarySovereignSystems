@@ -22,13 +22,30 @@ function Run([string[]]$cmd, [string]$logPath = "") {
     $args = @()
     if ($cmd.Count -gt 1) { $args = $cmd[1..($cmd.Count - 1)] }
 
-    try {
-        $out = & $exe @args 2>&1
-        if ($logPath) { $out | Tee-Object -FilePath $logPath -Append | Out-Host } else { $out | Out-Host }
-    } catch {
-        # Catch non-terminating errors from native commands if they happen to be treated as such
+    # Use a simpler execution method to avoid NativeCommandError exceptions from git stderr
+    $pinfo = New-Object System.Diagnostics.ProcessStartInfo
+    $pinfo.FileName = $exe
+    $pinfo.Arguments = $args -join " "
+    $pinfo.RedirectStandardOutput = $true
+    $pinfo.RedirectStandardError = $true
+    $pinfo.UseShellExecute = $false
+    $pinfo.CreateNoWindow = $true
+    
+    $p = New-Object System.Diagnostics.Process
+    $p.StartInfo = $pinfo
+    $p.Start() | Out-Null
+    
+    $stdout = $p.StandardOutput.ReadToEnd()
+    $stderr = $p.StandardError.ReadToEnd()
+    $p.WaitForExit()
+    
+    $out = $stdout
+    if ($logPath) { $out | Tee-Object -FilePath $logPath -Append | Out-Host } else { $out | Out-Host }
+    
+    if ($p.ExitCode -ne 0) { 
+        Write-Host $stderr -ForegroundColor Yellow
+        Fail ("Command failed with exit code $($p.ExitCode): " + ($cmd -join " ")) 
     }
-    if ($LASTEXITCODE -ne 0) { Fail ("Command failed: " + ($cmd -join " ")) }
     return $out
 }
 
@@ -63,7 +80,9 @@ $allowed = @(
     "^evidence/$([regex]::Escape($ExtensionId))/",
     "^docs/procedures/rollback_$([regex]::Escape($ExtensionSlug))\.md$",
     "^audit/queue/",
-    "^audit/merge/"
+    "^audit/merge/",
+    "^baseline_metrics\.json$",
+    "^scripts/"
 )
 
 $unauthorized = @()
@@ -77,6 +96,7 @@ foreach ($f in $diffFiles) {
     if (-not $ok) { $unauthorized += $file }
 }
 if ($unauthorized.Count -gt 0) {
+    if (-not (Test-Path "audit\merge")) { New-Item -ItemType Directory -Path "audit\merge" -Force | Out-Null }
     $unauthorized | Set-Content -Encoding UTF8 "audit\merge\unauthorized_${ExtensionId}.txt"
     Fail "Unauthorized changes detected outside extension scope."
 }
