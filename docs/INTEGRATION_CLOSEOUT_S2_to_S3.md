@@ -1,64 +1,63 @@
-﻿# Integration Close-Out: Season 2 → Season 3
-**Document:** `INTEGRATION_CLOSEOUT_S2_to_S3.md`  
-**Date:** 2026-02-08
+﻿# Integration Close-Out: Season 2 -> Season 3
+**Document:** `docs/INTEGRATION_CLOSEOUT_S2_to_S3.md`  
+**Date:** 2026-02-08  
 **Authority:** Sovereign Recursion Engine Build/Test/Integration Phase
 
 ## 1. Phase Transition Declared
 **FROM:** Season 2 — Locked Kernel  
 **TO:** Season 3 — Activated Governance Surface
 
-**Build/Test Phase:** **COMPLETE** ✅  
-**Governance Phase:** **OPEN** 🔓  
-**Kernel State:** **LOCKED** (v1.0.0-kernel74) 🔒
+- **Build/Test Phase:** **COMPLETE** ✅  
+- **Governance Phase:** **OPEN** 🔓  
+- **Kernel State:** **LOCKED** (`v1.0.0-kernel74`) 🔒
 
 ## 2. Validation Summary
 - **Kernel Invariants:** 74/74 tests passed
-- **Tag:** `v1.0.0-kernel74` canonical and immutable
-- **Repository State:** Clean, synced, governance-locked
-- **Core Protection:** CODEOWNERS established freezing `/sovereign_engine/core/`
-- **Branch Hygiene:** Stale build branches purged
+- **Canonical Tag:** `v1.0.0-kernel74`
+- **Repository State:** synced and governance-locked
+- **Core Protection:** CODEOWNERS freezes kernel paths
+- **Branch Hygiene:** stale build branches purged
 
 ## 3. Season 3 Activation Record
-**Governance Surface:** Active for controlled extension intake  
-**Extension Slots Allocated:**
-- S3‑EXT‑001: Confluence
-- S3‑EXT‑002: Vestibule  
-- S3‑EXT‑003: Tribunal
-- S3‑EXT‑004: Gazette
-- S3‑EXT‑005: Bazaar
-- S3‑EXT‑006: Observatory
+**Governance Surface:** active for controlled extension intake  
+**Canonical Entry Point:** `ROADMAP.md`
 
-**Entry Point:** `ROADMAP.md` is canonical — all extensions must justify against it.
+### Extension Intake IDs
+- S3-EXT-001
+- S3-EXT-002
+- S3-EXT-003
+- S3-EXT-004
+- S3-EXT-005
+- S3-EXT-006
+
+> If codenames are used (Confluence/Vestibule/Tribunal/Gazette/Bazaar/Observatory), maintain a 1:1 alias map in `docs/traceability_matrix.md`.
 
 ## 4. Kernel Lock Manifest
-The following are now **immutable without governance override**:
-1. `/sovereign_engine/core/` (all kernel modules)
+Immutable without formal governance override:
+1. `/sovereign_engine/core/`
 2. `/sovereign_engine/configs/constitution.json`
-3. Core invariants (`INVARIANTS.md`)
-4. Season documentation (`SEASONS.md`)
-5. Governance roadmap (`ROADMAP.md`)
+3. `docs/INVARIANTS.md`
+4. `SEASONS.md`
+5. `ROADMAP.md`
 
-**Main Branch Policy:** All Season 3 work enters via PR with:
-- ✅ `ROADMAP.md` compliance check
-- ✅ Governance authority review
-- ✅ Status checks passing
+## 5. Branch Policy
+Season 3 work enters via PR only, with:
+- ROADMAP compliance
+- governance review
+- required status checks passing
+- no force-push to protected `main`
 
-## 5. Audit Trail
-- Final integration report: `docs/INTEGRATION_REPORT_v1.0.0-kernel74.md`
-- System status: `docs/STATUS.md` updated to reflect transition
+## 6. Audit Trail
+- `docs/INTEGRATION_REPORT_v1.0.0-kernel74.md`
+- `docs/STATUS.md`
 - Seal commit: `chore(governance): seal S2->S3 transition and enforce protected main policy`
 
-## 6. Readiness Declaration
-The Sovereign Recursion Engine is **operationally ready** for Season 3 governance extensions.
+## 7. Readiness Declaration
+Season 2 is formally sealed.  
+Season 3 is live for governed extension implementation.  
+Subtractive invariance remains in force: extensions may not alter Season 2 invariants.
 
-**Subtractive Invariance is in force:**  
-All extensions must preserve kernel invariants. No modification to locked paths without explicit governance consensus.
+## 8. Handoff
+**Engineering -> Governance**
 
-## 7. Handoff
-**Engineering → Governance**
-
-This document marks the formal close-out of the Season 2 integration phase and the transfer of authority to the governance layer for controlled Season 3 implementation.
-
----
-**Signed by the Build/Test/Integration Phase**  
 *Season 2 sealed, Season 3 activated.*
