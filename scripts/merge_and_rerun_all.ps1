@@ -10,7 +10,7 @@ param(
 )
 
 Set-StrictMode -Version Latest
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 
 function Fail([string]$m) { Write-Host "FAIL: $m" -ForegroundColor Red; exit 1 }
 function Info([string]$m) { Write-Host "INFO: $m" -ForegroundColor Cyan }
@@ -22,8 +22,12 @@ function Run([string[]]$cmd, [string]$logPath = "") {
     $args = @()
     if ($cmd.Count -gt 1) { $args = $cmd[1..($cmd.Count - 1)] }
 
-    $out = & $exe @args 2>$null
-    if ($logPath) { $out | Tee-Object -FilePath $logPath -Append | Out-Host } else { $out | Out-Host }
+    try {
+        $out = & $exe @args 2>&1
+        if ($logPath) { $out | Tee-Object -FilePath $logPath -Append | Out-Host } else { $out | Out-Host }
+    } catch {
+        # Catch non-terminating errors from native commands if they happen to be treated as such
+    }
     if ($LASTEXITCODE -ne 0) { Fail ("Command failed: " + ($cmd -join " ")) }
     return $out
 }
