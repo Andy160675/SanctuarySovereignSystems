@@ -94,6 +94,13 @@
   ],
   "supporting": [
     {
+      "ref": "CSS-OPS-TRACK-001",
+      "path": "operations/css-ops/CSS-OPS-TRACK-001-Immediate-Actions.md",
+      "sha256": "ffed645387d237964e4030da940d2b249f8c108d89920fc166aeaf871e9665de",
+      "bytes": 6074,
+      "purpose": "Consolidated execution tracker — 5 tracks, 30 actions, daily review at stand-up"
+    },
+    {
       "ref": "CSS-DOC-REGISTER-001",
       "path": "governance/CSS-DOC-REGISTER-001.md",
       "sha256": "f0e081bc676f5b30bf2570472ff70fb2beda3df0779813fcf7038b5b2b9e9163",

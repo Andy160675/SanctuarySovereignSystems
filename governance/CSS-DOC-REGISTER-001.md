@@ -43,6 +43,8 @@ CSS-OPS-DOC-003 (SIP Engine)
 | Chris Bevan | COO / LT | GOV/OPS | GOV/OPS | GOV/OPS | FULL |
 | Tom Maher | Programme Director | ROLLOUT | ROLLOUT | ROLLOUT | FULL |
 
+| CSS-OPS-TRACK-001 | Immediate Actions Tracker | 1.0 | LIVE | 17 Feb 2026 | `operations/css-ops/` | INTERNAL — ALL |
+
 ## Approval Status
 
 | Document | Andy | Steven | Chris | Frozen? |

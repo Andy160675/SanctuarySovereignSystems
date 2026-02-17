@@ -77,6 +77,7 @@ Format: `CSS-[DOMAIN]-[TYPE]-[SEQ]`
 | CSS-OPS-DOC-004 | PIOPL Agent Deployment Engine | v1.0 DRAFT — FOR LT REVIEW |
 | CSS-OPS-DOC-005 | PIOPL Enterprise Operating Plan | v1.0 DRAFT — FOR LT REVIEW |
 | CSS-OPS-DOC-006 | Meeting Structures, Escalation Paths & Andon | v1.0 DRAFT — FOR LT REVIEW |
+| CSS-OPS-TRACK-001 | Immediate Actions Tracker (5 tracks) | v1.0 LIVE |
 
 Canonical format: `.md` (version-controlled). Distribution: `.docx` (LT sign-off).
 See `governance/CSS-DOC-REGISTER-001.md` for full register and `ARTIFACT_REGISTER.json` for SHA-256 integrity verification.
