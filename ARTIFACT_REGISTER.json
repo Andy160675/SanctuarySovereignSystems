@@ -1,0 +1,115 @@
+{
+  "register": "CSS-ARTIFACT-REGISTER",
+  "version": "1.0",
+  "generated": "2026-02-17T00:50:00Z",
+  "generated_by": "Claude (Opus 4.6) — build session",
+  "integrity_algorithm": "SHA-256",
+  "canonical_format": "markdown (.md)",
+  "distribution_format": "word (.docx)",
+  "artifacts": [
+    {
+      "ref": "CSS-OPS-DOC-003",
+      "title": "Post-SIP Autonomous Execution Engine",
+      "version": "1.0",
+      "status": "DRAFT — FOR LT REVIEW",
+      "date": "2026-02-16",
+      "canonical": {
+        "path": "operations/css-ops/CSS-OPS-DOC-003-Post-SIP-Execution-Engine.md",
+        "sha256": "1de20fabc5accc76de223fe467a2150c61deed492699022c293b27cd201d1735",
+        "bytes": 7209
+      },
+      "distribution": {
+        "path": "operations/css-ops/CSS-OPS-DOC-003-Post-SIP-Execution-Engine.docx",
+        "sha256": "8a040a70c18e8976d4a4b654b6890579a0aca81d656b4bf814255191e6d0779e",
+        "bytes": 21177
+      },
+      "classification": "INTERNAL — LT DISTRIBUTION ONLY",
+      "derives_from": ["CSS-GOV-DOC-002"],
+      "constitutional_weight": "BINDING — Post LT Buy-Off",
+      "lt_vote": { "andy": "PENDING", "steven": "PENDING", "chris": "PENDING" }
+    },
+    {
+      "ref": "CSS-OPS-DOC-004",
+      "title": "PIOPL Agent Deployment Engine",
+      "version": "1.0",
+      "status": "DRAFT — FOR LT REVIEW",
+      "date": "2026-02-16",
+      "canonical": {
+        "path": "operations/css-ops/CSS-OPS-DOC-004-PIOPL-Agent-Deployment-Engine.md",
+        "sha256": "f72900e3d46ba5ee5ff8cbb1afd47833845fb3762711cca20578cffcad761fa6",
+        "bytes": 11477
+      },
+      "distribution": {
+        "path": "operations/css-ops/CSS-OPS-DOC-004-PIOPL-Agent-Deployment-Engine.docx",
+        "sha256": "e4cb59dfd6ea420063894eac44a705517be349af357869f979b06756716aee2f",
+        "bytes": 24497
+      },
+      "classification": "INTERNAL — LT DISTRIBUTION ONLY",
+      "derives_from": ["CSS-OPS-DOC-003", "CSS-STRAT-DOC-001"],
+      "constitutional_weight": "BINDING — Post LT Buy-Off",
+      "lt_vote": { "andy": "PENDING", "steven": "PENDING", "chris": "PENDING" }
+    },
+    {
+      "ref": "CSS-OPS-DOC-005",
+      "title": "PIOPL Enterprise Operating Plan",
+      "version": "1.0",
+      "status": "DRAFT — FOR LT REVIEW",
+      "date": "2026-02-17",
+      "canonical": {
+        "path": "operations/css-ops/CSS-OPS-DOC-005-PIOPL-Enterprise-Operating-Plan.md",
+        "sha256": "074d5f5b920eb2af7e2c5f89ee122bf2b8160fbdaf6aec0ffed2e06625feb602",
+        "bytes": 11297
+      },
+      "distribution": {
+        "path": "operations/css-ops/CSS-OPS-DOC-005-PIOPL-Enterprise-Operating-Plan.docx",
+        "sha256": "3b96cbba8394bf3a359daa42435c9a23d69145ff4e15b7bfd2ddd0f5d80a152f",
+        "bytes": 23679
+      },
+      "classification": "INTERNAL — LT DISTRIBUTION ONLY",
+      "derives_from": ["CSS-OPS-DOC-003", "CSS-OPS-DOC-004", "CSS-STRAT-DOC-001"],
+      "constitutional_weight": "BINDING — Post LT Buy-Off",
+      "lt_vote": { "andy": "PENDING", "steven": "PENDING", "chris": "PENDING" }
+    },
+    {
+      "ref": "CSS-OPS-DOC-006",
+      "title": "Meeting Structures, Escalation Paths & Andon System",
+      "version": "1.0",
+      "status": "DRAFT — FOR LT REVIEW",
+      "date": "2026-02-17",
+      "canonical": {
+        "path": "operations/css-ops/CSS-OPS-DOC-006-Meeting-Escalation-Andon.md",
+        "sha256": "3fbbb86e13497c068d13a158b7b1f6c04832c2384a66c275377d256e80bec4e7",
+        "bytes": 11823
+      },
+      "distribution": {
+        "path": "operations/css-ops/CSS-OPS-DOC-006-Meeting-Escalation-Andon.docx",
+        "sha256": "33bec2c3e2f54d120c557e0ef738858992d38ff607fcbb3e6a10fc1d8a103da5",
+        "bytes": 24316
+      },
+      "classification": "INTERNAL — ALL TEAM",
+      "derives_from": ["CSS-OPS-DOC-003", "CSS-OPS-DOC-005"],
+      "constitutional_weight": "BINDING — Post LT Buy-Off",
+      "lt_vote": { "andy": "PENDING", "steven": "PENDING", "chris": "PENDING" }
+    }
+  ],
+  "supporting": [
+    {
+      "ref": "CSS-DOC-REGISTER-001",
+      "path": "governance/CSS-DOC-REGISTER-001.md",
+      "sha256": "f0e081bc676f5b30bf2570472ff70fb2beda3df0779813fcf7038b5b2b9e9163",
+      "bytes": 2596,
+      "purpose": "Master document register with dependency chain and distribution matrix"
+    },
+    {
+      "ref": "CSS-OPS-SITREP-20260217",
+      "path": "reports/CSS-OPS-SITREP-20260217.md",
+      "sha256": "12a3e7d12523b1b310c1ea254361ae06ed6be26effdb5e72fb71584d8b085db7",
+      "bytes": 4804,
+      "purpose": "Session SITREP — build evidence and critical path assessment"
+    }
+  ],
+  "verification": {
+    "instructions": "Run: sha256sum <file_path> and compare against sha256 field.",
+    "all_hashes_generated": "2026-02-17T00:50:00Z"
+  }
+}

@@ -69,6 +69,18 @@ Season boundaries are defined in `SEASONS.md`. Season 2 = this kernel. Season 3 
 
 Format: `CSS-[DOMAIN]-[TYPE]-[SEQ]`
 
+### Operational Documents (operations/css-ops/)
+
+| Ref | Title | Status |
+|-----|-------|--------|
+| CSS-OPS-DOC-003 | Post-SIP Autonomous Execution Engine | v1.0 DRAFT — FOR LT REVIEW |
+| CSS-OPS-DOC-004 | PIOPL Agent Deployment Engine | v1.0 DRAFT — FOR LT REVIEW |
+| CSS-OPS-DOC-005 | PIOPL Enterprise Operating Plan | v1.0 DRAFT — FOR LT REVIEW |
+| CSS-OPS-DOC-006 | Meeting Structures, Escalation Paths & Andon | v1.0 DRAFT — FOR LT REVIEW |
+
+Canonical format: `.md` (version-controlled). Distribution: `.docx` (LT sign-off).
+See `governance/CSS-DOC-REGISTER-001.md` for full register and `ARTIFACT_REGISTER.json` for SHA-256 integrity verification.
+
 ## Owner
 
 Andy Jones — Codex Sovereign Systems

@@ -27,3 +27,10 @@
 # Extensions (Season 3 intake)
 /extensions/ @Andy160675
 
+# Operational Documents (CSS-OPS-DOC series) - STEWARD ONLY
+/operations/ @Andy160675
+/governance/ @Andy160675
+/reports/ @Andy160675
+/ARTIFACT_REGISTER.json @Andy160675
+/CHANGELOG_OPS.md @Andy160675
+
